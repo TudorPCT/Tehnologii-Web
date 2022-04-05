@@ -5,6 +5,8 @@ body{
     background-color:#232946;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header{
@@ -14,6 +16,7 @@ header{
     min-height:70px;
     border-bottom:#eebbc3 3px solid;
     width:100%;
+    border-radius: 25px;
 }
 
 .topBar{
@@ -70,14 +73,55 @@ header .current a{
 }
 
 footer{
-    padding:20px;
     margin-top:20px;
     margin-bottom: 0;
     color:#232946;
     background-color:#fffffe;
     text-align: center;
+    width: 100%;
+    overflow: hidden;
 }
 
+
+
+
+#signin{
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    background: #fffffe;
+    color: #232946;
+    border-radius: 25px;
+}
+
+#signin label{
+    display: block;
+    font-size: 20px;
+}
+
+#signin input[type="text"], #signin input[type="password"]{
+    padding: 8px;
+    width: 100%;
+    font-size: 15px;
+}
+
+#signin h1{
+    font-size: 30px;
+}
+
+.btn{
+    font-size: 25px;
+    background-color: #eebbc3;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 25px
+}
+
+#signin #createacc{
+    font-size: 15px;
+    padding: 3%;
+}
 
 
 
