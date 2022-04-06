@@ -87,16 +87,25 @@ footer{
 }
 
 
-
-
 #signin{
     padding: 5%;
+}
+
+#register{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 0.5%;
+}
+
+
+#signin, #register{
     display: flex;
     align-items: center;
     flex-flow: column;
     background: #fffffe;
     color: #232946;
     border-radius: 25px;
+    justify-content: space-evenly;
 }
 
 #signin label{
@@ -104,7 +113,7 @@ footer{
     font-size: 20px;
 }
 
-#signin input[type="text"], #signin input[type="password"]{
+input[type="text"],  input[type="password"]{
     padding: 8px;
     width: 100%;
     font-size: 15px;
@@ -122,9 +131,15 @@ footer{
     border-radius: 25px
 }
 
-#signin #createacc{
-    font-size: 15px;
-    padding: 3%;
+#signin #createacc a:visited, #signin #createacc a:link{
+    text-decoration: none;
+    color: #232946;
+    font-size: 13px;
+}
+
+#signin #createacc a:hover{
+    text-decoration: underline;
+    font-size: 13px;
 }
 
 .row {
@@ -165,6 +180,10 @@ footer{
         flex: 100%;
         max-width: 100%;
     }
+}
+
+#register label{
+    display: block;
 }
 
 
