@@ -186,5 +186,15 @@ input[type="text"],  input[type="password"]{
     display: block;
 }
 
+.wallcolumn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-
+.wallcolumn img{
+    margin: 10px;
+width:  400px;
+height: auto;
+}
