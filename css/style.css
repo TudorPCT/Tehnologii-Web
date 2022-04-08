@@ -1,11 +1,14 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 body{
     font: 15px/1.5 Arial, Helvetica,sans-serif;
     padding:0;
     margin:0;
+    min-height: 100vh;
     background-color:#232946;
     display: flex;
     flex-direction: column;
@@ -16,11 +19,11 @@ body{
 header{
     background:#fffffe;
     color:#232946;
-
     min-height:70px;
     border-bottom:#eebbc3 3px solid;
     width:100%;
     border-radius: 25px;
+    position: sticky;
 }
 
 .topBar{
@@ -205,7 +208,6 @@ height: auto;
     width:80%;
     margin-top: 8px;
     margin-bottom: 8px;
-    max-width: auto;
     overflow:hidden;
 }
 div.toolsBar li{
