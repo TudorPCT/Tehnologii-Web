@@ -54,7 +54,7 @@ header li{
 
 header nav{
     float:right;
-    margin-top:10px;
+    margin-top: 2%;
 }
 
 header .current a{
@@ -92,13 +92,17 @@ footer{
 
 
 #signin{
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 50vh;
 }
 
 #register{
     padding-left: 5%;
     padding-right: 5%;
-    padding-bottom: 0.5%;
+    min-height: 70vh;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 
@@ -176,6 +180,12 @@ input[type="text"],  input[type="password"]{
         flex: 50%;
         max-width: 50%;
     }
+
+    .topBar nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
