@@ -17,8 +17,6 @@
         <nav>
             <ul>
                 <li> <a href="index.html">Home</a></li>
-                <li><a href="photos.html">Photos</a></li>
-                <li><a href="wall.html">My Wall</a></li>
                 <li class="current"><a href="signin.html">Sign In / Register</a></li>
             </ul>
         </nav>
@@ -52,8 +50,13 @@
         <input type="password" name="password">
     </form>
 
-    <input class="btn" type="submit" value="Register">
+    <input class="btn" type="submit" value="Register" onclick="navigate()">
 
+    <script>
+        function navigate(){
+            window.open("wall.html",'_self');
+        }
+    </script>
 
 </section>
 <footer>
