@@ -14,6 +14,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin-top: 1%;
 }
 
 header{
@@ -21,10 +22,11 @@ header{
     color:#232946;
     min-height:70px;
     border-bottom:#eebbc3 3px solid;
-    width:100%;
+    width:97%;
     border-radius: 25px;
     position: sticky;
     top: 0;
+    padding-top: 1%;
 }
 
 .topBar{
