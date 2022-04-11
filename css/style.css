@@ -161,7 +161,10 @@ input[type="text"],  input[type="password"]{
     -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
     padding: 0 4px;
-    margin: 10%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 10%;
+    margin-bottom: 5%;
 }
 
 /* Create four equal columns that sits next to each other */
@@ -219,16 +222,7 @@ input[type="text"],  input[type="password"]{
 width:  400px;
 height: auto;
 }
-.toolsBar{
-
-    background:#fffffe;
-    color:#232946;
-    width:80%;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    overflow:hidden;
-}
-div.toolsBar li{
+div.sidenav li{
     float:left;
     display:inline;
     padding: 0 20px 0 20px;
@@ -239,16 +233,17 @@ div.toolsBar li{
 /* Dropdown Button */
 .dropbtn {
     background-color: #eebbc3;
-    color: white;
+    color: #fffffe;
     padding: 16px;
     font-size: 16px;
+    margin: 1%;
     border: none;
   }
   
   /* The container <div> - needed to position the dropdown content */
-  div.toolsBar li.dropdown {
+  div.sidenav li.dropdown {
     position: relative;
-    display: inline-block;
+    display:block
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -281,14 +276,14 @@ div.toolsBar li{
 
   /* The sidebar menu */
 .sidenav {
-    height: auto; /* Full-height: remove this if you want "auto" height */
-    width: 150px; /* Set the width of the sidebar */
+    height: 70%; /* Full-height: remove this if you want "auto" height */
+    width: 15%; /* Set the width of the sidebar */
     position:fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /*Stay at the top*/
     left: 0; 
-    margin-top: 10%;
-    background-color: rgb(244, 237, 237); /* Black */
+    margin-top: 13%;
+    background-color: #fffffe; 
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
   }
