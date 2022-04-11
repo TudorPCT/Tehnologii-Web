@@ -219,15 +219,15 @@ input[type="text"],  input[type="password"]{
 
 .wallcolumn img{
     margin: 10px;
-width:  400px;
-height: auto;
+    width:  400px;
+    height: auto;
 }
 div.sidenav li{
     float:left;
     display:inline;
     padding: 0 20px 0 20px;
     color:#546ce2;
-    font-weight:bold;
+    /*font-weight:bold;*/
 }
 
 /* Dropdown Button */
@@ -276,11 +276,11 @@ div.sidenav li{
 
   /* The sidebar menu */
 .sidenav {
-    height: 70%; /* Full-height: remove this if you want "auto" height */
-    width: 15%; /* Set the width of the sidebar */
+    height: auto; /* Full-height: remove this if you want "auto" height */
+    width: 10%; /* Set the width of the sidebar */
     position:fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
-    top: 0; /*Stay at the top*/
+    top: 50px; /*Stay at the top*/
     left: 0; 
     margin-top: 13%;
     background-color: #fffffe; 
@@ -302,6 +302,29 @@ div.sidenav li{
     color: #f1f1f1;
   }
 
+  .addphoto {
+    position:fixed;
+    z-index: 2;
+    left: 0;
+    top: 22%;
+    height: auto;
+    width: 112px;
+    color: white;
+    font-size: 8px;
+    font-family: Helvetica;
+    text-align: center;
+    line-height: 40px;
+    list-style:none;
+  }
+
+.addphoto a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
   
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
@@ -318,6 +341,7 @@ div.sidenav li{
     min-width: 90vh;
     background-color: white;
     border: #232946 10px solid;
+    border-radius: 25px;
 }
 
 .wallcolumn .post ul{
