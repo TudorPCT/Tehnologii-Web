@@ -219,8 +219,8 @@ input[type="text"],  input[type="password"]{
 
 .wallcolumn img{
     margin: 10px;
-width:  400px;
-height: auto;
+    width:  400px;
+    height: auto;
 }
 div.sidenav li{
     float:left;
@@ -318,6 +318,7 @@ div.sidenav li{
     min-width: 90vh;
     background-color: white;
     border: #232946 10px solid;
+    border-radius: 25px;
 }
 
 .wallcolumn .post ul{
