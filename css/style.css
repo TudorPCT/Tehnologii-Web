@@ -63,6 +63,8 @@ header nav{
 header .current a{
     color:#eebbc3;
     font-weight:bold;
+    border-bottom: #eebbc3 2px solid;
+    border-radius: 5px;
 }
 
 
