@@ -67,8 +67,6 @@ header .current a{
     border-radius: 5px;
 }
 
-
-
 #showcase{
     min-height:400px;
     text-align: center;
@@ -182,6 +180,11 @@ input[type="text"],  input[type="password"]{
     vertical-align: middle;
     width: 100%;
 }
+
+.column img:hover{
+    transform: scale(1.2);
+}
+
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
@@ -336,7 +339,8 @@ div.sidenav li{
   }
 
 
-.wallcolumn .post{
+
+.wallcolumn .post, .wallcolumn #profile{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -351,6 +355,26 @@ div.sidenav li{
     font-size: 17px;
     color: #eebbc3;
 }
+
+.wallcolumn #profile{
+    display: flex;
+    flex-direction: row;
+    height: 6%;
+    background-color: transparent;
+}
+
+.wallcolumn #profile #profilePicture{
+    border-radius: 50%;
+    height: 100%;
+    width: auto;
+}
+
+.wallcolumn #profile #name{
+    color: #eebbc3;
+    font-size: 40px;
+}
+
+
 
 @media screen and (max-width: 600px){
     .wallcolumn .post{

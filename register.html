@@ -1,67 +1,67 @@
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Social Media Aggregator">
-    <meta name="author" content="Team">
-    <title> M-Pic | Welcome</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Social Media Aggregator">
+        <meta name="author" content="Team">
+        <title> M-Pic | Welcome</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
 
-<body>
-<header>
-    <div class="topBar">
-        <div id="branding">
-            <img src="./img/logo.jpeg">
-        </div>
-        <nav>
-            <ul>
-                <li> <a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li class="current"><a href="signin.html">Sign In / Register</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    <body>
+        <header>
+            <div class="topBar">
+                <div id="branding">
+                    <img src="./img/logo.jpeg">
+                </div>
+                <nav>
+                    <ul>
+                        <li> <a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="current"><a href="signin.html">Sign In / Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-<section id="register">
-    <h1> Register </h1>
+        <section id="register">
+            <h1> Register </h1>
 
-    <form action="process.php" method="POST">
-        <label>First Name</label>
-        <input type="text" name="email">
-    </form>
-    <form action="process.php" method="POST">
-        <label>Last name</label>
-        <input type="text" name="email">
-    </form>
+            <form action="process.php" method="POST">
+                <label>First Name</label>
+                <input type="text" name="email">
+            </form>
 
-    <form action="process.php" method="POST">
-        <label>Email</label>
-        <input type="text" name="email">
-    </form>
+            <form action="process.php" method="POST">
+                <label>Last name</label>
+                <input type="text" name="email">
+            </form>
 
-    <form action="process.php" method="POST">
-        <label>Password</label>
-        <input type="password" name="password">
-    </form>
+            <form action="process.php" method="POST">
+                <label>Email</label>
+                <input type="text" name="email">
+            </form>
 
-    <form action="process.php" method="POST">
-        <label>Repeat Password</label>
-        <input type="password" name="password">
-    </form>
+            <form action="process.php" method="POST">
+                <label>Password</label>
+                <input type="password" name="password">
+            </form>
 
-    <input class="btn" type="submit" value="Register" onclick="navigate()">
+            <form action="process.php" method="POST">
+                <label>Repeat Password</label>
+                <input type="password" name="password">
+            </form>
 
-    <script>
-        function navigate(){
-            window.open("wall.html",'_self');
-        }
-    </script>
+            <input class="btn" type="submit" value="Register" onclick="navigate()">
 
-</section>
-<footer>
-    <p>M-Pic, Copyright &copy; 2022</p>
-</footer>
-</body>
+                <script>
+                    function navigate(){
+                    window.open("wall.html",'_self');
+                    }
+                </script>
+        </section>
+        <footer>
+            <p>M-Pic, Copyright &copy; 2022</p>
+        </footer>
+    </body>
 </html>
