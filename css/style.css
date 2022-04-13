@@ -63,9 +63,9 @@ header nav{
 header .current a{
     color:#eebbc3;
     font-weight:bold;
-    border-bottom: #eebbc3 2px solid;
-    border-radius: 5px;
 }
+
+
 
 #showcase{
     min-height:400px;
@@ -181,11 +181,6 @@ input[type="text"],  input[type="password"]{
     width: 100%;
 }
 
-.column img:hover{
-    transform: scale(1.2);
-}
-
-
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
     .column {
@@ -288,7 +283,7 @@ div.sidenav li{
     z-index: 1; /* Stay on top */
     top: 50px; /*Stay at the top*/
     left: 0; 
-    margin-top: 13%;
+    margin-top: 15%;
     background-color: #fffffe; 
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
@@ -312,7 +307,21 @@ div.sidenav li{
     position:fixed;
     z-index: 2;
     left: 0;
-    top: 22%;
+    top: 19%;
+    height: auto;
+    width: 112px;
+    color: white;
+    font-size: 8px;
+    font-family: Helvetica;
+    text-align: center;
+    line-height: 40px;
+    list-style:none;
+  }
+  .createcollage {
+    position:fixed;
+    z-index: 2;
+    left: 0;
+    top: 27%;
     height: auto;
     width: 112px;
     color: white;
@@ -339,8 +348,7 @@ div.sidenav li{
   }
 
 
-
-.wallcolumn .post, .wallcolumn #profile{
+.wallcolumn .post{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -355,26 +363,6 @@ div.sidenav li{
     font-size: 17px;
     color: #eebbc3;
 }
-
-.wallcolumn #profile{
-    display: flex;
-    flex-direction: row;
-    height: 6%;
-    background-color: transparent;
-}
-
-.wallcolumn #profile #profilePicture{
-    border-radius: 50%;
-    height: 100%;
-    width: auto;
-}
-
-.wallcolumn #profile #name{
-    color: #eebbc3;
-    font-size: 40px;
-}
-
-
 
 @media screen and (max-width: 600px){
     .wallcolumn .post{
