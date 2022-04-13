@@ -63,6 +63,7 @@ header nav{
 header .current a{
     color:#eebbc3;
     font-weight:bold;
+    border-bottom: #eebbc3 2px solid;
 }
 
 
@@ -179,6 +180,9 @@ input[type="text"],  input[type="password"]{
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
+}
+.column img:hover{
+    transform: scale(1.2);
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -357,8 +361,7 @@ div.sidenav li{
     .sidenav a {font-size: 18px;}
   }
 
-
-.wallcolumn .post{
+.wallcolumn .post, .wallcolumn #profile{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -369,11 +372,29 @@ div.sidenav li{
     border-radius: 25px;
 }
 
+
 .wallcolumn .post ul{
     font-size: 17px;
     color: #eebbc3;
 }
 
+.wallcolumn #profile{
+    display: flex;
+    flex-direction: row;
+    height: 6%;
+    background-color: transparent;
+}
+
+.wallcolumn #profile #profilePicture{
+    border-radius: 50%;
+    height: 100%;
+    width: auto;
+}
+
+.wallcolumn #profile #name{
+    color: #eebbc3;
+    font-size: 40px;
+}
 @media screen and (max-width: 600px){
     .wallcolumn .post{
         display: flex;
