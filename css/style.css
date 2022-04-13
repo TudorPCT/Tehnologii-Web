@@ -370,3 +370,36 @@ div.sidenav li{
         flex-direction: column;
     }
 }
+
+.onephoto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 90vh;
+    background-color: white;
+    border: #232946 10px solid;
+    border-radius: 25px;
+}
+.onephoto img{
+        margin: 10px;
+        width:  400px;
+        height: auto;
+    }
+.onephoto .photobutton{
+    border:none;
+    color:#232946;
+    background-color: #d08691;
+    padding: 20px 50px;
+    text-align: center;
+    text-decoration: none;
+    display:flow-root;
+    font-size: 20px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.photobutton:hover {
+    background-color:#818181;
+    color: white;
+  }
