@@ -23,7 +23,7 @@
                             <span property="schema:name">Pasat Tudor Cosmin</span>
                         </span>
                         <a href="#sa" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">FII</a>,
-                        <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a>
+                        B3
                         <ul>
                             <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
                               <a href="mailto:cosmin.pasat@info.uaic.ro"
@@ -39,7 +39,7 @@
                             <span property="schema:name">Romașcu Raluca Loredana</span>
                         </span>
                         <a href="#sa" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">FII</a>,
-                        <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a>
+                        B3
                         <ul>
                             <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
                               <a href="mailto:raluca.romascu@info.uaic.ro"
@@ -55,7 +55,7 @@
                             <span property="schema:name">Huțuțuc Felix Petru</span>
                         </span>
                         <a href="#sa" property="sa:roleAffiliation" resource="https://www.info.uaic.ro/">FII</a>,
-                        <a href="#note1" property="sa:roleAction" resource="#note1" rel="footnote">1</a>
+                        B2
                         <ul>
                             <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
                               <a href="mailto:felix.hututuc@info.uaic.ro"
@@ -141,6 +141,237 @@
                         </cite>
                     </li>
                 </ol>
+            </section>
+        </div>
+
+        <div>
+            <h2>2 Overall Description</h2>
+            
+            <section typeof="sa:ProductPerspective">
+                <h3>2.1 Product Description</h3>
+                <p>
+                    The NUME_SITE web application, based on the project M-PIC, has been developed for those that wish to view and manage photos 
+                    from all their different social media platforms, while also being able to add more photos to those platforms.
+                </p>
+            </section>
+
+            <section typeof="sa:ProductFunctions">
+                <h3>2.2 Product Functions</h3>
+                <p>
+                    The web application manages photos imported from different social media platforms or from the user's personal device. These games have associated data
+                    such as number of likes, comments or shares. The system offers support for editing these photos, using them in collages or for uploading photos from one 
+                    platform to another. The application offers the user the option of publishing their own "Wall" page which contains selected edited photos or collages.
+                </p>
+
+                <section typeof="sa:home">
+                    <h4>2.2.1 Home Page</h4> 
+                    <p>Central point of navigation to the rest of the pages within the website</p>
+                    <ul>
+                        <li>
+                            Home : redirects back to the home page;
+                        </li>
+                        <li>
+                            About : redirects to the About section which contains the technical report;
+                        </li>
+                        <li>
+                            Sign In / Register : Redirects to a sign in page.
+                        </li>
+                    </ul>
+                </section>
+
+                <section typeof="sa:signin">
+                    <h4>2.2.2 Sign In Page</h4>
+                    <ul>
+                        <li>
+                            Home : redirects back to the home page;
+                        </li>
+                        <li>
+                            About : redirects to the About section which contains the technical report;
+                        </li>
+                        <li>
+                            Remember me : stores the credentials so that the user won't have to re-enter them the next time they visit;
+                        </li>
+                        <li>
+                            Connect : finalizes the login action, logging the user in if the credentials are correct and then redirects the user to their own Wall page;
+                        </li>
+                        <li>
+                            Create new account : redirects to a register page.
+                        </li>
+                    </ul>
+                </section>
+
+                <section typeof="sa:register">
+                    <h4>2.2.3 Register Page</h4>
+                    <ul>
+                        <li>
+                            Home : redirects back to the home page;
+                        </li>
+                        <li>
+                            About : redirects to the About section which contains the technical report;
+                        </li>
+                        <li>
+                            Create account : creates the user account if the information entered is valid and then redirects the user to their own Wall page.
+                        </li>
+                    </ul>
+                </section>
+
+                <section typeof="sa:wall">
+                    <h4>2.2.4 My Wall Page</h4>
+                    <p>
+                        The main page of an user's profile. Here, the users can see the photos they have published, as well as information
+                        about the photos, like number of likes and comments or wether the photo is visible to anyone who acceses the link or only to the user
+                        (public or private).
+                    </p>
+                    <ul>
+                        <li>
+                            Accounts : redirects to the connected accounts managing page;
+                        </li>
+                        <li>
+                            Photos : redirects to the user's photo collection;
+                        </li>
+                        <li>
+                            Logout : logs out the user and redirects to the Home page.
+                        </li>
+                    </ul>
+                </section>
+
+                <section typeof="sa:photos">
+                    <h4>2.2.5 Photos Page</h4>
+                    <p>
+                        The page where the user can see all the photos they uploaded either from social media or their personal device. 
+                        The user can select one photo to edit or multiple photos to create a collage.
+                    </p>
+                    <ul>
+                        <li>
+                            Accounts : redirects to the connected accounts managing page;
+                        </li>
+                        <li>
+                            My wall : redirects to the user's wall page;
+                        </li>
+                        <li>
+                            Logout : logs out the user and redirects to the Home page;
+                        </li>
+                        <li>
+                            Add photo : Lets the user choose where to upload a photo from;
+                        </li>
+                        <li>
+                            Add photo -> From device : Lets the user upload a photo from the current device;
+                        </li>
+                        <li>
+                            Add photo -> From Instagram : Lets the user upload a photo from their Instagram account;
+                        </li>
+                        <li>
+                            Add photo -> From Twitter : Lets the user upload a photo from their Twitter account;
+                        </li>
+                        <li>
+                            About : redirects to the About section which contains the technical report;
+                        </li>
+                        <li>
+                            Services : 
+                        </li>
+                        <li>
+                            Clients : 
+                        </li>
+                    </ul>
+                </section>
+
+                <section typeof="sa:accounts">
+                    <h4>2.2.6 Accounts Page</h4>
+                    <p>Here the user can manage their connected social media accounts or connect to other accounts.</p>
+                    <ul>
+                        <li>
+                            Connect : Lets the user choose between a list of social media platforms to connect with;
+                        </li>
+                        <li>
+                            Connect -> Instagram : Lets the user connect to their Instagram account.
+                        </li>
+                        <li>
+                            Connect -> Twitter : Lets the user connect to their Instagram account.
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <section typeof="sa:userclasses">
+                <h3>2.3 User Classes and Characteristics</h3>
+                <ul>
+                    <li>
+                        Guest : simple viewer of the website; can only acces the Home, About, Sign in and Register pages;
+                    </li>
+                    <li>
+                        User : user with an associated account that acces the rest of the application.
+                    </li>
+                </ul>
+            </section>
+
+            <section typeof="sa:environment">
+                <h3>2.4 Operating Environment</h3>
+                <p>
+                    The developed product can be used on any device with a connection to the Internet and a browser installed.
+                </p>
+            </section>
+
+            <section typeof="sa:implementation">
+                <h3>2.5 Design and Implementation Constraints</h4>
+                <p>
+                    NUME_SITE will be developed in PHP and uses HTML and CSS for its front-end. It will also use an Oracle database.
+                </p>
+            </section>
+        </div>
+
+        <div>
+            <h2>3 External Interface Requirements</h2>
+
+            <section typeof="sa:userinterfaces">
+                <h3>3.1 User Interfaces</h3>
+
+                <section>
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Home page</figcaption>
+                        <img src="./raport_img/home.png" alt="home page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Login page</figcaption>
+                        <img src="./raport_img/signin.png" alt="login page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Register page</figcaption>
+                        <img src="./raport_img/register.png" alt="register page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's About page</figcaption>
+                        <img src="./raport_img/about.png" alt="about page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's My Wall page</figcaption>
+                        <img src="./raport_img/mywall.png" alt="my wall page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Photos page</figcaption>
+                        <img src="./raport_img/photos.png" alt="photos page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Accounts page</figcaption>
+                        <img src="#" alt="accounts page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Services page</figcaption>
+                        <img src="#" alt="Services page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>NUME_SITE's Clients page</figcaption>
+                        <img src="#" alt="Clients page screenshot" width="70%">
+                    </figure>
+                </section>
+            </section>
             </section>
         </div>
     </article>
