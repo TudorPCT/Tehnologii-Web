@@ -203,6 +203,16 @@ input[type="text"],  input[type="password"]{
         flex: 100%;
         max-width: 100%;
     }
+    /* .wallcolumn{
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+    .onephoto{
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;   
+    } */
 }
 
 #register label{
@@ -386,20 +396,20 @@ div.sidenav li{
         width:  400px;
         height: auto;
     }
-.onephoto .photobutton{
+.onephoto .photobutton button{
     border:none;
     color:#232946;
     background-color: #d08691;
     padding: 20px 50px;
     text-align: center;
     text-decoration: none;
-    display:flow-root;
+    display:inline-flex;
     font-size: 20px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
-.photobutton:hover {
+.photobutton button:hover {
     background-color:#818181;
     color: white;
   }
