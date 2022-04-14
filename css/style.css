@@ -412,6 +412,10 @@ div.sidenav li{
     border: #232946 10px solid;
     border-radius: 25px;
 }
+.onephoto .photobuttons{
+    display: flex;
+    flex-direction:row;
+}
 .onephoto img{
         margin: 10px;
         width:  400px;
@@ -431,6 +435,30 @@ div.sidenav li{
     cursor: pointer;
 }
 .photobutton button:hover {
-    background-color:#818181;
+    background-color:#eebbc3;
     color: white;
   }
+  .photobutton{
+      position: relative;
+      display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+.onephoto .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+ .onephoto .dropdown-content a {
+    color: #121629;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .photobutton:hover .dropdown-content {display: block;}
+  .dropdown:hover .photobtn {background-color: #b8c1ec;}
