@@ -461,3 +461,21 @@ div.sidenav li{
   }
   .photobutton:hover .dropdown-content {display: block;}
   .dropdown:hover .photobtn {background-color: #b8c1ec;}
+  
+ .back_button button{
+    display: flex;
+    position:fixed;
+    left: 3%;
+    top: 21%;
+    height: auto;
+    width: auto;
+    color: #fffffe;
+    font-size: 20px;
+    background-color:#eebbc3;
+    font-family: Helvetica;
+    text-align: center;
+    line-height: 40px;
+    list-style:none;
+    font-weight:bold;
+    border-bottom: #eebbc3 2px solid;
+  }
