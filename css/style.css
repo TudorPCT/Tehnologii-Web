@@ -8,7 +8,7 @@ body{
     font: 15px/1.5 Arial, Helvetica,sans-serif;
     padding:0;
     margin:0;
-    min-height: 100vh;
+    min-height: 98vh;
     background-color:#232946;
     display: flex;
     flex-direction: column;
@@ -87,18 +87,17 @@ header .current a{
 footer{
     margin-top:20px;
     margin-bottom: 0;
-    color:#232946;
-    background-color:#fffffe;
+    background-color:#14192f;
     text-align: center;
     width: 100%;
     overflow: hidden;
+    color: #eebbc3;
 }
 footer .footerzone{
     display:flex;
     flex-direction:row;
     -ms-flex-align: center;
     padding: 0 4px;
-background-color:#14192f;
 }
 .contact{
     margin-inline: 4%;
@@ -117,7 +116,6 @@ background-color:#14192f;
 .footerzone p{
     font-size:medium;
     font-weight: bold;
-    color:#eac1c7;
 }
 .footerzone li{
     color: white;
