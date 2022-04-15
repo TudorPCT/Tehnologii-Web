@@ -314,7 +314,24 @@ div.sidenav li{
     border: #232946 10px solid;
     border-radius: 25px;
 }
-
+.wallcolumn .wall_buttons{
+    display: inline;
+}
+.wallcolumn .wall_buttons button{
+    border:none;
+    color:#434b73;
+    background-color: #ecc0c7;
+    padding: 8px 15px;
+    text-align: center;
+    /* display:inline-flex; */
+    font-size: 12px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.wall_buttons button:hover {
+    background-color:#eba1ac;
+  }
 
 .wallcolumn .post ul{
     font-size: 17px;
