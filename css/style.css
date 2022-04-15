@@ -185,38 +185,6 @@ input[type="text"],  input[type="password"]{
     transform: scale(1.2);
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
-
-    .topBar nav ul{
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
-    /* .wallcolumn{
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
-    .onephoto{
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;   
-    } */
-}
 
 #register label{
     display: block;
@@ -247,8 +215,8 @@ div.sidenav li{
 .dropbtn {
     background-color: #eebbc3;
     color: #fffffe;
-    padding: 16px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 20px;
     margin: 1%;
     border: none;
   }
@@ -298,7 +266,6 @@ div.sidenav li{
     left: 10px;
     margin-top: 15%;
     background-color: transparent;
-    overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
     min-height: 40vh;
   }
@@ -317,43 +284,25 @@ div.sidenav li{
     color: #f1f1f1;
   }
 
-  .addbtn {
+  .sidebtn {
       z-index: 2;
-        top: 19%;
-        height: auto;
-        width: 112px;
-        color: white;
-        font-size: 8px;
-        font-family: Helvetica;
-        line-height: 40px;
-        list-style:none;
-        padding-bottom: 10px;
+      top: 19%;
+      height: auto;
+      width: 112px;
+      color: white;
+      font-size: 8px;
+      font-family: Helvetica;
+      line-height: 40px;
+      list-style:none;
+      padding-bottom: 10px;
   }
 
-  .createcollage {
-    top: 27%;
-    height: auto;
-    width: auto;
-    color: white;
-    font-size: 8px;
-    font-family: Helvetica;
-    text-align: center;
-    line-height: 40px;
-    list-style:none;
-  }
-
-.addbtn a {
+.sidebtn a {
     text-decoration: none;
     font-size: 10px;
     color: #818181;
 }
 
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
 
 .wallcolumn .post, .wallcolumn #profile{
     display: flex;
@@ -388,12 +337,6 @@ div.sidenav li{
 .wallcolumn #profile #name{
     color: #eebbc3;
     font-size: 40px;
-}
-@media screen and (max-width: 600px){
-    .wallcolumn .post{
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 .onephoto{
@@ -497,4 +440,77 @@ div.sidenav li{
     color:#232946;
     text-decoration:none;
     font-size:30px;
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    .topBar nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidenav .dropdown .dropbtn{
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .dropdown-content {
+        min-width: 80px;
+    }
+
+    .dropdown-content a{
+        font-size: 10px;
+    }
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .wallcolumn .post{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidenav .dropdown .dropbtn{
+        font-size: 7px;
+        padding: 5px;
+        overflow-wrap:
+    }
+
+    .dropdown-content {
+        min-width: 65px;
+    }
+
+    .dropdown-content a{
+        font-size: 7px;
+    }
+
+    /* .wallcolumn{
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+    .onephoto{
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    } */
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
