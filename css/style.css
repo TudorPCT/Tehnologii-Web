@@ -295,11 +295,12 @@ div.sidenav li{
     position:fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 50px; /*Stay at the top*/
-    left: 0; 
+    left: 10px;
     margin-top: 15%;
-    background-color: #fffffe; 
+    background-color: transparent;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
+    min-height: 40vh;
   }
   
   /* The navigation menu links */
@@ -316,27 +317,23 @@ div.sidenav li{
     color: #f1f1f1;
   }
 
-  .addphoto {
-    position:fixed;
-    z-index: 2;
-    left: 0;
-    top: 19%;
-    height: auto;
-    width: 112px;
-    color: white;
-    font-size: 8px;
-    font-family: Helvetica;
-    text-align: center;
-    line-height: 40px;
-    list-style:none;
+  .addbtn {
+      z-index: 2;
+        top: 19%;
+        height: auto;
+        width: 112px;
+        color: white;
+        font-size: 8px;
+        font-family: Helvetica;
+        line-height: 40px;
+        list-style:none;
+        padding-bottom: 10px;
   }
+
   .createcollage {
-    position:fixed;
-    z-index: 2;
-    left: 0;
     top: 27%;
     height: auto;
-    width: 112px;
+    width: auto;
     color: white;
     font-size: 8px;
     font-family: Helvetica;
@@ -345,12 +342,10 @@ div.sidenav li{
     list-style:none;
   }
 
-.addphoto a {
-    padding: 6px 8px 6px 16px;
+.addbtn a {
     text-decoration: none;
     font-size: 10px;
     color: #818181;
-    display: block;
 }
 
   
@@ -453,14 +448,17 @@ div.sidenav li{
   }
   
   /* Links inside the dropdown */
- .onephoto .dropdown-content a {
+ .onephoto .dropdown-content a{
     color: #121629;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
-  .photobutton:hover .dropdown-content {display: block;}
-  .dropdown:hover .photobtn {background-color: #b8c1ec;}
+.photobutton:hover .dropdown-content {display: block;}
+
+.photobutton:hover .dropdown-content ul li{list-style-type: none;}
+
+.dropdown:hover .photobtn {background-color: #b8c1ec;}
   
  .back_button button{
     display: flex;
@@ -479,3 +477,24 @@ div.sidenav li{
     font-weight:bold;
     border-bottom: #eebbc3 2px solid;
   }
+
+ .accounts{
+     color: #eebbc3;
+     background-color: white;
+     display: flex;
+     justify-content: space-around;
+     flex-direction: column;
+     min-height: 50vh;
+     min-width: 50vh;
+     border-radius: 25px;
+     align-items: center;
+     font-size: 40px;
+     padding: 3%;
+ }
+
+
+.accounts .account .id a{
+    color:#232946;
+    text-decoration:none;
+    font-size:30px;
+}
