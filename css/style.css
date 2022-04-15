@@ -93,8 +93,35 @@ footer{
     width: 100%;
     overflow: hidden;
 }
+footer .footerzone{
+    display:flex;
+    flex-direction:row;
+    -ms-flex-align: center;
+    padding: 0 4px;
+background-color:#14192f;
+}
+.contact{
+    margin-inline: 4%;
+}
+.terms{
+    margin-inline: 4%;
+}
 
+.help{
+    margin-inline: 4%;
+}
 
+.questions{
+    margin-inline: 4%;
+}
+.footerzone p{
+    font-size:medium;
+    font-weight: bold;
+    color:#eac1c7;
+}
+.footerzone li{
+    color: white;
+}
 #signin{
     padding-left: 5%;
     padding-right: 5%;
