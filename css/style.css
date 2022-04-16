@@ -73,7 +73,7 @@ header .current a{
     text-align: center;
     margin-left: 10%;
     margin-right: 10%;
-    color:#ffffff;
+    color: #eebbc3;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -331,13 +331,20 @@ div.sidenav li{
     color: #818181;
 }
 
+.sidebtn .dropdown .dropdown-content p{
+    padding: auto;
+    text-align: center;
+    color: #eebbc3;
+    font-size: medium;
+}
+
 
 .wallcolumn .post, .wallcolumn #profile{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    min-width: 90vh;
+    min-width: 100vh;
     background-color: white;
     border: #232946 10px solid;
     border-radius: 25px;
@@ -447,24 +454,7 @@ div.sidenav li{
 .photobutton:hover .dropdown-content ul li{list-style-type: none;}
 
 .dropdown:hover .photobtn {background-color: #b8c1ec;}
-  
- .back_button button{
-    display: flex;
-    position:fixed;
-    left: 3%;
-    top: 21%;
-    height: auto;
-    width: auto;
-    color: #fffffe;
-    font-size: 20px;
-    background-color:#eebbc3;
-    font-family: Helvetica;
-    text-align: center;
-    line-height: 40px;
-    list-style:none;
-    font-weight:bold;
-    border-bottom: #eebbc3 2px solid;
-  }
+
 
  .accounts{
      color: #eebbc3;
@@ -513,6 +503,11 @@ div.sidenav li{
     .dropdown-content a{
         font-size: 10px;
     }
+
+    .wallcolumn #profile #profilePicture{
+        transform: scale(0.8);
+    }
+
 }
 
 
@@ -527,6 +522,7 @@ div.sidenav li{
     .wallcolumn .post{
         display: flex;
         flex-direction: column;
+        min-width: 70vh;
     }
 
     .sidenav .dropdown .dropbtn{
@@ -540,6 +536,10 @@ div.sidenav li{
 
     .dropdown-content a{
         font-size: 7px;
+    }
+
+    .wallcolumn #profile #profilePicture{
+        transform: scale(0.6);
     }
 
     /* .wallcolumn{
@@ -558,10 +558,4 @@ div.sidenav li{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
-  .sidebtn .dropdown .dropdown-content p{
-      padding: auto;
-      text-align: center;
-      color: #eebbc3;
-      font-size: medium;
-  }
 
