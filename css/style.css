@@ -244,7 +244,8 @@ div.sidenav li{
     padding: 10px;
     font-size: 20px;
     margin: 1%;
-    border: none;
+    border: #232946 2px solid;
+    border-radius: 10px;
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -396,10 +397,14 @@ div.sidenav li{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-width: 90vh;
+    min-height: 70vh;
+    max-width: 120vh;
+    max-height: 120vh;
+    min-width: 70vh;
     background-color: white;
     border: #232946 10px solid;
     border-radius: 25px;
+    padding: 3%;
 }
 .onephoto .photobuttons{
     display: flex;
@@ -407,25 +412,29 @@ div.sidenav li{
 }
 .onephoto img{
         margin: 10px;
-        width:  400px;
+        width: 50%;
         height: auto;
     }
 .onephoto .photobutton button{
     border:none;
-    color:#232946;
+    color:#fffffe;
     background-color: #d08691;
-    padding: 20px 50px;
+    height: auto;
+    width: auto;
+    padding: 3px 3px;
     text-align: center;
     text-decoration: none;
     display:inline-flex;
-    font-size: 15px;
+    font-size:medium;
     margin: 4px 2px;
+    border: #121629 2px solid;
+    border-radius: 10px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
 .photobutton button:hover {
     background-color:#eebbc3;
-    color: white;
+    color: #fffffe;
   }
   .photobutton{
       position: relative;
@@ -435,7 +444,7 @@ div.sidenav li{
   /* Dropdown Content (Hidden by Default) */
 .onephoto .dropdown-content {
     display: none;
-    position: absolute;
+    position: absolute;bo
     background-color: #f1f1f1;
     min-width: 160px;
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
@@ -458,7 +467,7 @@ div.sidenav li{
 
  .accounts{
      color: #eebbc3;
-     background-color: white;
+     background-color: #fffffe;
      display: flex;
      justify-content: space-around;
      flex-direction: column;
@@ -558,4 +567,8 @@ div.sidenav li{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+/* 
 
+
+
+*/
