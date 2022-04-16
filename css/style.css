@@ -217,11 +217,11 @@ input[type="text"],  input[type="password"]{
 }
 
 .wallcolumn{
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 1%;
+    width: 100%;
+    align-items: center;
 }
 
 .wallcolumn img{
@@ -345,17 +345,17 @@ div.sidenav li{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    min-width: 100vh;
     background-color: white;
     border: #232946 10px solid;
     border-radius: 25px;
+    padding: 0 1%;
 }
 .wallcolumn .wall_buttons{
     display: inline;
 }
 .wallcolumn .wall_buttons button{
     border:none;
-    color:#434b73;
+    color: #fffffe;
     background-color: #ecc0c7;
     padding: 8px 15px;
     text-align: center;
@@ -370,8 +370,9 @@ div.sidenav li{
   }
 
 .wallcolumn .post ul{
-    font-size: 17px;
+    font-size: 20px;
     color: #eebbc3;
+    margin-left: 17px;
 }
 
 .wallcolumn #profile{
@@ -390,6 +391,11 @@ div.sidenav li{
 .wallcolumn #profile #name{
     color: #eebbc3;
     font-size: 40px;
+}
+
+.wallcolumn .post .postText{
+    display: flex;
+    flex-direction: column;
 }
 
 .onephoto{
@@ -444,7 +450,7 @@ div.sidenav li{
   /* Dropdown Content (Hidden by Default) */
 .onephoto .dropdown-content {
     display: none;
-    position: absolute;bo
+    position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
@@ -501,7 +507,7 @@ div.sidenav li{
     }
 
     .sidenav .dropdown .dropbtn{
-        font-size: 10px;
+        font-size: 15px;
         padding: 5px;
     }
 
@@ -513,7 +519,20 @@ div.sidenav li{
         font-size: 10px;
     }
 
-    .wallcolumn #profile #profilePicture{
+    .wallcolumn #profile{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+
+    .wallcolumn .post{
+        display: flex;
+        flex-direction: column;
+        padding: auto;
+    }
+
+    .accounts{
         transform: scale(0.8);
     }
 
@@ -528,14 +547,8 @@ div.sidenav li{
         max-width: 100%;
     }
 
-    .wallcolumn .post{
-        display: flex;
-        flex-direction: column;
-        min-width: 70vh;
-    }
-
     .sidenav .dropdown .dropbtn{
-        font-size: 7px;
+        font-size: 10px;
         padding: 5px;
     }
 
@@ -545,10 +558,6 @@ div.sidenav li{
 
     .dropdown-content a{
         font-size: 7px;
-    }
-
-    .wallcolumn #profile #profilePicture{
-        transform: scale(0.6);
     }
 
     /* .wallcolumn{
