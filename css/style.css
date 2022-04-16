@@ -64,6 +64,7 @@ header .current a{
     color:#eebbc3;
     font-weight:bold;
     border-bottom: #eebbc3 2px solid;
+    border-radius: 5px;
 }
 
 
@@ -332,7 +333,6 @@ div.sidenav li{
 }
 
 .sidebtn .dropdown .dropdown-content p{
-    padding: auto;
     text-align: center;
     color: #eebbc3;
     font-size: medium;
