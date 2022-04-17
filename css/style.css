@@ -79,6 +79,9 @@ header .current a{
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
+    background-color: #fffffe;
+    padding: 1%;
+    border-radius: 25px;
 }
 
 #showcase.text{
