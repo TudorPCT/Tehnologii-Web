@@ -31,8 +31,14 @@
                         <p>FirstName LastName</p>
                     </div>
                     <div class="wall_buttons">
-                        <button >Get profile link</button>
+                        <button onclick="navigate()">Copy profile link</button>
+                        <script>
+                            function navigate(){
+                                window.open("publicwall.html",'_self');
+                            }
+                        </script>
                     </div>
+
                 </div>
             </div>
             <div class="post">
@@ -125,7 +131,7 @@
                     <ul>
                         <li>Likes: 245</li>
                         <li>Comments: 223</li>
-                        <li>Visibility: Public</li>
+                        <li>Visibility: Private</li>
                     </ul>
                     <div class="wall_buttons">
                         <button >Change visibility</button>
