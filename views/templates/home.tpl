@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="EN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
@@ -6,7 +7,7 @@
         <meta name="keywords" content="project, infoiasi, web">
         <meta name="author" content="Team">
         <title> SMB | Welcome</title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
 
     <body>
