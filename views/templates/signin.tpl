@@ -5,19 +5,19 @@
         <meta name="description" content="Social Media Aggregator">
         <meta name="author" content="Team">
         <title> SMB </title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
 
     <body>
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./img/logo.jpeg">
+                    <img src="./views/templates/img/logo.jpeg">
                 </div>
                 <nav>
                 <ul>
-                    <li> <a href="index.html">Home</a></li>
-                    <li class="current"><a href="signin.html">Sign In / Register</a></li>
+                    <li> <a href="/mpic/index.php?load=UnsignedUser/loadHomePage">Home</a></li>
+                    <li class="current"><a href="/mpic/index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
                 </ul>
                 </nav>
             </div>
