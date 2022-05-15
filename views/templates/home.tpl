@@ -7,19 +7,19 @@
         <meta name="keywords" content="project, infoiasi, web">
         <meta name="author" content="Team">
         <title> SMB | Welcome</title>
-        <link rel="stylesheet" href="./views/templates/css/style.css">
+        <link rel="stylesheet" href="/views/templates/css/style.css">
     </head>
 
     <body>
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./views/templates/img/logo.jpeg">
+                    <img src="/views/templates/img/logo.jpeg">
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"> <a href="/mpic/index.php?load=UnsignedUser/loadHomePage">Home</a></li>
-                        <li><a href="/mpic/index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
+                        <li class="current"> <a href="/index.php?load=UnsignedUser/loadHomePage">Home</a></li>
+                        <li><a href="/index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
                     </ul>
                 </nav>
             </div>
@@ -41,7 +41,7 @@
                 </p>
             </div>
             <div id="testphoto">
-                <img src="./views/templates/img/social-media-feed-aggregator.png">
+                <img src="/views/templates/img/social-media-feed-aggregator.png">
             </div>
         </section>
 

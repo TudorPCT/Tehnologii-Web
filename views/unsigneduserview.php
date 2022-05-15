@@ -7,7 +7,10 @@ class UnsignedUserView extends View
     }
 
     function show(){
-        return $this->output();
+        try {
+            return $this->output();
+        } catch (Exception $e) {
+        }
     }
 }
 ?>
