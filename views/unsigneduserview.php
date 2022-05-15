@@ -7,12 +7,14 @@ class UnsignedUserView extends View
     }
 
     function show(){
+        $this->template = "views/templates/home.tpl";
         try {
             return $this->output();
         } catch (Exception $e) {
         }
     }
     function showSignIn(){
+        $this->template = "views/templates/signin.tpl";
         try {
             return $this->output();
         } catch (Exception $e) {
