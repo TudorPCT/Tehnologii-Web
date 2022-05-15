@@ -21,7 +21,7 @@
                 } catch (PDOException $e) {
                     echo "Eroare: " . $e->getMessage(); // mesajul exceptiei survenite
                     exit(0);
-              };
+              }
             }
             return BD::$conn;
         }
