@@ -1,7 +1,7 @@
 <?php
     $host = '127.0.0.1';
-    $db   = 'tw';
-    $user = 'student';
-    $pass = 'student';
+    $db   = 'MPIC';
+    $user = 'admin';
+    $pass = 'admin';
     $charset = 'utf8';
 ?>

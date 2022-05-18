@@ -22,6 +22,8 @@ abstract class Controller
         };
         $this->view = new $viewName;
     }
+
+
 }
 
 ?>
