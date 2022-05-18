@@ -167,6 +167,8 @@ input[type="text"],  input[type="password"]{
     font-size: 15px;
 }
 
+
+
 #signin h1{
     font-size: 30px;
 }
@@ -416,7 +418,6 @@ div.sidenav li{
     max-width: 80vh;
     max-height: 100vh;
     background-color: white;
-    border: #232946 5% solid;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 3%;

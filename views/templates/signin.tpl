@@ -16,8 +16,8 @@
                 </div>
                 <nav>
                 <ul>
-                    <li> <a href="/mpic/index.php?load=UnsignedUser/loadHomePage">Home</a></li>
-                    <li class="current"><a href="/mpic/index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
+                    <li> <a href="./index.php?load=UnsignedUser/loadHomePage">Home</a></li>
+                    <li class="current"><a href="./index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
                 </ul>
                 </nav>
             </div>
@@ -37,7 +37,7 @@
 
             <label id="rememberme"><input name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
 
-            <label id="createacc"><a href="register.html">Create new account</a></label>
+            <label id="createacc"><a href="./index.php?load=Register">Create new account</a></label>
 
             <input class="btn" type="submit" value="Connect" onclick="navigate()">
 

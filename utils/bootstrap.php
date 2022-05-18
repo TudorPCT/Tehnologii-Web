@@ -1,8 +1,8 @@
 <?php
 
-    //http://localhost:8080/mpic/index.php?load=UnsignedUser/loadHomePage
+    //http://localhost:8080/Tehnologii-Web/index.php?load=UnsignedUser/index
     $controller = "UnsignedUser";
-    $action = "loadHomePage";
+    $action = "index";
 
     if (isset($_GET['load']))
     {
