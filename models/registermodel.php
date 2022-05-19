@@ -40,7 +40,7 @@ class RegisterModel extends Model
                 ];
 
                 $sth = $this->conn->prepare($this->querry);
-                
+
                 if ($sth->execute($insert_array)) {
                     http_response_code(201);
                     echo json_encode(array("message" => "Contact added."));
