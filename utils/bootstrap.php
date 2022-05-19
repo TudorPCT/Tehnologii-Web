@@ -1,7 +1,7 @@
 <?php
 
     //http://localhost:8080/Tehnologii-Web/index.php?load=UnsignedUser/index
-    $controller = "UnsignedUser";
+    $controller = "Home";
     $action = "index";
 
     if (isset($_GET['load']))
