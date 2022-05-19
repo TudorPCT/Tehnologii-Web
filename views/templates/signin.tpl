@@ -16,8 +16,8 @@
                 </div>
                 <nav>
                 <ul>
-                    <li> <a href="./index.php?load=UnsignedUser/loadHomePage">Home</a></li>
-                    <li class="current"><a href="./index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
+                    <li> <a href="./index.php?load=home">Home</a></li>
+                    <li class="current"><a href="./index.php?load=signin">Sign In / Register</a></li>
                 </ul>
                 </nav>
             </div>
@@ -26,26 +26,20 @@
         <section id="signin">
             <h1> Sign in</h1>
 
-            <form action="process.php" method="POST">
+            <form action="./index.php?load=Signin/signin" method="post">
                 <label>Email</label>
                 <input type="text" name="email">
-            </form>
-            <form action="process.php" method="POST">
+
                 <label>Password</label>
                 <input type="password" name="password">
+
+                <label id="rememberme"><input name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
+
+                <label id="createacc"><a href="./index.php?load=Register">Create new account</a></label>
+
+                <input class="btn" type="submit" value="Signin">
             </form>
 
-            <label id="rememberme"><input name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
-
-            <label id="createacc"><a href="./index.php?load=Register">Create new account</a></label>
-
-            <input class="btn" type="submit" value="Connect" onclick="navigate()">
-
-                <script>
-                    function navigate(){
-                       window.open("wall.html",'_self');
-                    }
-                </script>
 
         </section>
         <footer>

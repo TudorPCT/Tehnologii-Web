@@ -18,8 +18,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"> <a href="./index.php?load=UnsignedUser/loadHomePage">Home</a></li>
-                        <li><a href="./index.php?load=UnsignedUser/loadSignInPage">Sign In / Register</a></li>
+                        <li class="current"> <a href="./index.php?load=home/">Home</a></li>
+                        <li><a href="./index.php?load=signin">Sign In / Register</a></li>
                     </ul>
                 </nav>
             </div>
@@ -41,7 +41,7 @@
                 </p>
             </div>
             <div id="testphoto">
-                <img src="/views/templates/img/social-media-feed-aggregator.png">
+                <img src="./views/templates/img/social-media-feed-aggregator.png">
             </div>
         </section>
 

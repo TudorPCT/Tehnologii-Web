@@ -23,7 +23,10 @@ abstract class Controller
         $this->view = new $viewName;
     }
 
-
+    function index(){
+        $vizualizare = $this->view->show();
+        echo $vizualizare;
+    }
 }
 
 ?>

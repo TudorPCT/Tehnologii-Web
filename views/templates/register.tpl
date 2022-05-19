@@ -16,8 +16,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li> <a href="./index.php?load=UnsignedUser/loadHomePage">Home</a></li>
-                        <li class="current"><a href="./index.php?load=UnsignedUser/loadSigninPage">Sign In / Register</a></li>
+                        <li> <a href="./index.php?load=home">Home</a></li>
+                        <li class="current"><a href="./index.php?load=signin">Sign In / Register</a></li>
                     </ul>
                 </nav>
             </div>
