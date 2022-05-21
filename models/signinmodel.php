@@ -12,7 +12,8 @@ class SigninModel extends Model
         if($this->getRow($data) == null)
             return null;
         else if(password_verify($password,$this->getRow($data)["password"]))
-            return $this->getRow($data)["id"];
+            return ['id' => $this->getRow($data)["id"],
+                'email' => $email];
         else return null;
     }
 
@@ -21,10 +22,10 @@ class SigninModel extends Model
             !empty($data["email"]) &&
             !empty($data["password"])
         ){
-            $user_id = $this->check_user($data["email"], $data["password"]);
-            if($user_id != null){
+            $user_info = $this->check_user($data["email"], $data["password"]);
+            if($user_info != null){
                 http_response_code(200);
-                echo json_encode(array("message" => "Signin successful.", "jwt" => $this->create_JWT($user_id)));
+                echo json_encode(array("message" => "Signin successful.", "jwt" => $this->create_JWT($user_info)));
             }
             else{
                 http_response_code(403);
@@ -37,17 +38,30 @@ class SigninModel extends Model
         }
     }
 
-    function create_JWT($user_id){
-
+    function create_JWT($user_info){
+        include ("config.php");
         $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
         $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
 
-        $payload = json_encode(['id' => $user_id]);
+        $iat = time();
+        $exp = $iat + 60 * 60;
+        $payload = json_encode(array('iat' => $iat,
+                                'exp' => $exp,
+                                'iss' => 'localhost',
+                                'aud' => 'localhost',
+                                'id' => $user_info["id"],
+                                'email' => $user_info["email"]));
+
         $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
 
-        $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, 'abC123!', true);
+        $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $key, true);
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
 
-        return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+        $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
+
+        $params = explode(".", $jwt);
+
+        $headsa = str_replace(['-', '_', ''],['+', '/', '='], base64_decode($params[1]));
+        echo $headsa;
     }
 }
