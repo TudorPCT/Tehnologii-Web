@@ -4,4 +4,5 @@
     $user = 'admin';
     $pass = 'admin';
     $charset = 'utf8';
+    $key = 'mpicproject';
 ?>
