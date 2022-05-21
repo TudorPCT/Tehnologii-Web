@@ -29,7 +29,13 @@ class RegisterModel extends Model
             }else if(!$this->check_user($data["email"])){
                 http_response_code(409);
                 echo json_encode(array("message" => "Unable to create user. Already exists"));
-            }else {
+            }else if(!filter_var($data["email"], FILTER_VALIDATE_EMAIL))
+            {
+                http_response_code(409);
+                echo json_encode(array("message" => "Email format not valid"));
+            }
+            else
+            {
 
                 $this->setSql("insert into Users (first_name, last_name, email, password) values (:first_name, :last_name, :email, :password);");
 
