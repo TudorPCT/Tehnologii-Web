@@ -23,6 +23,7 @@
             </div>
         </header>
 
+        <script src="./views/templates/scripts/signinscript.js"></script>
         <section id="register">
             <h1> Register </h1>
 
