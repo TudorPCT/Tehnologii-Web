@@ -57,11 +57,7 @@ class SigninModel extends Model
         $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $key, true);
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
 
-        $jwt = $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
 
-        $params = explode(".", $jwt);
-
-        $headsa = str_replace(['-', '_', ''],['+', '/', '='], base64_decode($params[1]));
-        echo $headsa;
+        return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
     }
 }
