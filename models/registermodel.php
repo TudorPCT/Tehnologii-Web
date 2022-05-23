@@ -49,16 +49,18 @@ class RegisterModel extends Model
 
                 if ($sth->execute($insert_array)) {
                     http_response_code(201);
-                    echo json_encode(array("message" => "Contact added."));
+                    echo json_encode(array("message" => "User added."));
+                    return true;
                 } else {
                     http_response_code(503);
-                    echo json_encode(array("message" => "Unable to add contact."));
+                    echo json_encode(array("message" => "Unable to add user."));
                 }
             }
         }
         else{
             http_response_code(400);
-            echo json_encode(array("message" => "Unable to create contact. Need more data."));
+            echo json_encode(array("message" => "Unable to create user. Need more data."));
         }
+        return false;
     }
 }
