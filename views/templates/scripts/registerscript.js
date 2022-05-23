@@ -6,10 +6,12 @@ function register() {
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
-            alert("**");
+            alert("Account created");
+          //  window.location.href = './index.php?load=signin';
         }
         if (this.readyState === XMLHttpRequest.DONE && this.status === 409) {
-            document.getElementById("errorLabel").innerHTML = this.responseText;
+            myResponse = JSON.parse(this.responseText);
+            document.getElementById("errorLabel").innerHTML = myResponse.message;
         }
     };
     xmlhttp.open("POST","/Tehnologii-Web/index.php?load=Register/signup", true);
