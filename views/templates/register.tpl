@@ -27,7 +27,7 @@
         <section id="register">
             <h1> Register </h1>
 
-            <form onclick="register()" id="registerform">
+            <form onsubmit="register(); return false;" id="registerform">
                 <label>First Name</label>
                 <input type="text" name="first_name">
 
