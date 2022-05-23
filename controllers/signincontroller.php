@@ -6,10 +6,6 @@ class SigninController extends Controller{
         parent::__construct();
     }
 
-    function index(){
-        $vizualizare = $this->view->show();
-        echo $vizualizare;
-    }
 
     function signin(){
         if(isset($_POST['email']) && isset($_POST['password'])) {

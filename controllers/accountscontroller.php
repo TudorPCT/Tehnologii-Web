@@ -1,11 +1,8 @@
 <?php
 
-class HomeController extends Controller
+class AccountsController extends Controller
 {
     function __construct(){
         parent::__construct();
     }
-
 }
-
-?>

@@ -5,10 +5,6 @@ class RegisterController extends Controller{
         parent::__construct();
     }
 
-    function index(){
-        $vizualizare = $this->view->show();
-        echo $vizualizare;
-    }
 
     function signup(){
         if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email'])

@@ -23,11 +23,11 @@
             </div>
         </header>
 
-        <script src="./views/templates/scripts/signinscript.js"></script>
+        <script src="./views/templates/scripts/registerscript.js"></script>
         <section id="register">
             <h1> Register </h1>
 
-            <form action="./index.php?load=Register/signup" method="post">
+            <form onclick="register()" id="registerform">
                 <label>First Name</label>
                 <input type="text" name="first_name">
 
@@ -43,6 +43,7 @@
                 <label>Repeat Password</label>
                 <input type="password" name="password2">
 
+                <label id="errorLabel"></label>
                 <input class="btn" type="submit" value="Register">
             </form>
 
