@@ -23,10 +23,11 @@
             </div>
         </header>
 
+        <script src="./views/templates/scripts/signinscript.js"></script>
         <section id="signin">
             <h1> Sign in</h1>
 
-            <form action="./index.php?load=Signin/signin" method="post">
+            <form onsubmit="signin(); return false;" id="signinform">
                 <label>Email</label>
                 <input type="text" name="email">
 
@@ -37,6 +38,7 @@
 
                 <label id="createacc"><a href="./index.php?load=Register">Create new account</a></label>
 
+                <label id="errorLabel"></label>
                 <input class="btn" type="submit" value="Signin">
             </form>
 

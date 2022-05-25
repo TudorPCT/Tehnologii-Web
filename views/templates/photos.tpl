@@ -5,7 +5,7 @@
         <meta name="description" content="Social Media Aggregator">
         <meta name="author" content="Team">
         <title> SMB </title>
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
     <body>
         <header>
@@ -15,7 +15,7 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"><a href="photos.html">Photos</a></li>
+                        <li class="current"><a href="photos.tpl">Photos</a></li>
                         <li><a href="wall.html">My Wall</a></li>
                         <li><a href="accounts.tpl">Accounts</a></li>
                         <li><a href="index.html">Logout</a></li>
