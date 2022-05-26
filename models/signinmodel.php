@@ -1,5 +1,4 @@
 <?php
-require_once HOME . DS . 'utils' . DS . 'token.php';
 class SigninModel extends Model
 {
     function __construct(){

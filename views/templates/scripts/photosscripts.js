@@ -1,11 +1,10 @@
 function getPhotos(){
 
+    var xmlhttp = new XMLHttpRequest();
+
     xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
-            myResponse = JSON.parse(this.responseText);
-            alert(myResponse.message);
-        }
-        alert(this.status);
+      //  if (this.status === 401)
+         //   window.location.replace("");
     };
 
     console.log('Bearer ' + localStorage.getItem("jwt"));

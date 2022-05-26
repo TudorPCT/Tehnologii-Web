@@ -37,3 +37,12 @@ function verify_token($token){
     return true;
 }
 
+function getBearerToken($headers) {
+    if (isset($headers['Authorization'])) {
+        if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
+            return $matches[1];
+        }
+    }
+    return null;
+}
+

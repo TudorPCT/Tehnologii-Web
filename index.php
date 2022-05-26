@@ -6,4 +6,5 @@
     require_once HOME . DS . 'config.php';
     require_once HOME . DS . 'utils' . DS . 'autoload.php';
     require_once HOME . DS . 'utils' . DS . 'bootstrap.php';
+    require_once HOME . DS . 'utils' . DS . 'token.php';
 ?>
