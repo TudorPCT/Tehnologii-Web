@@ -8,15 +8,16 @@ class PhotosController extends Controller
     }
 
     function getPhotos(){
-        function getBearerToken() {
-            $headers = getAuthorizationHeader();
-            if (!empty($headers)) {
-                if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
-                    return $matches[1];
-                }
-            }
-            return null;
+        $headers = apache_request_headers();
+        $token = getBearerToken($headers);
+
+        if ($token === null || !verify_token($token)) {
+            http_response_code(401);
+            exit(401);
+        }else{
+            this->model->getPhotos($token);
         }
+
     }
 
 }
