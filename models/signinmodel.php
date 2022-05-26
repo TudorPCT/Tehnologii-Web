@@ -1,5 +1,5 @@
 <?php
-
+require_once HOME . DS . 'utils' . DS . 'token.php';
 class SigninModel extends Model
 {
     function __construct(){
@@ -25,7 +25,7 @@ class SigninModel extends Model
             $user_info = $this->check_user($data["email"], $data["password"]);
             if($user_info != null){
                 http_response_code(200);
-                echo json_encode(array("message" => "Signin successful.", "jwt" => $this->create_JWT($user_info)));
+                echo json_encode(array("message" => "Signin successful.", "jwt" => create_JWT($user_info)));
             }
             else{
                 http_response_code(403);
@@ -36,28 +36,5 @@ class SigninModel extends Model
             http_response_code(400);
             echo json_encode(array("message" => "Unable to create contact. Need more data."));
         }
-    }
-
-    function create_JWT($user_info){
-        include ("config.php");
-        $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
-        $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
-
-        $iat = time();
-        $exp = $iat + 60 * 60;
-        $payload = json_encode(array('iat' => $iat,
-                                'exp' => $exp,
-                                'iss' => 'localhost',
-                                'aud' => 'localhost',
-                                'id' => $user_info["id"],
-                                'email' => $user_info["email"]));
-
-        $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
-
-        $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $key, true);
-        $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
-
-
-        return $base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature;
     }
 }

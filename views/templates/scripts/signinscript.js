@@ -11,8 +11,6 @@ function signin() {
             localStorage.setItem("jwt", 'Bearer ' + myResponse.jwt);
             window.location.href = './index.php?load=photos';
         }else if (this.readyState === XMLHttpRequest.DONE) {
-            myResponse = JSON.parse(this.responseText);
-            alert(myResponse.message);
             document.getElementById("errorLabel").innerHTML = myResponse.message;
         }
 

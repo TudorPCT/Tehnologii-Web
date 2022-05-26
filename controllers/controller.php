@@ -27,6 +27,7 @@ abstract class Controller
         $vizualizare = $this->view->show();
         echo $vizualizare;
     }
+
 }
 
 ?>
