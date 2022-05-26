@@ -7,7 +7,8 @@
         <title> SMB </title>
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
-    <body>
+    <script src="./views/templates/scripts/signinscript.js"></script>
+    <body onload="getPhotos()">
         <header>
             <div class="topBar">
                 <div id="branding">
