@@ -8,7 +8,8 @@ function signin() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             myResponse = JSON.parse(this.responseText);
             alert("Signin successful");
-            localStorage.setItem("jwt", 'Bearer ' + myResponse.jwt);
+            sessionStorage.setItem("jwt", 'Bearer ' + myResponse.jwt);
+            document.cookie = `jwt=${myResponse.jwt}`;
             window.location.href = 'index.php?load=photos';
         }else if (this.readyState === XMLHttpRequest.DONE) {
             document.getElementById("errorLabel").innerHTML = myResponse.message;

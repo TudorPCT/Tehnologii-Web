@@ -32,8 +32,7 @@ function verify_token($token){
     if(count($token_exp) !== 3)
         return false;
 
-    $signature = base64_decode(str_replace( ['-', '_', ''], ['+', '/', '='], $token_exp[2]));
-    echo $signature;
+    //TODO
     return true;
 }
 

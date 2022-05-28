@@ -5,20 +5,34 @@
     $controller = "Home";
     $action = "index";
 
-    if (isset($_GET['load']))
-    {
+    if (isset($_GET['load'])) {
         $params = array();
         $params = explode("/", $_GET['load']);
 
         $controller = ucwords($params[0]);
 
-        if (isset($params[1]) && !empty($params[1]))
-        {
+        if (isset($params[1]) && !empty($params[1])) {
             $action = $params[1];
+        } else {
+            $token = null;
+            if (isset($_COOKIE['jwt'])) {
+                $token = $_COOKIE['jwt'];
+            }
+
+            if (strtolower($controller) !== 'home'
+                && strtolower($controller) !== 'signin'
+                && strtolower($controller) !== 'register'
+                && !verify_token($token)) {
+
+                http_response_code(401);
+                exit(401);
+            }
         }
     }
 
     $controller .= 'Controller';
+
+
 
     if(!class_exists($controller)){
         http_response_code(404);
