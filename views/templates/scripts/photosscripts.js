@@ -7,10 +7,10 @@ function getPhotos(){
          //   window.location.replace("");
     };
 
-    console.log('Bearer ' + localStorage.getItem("jwt"));
+    console.log('Bearer ' + sessionStorage.getItem("jwt"));
 
     xmlhttp.open("GET","/Tehnologii-Web/index.php?load=photos/getPhotos", true);
-    xmlhttp.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem("jwt"));
+    xmlhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("jwt"));
 
     xmlhttp.send();
 }
