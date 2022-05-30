@@ -8,7 +8,8 @@
         <title> M-Pic | Welcome</title>
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
-    <body>
+    <body onload="getAccounts()">
+    <script src="./views/templates/scripts/accountsscripts.js"></script>
         <header>
             <div class="topBar">
                 <div id="branding">
@@ -16,10 +17,10 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="photos.tpl">Photos</a></li>
-                        <li><a href="wall.html">My Wall</a></li>
-                        <li class="current"><a href="accounts.tpl">Accounts</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li class="current"><a href="./index.php?load=photos">Photos</a></li>
+                        <li><a href="./index.php?load=wall">My Wall</a></li>
+                        <li><a href="./index.php?load=accounts">Accounts</a></li>
+                        <li><a href="./index.php">Logout</a></li>
                     </ul>
                 </nav>
             </div>

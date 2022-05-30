@@ -17,10 +17,10 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"><a href="photos.tpl">Photos</a></li>
-                        <li><a href="wall.html">My Wall</a></li>
-                        <li><a href="accounts.tpl">Accounts</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li class="current"><a href="./index.php?load=photos">Photos</a></li>
+                        <li><a href="./index.php?load=wall">My Wall</a></li>
+                        <li><a href="./index.php?load=accounts">Accounts</a></li>
+                        <li><a href="./index.php">Logout</a></li>
                     </ul>
                 </nav>
             </div>
