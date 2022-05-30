@@ -7,7 +7,7 @@ function getPhotos(){
          //   window.location.replace("");
     };
 
-    console.log('Bearer ' + sessionStorage.getItem("jwt"));
+    console.log(sessionStorage.getItem("jwt"));
 
     xmlhttp.open("GET","/Tehnologii-Web/index.php?load=photos/getPhotos", true);
     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("jwt"));

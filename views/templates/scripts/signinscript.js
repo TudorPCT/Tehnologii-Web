@@ -5,14 +5,16 @@ function signin() {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            myResponse = JSON.parse(this.responseText);
-            alert("Signin successful");
-            sessionStorage.setItem("jwt", 'Bearer ' + myResponse.jwt);
-            document.cookie = `jwt=${myResponse.jwt}`;
-            window.location.href = 'index.php?load=photos';
-        }else if (this.readyState === XMLHttpRequest.DONE) {
-            document.getElementById("errorLabel").innerHTML = myResponse.message;
+        if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+                myResponse = JSON.parse(this.responseText);
+                alert("Signin successful");
+                sessionStorage.setItem("jwt", myResponse.jwt);
+                document.cookie = `jwt=${myResponse.jwt}`;
+                window.location.href = 'index.php?load=photos';
+            } else if (this.readyState === XMLHttpRequest.DONE) {
+                document.getElementById("errorLabel").innerHTML = myResponse.message;
+            }
         }
 
     };
