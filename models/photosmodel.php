@@ -8,6 +8,10 @@ class PhotosModel extends Model
     }
 
     function getPhotos(){
+        return null;
+    }
+
+    function getPhoto(){
         if (!isset($_GET['code']) && !isset($_SESSION['token'])) {
 
             \Unsplash\HttpClient::init([
