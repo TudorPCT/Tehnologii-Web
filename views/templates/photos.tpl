@@ -20,7 +20,7 @@
                         <li class="current"><a href="./index.php?load=photos">Photos</a></li>
                         <li><a href="./index.php?load=wall">My Wall</a></li>
                         <li><a href="./index.php?load=accounts">Accounts</a></li>
-                        <li><a href="./index.php">Logout</a></li>
+                        <li><a href="./index.php?load=logout">Logout</a></li>
                     </ul>
                 </nav>
             </div>
