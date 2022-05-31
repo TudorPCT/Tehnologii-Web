@@ -38,8 +38,10 @@ function verify_token($token){
 
 function getBearerToken($headers) {
     if (isset($headers['Authorization'])) {
-        if (preg_match('/Bearer\s(\S+)/', $headers, $matches)) {
-            return $matches[1];
+        $params = array();
+        $params = explode(" ", $headers['Authorization']);
+        if (isset($params[0]) && $params[0] === 'Bearer' && isset($params[1])) {
+            return $params[1];
         }
     }
     return null;

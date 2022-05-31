@@ -15,7 +15,7 @@ class PhotosController extends Controller
             http_response_code(401);
             exit(401);
         }else{
-            this->model->getPhotos($token);
+            $this->model->getPhotos($token);
         }
 
     }
