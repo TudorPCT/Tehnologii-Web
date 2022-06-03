@@ -21,6 +21,7 @@
             if (strtolower($controller) !== 'home'
                 && strtolower($controller) !== 'signin'
                 && strtolower($controller) !== 'register'
+                && strtolower($controller) !== 'unsplash'
                 && !verify_token($token)) {
 
                 http_response_code(401);
