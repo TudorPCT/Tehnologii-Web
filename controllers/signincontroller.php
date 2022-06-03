@@ -8,9 +8,9 @@ class SigninController extends Controller{
 
 
     function signin(){
-        if(isset($_POST['email']) && isset($_POST['password'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+        if(isset($_PUT['email']) && isset($_PUT['password'])) {
+            $email = $_PUT['email'];
+            $password = $_PUT['password'];
             $data = array(
                 'email' => $email,
                 'password' => $password,
