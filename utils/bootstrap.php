@@ -1,6 +1,5 @@
 <?php
 
-    require_once HOME . DS . 'utils' . DS . 'token.php';
     //http://localhost:8080/Tehnologii-Web/index.php?load=Home/index
     $controller = "Home";
     $action = "index";
