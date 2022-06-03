@@ -18,7 +18,7 @@ function signin() {
         }
 
     };
-    xmlhttp.open("POST","/Tehnologii-Web/index.php?load=Signin/signin", true);
+    xmlhttp.open("POST","/index.php?load=Signin/signin", true);
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xmlhttp.send("email=" + formData.get('email') +

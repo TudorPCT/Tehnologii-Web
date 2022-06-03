@@ -14,7 +14,7 @@ function register() {
             document.getElementById("errorLabel").innerHTML = myResponse.message;
         }
     };
-    xmlhttp.open("POST","/Tehnologii-Web/index.php?load=Register/signup", true);
+    xmlhttp.open("POST","/index.php?load=Register/signup", true);
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xmlhttp.send("first_name="+ formData.get('first_name') +
