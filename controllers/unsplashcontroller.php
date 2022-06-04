@@ -1,5 +1,5 @@
 <?php
-
+require_once HOME . DS . 'config.php';
 class UnsplashController extends Controller
 {
     function __construct(){
@@ -7,9 +7,18 @@ class UnsplashController extends Controller
     }
 
     function getCode(){
-        if (isset($_GET['code'])){
-            $code = $_GET['code'];
-            echo $code;
-        }
+        include ("config.php");
+
+        $ch = curl_init();
+
+
+        curl_setopt($ch, CURLOPT_URL, "https://api.unsplash.com/search/photos?query=london&client_id=" . $unsplashClientId );
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        $output = curl_exec($ch);
+
+        echo $output;
+        curl_close($ch);
     }
 }
