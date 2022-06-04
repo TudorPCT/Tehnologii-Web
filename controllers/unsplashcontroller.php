@@ -1,6 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: null");
-require_once HOME . DS . 'config.php';
+
 class UnsplashController extends Controller
 {
     function __construct(){
@@ -10,16 +9,22 @@ class UnsplashController extends Controller
     function getCode(){
         include ("config.php");
 
-        $ch = curl_init();
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+            header('Access-Control-Allow-Headers: token, Content-Type');
+            header('Access-Control-Max-Age: 1728000');
+            header('Content-Length: 0');
+            header('Content-Type: text/plain');
+            die();
+        }
 
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
 
-        curl_setopt($ch, CURLOPT_URL, "https://api.unsplash.com/search/photos?query=london&client_id=" . $unsplashClientId );
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        $output = curl_exec($ch);
-
-        echo $output;
-        curl_close($ch);
+        $ret = [
+            'result' => 'OK',
+        ];
+        print json_encode($ret);
     }
 }
