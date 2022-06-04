@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 require_once HOME . DS . 'config.php';
 class UnsplashController extends Controller
 {
