@@ -18,7 +18,7 @@ class SigninController extends Controller{
             $this->model->signin($data);
         }else{
             http_response_code(400);
-            echo json_encode(array("message" => "Unable to signin user. Need more data."));
+            echo json_encode(array("message" => "Unable to signin. Need more data."));
         }
     }
 }

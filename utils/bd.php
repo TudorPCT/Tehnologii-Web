@@ -5,7 +5,7 @@
             if (is_null(BD::$conn)){
                 include ("config.php");
                 
-                $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+                $dsn = "pgsql:host=$host;dbname=$db";
 
                 // optiuni vizand maniera de conectare
                 $opt = [

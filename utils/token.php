@@ -1,6 +1,6 @@
 <?php
 function create_JWT($user_info){
-    require HOME . DS . 'config.php';
+    include ("config.php");
 
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
     $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));

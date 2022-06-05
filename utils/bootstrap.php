@@ -1,6 +1,5 @@
 <?php
 
-    require_once HOME . DS . 'utils' . DS . 'token.php';
     //http://localhost:8080/Tehnologii-Web/index.php?load=Home/index
     $controller = "Home";
     $action = "index";
@@ -22,6 +21,7 @@
             if (strtolower($controller) !== 'home'
                 && strtolower($controller) !== 'signin'
                 && strtolower($controller) !== 'register'
+                && strtolower($controller) !== 'unsplash'
                 && !verify_token($token)) {
 
                 http_response_code(401);
