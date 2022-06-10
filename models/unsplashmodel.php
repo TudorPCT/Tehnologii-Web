@@ -31,8 +31,6 @@ class UnsplashModel extends Model
             . "&code=" . $code
             . "&grant_type=" . "authorization_code";
 
-        echo $params;
-
         curl_setopt($ch, CURLOPT_URL, "https://unsplash.com/oauth/token");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,

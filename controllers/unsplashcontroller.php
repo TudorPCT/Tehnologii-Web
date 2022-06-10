@@ -18,15 +18,16 @@ class UnsplashController extends Controller
         }
 
         if(isset($_GET["code"]))
-            $this->getJWT();
+            $this->getJWT($token);
         else $this->getCode();
 
     }
-    function getCode(){
+
+    private function getCode(){
         $this->model->getCode();
     }
 
-    function getJWT(){
-        $this->model->addUnsplashToken($_GET["code"],$token);
+    private function getJWT($token){
+        $this->model->addUnsplashToken($_GET["code"], $token);
     }
 }
