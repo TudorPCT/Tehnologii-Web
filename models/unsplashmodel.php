@@ -15,7 +15,8 @@ class UnsplashModel extends Model
             . "&scope=public"
             . "&response_type=code"
             ;
-        header("Location: " . $link);
+        echo $link;
+      //  header("Location: " . $link);
         die();
     }
 
@@ -23,7 +24,7 @@ class UnsplashModel extends Model
 
         echo $code;
         die();
-        
+
         $ch = curl_init();
         include ("config.php");
 
