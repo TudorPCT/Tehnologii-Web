@@ -13,6 +13,7 @@ class UnsplashModel extends Model
             . "&redirect_uri="
             . "https%3A%2F%2Fsocialmediabox.herokuapp.com%2F?load=unsplash/getJWT"
             . "&scope=public"
+            . "&response_type=code"
             ;
         header("Location: " . $link);
         die();
