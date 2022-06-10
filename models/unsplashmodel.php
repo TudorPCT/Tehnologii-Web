@@ -6,12 +6,13 @@ class UnsplashModel extends Model
         parent::__construct();
     }
 
+
     function getCode(){
         include ("config.php");
         $link = "https://unsplash.com/oauth/authorize?client_id="
             . $unsplashClientId
             . "&redirect_uri="
-            . "https%3A%2F%2Fsocialmediabox.herokuapp.com/?load=unsplash/getJWT"
+            . "https%3A%2F%2Fsocialmediabox.herokuapp.com/?load=unsplash/authorize"
             . "&scope=public"
             . "&response_type=code"
             ;
@@ -26,7 +27,7 @@ class UnsplashModel extends Model
 
         $params = "client_id=" . $unsplashClientId
             . "&client_secret=" . $unsplashSecret
-            . "&redirect_uri=" . "https%3A%2F%2Fsocialmediabox.herokuapp.com"
+            . "&redirect_uri=" . "https%3A%2F%2Fsocialmediabox.herokuapp.com/?load=unsplash/authorize"
             . "&code=" . $code
             . "&grant_type=" . "authorization_code";
 
