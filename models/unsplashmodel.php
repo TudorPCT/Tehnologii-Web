@@ -16,14 +16,30 @@ class UnsplashModel extends Model
             . "&response_type=code"
             ;
         header("Location: " . $link);
+        echo code;
         die();
     }
 
     function addUnsplashToken($code, $token){
 
-        echo $code . "*";
-        http_response_code(200);
-        die();
+        $ch = curl_init();
+
+        // set url
+        curl_setopt($ch, CURLOPT_URL, "https://unsplash.com/oauth/token");
+
+        //return the transfer as a string
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array (
+            "Accept: application/json"
+        ));
+
+        // $output contains the output string
+        $output = curl_exec($ch);
+
+        // close curl resource to free up system resources
+        curl_close($ch);
+
+        echo $ch;
+
     }
 
 }

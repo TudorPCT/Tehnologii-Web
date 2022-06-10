@@ -32,8 +32,7 @@ class UnsplashController extends Controller
         }
 
         if(isset($_GET["code"])){
-            echo "*";
-            $this->model->addUnsplashToken($_GET("code"), $token);
+            $this->model->addUnsplashToken($_GET["code"],$token);
         }
     }
 }
