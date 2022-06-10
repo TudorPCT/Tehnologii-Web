@@ -21,7 +21,7 @@ class UnsplashModel extends Model
 
     function addUnsplashToken($code, $token){
 
-        echo $code;
+        echo $code . "*";
 
     }
 
