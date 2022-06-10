@@ -11,12 +11,11 @@ class UnsplashModel extends Model
         $link = "https://unsplash.com/oauth/authorize?client_id="
             . $unsplashClientId
             . "&redirect_uri="
-            . "https%3A%2F%2Fsocialmediabox.herokuapp.com%2F?load=unsplash/getJWT"
+            . "https://socialmediabox.herokuapp.com/?load=unsplash/getJWT"
             . "&scope=public"
             . "&response_type=code"
             ;
         header("Location: " . $link);
-        echo code;
         die();
     }
 
@@ -24,18 +23,24 @@ class UnsplashModel extends Model
 
         $ch = curl_init();
 
-        // set url
-        curl_setopt($ch, CURLOPT_URL, "https://unsplash.com/oauth/token");
+        $params = "client_id=" . $unsplashClientId
+            . "client_secret=" . $unsplashSecret
+            . "redirect_uri=" . "https://socialmediabox.herokuapp.com"
+            . "code=" . $code
+            . "grant_type=" . "authorization_code";
 
-        //return the transfer as a string
+        curl_setopt($ch, CURLOPT_URL, "https://unsplash.com/oauth/token");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,
+            $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
             "Accept: application/json"
         ));
 
-        // $output contains the output string
         $output = curl_exec($ch);
 
-        // close curl resource to free up system resources
         curl_close($ch);
 
         echo $ch;
