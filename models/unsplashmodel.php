@@ -24,10 +24,11 @@ class UnsplashModel extends Model
         $ch = curl_init();
 
         $params = "client_id=" . $unsplashClientId
-            . "client_secret=" . $unsplashSecret
-            . "redirect_uri=" . "https://socialmediabox.herokuapp.com"
-            . "code=" . $code
-            . "grant_type=" . "authorization_code";
+            . "&client_secret=" . $unsplashSecret
+            . "&redirect_uri=" . "https://socialmediabox.herokuapp.com"
+            . "&code=" . $code
+            . "&grant_type=" . "authorization_code";
+
 
         curl_setopt($ch, CURLOPT_URL, "https://unsplash.com/oauth/token");
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -43,7 +44,7 @@ class UnsplashModel extends Model
 
         curl_close($ch);
 
-        echo $ch;
+        echo $output;
 
     }
 
