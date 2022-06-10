@@ -26,7 +26,7 @@ class UnsplashModel extends Model
 
         $params = "client_id=" . $unsplashClientId
             . "&client_secret=" . $unsplashSecret
-            . "&redirect_uri=" . "socialmediabox.herokuapp.com"
+            . "&redirect_uri=" . "https%3A%2F%2Fsocialmediabox.herokuapp.com"
             . "&code=" . $code
             . "&grant_type=" . "authorization_code";
 
