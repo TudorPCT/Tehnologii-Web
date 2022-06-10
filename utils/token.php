@@ -1,5 +1,6 @@
 <?php
-function create_JWT($user_info){
+
+function createJWT($user_info){
     include ("config.php");
 
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
@@ -45,5 +46,16 @@ function getBearerToken($headers) {
         }
     }
     return null;
+}
+
+function extractTokenPayload($token){
+
+    $tokenExploded = explode(".",$token);
+    $base64UrlPayload = $tokenExploded[1];
+
+    $payload =  base64_decode(str_replace(['-', '_', ''], ['+', '/', '='], $base64UrlPayload));
+
+    return $payload;
+
 }
 

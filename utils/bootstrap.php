@@ -4,11 +4,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 
 
-if (isset($_GET['code'])) {
-    echo $_GET['code'];
-    die(1);
-}
-
     //http://localhost:8080/Tehnologii-Web/index.php?load=Home/index
     $controller = "Home";
     $action = "index";

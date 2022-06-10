@@ -24,16 +24,16 @@ class SigninModel extends Model
             $user_info = $this->check_user($data["email"], $data["password"]);
             if($user_info != null){
                 http_response_code(200);
-                echo json_encode(array("message" => "Signin successful.", "jwt" => create_JWT($user_info)));
+                echo json_encode(value: array("message" => "Signin successful.", "jwt" => createJWT($user_info)));
             }
             else{
                 http_response_code(403);
-                echo json_encode(array("message" => "Unable to signin."));
+                echo json_encode(value: array("message" => "Unable to signin."));
             }
         }
         else{
             http_response_code(400);
-            echo json_encode(array("message" => "Unable to create contact. Need more data."));
+            echo json_encode(value: array("message" => "Unable to create contact. Need more data."));
         }
     }
 }

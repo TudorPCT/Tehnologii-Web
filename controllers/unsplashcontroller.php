@@ -6,25 +6,33 @@ class UnsplashController extends Controller
         parent::__construct();
     }
 
-    function getCode(){
-        include ("config.php");
 
-        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-            header('Access-Control-Allow-Origin: *');
-            header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-            header('Access-Control-Allow-Headers: token, Content-Type');
-            header('Access-Control-Max-Age: 1728000');
-            header('Content-Length: 0');
-            header('Content-Type: text/plain');
-            die();
+    function getCode(){
+        if (isset($_COOKIE['jwt'])) {
+            $token = $_COOKIE['jwt'];
         }
 
-        header('Access-Control-Allow-Origin: *');
-        header('Content-Type: application/json');
+        if ($token === null || !verify_token($token)) {
+            http_response_code(401);
+            exit(401);
+        }
 
-        $ret = [
-            'result' => 'OK',
-        ];
-        print json_encode($ret);
+        $this->model->getCode();
+    }
+
+    function getJWT(){
+
+        if (isset($_COOKIE['jwt'])) {
+            $token = $_COOKIE['jwt'];
+        }
+
+        if ($token === null || !verify_token($token)) {
+            http_response_code(401);
+            exit(401);
+        }
+
+        if(isset($_GET["code"])){
+            $this->model->addUnsplashToken($_GET("code"), $token);
+        }
     }
 }

@@ -8,8 +8,13 @@ class PhotosController extends Controller
     }
 
     function getPhotos(){
-        $headers = apache_request_headers();
-        $token = getBearerToken($headers);
+        $token = null;
+        if (isset($_COOKIE['jwt'])) {
+            $token = $_COOKIE['jwt'];
+        }else{
+            $headers = apache_request_headers();
+            $token = getBearerToken($headers);
+        }
 
         if ($token === null || !verify_token($token)) {
             http_response_code(401);
