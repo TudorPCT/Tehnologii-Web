@@ -51,7 +51,7 @@
                 <div class="dropdown">
                     <button class="dropbtn">Add account</button>
                     <div class="dropdown-content">
-                        <a href="index.html">Instagram</a>
+                        <a href="./?load=unsplash/authorize">Unsplash</a>
                         <a href="index.html">Twitter</a>
                     </div>
                 </div>
