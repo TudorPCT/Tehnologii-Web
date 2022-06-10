@@ -12,7 +12,7 @@ class UnsplashModel extends Model
         $link = "https://unsplash.com/oauth/authorize?client_id="
             . $unsplashClientId
             . "&redirect_uri="
-            . "https%3A%2F%2Fsocialmediabox.herokuapp.com/?load=unsplash/authorize"
+            . "https://socialmediabox.herokuapp.com/?load=unsplash/authorize"
             . "&scope=public"
             . "&response_type=code"
             ;
