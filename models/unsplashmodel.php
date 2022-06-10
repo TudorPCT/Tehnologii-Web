@@ -15,15 +15,11 @@ class UnsplashModel extends Model
             . "&scope=public"
             . "&response_type=code"
             ;
-        echo $link;
-      //  header("Location: " . $link);
+        header("Location: " . $link);
         die();
     }
 
     function addUnsplashToken($code, $token){
-
-        echo $code;
-        die();
 
         $ch = curl_init();
         include ("config.php");
