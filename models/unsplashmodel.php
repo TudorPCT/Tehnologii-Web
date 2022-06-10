@@ -22,10 +22,10 @@ class UnsplashModel extends Model
     function addUnsplashToken($code, $token){
 
         $ch = curl_init();
-
+        include ("config.php");
         $params = "client_id=" . $unsplashClientId
             . "&client_secret=" . $unsplashSecret
-            . "&redirect_uri=" . "https://socialmediabox.herokuapp.com"
+            . "&redirect_uri=" . "https%3A%2F%2Fsocialmediabox.herokuapp.com"
             . "&code=" . $code
             . "&grant_type=" . "authorization_code";
 
