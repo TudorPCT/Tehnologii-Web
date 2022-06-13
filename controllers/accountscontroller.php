@@ -6,8 +6,7 @@ class AccountsController extends Controller
         parent::__construct();
     }
     function getAccounts(){
-        $headers = apache_request_headers();
-        $token = getBearerToken($headers);
+        $token = $_COOKIE["jwt"];
         if ($token === null || !verify_token($token)) {
             http_response_code(401);
             exit(401);
