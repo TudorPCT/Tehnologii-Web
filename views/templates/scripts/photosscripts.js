@@ -12,8 +12,7 @@ function getPhotos(){
 
     console.log(sessionStorage.getItem("jwt"));
 
-    xmlhttp.open("GET","/Tehnologii-Web/index.php?load=photos/getPhotos", true);
-    xmlhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("jwt"));
+    xmlhttp.open("GET","/index.php?load=photos/getPhotos", true);
 
     xmlhttp.send();
 }
