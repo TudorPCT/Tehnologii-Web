@@ -73,6 +73,7 @@ class UnsplashModel extends Model
 
         $payload=json_decode(extractTokenPayload($token),true);
         $user_id=$payload['id'];
+
             $this->setSql("insert into accounts (user_id, username, account_token) values (:user_id,:username,:unsplashToken);");
 
             $insert_array = [
