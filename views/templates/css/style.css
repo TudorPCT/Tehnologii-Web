@@ -496,7 +496,7 @@ div.sidenav li{
      padding: 3%;
  }
 
-.accountsDB {
+.accountsDB li{
     display: flex;
     flex-direction:column;
     color: #232946;

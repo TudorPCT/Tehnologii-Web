@@ -30,8 +30,10 @@
             <div id="title">
                 Linked accounts
             </div>
-                    <div id ="accountsDB">
-                    </div>
+            <div id ="accountsDB">
+
+
+            </div>
         </div>
 
         <div class="sidenav">
