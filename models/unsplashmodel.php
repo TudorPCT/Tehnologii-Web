@@ -43,14 +43,11 @@ class UnsplashModel extends Model
 
         $output = curl_exec($ch);
         $response = json_decode($output,true);
-        echo $response;
+//        echo $response;
         echo $response['access_token'];
 
         curl_close($ch);
 
-        $unsplashtoken=$output;
-
-        echo $unsplashtoken;
 
     }
 
