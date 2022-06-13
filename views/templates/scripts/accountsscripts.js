@@ -3,8 +3,10 @@ function getAccounts(){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-        //  if (this.status === 401)
-        //   window.location.replace("");
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("accountsDB").innerHTML = this.responseText;
+        }
+
     };
 
     console.log('Bearer ' + sessionStorage.getItem("jwt"));

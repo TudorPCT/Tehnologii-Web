@@ -30,7 +30,9 @@
             <div id="title">
                 Linked accounts
             </div>
+                    <div id ="accountsDB">
 
+                    </div>
             <div class="account">
                 <div class="id">
                     <img src="./img/instagram.png">
