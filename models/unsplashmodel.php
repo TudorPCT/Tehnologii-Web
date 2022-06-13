@@ -35,17 +35,20 @@ class UnsplashModel extends Model
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,
             $params);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
             "Accept: application/json"
         ));
 
         $output = curl_exec($ch);
+        $response = json_decode($output,true);
+        echo $response;
+        echo $response['access_token'];
 
         curl_close($ch);
 
-        $unsplashtoken=$output[0];
+        $unsplashtoken=$output;
 
         echo $unsplashtoken;
 
