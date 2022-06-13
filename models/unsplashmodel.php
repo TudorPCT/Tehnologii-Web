@@ -55,7 +55,7 @@ class UnsplashModel extends Model
         //iau user-ul coresp token-ului acesta
 
 
-        $url = "https://unsplash.com/me";
+        $url = "https://api.unsplash.com/me";
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -63,7 +63,7 @@ class UnsplashModel extends Model
 
         $headers = array(
             "Accept: application/json",
-            "Authorization: Bearer {token}",
+            "Authorization: Bearer ".$unsplashToken,
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
