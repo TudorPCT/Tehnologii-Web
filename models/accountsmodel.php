@@ -17,6 +17,7 @@ class AccountsModel extends Model
         for($index = 0; $index < sizeof($result); $index++) {
             echo $result[$index]["username"] ;
         }
+        return true;
 
     }
 }
