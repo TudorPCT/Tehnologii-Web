@@ -50,6 +50,27 @@ class UnsplashModel extends Model
         echo $response['access_token'];
         echo $response['refresh_token'];
 
+        $unsplashToken=$response['access_token'];
+        $unsplashRefreshToken=$response['refresh_token'];
+        //iau user-ul coresp token-ului acesta
+
+
+        $url = "https://unsplash.com/me";
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer {token}",
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+        $resp = curl_exec($curl);
+        curl_close($curl);
+        echo $resp;
+
     }
 
 
