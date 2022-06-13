@@ -44,15 +44,13 @@ class UnsplashModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
-        echo $output;
+//        echo $output;
         $response = json_decode($output,true);
         echo $response['access_token'];
         echo $response['refresh_token'];
 
         $unsplashToken=$response['access_token'];
-        $unsplashRefreshToken=$response['refresh_token'];
-        //iau user-ul coresp token-ului acesta
-
+//        $unsplashRefreshToken=$response['refresh_token'];
 
         $url = "https://api.unsplash.com/me";
 
@@ -71,6 +69,29 @@ class UnsplashModel extends Model
 //        echo $user;
         $response = json_decode($user,true);
         echo $response['username'];
+        $username=$response['username'];
+
+        $payload=json_decode(extractTokenPayload($token),true);
+        $user_id=$payload['id'];
+            $this->setSql("insert into accounts (user_id, username, account_token) values (:user_id,:username,:unsplashToken);");
+
+            $insert_array = [
+                "user_id" => $user_id,
+                "username" => $username,
+                "unsplashToken" => $unsplashToken
+
+            ];
+
+            $sth = $this->conn->prepare($this->querry);
+
+            if ($sth->execute($insert_array)) {
+                http_response_code(201);
+                echo json_encode(array("message" => "Account added."));
+                return true;
+            } else {
+                http_response_code(503);
+                echo json_encode(array("message" => "Unable to add account."));
+            }
 
     }
 
