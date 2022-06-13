@@ -17,7 +17,7 @@ class AccountsModel extends Model
         for($index = 0; $index < sizeof($result); $index++) {
             echo $result[$index]["username"] .PHP_EOL;
         }
-//        return false;
+        return false;
 
     }
 }
