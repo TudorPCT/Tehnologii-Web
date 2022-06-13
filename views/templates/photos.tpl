@@ -25,7 +25,8 @@
                 </nav>
             </div>
         </header>
-        <div class="Wrapper">
+
+        <div id="Wrapper">
 
         </div>
     <!-- Side navigation -->
