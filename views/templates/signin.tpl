@@ -28,7 +28,7 @@
         <section id="signin">
             <h1> Sign in</h1>
 
-            <form onsubmit="signin(); return false;" id="signinform">
+            <form onsubmit="return signin();" id="signinform">
                 <label>Email</label>
                 <input type="text" name="email">
 

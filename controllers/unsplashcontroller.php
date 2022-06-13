@@ -30,4 +30,8 @@ class UnsplashController extends Controller
     private function getJWT($token){
         $this->model->addUnsplashToken($_GET["code"], $token);
     }
+
+    function getUserPhotos(){
+        $this->model->getUserPhotos("tudorpc", 1);
+    }
 }
