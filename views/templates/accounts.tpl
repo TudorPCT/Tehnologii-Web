@@ -33,19 +33,6 @@
                     <div id ="accountsDB">
 
                     </div>
-{*            <div class="account">*}
-{*                <div class="id">*}
-{*                    <img src="./img/instagram.png">*}
-{*                    <a href="https://www.instagram.com/" target="_blank">Profile_tag</a>*}
-{*                </div>*}
-{*            </div>*}
-
-{*            <div class="account">*}
-{*                <div class="id">*}
-{*                    <img src="./img/twitter.png">*}
-{*                    <a href="https://www.twitter.com/" target="_blank">Profile_tag</a>*}
-{*                </div>*}
-{*            </div>*}
         </div>
 
         <div class="sidenav">
