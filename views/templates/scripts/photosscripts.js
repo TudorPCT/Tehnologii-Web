@@ -4,7 +4,7 @@ function getPhotos(){
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
-            document.getElementById("row").innerHTML = this.responseText;
+            document.getElementById("Wrapper").innerHTML = this.responseText;
     };
 
     console.log(sessionStorage.getItem("jwt"));
