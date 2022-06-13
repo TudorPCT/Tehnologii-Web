@@ -11,7 +11,8 @@ class AccountsModel extends Model
 
         $this->setSql("select * from accounts");
         $result = $this->getAll();
-        echo $result;
+        echo "dunt in functie";
+        echo $result[0];
 
 //        while ($row = pg_fetch_row($result)) {
 //            echo "Author: $row[0]  E-mail: $row[1]";
