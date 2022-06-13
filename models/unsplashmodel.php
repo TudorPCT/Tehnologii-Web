@@ -45,8 +45,11 @@ class UnsplashModel extends Model
 
         curl_close($ch);
 
-        echo $output;
+        $unsplashtoken=$output[0];
+
+        echo $unsplashtoken;
 
     }
+
 
 }

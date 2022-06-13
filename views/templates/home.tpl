@@ -27,7 +27,7 @@
 
         <section id="showcase">
             <div class="text">
-                <h1>Social Media Box testareeee</h1>
+                <h1>Social Media Box </h1>
                 <p>SMB is an aggregator-type web application through which a user is able to manage the photos
                     they have stored on various platforms that allow the distribution of photos (Instagram,
                     and Twitter). The application is able to take personal images from the two platforms together with
