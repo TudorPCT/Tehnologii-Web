@@ -9,7 +9,7 @@ function getAccounts(){
 
     console.log('Bearer ' + sessionStorage.getItem("jwt"));
 
-    xmlhttp.open("GET","/Tehnologii-Web/index.php?load=accounts", true);
+    xmlhttp.open("GET","/Tehnologii-Web/index.php?load=accounts/getAccounts", true);
     xmlhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem("jwt"));
 
     xmlhttp.send();
