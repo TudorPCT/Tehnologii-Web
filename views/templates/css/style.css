@@ -192,10 +192,10 @@ input[type="text"],  input[type="password"]{
 }
 
 
-#column{
-    display: -ms-flexbox; /* IE10 */
+#Wrapper{
+    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: 0 4px;
     margin-top: 5%;
@@ -204,9 +204,8 @@ input[type="text"],  input[type="password"]{
     margin-bottom: 5%;
 }
 
-/* Create four equal columns that sits next to each other */
-.Wrapper {
-    -ms-flex: 25%; /* IE10 */
+.column {
+    -ms-flex: 25%;
     flex: 25%;
     max-width: 25%;
     padding: 0 4px;
