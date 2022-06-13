@@ -15,7 +15,7 @@ class AccountsModel extends Model
         $this->setSql($querry);
         $result = $this->getAll();
         for($index = 0; $index < sizeof($result); $index++) {
-            echo "<div class=\"acoounts\">$result[$index]['username']</div>" ;
+            echo $result[$index]["username"] ;
         }
 
     }
