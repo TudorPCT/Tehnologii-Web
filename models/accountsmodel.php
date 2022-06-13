@@ -12,15 +12,13 @@ class AccountsModel extends Model
         $this->setSql("select * from accounts;");
         $result = $this->getAll();
 //        echo "dunt in functie";
-<<<<<<< Updated upstream
-        echo $result;
-=======
-        echo $result[0]["username"];
->>>>>>> Stashed changes
 
-        while ($row = pg_fetch_row($result)) {
-            echo "Author: $row[0]  E-mail: $row[1]";
-            echo "<br />\n";
-        }
+        echo $result[0]["username"];
+
+
+  //      while ($row = pg_fetch_row($result)) {
+   //         echo "Author: $row[0]  E-mail: $row[1]";
+   //         echo "<br />\n";
+   //     }
     }
 }
