@@ -12,7 +12,7 @@ class AccountsController extends Controller
             http_response_code(401);
             exit(401);
         }else{
-            this->model->getAccounts($token);
+            $this->model->getAccounts($token);
         }
 
     }
