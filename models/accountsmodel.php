@@ -12,7 +12,7 @@ class AccountsModel extends Model
         $this->setSql("select * from accounts");
         $result = $this->getAll();
 //        echo "dunt in functie";
-        echo $result;
+        echo $result->username;
 
 //        while ($row = pg_fetch_row($result)) {
 //            echo "Author: $row[0]  E-mail: $row[1]";
