@@ -16,6 +16,7 @@ class AccountsModel extends Model
         $result = $this->getAll();
         for($index = 0; $index < sizeof($result); $index++) {
             echo $result[$index]["username"] ;
+            echo "  ";
         }
         return true;
 
