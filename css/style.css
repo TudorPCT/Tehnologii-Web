@@ -355,10 +355,4 @@ div.sidenav li{
         display: flex;
         flex-direction: column;
     }
-    .accountsDB {
-        display: flex;
-        flex-flow: column;
-        color: #b8c1ec;
-        font-size: 10%;
-    }
 }

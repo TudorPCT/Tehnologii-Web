@@ -496,12 +496,17 @@ div.sidenav li{
      padding: 3%;
  }
 
-
-.accounts .account .id a{
-    color:#232946;
-    text-decoration:none;
-    font-size:30px;
+.accountsDB {
+    display: flex;
+    flex-flow: column;
+    color: #232946;
+    font-size: 30px;
 }
+/*.accounts .account .id a{*/
+/*    color:#232946;*/
+/*    text-decoration:none;*/
+/*    font-size:30px;*/
+/*}*/
 
 
 /* Responsive layout - makes a two column-layout instead of four columns */
