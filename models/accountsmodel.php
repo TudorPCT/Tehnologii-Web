@@ -15,8 +15,7 @@ class AccountsModel extends Model
         $this->setSql($querry);
         $result = $this->getAll();
         for($index = 0; $index < sizeof($result); $index++) {
-            echo $result[$index]["username"] ;
-            echo "  ";
+            echo $result[$index]["username"] .PHP_EOL;
         }
 //        return false;
 
