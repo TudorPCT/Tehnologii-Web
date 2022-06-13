@@ -72,26 +72,26 @@ class UnsplashModel extends Model
         $username=$response['username'];
 
         $payload=json_decode(extractTokenPayload($token),true);
-        echo $payload['id'];
-//            $this->setSql("insert into accounts (user_id, username, account_token) values (:user_id,:username,:unsplashToken);");
-//
-//            $insert_array = [
-//                "user_id" => $user_id,
-//                "username" => $username,
-//                "unsplashToken" => $unsplashToken
-//
-//            ];
-//
-//            $sth = $this->conn->prepare($this->querry);
-//
-//            if ($sth->execute($insert_array)) {
-//                http_response_code(201);
-//                echo json_encode(array("message" => "Account added."));
-//                return true;
-//            } else {
-//                http_response_code(503);
-//                echo json_encode(array("message" => "Unable to add account."));
-//            }
+        $user_id=$payload['id'];
+            $this->setSql("insert into accounts (user_id, username, account_token) values (:user_id,:username,:unsplashToken);");
+
+            $insert_array = [
+                "user_id" => $user_id,
+                "username" => $username,
+                "unsplashToken" => $unsplashToken
+
+            ];
+
+            $sth = $this->conn->prepare($this->querry);
+
+            if ($sth->execute($insert_array)) {
+                http_response_code(201);
+                echo json_encode(array("message" => "Account added."));
+                return true;
+            } else {
+                http_response_code(503);
+                echo json_encode(array("message" => "Unable to add account."));
+            }
 
     }
 
