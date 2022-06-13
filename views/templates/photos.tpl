@@ -26,40 +26,7 @@
             </div>
         </header>
         <div class="row">
-            <div class="column">
-                <a href="photo.html"><img src="./img/art.jpg"></a>
-                <img src="./img/dice.jpg">
-                <img src="./img/urban.jpg">
-                <img src="./img/love.jpg">
-                <img src="./img/money.jpg">
-                <img src="./img/nature.jpg">
-                <img src="./img/stone.jpg">
-            </div>
-            <div class="column">
-                <img src="./img/nature.jpg">
-                <img src="./img/pills.jpg">
-                <img src="./img/shells.jpg">
-                <img src="./img/urban.jpg">
-                <img src="./img/dice.jpg">
-                <img src="./img/art.jpg">
-            </div>
-            <div class="column">
-                <img src="./img/art.jpg">
-                <img src="./img/dice.jpg">
-                <img src="./img/urban.jpg">
-                <img src="./img/love.jpg">
-                <img src="./img/money.jpg">
-                <img src="./img/nature.jpg">
-                <img src="./img/stone.jpg">
-            </div>
-            <div class="column">
-                <img src="./img/nature.jpg">
-                <img src="./img/pills.jpg">
-                <img src="./img/shells.jpg">
-                <img src="./img/urban.jpg">
-                <img src="./img/dice.jpg">
-                <img src="./img/art.jpg">
-            </div>
+
         </div>
     <!-- Side navigation -->
         <div class="sidenav">

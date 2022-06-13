@@ -3,8 +3,8 @@ function getPhotos(){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-      //  if (this.status === 401)
-         //   window.location.replace("");
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
+            document.getElementById("row").innerHTML = this.responseText;
     };
 
     console.log(sessionStorage.getItem("jwt"));
