@@ -498,7 +498,7 @@ div.sidenav li{
 
 .accountsDB {
     display: flex;
-    flex-flow: column;
+    flex-direction:column;
     color: #232946;
     font-size: 30px;
 }
