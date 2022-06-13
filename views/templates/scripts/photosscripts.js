@@ -4,7 +4,7 @@ function getPhotos(){
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("Wrapper").innerHTML = this.responseText;
+            document.getElementsByClassName("Wrapper").innerHTML = this.responseText;
         }
 
     };

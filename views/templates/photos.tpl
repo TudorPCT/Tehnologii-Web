@@ -26,7 +26,7 @@
             </div>
         </header>
 
-        <div id="Wrapper">
+        <div class="Wrapper">
 
         </div>
     <!-- Side navigation -->
