@@ -96,5 +96,26 @@ class UnsplashModel extends Model
 
     }
 
+    function getUserPhotos($user, $page){
+
+
+        $userJWT = null; //TODO
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $user . "?per_page=15");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $userJWT
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $photoList = curl_exec($ch);
+        curl_close($ch);
+
+        echo $photoList;
+    }
 
 }

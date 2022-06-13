@@ -14,6 +14,7 @@ function signin() {
                 window.location.href = 'index.php?load=photos';
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
+                return false;
             }
         }
 
