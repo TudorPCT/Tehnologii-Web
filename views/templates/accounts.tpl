@@ -31,7 +31,6 @@
                 Linked accounts
             </div>
                     <div id ="accountsDB">
-
                     </div>
         </div>
 
