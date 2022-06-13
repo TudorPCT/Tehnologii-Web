@@ -42,11 +42,10 @@ class UnsplashModel extends Model
         ));
 
         $output = curl_exec($ch);
+        curl_close($ch);
+
         echo $output;
         $response = json_decode($output,true);
-
-
-        curl_close($ch);
         echo $response['access_token'];
         echo $response['refresh_token'];
 
@@ -67,9 +66,11 @@ class UnsplashModel extends Model
         );
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
-        $resp = curl_exec($curl);
+        $user = curl_exec($curl);
         curl_close($curl);
-        echo $resp;
+//        echo $user;
+        $response = json_decode($user,true);
+        echo $response['username'];
 
     }
 
