@@ -30,6 +30,9 @@ header("Access-Control-Allow-Methods: *");
 
                 http_response_code(401);
                 exit(401);
+            }else {
+                $controller = "accounts";
+                $action = "index";
             }
         }
     }
