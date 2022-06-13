@@ -14,9 +14,13 @@ class AccountsModel extends Model
         $querry="select * from accounts where user_id=".$user_id.";";
         $this->setSql($querry);
         $result = $this->getAll();
+        echo "<ul>";
         for($index = 0; $index < sizeof($result); $index++) {
+            echo "<li>";
             echo $result[$index]["username"] .PHP_EOL;
+            echo "<\li>";
         }
+        echo "<\ul>";
         return false;
 
     }
