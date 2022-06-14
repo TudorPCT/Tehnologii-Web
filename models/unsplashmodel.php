@@ -46,8 +46,8 @@ class UnsplashModel extends Model
 
 //        echo $output;
         $response = json_decode($output,true);
-        echo $response['access_token'];
-        echo $response['refresh_token'];
+//        echo $response['access_token'];
+//        echo $response['refresh_token'];
 
         $unsplashToken=$response['access_token'];
 //        $unsplashRefreshToken=$response['refresh_token'];
@@ -68,7 +68,7 @@ class UnsplashModel extends Model
         curl_close($curl);
 //        echo $user;
         $response = json_decode($user,true);
-        echo $response['username'];
+//        echo $response['username'];
         $username=$response['username'];
 
         $payload=json_decode(extractTokenPayload($token),true);
@@ -89,7 +89,7 @@ class UnsplashModel extends Model
 
             if ($sth->execute($insert_array)) {
                 http_response_code(201);
-                echo json_encode(array("message" => "Account added."));
+//                echo json_encode(array("message" => "Account added."));
                 return true;
             } else {
                 http_response_code(503);
