@@ -111,7 +111,7 @@ class UnsplashModel extends Model
         if ($userData === null)
             return null;
 
-        echo "*" . $userData . "*";
+        echo "*" . $userData["username"] . $userData["account_token"]. "*";
 
         return;
 
