@@ -74,29 +74,29 @@ class UnsplashModel extends Model
         $payload=json_decode(extractTokenPayload($token),true);
         $user_id=$payload['id'];
 
-            $this->setSql("insert into accounts (user_id, username, account_token,platform) values (:user_id,:username,:unsplashToken,:platform);");
+        $this->setSql("insert into accounts (user_id, username, account_token,platform) values (:user_id,:username,:unsplashToken,:platform);");
 
 
-            $insert_array = [
-                "user_id" => $user_id,
-                "username" => $username,
-                "unsplashToken" => $unsplashToken,
-                "platform"=>"unsplash"
+        $insert_array = [
+            "user_id" => $user_id,
+            "username" => $username,
+            "unsplashToken" => $unsplashToken,
+            "platform"=>"unsplash"
 
-            ];
+        ];
 
-            $sth = $this->conn->prepare($this->querry);
+        $sth = $this->conn->prepare($this->querry);
 
-            if ($sth->execute($insert_array)) {
+        if ($sth->execute($insert_array)) {
 //                http_response_code(201);
 //                echo json_encode(array("message" => "Account added."));
 //                return true;
-            header('Location: ./?load=accounts',true);
-            die();
-            } else {
-                http_response_code(503);
-                echo json_encode(array("message" => "Unable to add account."));
-            }
+        header('Location: ./?load=accounts',true);
+        die();
+        } else {
+            http_response_code(503);
+            echo json_encode(array("message" => "Unable to add account."));
+        }
 
 
     }
@@ -108,6 +108,10 @@ class UnsplashModel extends Model
         $userData = $this->getRow($data);
         if ($userData === null)
             return null;
+
+        echo $userData;
+
+        echo "*";
 
         $ch = curl_init();
 
@@ -122,8 +126,9 @@ class UnsplashModel extends Model
 
         $photoList = curl_exec($ch);
         curl_close($ch);
-
+        echo "*";
         echo $photoList;
+        echo "*";
     }
 
 }

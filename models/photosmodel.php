@@ -13,7 +13,8 @@ class PhotosModel extends Model
 
         $unsplashModel = new UnsplashModel();
         $count = 0;
-        $unsplashPhotos = $unsplashModel->getPhotos($user_id);
+        $unsplashModel->getPhotos($user_id);
+        return;
 
         echo "<div class=\"column\">" . PHP_EOL;
 
