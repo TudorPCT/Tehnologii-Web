@@ -26,7 +26,7 @@ class AccountsModel extends Model
             echo " <img src=\"views/templates/img/unsplashIcon.png\">";
             else
                 echo " <img src=\"views/templates/img/twitter.png\">";
-            echo "<a href=\"https://www.unspalsh.com/".$result[$index]["username"]."/likes\" target=\"_blank\">";
+            echo "<a href=\"https://www.unsplash.com/".$result[$index]["username"]."/likes\" target=\"_blank\">";
             echo $result[$index]["username"];
             echo  "</a>";
             echo "</div>";
