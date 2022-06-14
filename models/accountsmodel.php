@@ -14,13 +14,22 @@ class AccountsModel extends Model
         $querry="select * from accounts where user_id=".$user_id.";";
         $this->setSql($querry);
         $result = $this->getAll();
-        echo "<ul>";
+//        echo "<ul>";
         for($index = 0; $index < sizeof($result); $index++) {
-            echo "<li>";
-            echo $result[$index]["username"] .PHP_EOL;
-            echo "</li>";
+//            if($result[$index][""])
+//            echo "<li>";
+//            echo $result[$index]["username"] .PHP_EOL;
+//            echo "</li>";
+            echo "<div class=\"account\">";
+            echo "<div class=\"id\">";
+            echo " <img src=\"./img/instagram.png\">";
+            echo "<a href=\"https://www.instagram.com/\" target=\"_blank\">";
+            echo $result[$index]["username"];
+            echo  "</a>";
+            echo "</div>";
+            echo "</div>";
         }
-        echo "</ul>";
+//        echo "</ul>";
         return false;
 
     }

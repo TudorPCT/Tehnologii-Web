@@ -26,15 +26,13 @@
             </div>
         </header>
 
-        <div class="accounts">
-            <div id="title">
-                Linked accounts
-            </div>
-            <div id ="accountsDB">
-
-
-            </div>
+    <div class="accounts">
+        <div id="title">
+            Linked accounts
         </div>
+
+
+    </div>
 
         <div class="sidenav">
             <div class="sidebtn">
