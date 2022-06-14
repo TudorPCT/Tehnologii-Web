@@ -4,7 +4,7 @@ function getAccounts(){
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("accounts").innerHTML = this.responseText;
+            document.getElementById("accounts").value += this.responseText;
         }
 
     };
