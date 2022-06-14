@@ -88,10 +88,10 @@ class UnsplashModel extends Model
             $sth = $this->conn->prepare($this->querry);
 
             if ($sth->execute($insert_array)) {
-                http_response_code(201);
+//                http_response_code(201);
 //                echo json_encode(array("message" => "Account added."));
 //                return true;
-            header('Location: ./?load=accounts');
+            header('Location: ./?load=accounts',true);
             die();
             } else {
                 http_response_code(503);
