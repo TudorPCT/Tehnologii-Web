@@ -90,7 +90,7 @@ class UnsplashModel extends Model
             if ($sth->execute($insert_array)) {
                 http_response_code(201);
 //                echo json_encode(array("message" => "Account added."));
-                return true;
+//                return true;
             } else {
                 http_response_code(503);
                 echo json_encode(array("message" => "Unable to add account."));
