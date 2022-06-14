@@ -106,7 +106,7 @@ class UnsplashModel extends Model
 
         $data = ['user_id' => $user_id];
         echo "*";
-        $userData = $this->getAll($data);
+        $userData = $this->getRow();
         echo "*";
         if ($userData === null) {
             echo "!";
