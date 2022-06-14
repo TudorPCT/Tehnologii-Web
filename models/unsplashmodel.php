@@ -106,17 +106,13 @@ class UnsplashModel extends Model
 
         $data = ['user_id' => $user_id,
             'platform' => 'unsplash'];
-        echo "*";
+
         $userData = $this->getRow($data);
-        echo "*";
+
         if ($userData === null) {
             echo "!";
             return null;
         }
-        echo "*";
-        echo "*" . $userData["username"] . $userData["account_token"]. "*";
-
-        return;
 
         $ch = curl_init();
 
@@ -131,9 +127,9 @@ class UnsplashModel extends Model
 
         $photoList = curl_exec($ch);
         curl_close($ch);
-        echo "*";
+
         echo $photoList;
-        echo "*";
+
     }
 
 }
