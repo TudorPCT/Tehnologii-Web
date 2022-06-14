@@ -91,7 +91,7 @@ class UnsplashModel extends Model
                 http_response_code(201);
 //                echo json_encode(array("message" => "Account added."));
 //                return true;
-            header('Location:./?load=accounts');
+            header('Location: ./?load=accounts');
             die();
             } else {
                 http_response_code(503);
