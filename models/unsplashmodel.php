@@ -128,6 +128,7 @@ class UnsplashModel extends Model
         $photoList = curl_exec($ch);
         curl_close($ch);
 
+        echo 'https://api.unsplash.com/users/' . $data["username"] . "?per_page=15";
         echo $photoList;
 
     }
