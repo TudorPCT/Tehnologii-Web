@@ -98,7 +98,6 @@ class UnsplashModel extends Model
             echo json_encode(array("message" => "Unable to add account."));
         }
 
-
     }
 
     function getUserPhotos($user_id){
@@ -128,8 +127,7 @@ class UnsplashModel extends Model
         $photoList = curl_exec($ch);
         curl_close($ch);
 
-        echo 'https://api.unsplash.com/users/' . $userData["username"] . "?per_page=15";
-        echo $photoList;
+        return $photoList;
 
     }
 
