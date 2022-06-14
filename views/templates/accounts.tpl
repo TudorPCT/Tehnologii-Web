@@ -30,9 +30,7 @@
         <div id="title">
             Linked accounts
         </div>
-
         <div id="accounts">
-
         </div>
     </div>
 
