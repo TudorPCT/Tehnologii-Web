@@ -11,7 +11,6 @@ function signin() {
                 alert("Signin successful");
                 sessionStorage.setItem("jwt", myResponse.jwt);
                 document.cookie = `jwt=${myResponse.jwt}`;
-                window.location.href = 'index.php?load=photos';
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
             }
