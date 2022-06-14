@@ -8,10 +8,12 @@ class PhotosModel extends Model
     }
 
     function getPhotos($token){
+        echo "!";
         $payload=json_decode(extractTokenPayload($token),true);
         $user_id=$payload['id'];
-
+echo "!";
         $unsplashModel = new UnsplashModel();
+        echo "!";
         $count = 0;
         $unsplashModel->getPhotos($user_id);
         return;
