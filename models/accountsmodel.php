@@ -25,7 +25,7 @@ class AccountsModel extends Model
             if($result[$index]["platform"]=="unsplash")
             echo " <img src=\"views/templates/img/unsplashIcon.png\">";
             else
-                echo " <img src=\"views/templates/img/instagram.png\">";
+                echo " <img src=\"views/templates/img/twitter.png\">";
             echo "<a href=\"https://www.instagram.com/\" target=\"_blank\">";
             echo $result[$index]["username"];
             echo  "</a>";
