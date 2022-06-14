@@ -27,6 +27,7 @@ class PhotosModel extends Model
             $count++;
         }
 
+        echo "</div>" . PHP_EOL;
 
     }
 

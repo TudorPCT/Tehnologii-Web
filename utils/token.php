@@ -25,16 +25,21 @@ function createJWT($user_info){
 }
 
 function verify_token($token){
+    include ("config.php");
     if ($token === null)
         return false;
 
-    $token_exp = explode(".",$token);
+    $tokenExploded = explode(".",$token);
 
-    if(count($token_exp) !== 3)
+    if(count($tokenExploded) !== 3)
         return false;
 
-    //TODO
-    return true;
+    $signature = hash_hmac('sha256', $tokenExploded[0] . "." . $tokenExploded[1], $key, true);
+    $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
+
+    if ($base64UrlSignature === $tokenExploded[2])
+        return true;
+    return false;
 }
 
 function getBearerToken($headers) {
