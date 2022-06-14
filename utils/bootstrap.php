@@ -32,7 +32,10 @@ header("Access-Control-Allow-Methods: *");
             if($auth)
                 $controller = "logout";
         }else{
-;
+            if(!$auth){
+                http_response_code(401);
+                exit(401);
+            }
         }
 
         if (isset($params[1]) && !empty($params[1])) {
