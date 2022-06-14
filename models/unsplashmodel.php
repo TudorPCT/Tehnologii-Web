@@ -95,6 +95,7 @@ class UnsplashModel extends Model
                 http_response_code(503);
                 echo json_encode(array("message" => "Unable to add account."));
             }
+            header('Location:./?load=accounts');
 
     }
 
