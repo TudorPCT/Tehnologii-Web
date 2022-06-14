@@ -26,11 +26,9 @@
             </div>
         </header>
 
-    <div class="accounts">
+    <div class="accounts" id="accounts">
         <div id="title">
             Linked accounts
-        </div>
-        <div id="accounts">
         </div>
     </div>
 
