@@ -17,7 +17,6 @@ header("Access-Control-Allow-Methods: *");
         if(verify_token($token)) {
             $auth = true;
             $controller = "accounts";
-            $action = "index";
         }
     }
 
@@ -27,18 +26,22 @@ header("Access-Control-Allow-Methods: *");
 
         $controller = ucwords($params[0]);
 
-        if (isset($params[1]) && !empty($params[1])) {
-            $action = $params[1];
-        } else
-            if (strtolower($controller) !== 'home'
-                && strtolower($controller) !== 'signin'
-                && strtolower($controller) !== 'register'
-                && strtolower($controller) !== 'unsplash'
-                && !$auth) {
-
+        if (strtolower($controller) === 'home'
+                || strtolower($controller) === 'signin'
+                || strtolower($controller) === 'register'){
+            if($auth)
+                $controller = "logout";
+        }else{
+            if(!$auth){
                 http_response_code(401);
                 exit(401);
             }
+        }
+
+        if (isset($params[1]) && !empty($params[1])) {
+            $action = $params[1];
+        }
+
     }
 
     $controller .= 'Controller';

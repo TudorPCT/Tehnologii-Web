@@ -8,14 +8,7 @@ class UnsplashController extends Controller
 
 
     function authorize(){
-        if (isset($_COOKIE['jwt'])) {
-            $token = $_COOKIE['jwt'];
-        }
-
-        if ($token === null || !verify_token($token)) {
-            http_response_code(401);
-            exit(401);
-        }
+        $token = $_COOKIE['jwt'];
 
         if(isset($_GET["code"]))
             $this->getJWT($token);

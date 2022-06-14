@@ -8,21 +8,8 @@ class PhotosController extends Controller
     }
 
     function getPhotos(){
-        $token = null;
-        if (isset($_COOKIE['jwt'])) {
-            $token = $_COOKIE['jwt'];
-        }else{
-            $headers = apache_request_headers();
-            $token = getBearerToken($headers);
-        }
-
-        if ($token === null || !verify_token($token)) {
-            http_response_code(401);
-            exit(401);
-        }else{
-            $this->model->getPhotos($token);
-        }
-
+        $token = $_COOKIE['jwt'];
+        $this->model->getPhotos($token);
     }
 
 }
