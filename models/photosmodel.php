@@ -7,7 +7,7 @@ class PhotosModel extends Model
         parent::__construct();
     }
 
-    function getPhotos(){
+    function getPhotos($token){
         $payload=json_decode(extractTokenPayload($token),true);
         $user_id=$payload['id'];
 
