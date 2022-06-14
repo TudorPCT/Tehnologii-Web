@@ -8,11 +8,12 @@ class PhotosModel extends Model
     }
 
     function getPhotos(){
-        $email = "tcosmin.pasat@gmail.com";
-        $tokenPayload = json_decode(extractTokenPayload($_COOKIE["jwt"]));
+        $payload=json_decode(extractTokenPayload($token),true);
+        $user_id=$payload['id'];
+
         $unsplashModel = new UnsplashModel();
         $count = 0;
-        $unsplashPhotos = $unsplashModel->getPhotos($tokenPayload['id']);
+        $unsplashPhotos = $unsplashModel->getPhotos($user_id);
 
         echo "<div class=\"column\">" . PHP_EOL;
 

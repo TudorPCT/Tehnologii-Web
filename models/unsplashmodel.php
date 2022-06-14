@@ -101,19 +101,22 @@ class UnsplashModel extends Model
 
     }
 
-    function getUserPhotos($user, $page){
+    function getUserPhotos($user){
 
-
-        $userJWT = null; //TODO
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = \'unsplash\''");
+        $data = ["user_id" => $user];
+        $userData = $this->getRow($data);
+        if ($userData === null)
+            return null;
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $user . "?per_page=15");
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $data["username"] . "?per_page=15");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
             "Accept: application/json",
-            "Authorization: Bearer " . $userJWT
+            "Authorization: Bearer " . $userData["account_token"]
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
