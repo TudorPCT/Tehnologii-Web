@@ -12,10 +12,8 @@ class PhotosModel extends Model
         $user_id=$payload['id'];
         $unsplashModel = new UnsplashModel();
         $count = 0;
-        $unsplashPhotos = $unsplashModel->getUserPhotos($user_id);
+        $unsplashPhotos = json_decode($unsplashModel->getUserPhotos($user_id), true);
 
-        echo $unsplashPhotos;
-return;
         echo "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
@@ -24,7 +22,7 @@ return;
                 echo "<div class=\"column\">" . PHP_EOL;
             }
 
-            echo "<img src=\"" . "./img/art.jpg". "\">" . PHP_EOL;
+            echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
 
             $count++;
         }
