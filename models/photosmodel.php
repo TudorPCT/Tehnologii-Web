@@ -12,7 +12,7 @@ class PhotosModel extends Model
         $user_id=$payload['id'];
         $unsplashModel = new UnsplashModel();
         $count = 0;
-        $unsplashPhotos = json_decode($unsplashModel->getUserPhotos($user_id), true);
+        $unsplashPhotos = $unsplashModel->getUserPhotos($user_id);
 
         echo $unsplashPhotos;
 return;
