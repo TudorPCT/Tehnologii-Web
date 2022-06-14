@@ -102,11 +102,12 @@ class UnsplashModel extends Model
     }
 
     function getUserPhotos($user_id){
-        $this->setSql("SELECT * FROM accounts WHERE platform = \'unsplash\'");
+        $this->setSql("SELECT * FROM accounts WHERE platform = :platform");
 
         $data = ['user_id' => $user_id];
+        $data = ['platform' => 'unsplash'];
         echo "*";
-        $userData = $this->getRow();
+        $userData = $this->getRow($data);
         echo "*";
         if ($userData === null) {
             echo "!";
