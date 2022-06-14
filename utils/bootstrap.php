@@ -5,8 +5,21 @@ header("Access-Control-Allow-Methods: *");
 
 
     //http://localhost:8080/Tehnologii-Web/index.php?load=Home/index
+    $auth = false;
+
     $controller = "Home";
     $action = "index";
+
+    $token = null;
+    if (isset($_COOKIE['jwt'])) {
+        $token = $_COOKIE['jwt'];
+
+        if(verify_token($token)) {
+            $auth = true;
+            $controller = "accounts";
+            $action = "index";
+        }
+    }
 
     if (isset($_GET['load'])) {
         $params = array();
@@ -16,31 +29,19 @@ header("Access-Control-Allow-Methods: *");
 
         if (isset($params[1]) && !empty($params[1])) {
             $action = $params[1];
-        } else {
-            $token = null;
-            if (isset($_COOKIE['jwt'])) {
-                $token = $_COOKIE['jwt'];
-            }
-
+        } else
             if (strtolower($controller) !== 'home'
                 && strtolower($controller) !== 'signin'
                 && strtolower($controller) !== 'register'
                 && strtolower($controller) !== 'unsplash'
-                && !verify_token($token)) {
+                && !$auth) {
 
                 http_response_code(401);
                 exit(401);
             }
-//else {
-//                $controller = "accounts";
-//                $action = "index";
-//            }
-        }
     }
 
     $controller .= 'Controller';
-
-
 
     if(!class_exists($controller)){
         http_response_code(404);
