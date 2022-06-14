@@ -27,7 +27,9 @@
         </header>
 
     <div id="accounts">
-
+        <div id="title">
+            Linked accounts
+        </div>
     </div>
 
         <div class="sidenav">
