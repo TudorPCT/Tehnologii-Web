@@ -14,7 +14,7 @@
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./views/templates/img/logo.jpeg">
+                    <img src="./views/templates/img/logo.jpeg" alt="Logo">
                 </div>
                 <nav>
                     <ul>
@@ -41,7 +41,7 @@
                 </p>
             </div>
             <div id="testphoto">
-                <img src="./views/templates/img/social-media-feed-aggregator.png">
+                <img src="./views/templates/img/social-media-feed-aggregator.png" alt="Display">
             </div>
         </section>
 
