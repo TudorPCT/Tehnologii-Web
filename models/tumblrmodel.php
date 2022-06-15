@@ -109,7 +109,7 @@ class TumblrModel extends Model
     function refreshToken($jwtToken) {
         include("config.php");
 
-        $payload = json_decode(extractTokenPayload($token), true);
+        $payload = json_decode(extractTokenPayload($jwtToken), true);
         $user_id = $payload['id'];
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
