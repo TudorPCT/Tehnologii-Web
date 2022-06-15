@@ -22,7 +22,6 @@ class TumblrModel extends Model
     function addTumblrToken($code, $token) {
         $ch = curl_init();
         include("config.php");
-
         $params = "grant_type=" . "authorization_code"
                 . "&code=" . $code
                 . "&client_id=" . $tumblrClientId
@@ -40,7 +39,7 @@ class TumblrModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
-        //echo $output;
+        // echo $output;
 
         $response = json_decode($output, true);
         $tumblrToken = $response['access_token'];
@@ -59,9 +58,31 @@ class TumblrModel extends Model
         $user = curl_exec($curl);
         curl_close($curl);
 
-        //echo $user;
+        // echo $user;
 
         $response = json_decode($user, true);
-        echo $response['response']['user']['name'];
+        // echo $response['response']['user']['name'];
+        $username = $response['response']['user']['name'];
+
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("insert into accounts (user_id, username, account_token, platform) values (:user_id,:username,:tumblrToken,:platform);");
+
+        $insert_array = [
+            "user_id" => $user_id,
+            "username" => $username,
+            "tumblrToken" => $tumblrToken,
+            "platform" => "tumblr"
+        ];
+
+        $sth = $this->conn->prepare($this->querry);
+        if ($sth->execute($insert_array)) {
+            header('Location: ./?load=accounts', true);
+            die();
+        } else {
+            http_response_code(503);
+            echo json_encode(array("message" => "Unable to add account."));
+        }
     }
 }
