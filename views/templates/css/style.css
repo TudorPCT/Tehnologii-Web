@@ -606,3 +606,68 @@ div.sidenav li{
         margin: 10%;
     }
 }
+
+#leftSide {
+    color: #aaa;
+    width: 186px;
+    padding: 5px;
+    margin: 0 20px;
+    overflow: auto;
+    background-color: #fff;
+    border: dashed 1px #bbb;
+    box-shadow: 0px 0px 0px 5px #f7f7f7, 0px 0px 2px 7px #bbb, 0px 0px 5px 5px #f7f7f7 inset;
+}
+
+#dropZone {
+    padding: 30px 0;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#dropZone.dragover {
+    background: #DCDCDC;
+}
+
+
+#buttonsArea {
+    margin: 0 15px 0 50px;
+}
+
+select {
+    color: #333;
+    display: block;
+    max-width: 100%;
+    border-radius: 3px;
+    height: auto !important;
+    border: 1px solid #e3e3e3;
+    line-height: 16px !important;
+    padding: 10px 70px 10px 13px !important;
+    background: #fff url("selectbox_arrow.png") right center no-repeat;
+    appearance: none; /* this is must */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#singleUploadSection {
+    color: #333;
+    width: 194px;
+    padding: 6px;
+    margin: 10px 0;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+#background {
+	padding: 5px;
+    position: absolute;
+    background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.layer {
+	padding: 5px;
+    position: absolute;
+    background-color: #fff;
+}
