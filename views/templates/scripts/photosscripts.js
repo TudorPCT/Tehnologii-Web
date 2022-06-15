@@ -1,5 +1,7 @@
 function getUnsplashPhotos(){
 
+    document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
+
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
