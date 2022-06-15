@@ -6,7 +6,7 @@ class RegisterController extends Controller{
     }
 
 
-    function signup(){
+    function signup($token){
         if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email'])
             && isset($_POST['password']) && isset($_POST['password2'])) {
             $first_name = $_POST['first_name'];

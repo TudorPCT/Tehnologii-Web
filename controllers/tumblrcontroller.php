@@ -7,9 +7,7 @@ class TumblrController extends Controller
     }
 
 
-    function authorize(){
-        $token = $_COOKIE['jwt'];
-
+    function authorize($token){
         if (isset($_GET["code"]) && isset($_GET["state"])) {
             if ($_GET["state"] == 123) {
                 $this->getJWT($token);
@@ -30,9 +28,7 @@ class TumblrController extends Controller
         $this->model->addTumblrToken($_GET["code"], $token);
     }
 
-    function photos(){
-        $token = $_COOKIE['jwt'];
-        
+    function photos($token){
         print_r($this->model->getUserPhotos($token));
     }
 }

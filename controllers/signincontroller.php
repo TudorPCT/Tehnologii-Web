@@ -7,7 +7,7 @@ class SigninController extends Controller{
     }
 
 
-    function signin(){
+    function signin($token){
         if(isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
