@@ -196,7 +196,7 @@ input[type="text"],  input[type="password"]{
     flex-direction: column;
 }
 
-#row{
+#Wrapper #row{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -208,19 +208,19 @@ input[type="text"],  input[type="password"]{
     margin-bottom: 5%;
 }
 
-.column {
+#Wrapper #row .column {
     -ms-flex: 25%;
     flex: 25%;
     max-width: 25%;
     padding: 0 4px;
 }
 
-.column img {
+#Wrapper #row .column img {
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
 }
-.column img:hover{
+#Wrapper #row .column img:hover{
     transform: scale(1.2);
 }
 
