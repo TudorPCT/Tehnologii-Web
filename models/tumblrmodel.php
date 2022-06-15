@@ -10,9 +10,9 @@ class TumblrModel extends Model
     function getCode(){
         include ("config.php");
         $link = "https://www.tumblr.com/oauth2/authorize?client_id="
-            . $unsplashClientId
+            . $tumblrClientId
             . "&response_type=code"
-            . "&scope=basic write"
+            . "&scope=basic%20write"
             . "&state=123"
             ;
         header("Location: " . $link);
