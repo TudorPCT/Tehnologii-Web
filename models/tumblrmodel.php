@@ -88,7 +88,7 @@ class TumblrModel extends Model
     }
 
     function getUserPhotos($token) {
-        $tumblrToken = refreshToken($token);
+        $tumblrToken = $this.refreshToken($token);
 
         // $url = 'https://api.tumblr.com/v2/user/likes';
         // $ch = curl_init($url);
@@ -106,7 +106,7 @@ class TumblrModel extends Model
         return $tumblrToken;
     }
 
-    function refreshToken($jwtToken) {
+    private function refreshToken($jwtToken) {
         include("config.php");
 
         $payload = json_decode(extractTokenPayload($jwtToken), true);
