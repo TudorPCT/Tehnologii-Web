@@ -108,9 +108,9 @@ class TumblrModel extends Model
 
         $liked_posts = $response['response']['liked_posts'];
 
-        foreach ($liked_posts as $post) {
+        foreach ($liked_posts as $index => $post) {
             $photos = $post['photos'];
-            foreach ($photos as $photo) {
+            foreach ($photos as $asphoto => $photo) {
                 $photoUrl = $photo['caption']['original_size']['url'];
                 array_push($photoList, $photoUrl);
             }
