@@ -14,6 +14,8 @@ class PhotosModel extends Model
         $count = 0;
         $unsplashPhotos = json_decode($unsplashModel->getUserPhotos($user_id), true);
 
+        echo "<h1>Unsplash</h1>";
+        echo "<div id=\"row\">" . PHP_EOL;
         echo "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
@@ -26,6 +28,8 @@ class PhotosModel extends Model
 
             $count++;
         }
+
+        echo "</div>" . PHP_EOL;
 
         echo "</div>" . PHP_EOL;
 
