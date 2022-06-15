@@ -297,6 +297,9 @@ div.sidenav li{
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #d08691;}
 
+#dropdown-content-1{
+    background-color: transparent;
+}
 
   /* The sidebar menu */
 .sidenav {
