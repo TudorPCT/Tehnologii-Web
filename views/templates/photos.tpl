@@ -34,7 +34,7 @@
             <div class="sidebtn">
                 <div class="dropdown">
                     <button class="dropbtn">Show Photos</button>
-                    <div class="dropdown-content-1">
+                    <div class="dropdown-content" id="dropdown-content-1">
                         <button class="dropbtn">Unsplash</button>
                         <button class="dropbtn">Tumblr</button>
                     </div>

@@ -278,7 +278,7 @@ div.sidenav li{
     overflow: scroll;
   }
 
- .dropdown-content-1{
+ #dropdown-content-1{
      background-color: transparent;
  }
   
