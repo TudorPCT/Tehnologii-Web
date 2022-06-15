@@ -13,7 +13,7 @@ function signin() {
 
                 var now = new Date();
                 var time = now.getTime();
-                var expireTime = time + 10000*36000;
+                var expireTime = time + 100000*36000;
                 now.setTime(expireTime);
                 document.cookie = `jwt=${myResponse.jwt};expires=${now.toUTCString()};path=/`;
 
