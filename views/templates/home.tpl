@@ -18,8 +18,8 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"> <a href="./index.php?load=home/">Home</a></li>
-                        <li><a href="./index.php?load=signin">Sign In / Register</a></li>
+                        <li class="current"> <a href="./?load=home/">Home</a></li>
+                        <li><a href="./?load=signin">Sign In / Register</a></li>
                     </ul>
                 </nav>
             </div>

@@ -17,8 +17,8 @@
                 </div>
                 <nav>
                 <ul>
-                    <li> <a href="./index.php?load=home">Home</a></li>
-                    <li class="current"><a href="./index.php?load=signin">Sign In / Register</a></li>
+                    <li> <a href="./?load=home">Home</a></li>
+                    <li class="current"><a href="./?load=signin">Sign In / Register</a></li>
                 </ul>
                 </nav>
             </div>
@@ -37,7 +37,7 @@
 
                 <label id="rememberme"><input name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
 
-                <label id="createacc"><a href="./index.php?load=Register">Create new account</a></label>
+                <label id="createacc"><a href="./?load=Register">Create new account</a></label>
 
                 <label id="errorLabel"></label>
                 <input class="btn" type="submit" value="Signin">
