@@ -20,13 +20,17 @@ class AccountsModel extends Model
 //            echo "</li>";
             echo "<div class=\"account\">";
             echo "<div class=\"id\">";
-            if($result[$index]["platform"]=="unsplash")
+            if($result[$index]["platform"]=="unsplash") {
                 echo " <img src=\"views/templates/img/unsplashIcon.png\">";
-            else if ($result[$index]["platform"] == "tumblr")
+                echo "<a href=\"https://www.unsplash.com/".$result[$index]["username"]."/likes\" target=\"_blank\">";
+            }
+            else if ($result[$index]["platform"] == "tumblr") {
                 echo " <img src=\"views/templates/img/tumblr.png\">";
+                echo "<a href=\"https://www.tumblr.com/likes\" target=\"_blank\">";
+            }
             else
                 echo " <img src=\"views/templates/img/twitter.png\">";
-            echo "<a href=\"https://www.unsplash.com/".$result[$index]["username"]."/likes\" target=\"_blank\">";
+            
             echo $result[$index]["username"];
             echo  "</a>";
             echo "</div>";
