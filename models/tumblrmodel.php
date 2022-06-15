@@ -142,7 +142,7 @@ class TumblrModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
-        echo $tumblrToken;
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 
         $response = json_decode($output, true);
         $tumblrToken = $response['access_token'];
