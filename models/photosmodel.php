@@ -14,6 +14,11 @@ class PhotosModel extends Model
         $count = 0;
         $unsplashPhotos = json_decode($unsplashModel->getUserPhotos($user_id), true);
 
+        //if(count($unsplashPhotos) === 0){
+            echo "<h1>No Photos Found</h1>";
+            return;
+      //  }
+
         echo "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
