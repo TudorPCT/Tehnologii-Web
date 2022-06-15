@@ -151,6 +151,7 @@ class TumblrModel extends Model
             'user_id' => $user_id
         ];
 
+        echo $tumblrToken;
         return $tumblrToken;
     }
 }
