@@ -40,6 +40,25 @@ class TumblrModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
-        echo $output;
+        //echo $output;
+
+        $response = json_decode($output, true);
+        $tumblrToken = $response['access_token'];
+
+        $url = "https://api.tumblr.com/v2/user/info";
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $tumblrToken
+        );
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+        $user = curl_exec($curl);
+        curl_close($curl);
+
+        echo $user;
     }
 }
