@@ -90,20 +90,20 @@ class TumblrModel extends Model
     function getUserPhotos($token) {
         $tumblrToken = $this->refreshToken($token);
 
-        // $url = 'https://api.tumblr.com/v2/user/likes';
-        // $ch = curl_init($url);
-        // curl_setopt($ch, CURLOPT_URL, $url);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // $headers = array(
-        //     "Accept: application/json",
-        //     "Authorization: Bearer " . $tumblrToken
-        // );
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $url = 'https://api.tumblr.com/v2/user/likes';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $tumblrToken
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        // $photoList = curl_exec($ch);
-        // curl_close($ch);
+        $photoList = curl_exec($ch);
+        curl_close($ch);
 
-        return $tumblrToken;
+        return $photoList;
     }
 
     private function refreshToken($jwtToken) {
@@ -122,46 +122,44 @@ class TumblrModel extends Model
 
         $tumblrRefreshToken = $userData['account_token'];
 
-        return $tumblrRefreshToken;
-
-        // $ch = curl_init();
+        $ch = curl_init();
         
-        // $params = "grant_type=" . "refresh_token"
-        //         . "&refresh_token=" . $tumblrRefreshToken
-        //         . "&client_id=" . $tumblrClientId
-        //         . "&client_secret=" . $tumblrSecret;
+        $params = "grant_type=" . "refresh_token"
+                . "&refresh_token=" . $tumblrRefreshToken
+                . "&client_id=" . $tumblrClientId
+                . "&client_secret=" . $tumblrSecret;
         
-        // curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
-        // curl_setopt($ch, CURLOPT_POST, 1);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        // curl_setopt($ch,CURLOPT_HTTPHEADER,array (
-        //     "Accept: application/json"
-        // ));
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array (
+            "Accept: application/json"
+        ));
 
-        // $output = curl_exec($ch);
-        // curl_close($ch);
+        $output = curl_exec($ch);
+        curl_close($ch);
 
-        // $response = json_decode($output, true);
-        // $tumblrToken = $response['access_token'];
-        // $tumblrRefreshToken = $response['refresh_token'];
+        $response = json_decode($output, true);
+        $tumblrToken = $response['access_token'];
+        $tumblrRefreshToken = $response['refresh_token'];
 
-        // $this->setSql("UPDATE accounts SET account_token = :refresh_token WHERE user_id = :user_id AND platform = :platform");
-        // $data = [
-        //     'refresh_token' => $tumblrRefreshToken,
-        //     'user_id' => $user_id,
-        //     'platform' => 'tumblr'
-        // ];
+        $this->setSql("UPDATE accounts SET account_token = :refresh_token WHERE user_id = :user_id AND platform = :platform");
+        $data = [
+            'refresh_token' => $tumblrRefreshToken,
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
 
-        // $sth = $this->conn->prepare($this->querry);
-        // if ($sth->execute($data)) {
+        $sth = $this->conn->prepare($this->querry);
+        if ($sth->execute($data)) {
             
-        // } else {
-        //     http_response_code(503);
-        //     echo json_encode(array("message" => "Unable to refresh token."));
-        // }
+        } else {
+            http_response_code(503);
+            echo json_encode(array("message" => "Unable to refresh token."));
+        }
 
-        // return $tumblrToken;
+        return $tumblrToken;
     }
 }
