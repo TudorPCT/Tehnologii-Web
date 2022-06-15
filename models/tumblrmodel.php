@@ -59,6 +59,9 @@ class TumblrModel extends Model
         $user = curl_exec($curl);
         curl_close($curl);
 
-        echo $user;
+        //echo $user;
+
+        $respone = json_decode($user, true);
+        echo $response['response']['user']['name'];
     }
 }
