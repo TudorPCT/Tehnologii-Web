@@ -555,6 +555,11 @@ div.sidenav li{
     .onephoto .photobutton button{
         font-size: smaller;
     }
+
+    #showcase{
+        flex-flow: column;
+
+    }
 }
 
 
