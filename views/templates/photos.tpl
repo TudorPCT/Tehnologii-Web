@@ -33,11 +33,10 @@
         <div class="sidenav">
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn">Add photo</button>
+                    <button class="dropbtn">Show Photos From</button>
                     <div class="dropdown-content">
-                        <a href="index.html">Computer</a>
-                        <a href="index.html">Instagram</a>
-                        <a href="index.html">Twitter</a>
+                        <button class="dropbtn">Unsplash</button>
+                        <button class="dropbtn">Tumblr</button>
                     </div>
                 </div>
             </div>
