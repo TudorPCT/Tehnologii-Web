@@ -7,8 +7,7 @@ class PhotosController extends Controller
         parent::__construct();
     }
 
-    function getUnsplashPhotos(){
-        $token = $_COOKIE['jwt'];
+    function getUnsplashPhotos($token){
         $this->model->getUnsplashPhotos($token);
     }
 

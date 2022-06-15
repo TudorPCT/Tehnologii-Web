@@ -57,7 +57,7 @@ header("Access-Control-Allow-Methods: *");
     $load = new $controller();
     if (method_exists($load, $action))
     {
-        $load->$action();
+        $load->$action($token);
     }
     else
     {
