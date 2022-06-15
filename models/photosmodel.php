@@ -8,11 +8,24 @@ class PhotosModel extends Model
     }
 
     function getUnsplashPhotos($token){
-        $payload=json_decode(extractTokenPayload($token),true);
-        $user_id=$payload['id'];
-        $unsplashModel = new UnsplashModel();
+
+        $token = $_COOKIE['jwt'];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "https://socialmediabpx.herokuapp.ro/?load=unsplash/getUserPhotos");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $token
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $unsplashPhotos = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
         $count = 0;
-        $unsplashPhotos = json_decode($unsplashModel->getUserPhotos($user_id), true);
 
         if(count($unsplashPhotos) === 0){
             echo "<h1>No Photos Found</h1>";

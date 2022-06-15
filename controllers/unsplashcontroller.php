@@ -25,6 +25,8 @@ class UnsplashController extends Controller
     }
 
     function getUserPhotos(){
-        $this->model->getUserPhotos("tudorpc", 1);
+        $token = $_COOKIE['jwt'];
+        $payload=json_decode(extractTokenPayload($token),true);
+        echo $this->model->getUserPhotos($payload['id']);
     }
 }

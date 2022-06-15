@@ -44,7 +44,6 @@ function verify_token($token){
 
 function getBearerToken($headers) {
     if (isset($headers['Authorization'])) {
-        $params = array();
         $params = explode(" ", $headers['Authorization']);
         if (isset($params[0]) && $params[0] === 'Bearer' && isset($params[1])) {
             return $params[1];
