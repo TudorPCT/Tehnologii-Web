@@ -100,8 +100,10 @@ class TumblrModel extends Model
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $photoList = curl_exec($ch);
+        $result = curl_exec($ch);
         curl_close($ch);
+
+        $photoList = json_decode($result, true);
 
         return $photoList;
     }
