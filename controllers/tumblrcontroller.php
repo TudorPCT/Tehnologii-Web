@@ -6,7 +6,6 @@ class TumblrController extends Controller
         parent::__construct();
     }
 
-
     function authorize($token){
         if (isset($_GET["code"]) && isset($_GET["state"])) {
             if ($_GET["state"] == 123) {

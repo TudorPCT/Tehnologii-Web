@@ -125,10 +125,9 @@ class TumblrModel extends Model
         $ch = curl_init();
         
         $params = "grant_type=" . "refresh_token"
+                . "&refresh_token=" . $tumblrRefreshToken
                 . "&client_id=" . $tumblrClientId
-                . "&client_secret=" . $tumblrSecret
-                . "&refresh_token=" . $tumblrRefreshToken;
-                
+                . "&client_secret=" . $tumblrSecret;
         
         curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -141,8 +140,6 @@ class TumblrModel extends Model
 
         $output = curl_exec($ch);
         curl_close($ch);
-
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 
         $response = json_decode($output, true);
         $tumblrToken = $response['access_token'];
@@ -157,7 +154,7 @@ class TumblrModel extends Model
 
         $sth = $this->conn->prepare($this->querry);
         if ($sth->execute($data)) {
-            echo json_encode(array("message" => "Refreshed token."));
+            
         } else {
             http_response_code(503);
             echo json_encode(array("message" => "Unable to refresh token."));
