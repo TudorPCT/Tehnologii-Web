@@ -4,21 +4,29 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: *");
 
 
-    //http://localhost:8080/Tehnologii-Web/index.php?load=Home/index
+
     $auth = false;
 
     $controller = "Home";
     $action = "index";
 
-    $token = null;
+    $headers = apache_request_headers();
+    $token = getBearerToken($headers);
+
+    echo $token;
     if (isset($_COOKIE['jwt'])) {
         $token = $_COOKIE['jwt'];
-
-        if(verify_token($token)) {
-            $auth = true;
-            $controller = "accounts";
-        }
     }
+
+    echo $token;
+
+
+    if(verify_token($token)) {
+        $auth = true;
+        $controller = "accounts";
+    }
+
+    echo "*";
 
     if (isset($_GET['load'])) {
         $params = array();
