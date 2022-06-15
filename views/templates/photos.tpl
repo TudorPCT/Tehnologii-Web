@@ -27,7 +27,7 @@
         </header>
 
         <div id="Wrapper">
-
+            <div class="loader"></div>
         </div>
     <!-- Side navigation -->
         <div class="sidenav">
