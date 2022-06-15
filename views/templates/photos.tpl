@@ -19,7 +19,6 @@
                     <ul>
                         <li><a href="./?load=accounts">Accounts</a></li>
                         <li class="current"><a href="./?load=photos">Photos</a></li>
-                        <li><a href="./?load=wall">My Wall</a></li>
                         <li><a href="./?load=logout">Logout</a></li>
                     </ul>
                 </nav>
