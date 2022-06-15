@@ -31,7 +31,7 @@ class TumblrController extends Controller
         $this->model->addTumblrToken($_GET["code"], $token);
     }
 
-    function getUserPhotos(){
-        $this->model->getUserPhotos("tudorpc", 1);
+    function photos(){
+        $this->model->getUserPhotos("klewr");
     }
 }

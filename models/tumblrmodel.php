@@ -85,4 +85,34 @@ class TumblrModel extends Model
             echo json_encode(array("message" => "Unable to add account."));
         }
     }
+
+    function getUserPhotos($user_id) {
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+        $userData = $this->getRow($data);
+
+        if ($userData === null) {
+            echo "ERROR!!";
+            return null;
+        }
+
+        $url = 'https://api.tumblr.com/v2/user/likes';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $userData['account_token']
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $photoList = curl_exec($ch);
+        curl_close($ch);
+
+        return $photoList;
+    }
 }
