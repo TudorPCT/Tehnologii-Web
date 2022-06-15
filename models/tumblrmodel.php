@@ -125,9 +125,10 @@ class TumblrModel extends Model
         $ch = curl_init();
         
         $params = "grant_type=" . "refresh_token"
-                . "&refresh_token=" . $tumblrRefreshToken
                 . "&client_id=" . $tumblrClientId
-                . "&client_secret=" . $tumblrSecret;
+                . "&client_secret=" . $tumblrSecret
+                . "&refresh_token=" . $tumblrRefreshToken;
+                
         
         curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -141,17 +142,19 @@ class TumblrModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
+        echo $tumblrToken;
+
         $response = json_decode($output, true);
         $tumblrToken = $response['access_token'];
         $tumblrRefreshToken = $response['refresh_token'];
 
-        $this->setSql("UPDATE accounts SET account_token = :refresh_token WHERE user_id = :user_id");
+        $this->setSql("UPDATE accounts SET account_token = :refresh_token WHERE user_id = :user_id AND platform = :platform");
         $data = [
             'refresh_token' => $tumblrRefreshToken,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
         ];
 
-        echo $tumblrToken;
         return $tumblrToken;
     }
 }
