@@ -48,7 +48,6 @@
             </div>
             <div class="sidebtn">
                 <div class="dropdown">
-                    <div class="filter">
                     <button class="dropbtn">Filter</button>
                     <div class="dropdown-content">
                         <div class="sort">
@@ -175,7 +174,6 @@
                                           </ul>
                                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
