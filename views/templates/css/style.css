@@ -197,6 +197,7 @@ input[type="text"],  input[type="password"]{
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    flex-flow: row;
     padding: 0 4px;
     margin-top: 5%;
     margin-left: 15%;
