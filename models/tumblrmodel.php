@@ -122,6 +122,8 @@ class TumblrModel extends Model
 
         $tumblrRefreshToken = $userData['account_token'];
 
+        echo $tumblrRefreshToken;
+
         $ch = curl_init();
         
         $params = "grant_type=" . "refresh_token"
