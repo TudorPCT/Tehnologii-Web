@@ -7,27 +7,45 @@ class PhotosModel extends Model
         parent::__construct();
     }
 
-    function getPhotos(){
-        $email = "tcosmin.pasat@gmail.com";
-        $tokenPayload = json_decode(extractTokenPayload($_COOKIE["jwt"]));
-        $unsplashModel = new UnsplashModel();
+    function getUnsplashPhotos($token){
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $token
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $unsplashPhotos = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
         $count = 0;
-        $unsplashPhotos = $unsplashModel->getPhotos($tokenPayload['id']);
 
-        echo "<div class=\"column\">" . PHP_EOL;
+        if(count($unsplashPhotos) === 0){
+            echo "<h1>No Photos Found</h1>";
+            return;
+        }
 
-        for($index = 0; $index < 15; $index++) {
+        $response =  "<div class=\"column\">" . PHP_EOL;
+
+        for($index = 0; $index < count($unsplashPhotos); $index++) {
             if ($count % 5 === 0 && $count != 0) {
-                echo "</div>" . PHP_EOL;
-                echo "<div class=\"column\">" . PHP_EOL;
+                $response .=  "</div>" . PHP_EOL;
+                $response .=  "<div class=\"column\">" . PHP_EOL;
             }
 
-            echo "<img src=\"./img/art.jpg\">" . PHP_EOL;
+            $response .=  "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
 
             $count++;
         }
 
+        $response .=  "</div>" . PHP_EOL;
 
+        return $response;
     }
 
     function getPhoto(){

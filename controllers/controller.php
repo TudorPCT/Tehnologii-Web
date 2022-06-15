@@ -23,7 +23,7 @@ abstract class Controller
         $this->view = new $viewName;
     }
 
-    function index(){
+    function index($token){
         $vizualizare = $this->view->show();
         echo $vizualizare;
     }

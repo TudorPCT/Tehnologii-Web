@@ -204,6 +204,10 @@ input[type="text"],  input[type="password"]{
     margin-bottom: 5%;
 }
 
+#Wrapper h1 {
+    color: #eebbc3;
+}
+
 .column {
     -ms-flex: 25%;
     flex: 25%;
@@ -220,6 +224,19 @@ input[type="text"],  input[type="password"]{
     transform: scale(1.2);
 }
 
+#Wrapper .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #eebbc3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 #register label{
     display: block;
@@ -255,7 +272,7 @@ div.sidenav li{
     padding: 10px;
     font-size: 20px;
     margin: 1%;
-    border: #232946 2px solid;
+    border: 2px;
     border-radius: 10px;
     width: auto;
   }
@@ -297,6 +314,9 @@ div.sidenav li{
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #d08691;}
 
+#dropdown-content-1{
+    background-color: transparent;
+}
 
   /* The sidebar menu */
 .sidenav {
@@ -555,6 +575,11 @@ div.sidenav li{
     .onephoto .photobutton button{
         font-size: smaller;
     }
+
+    #showcase{
+        flex-flow: column;
+
+    }
 }
 
 
@@ -605,4 +630,69 @@ div.sidenav li{
         width: 70%;
         margin: 10%;
     }
+}
+
+#leftSide {
+    color: #aaa;
+    width: 186px;
+    padding: 5px;
+    margin: 0 20px;
+    overflow: auto;
+    background-color: #fff;
+    border: dashed 1px #bbb;
+    box-shadow: 0px 0px 0px 5px #f7f7f7, 0px 0px 2px 7px #bbb, 0px 0px 5px 5px #f7f7f7 inset;
+}
+
+#dropZone {
+    padding: 30px 0;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#dropZone.dragover {
+    background: #DCDCDC;
+}
+
+
+#buttonsArea {
+    margin: 0 15px 0 50px;
+}
+
+select {
+    color: #333;
+    display: block;
+    max-width: 100%;
+    border-radius: 3px;
+    height: auto !important;
+    border: 1px solid #e3e3e3;
+    line-height: 16px !important;
+    padding: 10px 70px 10px 13px !important;
+    background: #fff url("selectbox_arrow.png") right center no-repeat;
+    appearance: none; /* this is must */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#singleUploadSection {
+    color: #333;
+    width: 194px;
+    padding: 6px;
+    margin: 10px 0;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+#background {
+	padding: 5px;
+    position: absolute;
+    background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.layer {
+	padding: 5px;
+    position: absolute;
+    background-color: #fff;
 }

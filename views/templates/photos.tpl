@@ -8,18 +8,17 @@
         <title> SMB </title>
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
-    <body onload="getPhotos()">
+    <body >
     <script src="./views/templates/scripts/photosscripts.js"></script>
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./img/logo.jpeg">
+                    <img src="./views/templates/img/logo.jpeg" alt="Logo">
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"><a href="./?load=photos">Photos</a></li>
-                        <li><a href="./?load=wall">My Wall</a></li>
                         <li><a href="./?load=accounts">Accounts</a></li>
+                        <li class="current"><a href="./?load=photos">Photos</a></li>
                         <li><a href="./?load=logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -27,17 +26,16 @@
         </header>
 
         <div id="Wrapper">
-
+            <h1>Select the platform to view your photos</h1>
         </div>
     <!-- Side navigation -->
         <div class="sidenav">
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn">Add photo</button>
-                    <div class="dropdown-content">
-                        <a href="index.html">Computer</a>
-                        <a href="index.html">Instagram</a>
-                        <a href="index.html">Twitter</a>
+                    <button class="dropbtn">Show Photos</button>
+                    <div class="dropdown-content" id="dropdown-content-1">
+                        <button class="dropbtn" onclick="getUnsplashPhotos()">Unsplash</button>
+                        <button class="dropbtn">Tumblr</button>
                     </div>
                 </div>
             </div>
@@ -49,7 +47,6 @@
             </div>
             <div class="sidebtn">
                 <div class="dropdown">
-                    <div class="filter">
                     <button class="dropbtn">Filter</button>
                     <div class="dropdown-content">
                         <div class="sort">
@@ -176,7 +173,6 @@
                                           </ul>
                                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

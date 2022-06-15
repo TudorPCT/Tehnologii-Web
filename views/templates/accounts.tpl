@@ -13,13 +13,12 @@
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./img/logo.jpeg">
+                    <img src="./views/templates/img/logo.jpeg" alt="Logo">
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="./?load=photos">Photos</a></li>
-                        <li><a href="./?load=wall">My Wall</a></li>
                         <li class="current"><a href="./?load=accounts">Accounts</a></li>
+                        <li><a href="./?load=photos">Photos</a></li>
                         <li><a href="./?load=logout">Logout</a></li>
                     </ul>
                 </nav>
@@ -38,7 +37,7 @@
                     <button class="dropbtn">Add account</button>
                     <div class="dropdown-content">
                         <a href="./?load=unsplash/authorize">Unsplash</a>
-                        <a href="index.html">Twitter</a>
+                        <a href="./?load=tumblr/authorize">Tumblr</a>
                     </div>
                 </div>
             </div>

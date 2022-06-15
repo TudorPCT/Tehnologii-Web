@@ -1,4 +1,6 @@
-function getPhotos(){
+function getUnsplashPhotos(){
+
+    document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -9,9 +11,7 @@ function getPhotos(){
 
     };
 
-    console.log(sessionStorage.getItem("jwt"));
-
-    xmlhttp.open("GET","./index.php?load=photos/getPhotos", true);
+    xmlhttp.open("GET","./?load=photos/getUnsplashPhotos", true);
 
     xmlhttp.send();
 }

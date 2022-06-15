@@ -14,12 +14,12 @@
         <header>
             <div class="topBar">
                 <div id="branding">
-                    <img src="./views/templates/img/logo.jpeg">
+                    <img src="./views/templates/img/logo.jpeg" alt="Logo">
                 </div>
                 <nav>
                     <ul>
-                        <li class="current"> <a href="./index.php?load=home/">Home</a></li>
-                        <li><a href="./index.php?load=signin">Sign In / Register</a></li>
+                        <li class="current"> <a href="./?load=home/">Home</a></li>
+                        <li><a href="./?load=signin">Sign In / Register</a></li>
                     </ul>
                 </nav>
             </div>
@@ -41,7 +41,7 @@
                 </p>
             </div>
             <div id="testphoto">
-                <img src="./views/templates/img/social-media-feed-aggregator.png">
+                <img src="./views/templates/img/social-media-feed-aggregator.png" alt="Display">
             </div>
         </section>
 

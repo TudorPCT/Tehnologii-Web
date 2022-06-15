@@ -24,7 +24,8 @@ class UnsplashController extends Controller
         $this->model->addUnsplashToken($_GET["code"], $token);
     }
 
-    function getUserPhotos(){
-        $this->model->getUserPhotos("tudorpc", 1);
+    function getUserPhotos($token){
+        $payload=json_decode(extractTokenPayload($token),true);
+        echo $this->model->getUserPhotos($payload['id']);
     }
 }
