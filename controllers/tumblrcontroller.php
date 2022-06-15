@@ -34,6 +34,6 @@ class TumblrController extends Controller
     function photos(){
         $token = $_COOKIE['jwt'];
         
-        $this->model->getUserPhotos($token);
+        print_r($this->model->getUserPhotos($token));
     }
 }
