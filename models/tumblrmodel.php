@@ -24,9 +24,9 @@ class TumblrModel extends Model
         include("config.php");
 
         $params = "grant_type=" . "authorization_code"
-                . "code=" . $code
-                . "client_id=" . $tumblrClientId
-                . "client_secret=" . $tumblrSecret;
+                . "&code=" . $code
+                . "&client_id=" . $tumblrClientId
+                . "&client_secret=" . $tumblrSecret;
         
         curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
         curl_setopt($ch, CURLOPT_POST, 1);
