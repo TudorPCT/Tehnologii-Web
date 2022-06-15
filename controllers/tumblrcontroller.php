@@ -10,7 +10,7 @@ class TumblrController extends Controller
     function authorize(){
         $token = $_COOKIE['jwt'];
 
-        if (isset($_GET["code"])) {
+        if (isset($_GET["code"]) && isset($_GET["state"])) {
             if ($_GET["state"] == 123) {
                 $this->getJWT($token);
             } 
