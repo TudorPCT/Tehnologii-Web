@@ -21,7 +21,9 @@ class AccountsModel extends Model
             echo "<div class=\"account\">";
             echo "<div class=\"id\">";
             if($result[$index]["platform"]=="unsplash")
-            echo " <img src=\"views/templates/img/unsplashIcon.png\">";
+                echo " <img src=\"views/templates/img/unsplashIcon.png\">";
+            else if ($result[$index]["platform"] == "tumblr")
+                echo " <img src=\"views/templates/img/tumblr.png\">";
             else
                 echo " <img src=\"views/templates/img/twitter.png\">";
             echo "<a href=\"https://www.unsplash.com/".$result[$index]["username"]."/likes\" target=\"_blank\">";
