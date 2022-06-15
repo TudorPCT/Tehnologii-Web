@@ -267,7 +267,7 @@ div.sidenav li{
   }
   
   /* Dropdown Content (Hidden by Default) */
- .dropdown-content {
+ .dropdown-content .dropdown-content-1 {
     display:none;
     position: absolute;
     background-color: #f1f1f1;
@@ -277,6 +277,10 @@ div.sidenav li{
     z-index: 1;
     overflow: scroll;
   }
+
+ .dropdown-content-1{
+     background-color: transparent;
+ }
   
   /* Links inside the dropdown */
   .dropdown-content a {
