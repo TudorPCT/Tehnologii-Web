@@ -155,6 +155,14 @@ class TumblrModel extends Model
             'platform' => 'tumblr'
         ];
 
+        $sth = $this->conn->prepare($this->querry);
+        if ($sth->execute($data)) {
+            echo json_encode(array("message" => "Refreshed token."));
+        } else {
+            http_response_code(503);
+            echo json_encode(array("message" => "Unable to refresh token."));
+        }
+
         return $tumblrToken;
     }
 }
