@@ -8,7 +8,7 @@
         <title> SMB </title>
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
-    <body onload="getPhotos()">
+    <body >
     <script src="./views/templates/scripts/photosscripts.js"></script>
         <header>
             <div class="topBar">
@@ -35,7 +35,7 @@
                 <div class="dropdown">
                     <button class="dropbtn">Show Photos</button>
                     <div class="dropdown-content" id="dropdown-content-1">
-                        <button class="dropbtn">Unsplash</button>
+                        <button class="dropbtn" onclick="getUnsplashPhotos()">Unsplash</button>
                         <button class="dropbtn">Tumblr</button>
                     </div>
                 </div>
