@@ -106,7 +106,7 @@ class TumblrModel extends Model
         $response = json_decode($result, true);
         $photoList = array();
 
-        print_r($response);
+        // print_r($response);
 
         $liked_posts = $response['response']['liked_posts'];
 
