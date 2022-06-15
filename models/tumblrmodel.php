@@ -111,10 +111,34 @@ class TumblrModel extends Model
         $liked_posts = $response['response']['liked_posts'];
 
         foreach ($liked_posts as $index => $post) {
-            $photos = $post['photos'];
-            foreach ($photos as $asphoto => $photo) {
-                $photoUrl = $photo['original_size']['url'];
-                array_push($photoList, $photoUrl);
+            if ($post['type'] == 'photo') {
+                $photos = $post['photos'];
+                foreach ($photos as $asphoto => $photo) {
+                    $photoUrl = $photo['original_size']['url'];
+                    array_push($photoList, $photoUrl);
+                }
+            } else if ($post['type'] == 'text') {
+                $body = $post['body'];
+                $x = explode("<", $body);
+
+                foreach($x as $line) {
+                    if (strncmp($line, "img", 3) == 0) {
+                        $substr = explode(" ", $line);
+                        foreach($substr as $src) {
+                            if (strncmp($src, "src", 3) == 0){
+                            $length = strlen($src);
+                            $indexStart = -1;
+                            $indexEnd = -1;
+                            for ($index = 3; $index < $length; $index++) {
+                                if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+                                else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+                            }
+                            $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+                            array_push($photoList, $url);
+                            }
+                        }
+                    }    
+                }
             }
         }
 
