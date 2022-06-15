@@ -1,0 +1,104 @@
+ .wrapper{
+     width: 85vw;
+     min-height: 40vmin;
+     padding: 50px 30px;
+     background-color:#fffffe ;
+     position: absolute;
+     transform: translate(-50%,-50%);
+     top: 50%;
+     left: 50%;
+     border-radius: 10px;
+     /*box-shadow: 0 20px 35px ;*/
+     display: grid;
+     grid-template-columns: 7fr 5fr;
+ }
+ .editor{
+     border: 1px solid #eebbc3;
+     min-height: 35vmin;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     /*gap: 20px;*/
+ }
+
+ .editor label{
+     font-size: 2.0vmin;
+     color: #d08691;
+     font-weight: 400;
+ }
+
+ .editor input[type="range"]{
+     display: block;
+     width:  100%;
+     position: relative;
+     margin-top: 5px;
+ }
+ .flip-buttons{
+     display: flex;
+     flex-direction: column;
+     margin-top: 10px;
+
+ }
+ .flip-buttons .flip-option{
+     margin-top: 10px;
+ }
+ .result{
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 20px;
+
+ }
+
+/*.photobutton*/
+ .result img{
+     display: block;
+     justify-content: center;
+     max-width: calc(100%- 4vmin);
+     max-height: 45vmin;
+     margin: auto;
+ }
+
+ input[type="file"]{
+     display: none;
+ }
+ .result .editbuttons {
+     display: inline-flex;
+     position: relative;
+     width: 40%;
+     /*background-color: #eebbc3 ;*/
+     padding: 16px 0;
+     margin: auto;
+
+ }
+ .result button{
+     background-color: #eebbc3;
+     border-radius: 5px;
+     text-align: center;
+     font-size: 2.8vmin;
+     margin: auto;
+     cursor: pointer ;
+     border-color: #14192f;
+     color: #fffffe;
+ }
+ .result button:hover {background-color: #d08691;}
+
+ @media screen and (max-height: 620px) {
+    .wrapper{
+        width: 95vw;
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 10px;
+    }
+     .editor{
+         grid-row: 2;
+     }
+     .flip-buttons{
+         flex-direction: row;
+         justify-content: space-between;
+     }
+     .flip-buttons .flip-option{
+         margin-top: 0;
+     }
+ }
