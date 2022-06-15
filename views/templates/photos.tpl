@@ -8,7 +8,7 @@
         <title> SMB </title>
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
-    <body onload="getUnsplashPhotos()">
+    <body >
     <script src="./views/templates/scripts/photosscripts.js"></script>
         <header>
             <div class="topBar">
