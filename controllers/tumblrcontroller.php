@@ -13,7 +13,10 @@ class TumblrController extends Controller
         if (isset($_GET["code"]) && isset($_GET["state"])) {
             if ($_GET["state"] == 123) {
                 $this->getJWT($token);
-            } 
+            } else {
+                echo "Authorization failed: States do not match.";
+                die();
+            }
         } else {
             $this->getCode();
         }
