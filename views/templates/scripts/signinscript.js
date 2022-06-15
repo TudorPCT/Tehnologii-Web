@@ -5,20 +5,19 @@ function signin() {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
+        console.log(formData.get);
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 myResponse = JSON.parse(this.responseText);
                 alert("Signin successful");
-                sessionStorage.setItem("jwt", myResponse.jwt);
-                document.cookie = `jwt=${myResponse.jwt}`;
 
                 var now = new Date();
                 var time = now.getTime();
-                var expireTime = time + 1000*36000;
+                var expireTime = time + 10000*36000;
                 now.setTime(expireTime);
                 document.cookie = `jwt=${myResponse.jwt};expires=${now.toUTCString()};path=/`;
-                
-                window.location.href = 'index.php';
+
+                window.location.replace('index.php');
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
             }

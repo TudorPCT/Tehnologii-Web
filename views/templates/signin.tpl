@@ -35,8 +35,6 @@
                 <label>Password</label>
                 <input type="password" name="password">
 
-                <label id="rememberme"><input name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me</label>
-
                 <label id="createacc"><a href="./?load=Register">Create new account</a></label>
 
                 <label id="errorLabel"></label>
