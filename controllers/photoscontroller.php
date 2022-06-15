@@ -8,6 +8,7 @@ class PhotosController extends Controller
     }
 
     function getUnsplashPhotos($token){
+        echo "*";
         $this->model->getUnsplashPhotos($token);
     }
 
