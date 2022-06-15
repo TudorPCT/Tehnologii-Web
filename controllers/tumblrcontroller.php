@@ -28,6 +28,7 @@ class TumblrController extends Controller
     }
 
     function photos($token){
+        echo 'test';
         echo $this->model->getUserPhotos($token);
     }
 }
