@@ -191,6 +191,10 @@ input[type="text"],  input[type="password"]{
     text-decoration: underline;
 }
 
+#Wrapper{
+    display: flex;
+    flex-direction: column;
+}
 
 #row{
     display: -ms-flexbox;
