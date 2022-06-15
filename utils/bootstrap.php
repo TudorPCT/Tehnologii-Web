@@ -23,6 +23,7 @@ header("Access-Control-Allow-Methods: *");
         $controller = "accounts";
     }
 
+
     if (isset($_GET['load'])) {
         $params = array();
         $params = explode("/", $_GET['load']);

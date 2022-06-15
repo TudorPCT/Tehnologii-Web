@@ -9,11 +9,9 @@ class PhotosModel extends Model
 
     function getUnsplashPhotos($token){
 
-        $token = $_COOKIE['jwt'];
-
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://socialmediabpx.herokuapp.ro/?load=unsplash/getUserPhotos");
+        curl_setopt($ch, CURLOPT_URL, "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
@@ -32,21 +30,22 @@ class PhotosModel extends Model
             return;
         }
 
-        echo "<div class=\"column\">" . PHP_EOL;
+        $response =  "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
             if ($count % 5 === 0 && $count != 0) {
-                echo "</div>" . PHP_EOL;
-                echo "<div class=\"column\">" . PHP_EOL;
+                $response .=  "</div>" . PHP_EOL;
+                $response .=  "<div class=\"column\">" . PHP_EOL;
             }
 
-            echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
+            $response .=  "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
 
             $count++;
         }
 
-        echo "</div>" . PHP_EOL;
+        $response .=  "</div>" . PHP_EOL;
 
+        return $response;
     }
 
     function getPhoto(){
