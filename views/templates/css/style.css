@@ -191,12 +191,8 @@ input[type="text"],  input[type="password"]{
     text-decoration: underline;
 }
 
-#Wrapper{
-    display: flex;
-    flex-direction: column;
-}
 
-#Wrapper #row{
+#Wrapper{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -208,19 +204,19 @@ input[type="text"],  input[type="password"]{
     margin-bottom: 5%;
 }
 
-#Wrapper #row .column {
+.column {
     -ms-flex: 25%;
     flex: 25%;
     max-width: 25%;
     padding: 0 4px;
 }
 
-#Wrapper #row .column img {
+.column img {
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
 }
-#Wrapper #row .column img:hover{
+.column img:hover{
     transform: scale(1.2);
 }
 
