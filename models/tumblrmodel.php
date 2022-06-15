@@ -87,7 +87,7 @@ class TumblrModel extends Model
         }
     }
 
-    function getUserPhotos($token) {
+    function getUserLikes($token) {
         $tumblrToken = $this->refreshToken($token);
 
         $url = 'https://api.tumblr.com/v2/user/likes';
