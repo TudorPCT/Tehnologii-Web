@@ -204,6 +204,10 @@ input[type="text"],  input[type="password"]{
     margin-bottom: 5%;
 }
 
+#Wrapper h1 {
+    color: #eebbc3;
+}
+
 .column {
     -ms-flex: 25%;
     flex: 25%;
