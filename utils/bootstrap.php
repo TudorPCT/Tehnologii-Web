@@ -13,20 +13,15 @@ header("Access-Control-Allow-Methods: *");
     $headers = apache_request_headers();
     $token = getBearerToken($headers);
 
-    echo $token;
     if (isset($_COOKIE['jwt'])) {
         $token = $_COOKIE['jwt'];
     }
-
-    echo $token;
 
 
     if(verify_token($token)) {
         $auth = true;
         $controller = "accounts";
     }
-
-    echo "*";
 
     if (isset($_GET['load'])) {
         $params = array();
