@@ -193,12 +193,7 @@ input[type="text"],  input[type="password"]{
 
 
 #Wrapper{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    flex-direction: column;
-    padding: 0 4px;
+
     margin-top: 5%;
     margin-left: 15%;
     margin-right: 10%;
@@ -206,9 +201,7 @@ input[type="text"],  input[type="password"]{
 }
 
 .column {
-    flex-direction: row;
-    -ms-flex: 25%;
-    flex: 25%;
+
     max-width: 25%;
     padding: 0 4px;
 }
