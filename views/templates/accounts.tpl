@@ -38,7 +38,7 @@
                     <button class="dropbtn">Add account</button>
                     <div class="dropdown-content">
                         <a href="./?load=unsplash/authorize">Unsplash</a>
-                        <a href="index.html">Twitter</a>
+                        <a href="./?load=tumblr/authorize">Tumblr</a>
                     </div>
                 </div>
             </div>
