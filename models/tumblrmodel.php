@@ -12,7 +12,7 @@ class TumblrModel extends Model
         $link = "https://www.tumblr.com/oauth2/authorize?client_id="
             . $tumblrClientId
             . "&response_type=code"
-            . "&scope=basic%20write"
+            . "&scope=basic%20write%20offline_access"
             . "&state=123"
             ;
         header("Location: " . $link);
@@ -43,6 +43,7 @@ class TumblrModel extends Model
 
         $response = json_decode($output, true);
         $tumblrToken = $response['access_token'];
+        $tumblrRefreshToken = $response['refresh_token'];
 
         $url = "https://api.tumblr.com/v2/user/info";
         $curl = curl_init($url);
@@ -72,7 +73,7 @@ class TumblrModel extends Model
         $insert_array = [
             "user_id" => $user_id,
             "username" => $username,
-            "tumblrToken" => $tumblrToken,
+            "tumblrToken" => $tumblrRefreshToken,
             "platform" => "tumblr"
         ];
 
@@ -87,6 +88,27 @@ class TumblrModel extends Model
     }
 
     function getUserPhotos($token) {
+        $tumblrToken = refreshToken($token);
+
+        $url = 'https://api.tumblr.com/v2/user/likes';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $tumblrToken
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $photoList = curl_exec($ch);
+        curl_close($ch);
+
+        return $photoList;
+    }
+
+    function refreshToken($jwtToken) {
+        include("config.php");
+
         $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
 
@@ -98,24 +120,37 @@ class TumblrModel extends Model
         ];
         $userData = $this->getRow($data);
 
-        if ($userData === null) {
-            echo "ERROR!!";
-            return null;
-        }
+        $tumblrRefreshToken = $userData['account_token'];
 
-        $url = 'https://api.tumblr.com/v2/user/likes';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $headers = array(
-            "Accept: application/json",
-            "Authorization: Bearer " . $userData['account_token']
-        );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $ch = curl_init();
+        
+        $params = "grant_type=" . "refresh_token"
+                . "&refresh_token=" . $tumblrRefreshToken
+                . "&client_id=" . $tumblrClientId
+                . "&client_secret=" . $tumblrSecret;
+        
+        curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        $photoList = curl_exec($ch);
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array (
+            "Accept: application/json"
+        ));
+
+        $output = curl_exec($ch);
         curl_close($ch);
 
-        return $photoList;
+        $response = json_decode($output, true);
+        $tumblrToken = $response['access_token'];
+        $tumblrRefreshToken = $response['refresh_token'];
+
+        $this->setSql("UPDATE accounts SET account_token = :refresh_token WHERE user_id = :user_id");
+        $data = [
+            'refresh_token' => $tumblrRefreshToken,
+            'user_id' => $user_id
+        ];
+
+        return $tumblrToken;
     }
 }

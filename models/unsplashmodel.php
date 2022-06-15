@@ -130,5 +130,5 @@ class UnsplashModel extends Model
         return $photoList;
 
     }
-
+    
 }

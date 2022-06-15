@@ -20,7 +20,6 @@ class TumblrController extends Controller
         } else {
             $this->getCode();
         }
-
     }
 
     private function getCode(){
