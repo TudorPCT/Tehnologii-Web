@@ -103,7 +103,18 @@ class TumblrModel extends Model
         $result = curl_exec($ch);
         curl_close($ch);
 
-        $photoList = json_decode($result, true);
+        $response = json_decode($result, true);
+        $photoList = array();
+
+        $liked_posts = $response['response']['liked_posts'];
+
+        foreach ($liked_posts as $post) {
+            $photos = $post['photos'];
+            foreach ($photos as $photo) {
+                $photoUrl = $photo['caption']['original_size']['url'];
+                array_push($photoList, $photoUrl);
+            }
+        }
 
         return $photoList;
     }
