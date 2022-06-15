@@ -205,6 +205,7 @@ input[type="text"],  input[type="password"]{
 }
 
 .column {
+    flex-direction: row;
     -ms-flex: 25%;
     flex: 25%;
     max-width: 25%;
