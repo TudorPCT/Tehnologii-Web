@@ -11,6 +11,13 @@ function signin() {
                 alert("Signin successful");
                 sessionStorage.setItem("jwt", myResponse.jwt);
                 document.cookie = `jwt=${myResponse.jwt}`;
+
+                var now = new Date();
+                var time = now.getTime();
+                var expireTime = time + 1000*36000;
+                now.setTime(expireTime);
+                document.cookie = `jwt=${myResponse.jwt};expires=${now.toUTCString()};path=/`;
+                
                 window.location.href = 'index.php';
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
@@ -18,7 +25,7 @@ function signin() {
         }
 
     };
-    xmlhttp.open("POST","/index.php?load=Signin/signin", true);
+    xmlhttp.open("POST","/?load=Signin/signin", true);
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xmlhttp.send("email=" + formData.get('email') +
