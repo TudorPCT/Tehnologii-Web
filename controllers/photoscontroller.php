@@ -16,4 +16,8 @@ class PhotosController extends Controller
         echo $vizualizare;
     }
 
+    function getTumblrPhotos($token){
+        echo $this->model->getTumblrPhotos($token);
+    }
+
 }
