@@ -145,6 +145,47 @@ class TumblrModel extends Model
         return $photoList;
     }
 
+    function getUserPhotos($token) {
+        include("config.php");
+
+        $payload = json_decode(extractTokenPayload($jwtToken), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+        $userData = $this->getRow($data);
+
+        $username = $userData['username'];
+
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username
+            . ".tumblr.com/posts/photo"
+            . "?api_key="
+            . $tumblrClientId;
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json"
+        );
+
+        curl_setopt($ch, CURLOPT_HEADER, $headers);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+        print_r($result);
+
+    }
+
     private function refreshToken($jwtToken) {
         include("config.php");
 
