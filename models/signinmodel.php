@@ -17,23 +17,10 @@ class SigninModel extends Model
     }
 
     function signin($data){
-        if(
-            !empty($data["email"]) &&
-            !empty($data["password"])
-        ){
-            $user_info = $this->check_user($data["email"], $data["password"]);
-            if($user_info != null){
-                http_response_code(200);
-                echo json_encode(value: array("message" => "Signin successful.", "jwt" => createJWT($user_info)));
-            }
-            else{
-                http_response_code(403);
-                echo json_encode(value: array("message" => "Unable to signin."));
-            }
+        $user_info = $this->check_user($data["email"], $data["password"]);
+        if($user_info != null){
+            return createJWT($user_info);
         }
-        else{
-            http_response_code(400);
-            echo json_encode(value: array("message" => "Unable to create contact. Need more data."));
-        }
+        else return null;
     }
 }
