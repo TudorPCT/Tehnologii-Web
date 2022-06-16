@@ -11,4 +11,8 @@ class PhotosController extends Controller
         echo $this->model->getUnsplashPhotos($token);
     }
 
+    function getTumblrPhotos($token){
+        echo $this->model->getTumblrPhotos($token);
+    }
+
 }

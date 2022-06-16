@@ -35,7 +35,7 @@
                     <button class="dropbtn">Show Photos</button>
                     <div class="dropdown-content" id="dropdown-content-1">
                         <button class="dropbtn" onclick="getUnsplashPhotos()">Unsplash</button>
-                        <button class="dropbtn">Tumblr</button>
+                        <button class="dropbtn" onclick="getTumblrPhotos()">Tumblr</button>
                     </div>
                 </div>
             </div>
