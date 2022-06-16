@@ -68,7 +68,7 @@ function convertImageToCanvas(image) {
     var canvas = document.createElement("canvas");
     canvas.width = image.width;
     canvas.height = image.height;
-    canvas.getContext("2d").drawImage(image, 0, 0);
+    canvas.getContext("2d").drawImage(imageConverted, 0, 0);
 
     return canvas;
 }
@@ -81,7 +81,7 @@ function Download_btn(){
     if (image.getAttribute('src') !== "") {
         console.log("salvez img");
 
-        context.drawImage(imageConverted, 0, 0, canvas.width, canvas.height);
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
         const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");
