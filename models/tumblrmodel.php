@@ -289,6 +289,7 @@ class TumblrModel extends Model
         $sth = $this->conn->prepare($this->querry);
         if ($sth->execute($data)) {
             http_response_code(201);
+            echo "<script>alert(\"Signin successful\");</script>";
             header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
         } else {
             http_response_code(403);
