@@ -142,7 +142,9 @@ class TumblrModel extends Model
             }
         }
 
-        return $photoList;
+        $jsonPhotos = json_encode($photoList);
+
+        return $jsonPhotos;
     }
 
     function getUserPhotos($token) {
@@ -192,7 +194,9 @@ class TumblrModel extends Model
             }
         }
 
-        return $photoList;
+        $jsonPhotos = json_encode($photoList);
+
+        return $jsonPhotos;
     }
 
     private function refreshToken($jwtToken) {
