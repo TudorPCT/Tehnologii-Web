@@ -15,7 +15,14 @@ class SigninController extends Controller{
                 'email' => $email,
                 'password' => $password,
             );
-            $this->model->signin($data);
+            $jwt = $this->model->signin($data);
+            if($jwt === null){
+                http_response_code(403);
+                echo json_encode(value: array("message" => "Unable to signin."));
+            }else{
+                http_response_code(200);
+                echo json_encode(value: array("message" => "Signin successful.", "jwt" => $jwt));
+            }
         }else{
             http_response_code(400);
             echo json_encode(array("message" => "Unable to signin. Need more data."));
