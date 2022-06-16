@@ -11,10 +11,12 @@ noFlipBtn = document.getElementById('no-flip');
 flipXBtn = document.getElementById('flip-x');
 flipYBtn = document.getElementById('flip-y');
 
- image = document.getElementById("chosen-image");
-let canvas = document.createElement('canvas');
- const context = canvas.getContext('2d');
+image = document.getElementById("chosen-image");
+let canvas = document.getElementById('image_canvas');
+const context = canvas.getContext('2d');
+
 let File_Name = image.getAttribute('src');
+
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
 sliders.forEach(slider=>{slider.addEventListener("input",addFilter)
 });
@@ -26,6 +28,13 @@ function addFilter() {
                             "brightness("+filterE.value+"%)"+
                             "grayscale("+filterF.value+"%)" +
                             "hue-rotate("+filterG.value+"deg)";
+        context.filter = "blur("+filterA.value+"px)"+
+            "contrast("+filterB.value+"%)"+
+            "saturate("+filterC.value+"%)"+
+            "sepia("+filterD.value+"%)" +
+            "brightness("+filterE.value+"%)"+
+            "grayscale("+filterF.value+"%)" +
+            "hue-rotate("+filterG.value+"deg)";
     // console.log(image.style.filter);
 }
 
