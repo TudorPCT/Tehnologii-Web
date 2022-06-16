@@ -2,11 +2,11 @@
 
 class TumblrController extends Controller
 {
-    function __construct(){
+    function __construct() {
         parent::__construct();
     }
 
-    function authorize($token){
+    function authorize($token) {
         if (isset($_GET["code"]) && isset($_GET["state"])) {
             if ($_GET["state"] == 123) {
                 $this->getJWT($token);
@@ -19,16 +19,20 @@ class TumblrController extends Controller
         }
     }
 
-    private function getCode(){
+    private function getCode() {
         $this->model->getCode();
     }
 
-    private function getJWT($token){
+    private function getJWT($token) { 
         $this->model->addTumblrToken($_GET["code"], $token);
     }
 
-    function photos($token){
+    function photos($token) {
         //print_r($this->model->getUserLikes($token));
         echo $this->model->getUserPhotos($token);
+    }
+
+    function delete($token) {
+        $this->model->deleteAccount($token);
     }
 }

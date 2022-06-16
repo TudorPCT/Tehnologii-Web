@@ -11,8 +11,10 @@ noFlipBtn = document.getElementById('no-flip');
 flipXBtn = document.getElementById('flip-x');
 flipYBtn = document.getElementById('flip-y');
 
+let reset = document.getElementById("reset");
+
 image = document.getElementById("chosen-image");
-let canvas = document.getElementById('image_canvas');
+let canvas = document.createElement("canvas");
 const context = canvas.getContext('2d');
 
 let File_Name = image.getAttribute('src');
@@ -31,7 +33,9 @@ return "blur("+filterA.value+"px)"+
 }
 function addFilter() {
         image.style.filter = getFilter();
-    // console.log(context);
+        context.filter=getFilter();
+        reset.style.transform='translateY(0px)';
+
 }
 
 radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
@@ -50,7 +54,7 @@ function flipImage(){
     }
 }
 
-let reset = document.getElementById("reset");
+
 reset.addEventListener("click",resetImage);
 function resetImage(){
     console.log("resetez img");
@@ -67,8 +71,8 @@ function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
             context.drawImage(image,0,0, canvas.width, canvas.height);
-            context.filter=getFilter();
-            context.save();
+            // context.filter=getFilter();
+            // context.save();
         const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");

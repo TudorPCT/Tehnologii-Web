@@ -158,5 +158,24 @@ class UnsplashModel extends Model
         $data = ["link" => $photo['urls']['raw']];
         return $data;
     }
+
+    function deleteAccount($token) {
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("DELETE FROM accounts WHERE user_id = :user_id AND platform = :platform");
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'unsplash'
+        ];
+
+        $sth = $this->conn->prepare($this->querry);
+        if ($sth->execute($data)) {
+            header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
+        } else {
+            http_response_code(403);
+            echo json_encode(array("message" => "Unable to delete account."));
+        }
+    }
     
 }

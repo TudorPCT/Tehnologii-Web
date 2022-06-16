@@ -186,15 +186,31 @@ class TumblrModel extends Model
         
         $photoList = array();
 
-        print_r($result);
-
         $posts = $result['response']['posts'];
+        
 
         foreach ($posts as $post) {
             $photos = $post['photos'];
+            $noteCount = $post['note_count'];
+            $notes = $post['notes'];
+            $likeCount = 0;
+            $shareCount = 0;
+            if ($noteCount > 50) {
+                $likeCount = (int) $noteCount * ( 2 / 3 );
+                $shareCount = (int) $noteCount * ( 1 / 3 );
+            } else {
+                foreach ($notes as $note) {
+                    if ($note['type'] == 'like') {
+                        $likeCount++;
+                    } else if ($note['type'] == 'reblog') {
+                        $shareCount++;
+                    }
+                }
+            }
             foreach ($photos as $photo) {
                 $photoUrl = $photo['original_size']['url'];
-                array_push($photoList, $photoUrl);
+                $photoArray = array('url' => $photoUrl, 'likes' => $likeCount, 'shares' => $shareCount);
+                array_push($photoList, $photoArray);
             }
         }
 
@@ -258,5 +274,24 @@ class TumblrModel extends Model
         }
 
         return $tumblrToken;
+    }
+
+    function deleteAccount($token) {
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("DELETE FROM accounts WHERE user_id = :user_id AND platform = :platform");
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+
+        $sth = $this->conn->prepare($this->querry);
+        if ($sth->execute($data)) {
+            header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
+        } else {
+            http_response_code(403);
+            echo json_encode(array("message" => "Unable to delete account."));
+        }
     }
 }
