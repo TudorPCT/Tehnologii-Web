@@ -11,7 +11,8 @@ noFlipBtn = document.getElementById('no-flip');
 flipXBtn = document.getElementById('flip-x');
 flipYBtn = document.getElementById('flip-y');
 
- let image = document.getElementById("chosen-image");
+  image = document.getElementById("chosen-image");
+  let imageConverted;
 let canvas = document.createElement('canvas');
  const context = canvas.getContext('2d');
 let File_Name = image.getAttribute('src');
@@ -26,10 +27,10 @@ function addFilter() {
             "brightness("+filterE.value+"%)"+
             "grayscale("+filterF.value+"%)" +
             "hue-rotate("+filterG.value+"deg)";
-        // image.style.filter = filterString;
+        image.style.filter = filterString;
         canvas=convertImageToCanvas(image);
         canvas.style.transform = filterString;
-        image = convertCanvasToImage(canvas);
+        imageConverted = convertCanvasToImage(canvas);
     // console.log(image.style.filter);
 }
 
@@ -80,7 +81,7 @@ function Download_btn(){
     if (image.getAttribute('src') !== "") {
         console.log("salvez img");
 
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        context.drawImage(imageConverted, 0, 0, canvas.width, canvas.height);
         const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");
