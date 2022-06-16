@@ -13,7 +13,7 @@
 <header>
     <div class="topBar">
         <div id="branding">
-            <img src="./img/logo.jpeg">
+            <img src="./views/templates/img/logo.jpeg" alt="Logo">
         </div>
         <nav>
             <ul>

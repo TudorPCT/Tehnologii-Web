@@ -7,7 +7,7 @@ function register() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
             alert("Account created");
-            window.location.href = './index.php?load=signin';
+            window.location.replace('./?load=signin');
         }
         if (this.readyState === XMLHttpRequest.DONE && this.status === 409) {
             myResponse = JSON.parse(this.responseText);
