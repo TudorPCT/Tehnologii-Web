@@ -289,7 +289,6 @@ class TumblrModel extends Model
         $sth = $this->conn->prepare($this->querry);
         if ($sth->execute($data)) {
             http_response_code(201);
-            echo json_encode(array("message" => "Account successfully deleted"));
             header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
         } else {
             http_response_code(403);
