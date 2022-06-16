@@ -154,7 +154,6 @@ class UnsplashModel extends Model
 
         $photo = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        echo $photo;
         $data = ["link" => $photo['urls']['raw']];
         return $data;
     }

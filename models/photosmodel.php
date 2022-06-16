@@ -19,7 +19,7 @@ class PhotosModel extends Model
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $response = json_decode(curl_exec($ch), true);
+        $response = curl_exec($ch);
         curl_close($ch);
 
         return $response;
@@ -29,7 +29,7 @@ class PhotosModel extends Model
     function getUnsplashPhotos($token){
 
 
-        $unsplashPhotos = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos", $token);
+        $unsplashPhotos = json_decode($this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos", $token), true);
 
         $count = 0;
 
@@ -64,7 +64,7 @@ class PhotosModel extends Model
     function getTumblrPhotos($token){
 
 
-        $tumblrPhotos = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=tumblr/photos", $token);
+        $tumblrPhotos = json_decode($this->httpRequest("https://socialmediabox.herokuapp.com/?load=tumblr/photos", $token), true);
 
         $count = 0;
 
@@ -93,6 +93,6 @@ class PhotosModel extends Model
 
     function getUnsplashInfo($token, $id){
         $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id, $token);
-        return json_decode($info);
+        return json_decode(substr($info,5), true);
     }
 }
