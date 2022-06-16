@@ -165,7 +165,8 @@ class TumblrModel extends Model
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/posts/photo"
-            . "?api_key=" . $tumblrClientId;
+            . "?api_key=" . $tumblrClientId
+            . "&notes_info=true";
 
         $ch = curl_init();
 
@@ -184,6 +185,9 @@ class TumblrModel extends Model
         $result = json_decode($response, true);
         
         $photoList = array();
+
+        print_r($result);
+
         $posts = $result['response']['posts'];
 
         foreach ($posts as $post) {
