@@ -161,28 +161,26 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        echo $username;
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/posts/photo"
+            . "?api_key=" . $tumblrClientId;
 
-        // $url = "https://api.tumblr.com/v2/blog/"
-        //     . $username . ".tumblr.com/posts/photo"
-        //     . "?api_key=" . $tumblrClientId;
+        $ch = curl_init();
 
-        // $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        // curl_setopt($ch, CURLOPT_URL, $url);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $headers = array(
+            "Accept: application/json"
+        );
 
-        // $headers = array(
-        //     "Accept: application/json"
-        // );
+        //curl_setopt($ch, CURLOPT_HEADER, $headers);
 
-        // //curl_setopt($ch, CURLOPT_HEADER, $headers);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-        // $response = curl_exec($ch);
-        // curl_close($ch);
-
-        // $result = json_decode($response, true);
-        // print_r($result);
+        $result = json_decode($response, true);
+        print_r($result);
 
     }
 
