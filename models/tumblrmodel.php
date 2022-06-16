@@ -216,8 +216,6 @@ class TumblrModel extends Model
 
         $jsonPhotos = json_encode($photoList);
 
-        print_r($photoList);
-
         return $jsonPhotos;
     }
 
