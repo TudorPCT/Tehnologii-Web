@@ -130,6 +130,7 @@ class UnsplashModel extends Model
     }
 
     function getUserPhoto($user_id, $photo_id){
+
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
         $data = ['user_id' => $user_id,
@@ -152,7 +153,7 @@ class UnsplashModel extends Model
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $photo = json_decode(curl_exec($ch), true);
+        $photo = curl_exec($ch);
         curl_close($ch);
         
         return $photo;
