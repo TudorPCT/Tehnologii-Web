@@ -180,8 +180,19 @@ class TumblrModel extends Model
         curl_close($ch);
 
         $result = json_decode($response, true);
-        print_r($result);
+        
+        $photoList = array();
+        $posts = $result['response']['posts'];
 
+        foreach ($posts as $post) {
+            $photos = $post['photos'];
+            foreach ($photos as $photo) {
+                $photoUrl = $photo['original_size']['url'];
+                array_push($photoList, $photoUrl);
+            }
+        }
+
+        return $photoList;
     }
 
     private function refreshToken($jwtToken) {
