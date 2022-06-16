@@ -48,7 +48,6 @@
         <figure class="image-container">
             <?php echo "<img id=\"chosen-image\" src=\"" . $photo . "\">";
             ?>
-            <canvas id="image_canvas"></canvas>
         </figure>
         <div class="editbuttons">
             <button id="reset">Reset</button>
