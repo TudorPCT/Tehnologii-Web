@@ -46,7 +46,7 @@
                 <div class="dropdown">
                     <button class="dropbtn">Delete Account</button>
                     <div class="dropdown-content">
-                        <a href=#>Unsplash</a>
+                        <a href="./?load=unsplash/delete">Unsplash</a>
                         <a href="./?load=tumblr/delete">Tumblr</a>
                     </div>
                 </div>
