@@ -41,7 +41,7 @@ class PhotosModel extends Model
                 echo  "<div class=\"column\">" . PHP_EOL;
             }
 
-            echo "<a href=\"./?load=photos/photo" . "\">" . PHP_EOL;
+            echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id']  . "\">" . PHP_EOL;
             echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
             echo "</a>";
             $count++;
