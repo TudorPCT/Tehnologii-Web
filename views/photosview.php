@@ -14,10 +14,10 @@ class PhotosView extends View
         }
     }
 
-    function editPhoto(){
+    function editPhoto($info){
         $this->template = "views/templates/editPhoto.tpl";
         try {
-            $this->data = ["photo" => "./views/templates/img/naturephoto.jpg"];
+            $this->data = $info;
             return $this->output();
         } catch (Exception $e) {
         }

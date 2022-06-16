@@ -12,8 +12,21 @@ class PhotosController extends Controller
     }
 
     function photo($token){
-        $vizualizare = $this->view->editPhoto();
-        echo $vizualizare;
+        if (isset($_GET['platform']) && isset($_GET['id'])){
+            if ($_GET['platform'] === 'unsplash')
+                $info = $this->model->getUnsplashInfo($token, $_GET['id']);
+            else if ($_GET['platform'] === 'tumblr')
+                $info = $this->model->getTumblrInfo($token, $_GET['id']);
+            else{
+                http_response_code(400);
+                die();
+            }
+            $vizualizare = $this->view->editPhoto($info);
+            echo $vizualizare;   
+        } else {
+            http_response_code(400);
+            die();
+        }
     }
 
     function getTumblrPhotos($token){
