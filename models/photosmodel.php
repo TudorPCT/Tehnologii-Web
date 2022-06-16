@@ -93,6 +93,6 @@ class PhotosModel extends Model
 
     function getUnsplashInfo($token, $id){
         $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id, $token);
-        return json_decode(substr($info,5), true);
+        return json_decode($info, true);
     }
 }

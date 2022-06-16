@@ -22,8 +22,9 @@ class PhotosController extends Controller
                 http_response_code(400);
                 die();
             }
-            $vizualizare = $this->view->editPhoto($info);
-            echo $vizualizare;   
+            $data = ["link" => $info['urls']['raw']];
+            $vizualizare = $this->view->editPhoto($data);
+            echo $vizualizare;
         } else {
             http_response_code(400);
             die();
