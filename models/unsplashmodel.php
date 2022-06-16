@@ -127,7 +127,36 @@ class UnsplashModel extends Model
         curl_close($ch);
 
         return $photoList;
+    }
 
+    function getUserPhoto($user_id, $photo_id){
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = ['user_id' => $user_id,
+            'platform' => 'unsplash'];
+
+        $userData = $this->getRow($data);
+
+        if ($userData === null) {
+            return null;
+        }
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/photos/' . $photo_id);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $userData["account_token"]
+        );
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $photo = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        $data = ["link" => $photo['urls']['raw']];
+        return $data;
     }
     
 }

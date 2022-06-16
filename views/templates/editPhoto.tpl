@@ -46,7 +46,7 @@
     <div class="result">
 <!--        <img src="./img/art.jpg" >-->
         <figure class="image-container">
-            <?php echo "<img id=\"chosen-image\" src=\"" . $photo . "\">";
+            <?php echo "<img id=\"chosen-image\" src=\"" . $link . "\">";
             ?>
         </figure>
         <div class="editbuttons">
