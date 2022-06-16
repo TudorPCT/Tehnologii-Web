@@ -81,7 +81,7 @@ class PhotosModel extends Model
                 $response .=  "<div class=\"column\">" . PHP_EOL;
             }
 
-            $response .=  "<img src=\"" . $tumblrPhotos[$index] . "\">" . PHP_EOL;
+            $response .=  "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
 
             $count++;
         }

@@ -186,19 +186,37 @@ class TumblrModel extends Model
         
         $photoList = array();
 
-        print_r($result);
-
         $posts = $result['response']['posts'];
+        
 
         foreach ($posts as $post) {
             $photos = $post['photos'];
+            $noteCount = $post['note_count'];
+            $notes = $post['notes'];
+            $likeCount = 0;
+            $shareCount = 0;
+            if ($noteCount > 50) {
+                $likeCount = $noteCount * ( 2 / 3 );
+                $shareCount = $noteCount * ( 1 / 3 );
+            } else {
+                foreach ($notes as $note) {
+                    if ($note['type'] == 'like') {
+                        $likeCount++;
+                    } else if ($note['type'] == 'reblog') {
+                        $shareCount++;
+                    }
+                }
+            }
             foreach ($photos as $photo) {
                 $photoUrl = $photo['original_size']['url'];
-                array_push($photoList, $photoUrl);
+                $photoArray = array('url' => $photoUrl, 'likes' => $likeCount, 'shares' => $shareCount);
+                array_push($photoList, $photoArray);
             }
         }
 
         $jsonPhotos = json_encode($photoList);
+
+        print_r($photoList);
 
         return $jsonPhotos;
     }
