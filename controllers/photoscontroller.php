@@ -12,6 +12,7 @@ class PhotosController extends Controller
     }
 
     function photo($token){
+        echo $_GET['platform'] . "*" . $_GET['id'];
         if (isset($_GET['platform']) && isset($_GET['id'])){
             if ($_GET['platform'] === 'unsplash')
                 $info = $this->model->getUnsplashInfo($token, $_GET['id']);
@@ -21,7 +22,9 @@ class PhotosController extends Controller
                 http_response_code(400);
                 die();
             }
+            echo "*";
             $vizualizare = $this->view->editPhoto($info);
+            echo "!";
             echo $vizualizare;   
         } else {
             http_response_code(400);
