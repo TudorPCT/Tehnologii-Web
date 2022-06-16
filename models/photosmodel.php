@@ -7,12 +7,10 @@ class PhotosModel extends Model
         parent::__construct();
     }
 
-
-    function getUnsplashPhotos($token){
-
+    function httpRequest($link, $token){
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
+        curl_setopt($ch, CURLOPT_URL, $link);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
@@ -21,8 +19,17 @@ class PhotosModel extends Model
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $unsplashPhotos = json_decode(curl_exec($ch), true);
+        $response = json_decode(curl_exec($ch), true);
         curl_close($ch);
+
+        return $response;
+    }
+
+
+    function getUnsplashPhotos($token){
+
+
+        $unsplashPhotos = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos", $token);
 
         $count = 0;
 
@@ -95,7 +102,7 @@ class PhotosModel extends Model
         return $response;
     }
 
-    function getPhoto(){
+    function getUnsplashInfo($token, $id){
         ;
     }
 }
