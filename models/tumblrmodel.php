@@ -176,7 +176,7 @@ class TumblrModel extends Model
             "Accept: application/json"
         );
 
-        curl_setopt($ch, CURLOPT_HEADER, $headers);
+        //curl_setopt($ch, CURLOPT_HEADER, $headers);
 
         $response = curl_exec($ch);
         curl_close($ch);
