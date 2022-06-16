@@ -12,9 +12,9 @@ flipXBtn = document.getElementById('flip-x');
 flipYBtn = document.getElementById('flip-y');
 
   image = document.getElementById("chosen-image");
+  canvasImg=convertImageToCanvas(image);
+  context = canvas.getContext('2d');
   let imageConverted;
-let canvas = document.createElement('canvas');
- const context = canvas.getContext('2d');
 let File_Name = image.getAttribute('src');
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
 sliders.forEach(slider=>{slider.addEventListener("input",addFilter)
@@ -28,9 +28,9 @@ function addFilter() {
             "grayscale("+filterF.value+"%)" +
             "hue-rotate("+filterG.value+"deg)";
         image.style.filter = filterString;
-        canvas=convertImageToCanvas(image);
-        canvas.style.transform = filterString;
-        imageConverted = convertCanvasToImage(canvas);
+        image.style.transform = filterString;
+        // canvas.style.backgroundColor = "#fffffe";
+        // canvas.style.transform = filterString;
     // console.log(image.style.filter);
 }
 
@@ -68,21 +68,21 @@ function convertImageToCanvas(image) {
     var canvas = document.createElement("canvas");
     canvas.width = image.width;
     canvas.height = image.height;
-    canvas.getContext("2d").drawImage(imageConverted, 0, 0);
+    canvas.getContext("2d").drawImage(image, 0, 0);
 
     return canvas;
 }
-function convertCanvasToImage(canvas) {
-    var image = new Image();
-    image.src = canvas.toDataURL("image/png");
-    return image;
-}
+// function convertCanvasToImage(canvas) {
+//     var image = new Image();
+//     image.src = canvas.toDataURL("image/png");
+//     return image;
+// }
 function Download_btn(){
     if (image.getAttribute('src') !== "") {
         console.log("salvez img");
 
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-        const jpegUrl = canvas.toDataURL("image/jpg");
+        context.drawImage(image, 0, 0, canvasImg.width, canvasImg.height);
+        const jpegUrl = canvasImg.toDataURL("image/jpg");
 
         const link = document.createElement("a");
         document.body.appendChild(link);
