@@ -288,9 +288,8 @@ class TumblrModel extends Model
 
         $sth = $this->conn->prepare($this->querry);
         if ($sth->execute($data)) {
-            http_response_code(201);
-            echo "<script>alert(\"Signin successful\");</script>";
             header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
+            echo "<script>alert(\"Signin successful\");</script>";
         } else {
             http_response_code(403);
             echo json_encode(array("message" => "Unable to delete account."));
