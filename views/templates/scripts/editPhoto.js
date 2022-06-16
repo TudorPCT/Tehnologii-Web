@@ -70,7 +70,7 @@ function resetImage(){
 function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
-            context.drawImage(image,0,0, image.naturalWidth, image.naturalHeight);
+            context.drawImage(image,0,0, canvas.width, canvas.height);
             // context.filter=getFilter();
             // context.save();
         const jpegUrl = canvas.toDataURL("image/jpg");
