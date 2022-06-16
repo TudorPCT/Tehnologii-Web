@@ -21,21 +21,17 @@ let File_Name = image.getAttribute('src');
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
 sliders.forEach(slider=>{slider.addEventListener("input",addFilter)
 });
+function  getFilter(){
+return "blur("+filterA.value+"px)"+
+    "contrast("+filterB.value+"%)"+
+    "saturate("+filterC.value+"%)"+
+    "sepia("+filterD.value+"%)" +
+    "brightness("+filterE.value+"%)"+
+    "grayscale("+filterF.value+"%)" +
+    "hue-rotate("+filterG.value+"deg)";
+}
 function addFilter() {
-        image.style.filter = "blur("+filterA.value+"px)"+
-                            "contrast("+filterB.value+"%)"+
-                            "saturate("+filterC.value+"%)"+
-                            "sepia("+filterD.value+"%)" +
-                            "brightness("+filterE.value+"%)"+
-                            "grayscale("+filterF.value+"%)" +
-                            "hue-rotate("+filterG.value+"deg)";
-        context.filter = "blur("+filterA.value+"px)"+
-            "contrast("+filterB.value+"%)"+
-            "saturate("+filterC.value+"%)"+
-            "sepia("+filterD.value+"%)" +
-            "brightness("+filterE.value+"%)"+
-            "grayscale("+filterF.value+"%)" +
-            "hue-rotate("+filterG.value+"deg)";
+        image.style.filter = getFilter();
     // console.log(context);
 }
 
