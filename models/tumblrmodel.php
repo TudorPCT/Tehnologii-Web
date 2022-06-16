@@ -148,7 +148,7 @@ class TumblrModel extends Model
     function getUserPhotos($token) {
         include("config.php");
 
-        $payload = json_decode(extractTokenPayload($jwtToken), true);
+        $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
