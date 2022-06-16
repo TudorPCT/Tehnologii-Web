@@ -161,11 +161,11 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
+        echo $username;
+
         $url = "https://api.tumblr.com/v2/blog/"
-            . $username
-            . ".tumblr.com/posts/photo"
-            . "?api_key="
-            . $tumblrClientId;
+            . $username . ".tumblr.com/posts/photo"
+            . "?api_key=" . $tumblrClientId;
 
         $ch = curl_init();
 
