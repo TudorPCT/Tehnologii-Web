@@ -17,8 +17,8 @@
         </div>
         <nav>
             <ul>
-                <li class="current"><a href="./?load=photos">Photos</a></li>
                 <li><a href="./?load=accounts">Accounts</a></li>
+                <li class="current"><a href="./?load=photos">Photos</a></li>
                 <li><a href="./?load=logout">Logout</a></li>
             </ul>
         </nav>
@@ -113,6 +113,6 @@
 <footer>
     <p>SMB Copyright &copy; 2022</p>
 </footer>
-<script src="./scripts/editPhoto.js"></script>
+<script src="./views/templates/scripts/editPhoto.js"></script>
 </body>
 </html>
