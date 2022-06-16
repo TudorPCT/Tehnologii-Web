@@ -36,6 +36,7 @@ class UnsplashController extends Controller
         }
         $payload=json_decode(extractTokenPayload($token),true);
         echo json_encode($this->model->getUserPhoto($payload['id'], $_GET['id']));
+    }
 
     function delete($token) {
         $this->model->deleteAccount($token);
