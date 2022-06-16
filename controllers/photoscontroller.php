@@ -23,6 +23,8 @@ class PhotosController extends Controller
                 die();
             }
             $data = ["link" => $info['urls']['raw']];
+            echo $data['link'];
+            die();
             $vizualizare = $this->view->editPhoto($data);
             echo $vizualizare;
         } else {
