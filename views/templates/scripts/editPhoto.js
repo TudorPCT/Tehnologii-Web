@@ -14,6 +14,7 @@ flipYBtn = document.getElementById('flip-y');
 image = document.getElementById("chosen-image");
 let canvas = document.getElementById('image_canvas');
 const context = canvas.getContext('2d');
+context.drawImage(image,0,0, canvas.width, canvas.height);
 
 let File_Name = image.getAttribute('src');
 
@@ -35,7 +36,7 @@ function addFilter() {
             "brightness("+filterE.value+"%)"+
             "grayscale("+filterF.value+"%)" +
             "hue-rotate("+filterG.value+"deg)";
-    // console.log(image.style.filter);
+    // console.log(context);
 }
 
 radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
@@ -70,7 +71,7 @@ function resetImage(){
 function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
-            context.drawImage(image,0,0, canvas.width, canvas.height);
+            // context.drawImage(image,0,0, canvas.width, canvas.height);
         const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");
