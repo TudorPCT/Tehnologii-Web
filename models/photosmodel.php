@@ -63,19 +63,8 @@ class PhotosModel extends Model
 
     function getTumblrPhotos($token){
 
-        $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://socialmediabox.herokuapp.com/?load=tumblr/photos");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $headers = array(
-            "Accept: application/json",
-            "Authorization: Bearer " . $token
-        );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        $tumblrPhotos = json_decode(curl_exec($ch), true);
-        curl_close($ch);
+        $tumblrPhotos = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=tumblr/photos", $token);
 
         $count = 0;
 
