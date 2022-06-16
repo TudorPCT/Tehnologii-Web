@@ -35,7 +35,8 @@ header("Access-Control-Allow-Methods: *");
                 || strtolower($controller) === 'register'){
             if($auth)
                 $controller = "logout";
-        }else{
+        }
+        else{
             if(!$auth){
                 http_response_code(401);
                 exit(401);
