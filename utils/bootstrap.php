@@ -37,8 +37,8 @@ header("Access-Control-Allow-Methods: *");
                 $controller = "logout";
         }else{
             if(!$auth){
-          //      http_response_code(401);
-          //      exit(401);
+                http_response_code(401);
+                exit(401);
             }
         }
 
