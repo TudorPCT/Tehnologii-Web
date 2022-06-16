@@ -196,8 +196,8 @@ class TumblrModel extends Model
             $likeCount = 0;
             $shareCount = 0;
             if ($noteCount > 50) {
-                $likeCount = $noteCount * ( 2 / 3 );
-                $shareCount = $noteCount * ( 1 / 3 );
+                $likeCount = (int) $noteCount * ( 2 / 3 );
+                $shareCount = (int) $noteCount * ( 1 / 3 );
             } else {
                 foreach ($notes as $note) {
                     if ($note['type'] == 'like') {
