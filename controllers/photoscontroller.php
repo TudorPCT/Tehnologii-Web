@@ -11,4 +11,9 @@ class PhotosController extends Controller
         echo $this->model->getUnsplashPhotos($token);
     }
 
+    function photo($token){
+        $vizualizare = $this->view->editPhoto();
+        echo $vizualizare;
+    }
+
 }

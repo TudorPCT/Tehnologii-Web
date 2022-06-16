@@ -12,12 +12,11 @@ class AccountsModel extends Model
         $querry="select * from accounts where user_id=".$user_id.";";
         $this->setSql($querry);
         $result = $this->getAll();
-//        echo "<ul>";
+
+        ob_start();
+
         for($index = 0; $index < sizeof($result); $index++) {
-//            if($result[$index][""])
-//            echo "<li>";
-//            echo $result[$index]["username"] .PHP_EOL;
-//            echo "</li>";
+
             echo "<div class=\"account\">";
             echo "<div class=\"id\">";
             if($result[$index]["platform"]=="unsplash") {
@@ -36,8 +35,10 @@ class AccountsModel extends Model
             echo "</div>";
             echo "</div>";
         }
-//        echo "</ul>";
-        return false;
+        
+        $output = ob_get_contents();
+        ob_end_clean();
+        return $output;
 
     }
 }

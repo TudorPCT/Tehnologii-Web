@@ -109,7 +109,6 @@ class UnsplashModel extends Model
         $userData = $this->getRow($data);
 
         if ($userData === null) {
-            echo "!";
             return null;
         }
 

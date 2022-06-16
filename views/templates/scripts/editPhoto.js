@@ -72,3 +72,13 @@ function Download_btn(){
             document.body.removeChild(link);
     }
 }
+
+function seeDetails(){
+    document.getElementById("hideEditor").style.display = "none";
+    document.getElementById("details").style.display = "initial";
+}
+
+function seeEditor(){
+    document.getElementById("details").style.display = "none";
+    document.getElementById("hideEditor").style.display = "initial";
+}

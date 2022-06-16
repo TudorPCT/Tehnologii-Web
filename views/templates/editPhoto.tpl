@@ -6,8 +6,8 @@
     <meta name="description" content="Social Media Aggregator">
     <meta name="author" content="Team">
     <title> SMB </title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/edit.css">
+    <link rel="stylesheet" href="./views/templates/css/style.css">
+    <link rel="stylesheet" href="./views/templates/css/edit.css">
 </head>
 <body>
 <header>
@@ -18,7 +18,6 @@
         <nav>
             <ul>
                 <li class="current"><a href="./?load=photos">Photos</a></li>
-                <li><a href="./?load=wall">My Wall</a></li>
                 <li><a href="./?load=accounts">Accounts</a></li>
                 <li><a href="./?load=logout">Logout</a></li>
             </ul>
@@ -28,23 +27,37 @@
 <div class="sidenav">
     <div class="sidebtn">
         <div class="dropdown">
-            <a href="photos.tpl"><button class="dropbtn">Back</button></a>
+            <a href="./?load=photos"><button class="dropbtn">Back</button></a>
+        </div>
+    </div>
+    <div class="sidebtn">
+        <div class="dropdown">
+            <a><button class="dropbtn" onclick="seeDetails()">See Details</button></a>
+        </div>
+    </div>
+    <div class="sidebtn">
+        <div class="dropdown">
+            <a><button class="dropbtn" onclick="seeEditor()">Edit</button></a>
         </div>
     </div>
 </div>
 
-<div class="wrapper">
+<div class="box">
     <div class="result">
 <!--        <img src="./img/art.jpg" >-->
         <figure class="image-container">
-            <img id="chosen-image" src="./img/naturephoto.jpg">
+            <?php echo "<img id=\"chosen-image\" src=\"" . $photo . "\">";
+            ?>
         </figure>
         <div class="editbuttons">
-        <button id="reset">Reset</button>
-        <button id="save" onclick="Download_btn()">Save</button>
+            <button id="reset">Reset</button>
+            <button id="save" onclick="Download_btn()">Save</button>
         </div>
     </div>
-    <div class="editor">
+    <div id="details">
+        <h1>Details</h1>
+    </div>
+    <div class="editor" id="hideEditor">
         <div class="filter">
             <label for="blur">Blur</label>
             <input type="range" min="0" max="5" value="0" step="0.1" id="blur" >

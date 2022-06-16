@@ -7,6 +7,7 @@ class PhotosModel extends Model
         parent::__construct();
     }
 
+
     function getUnsplashPhotos($token){
 
         $ch = curl_init();
@@ -25,27 +26,31 @@ class PhotosModel extends Model
 
         $count = 0;
 
+        ob_start();
+        
         if(count($unsplashPhotos) === 0){
             echo "<h1>No Photos Found</h1>";
             return;
         }
 
-        $response =  "<div class=\"column\">" . PHP_EOL;
+        echo  "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
             if ($count % 5 === 0 && $count != 0) {
-                $response .=  "</div>" . PHP_EOL;
-                $response .=  "<div class=\"column\">" . PHP_EOL;
+                echo  "</div>" . PHP_EOL;
+                echo  "<div class=\"column\">" . PHP_EOL;
             }
 
-            $response .=  "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
+            echo  "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
 
             $count++;
         }
 
-        $response .=  "</div>" . PHP_EOL;
+        echo "</div>" . PHP_EOL;
 
-        return $response;
+        $output = ob_get_contents();
+        ob_end_clean();
+        return $output;
     }
 
     function getPhoto(){

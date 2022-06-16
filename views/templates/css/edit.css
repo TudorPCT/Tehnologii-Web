@@ -1,17 +1,23 @@
- .wrapper{
-     width: 85vw;
+ .box{
+     width: 70%;
      min-height: 40vmin;
      padding: 50px 30px;
      background-color:#fffffe ;
      position: absolute;
      transform: translate(-50%,-50%);
-     top: 50%;
+     top: 55%;
      left: 50%;
-     border-radius: 10px;
+     border-radius: 25px;
      /*box-shadow: 0 20px 35px ;*/
      display: grid;
+
      grid-template-columns: 7fr 5fr;
  }
+
+ #details{
+     display: none;
+ }
+
  .editor{
      border: 1px solid #eebbc3;
      min-height: 35vmin;
@@ -19,6 +25,7 @@
      flex-direction: column;
      justify-content: space-around;
      /*gap: 20px;*/
+     padding: 5px;
  }
 
  .editor label{
@@ -66,6 +73,7 @@
  .result .editbuttons {
      display: inline-flex;
      position: relative;
+     justify-content: space-around;
      width: 40%;
      /*background-color: #eebbc3 ;*/
      padding: 16px 0;
@@ -74,20 +82,25 @@
  }
  .result button{
      background-color: #eebbc3;
-     border-radius: 5px;
      text-align: center;
-     font-size: 2.8vmin;
-     margin: auto;
      cursor: pointer ;
      border-color: #14192f;
      color: #fffffe;
+     padding: 10px;
+     font-size: 20px;
+     margin: 1%;
+     border: 2px;
+     border-radius: 10px;
+     width: auto;
  }
+
+
+
  .result button:hover {background-color: #d08691;}
 
- @media screen and (max-height: 620px) {
-    .wrapper{
-        width: 95vw;
-        grid-template-columns: 1fr;
+ @media screen and (max-width: 800px) {
+    .box{
+        width: 70%;
         padding: 30px 20px;
         gap: 10px;
     }
@@ -100,5 +113,9 @@
      }
      .flip-buttons .flip-option{
          margin-top: 0;
+     }
+     .result button {
+         font-size: 15px;
+         padding: 5px;
      }
  }
