@@ -289,7 +289,6 @@ class TumblrModel extends Model
         $sth = $this->conn->prepare($this->querry);
         if ($sth->execute($data)) {
             header("Location: https://socialmediabox.herokuapp.com/?load=accounts");
-            echo "<script>alert(\"Account deleted\");</script>";
         } else {
             http_response_code(403);
             echo json_encode(array("message" => "Unable to delete account."));
