@@ -3,7 +3,6 @@
 abstract class Controller
 {
     protected $model;
-    protected $view;
 
     public function __construct()
     {
@@ -14,18 +13,6 @@ abstract class Controller
         };
 
         $this->model = new $modelName;
-
-        $viewName = str_replace("Controller", "View", get_class($this));
-        if (!class_exists($viewName, true)) {
-            echo "$viewName undefined -> halt !";
-            exit();
-        };
-        $this->view = new $viewName;
-    }
-
-    function index($token){
-        $vizualizare = $this->view->show();
-        echo $vizualizare;
     }
 
 }
