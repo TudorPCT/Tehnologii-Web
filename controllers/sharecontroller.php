@@ -14,7 +14,6 @@ class ShareController extends Controller
 
             $data = ["link" => $info['urls']['regular']];
 
-            echo $data['link'];
             if ($token !== null) {
                 $vizualizare = $this->view->showPrivate($data);
             }else if ($info !== null) {
