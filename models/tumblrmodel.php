@@ -316,9 +316,7 @@ class TumblrModel extends Model
 
         $result = json_decode($response, true);
 
-        $photos = $result['photos'];
-
-        $url = ["url" => $photos[$photo_index]['original_size']['url']];
+        $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
 
         $urlJSON = json_encode($url);
 
