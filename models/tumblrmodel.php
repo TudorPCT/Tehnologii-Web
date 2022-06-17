@@ -346,40 +346,6 @@ class TumblrModel extends Model
             . $username . ".tumblr.com/"
             . "notes?"
             . "id=" . $post_id
-            . "&mode=likes"
-            . "&api_key=" . $tumblrClientId;
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        $result = json_decode($response, true);
-        $likeCount = $result['response']['total_notes'];
-
-        $url = "https://api.tumblr.com/v2/blog/"
-            . $username . ".tumblr.com/"
-            . "notes?"
-            . "id=" . $post_id
-            . "&mode=reblogs_with_tags"
-            . "&api_key=" . $tumblrClientId;
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        $result = json_decode($response, true);
-        $shareCount = $result['response']['total_notes'];
-
-        $url = "https://api.tumblr.com/v2/blog/"
-            . $username . ".tumblr.com/"
-            . "notes?"
-            . "id=" . $post_id
             . "&mode=conversation"
             . "&api_key=" . $tumblrClientId;
 
@@ -391,7 +357,9 @@ class TumblrModel extends Model
         curl_close($ch);
 
         $result = json_decode($response, true);
-        $commCount = $result['response']['total_notes'] - $shareCount;
+        $likeCount = $result['response']['total_likes'];
+        $shareCount = $result['response']['total_reblogs'];
+        $commCount = $result['response']['total_notes'] - ( $likeCount + $shareCount );
 
         $stats = ["likes" => $likeCount, "shares" => $shareCount, "comments" => $commCount];
 
