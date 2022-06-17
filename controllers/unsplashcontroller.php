@@ -34,6 +34,7 @@ class UnsplashController extends Controller
             http_response_code(400);
             die();
         }
+
         $payload = json_decode(extractTokenPayload($token), true);
         echo $this->model->getUserPhoto($payload['id'], $_GET['id']);
     }

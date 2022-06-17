@@ -141,6 +141,7 @@ class UnsplashModel extends Model
         if ($userData === null) {
             return null;
         }
+        
 
         $ch = curl_init();
 
