@@ -9,4 +9,5 @@ $unsplashClientId = getenv('unsplashApplicationId');
 $unsplashSecret = getenv('unsplashSecret');
 $tumblrClientId = getenv('tumblrApplicationId');
 $tumblrSecret = getenv('tumblrSecret');
+$photosURL = "https://photosservices.herokuapp.com";
 ?>
