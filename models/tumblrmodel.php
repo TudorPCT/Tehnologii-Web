@@ -301,7 +301,7 @@ class TumblrModel extends Model
             . "posts/" . $post_id
             . "?post_format=legacy"; 
 
-        $ch = curl_init();
+        $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -315,6 +315,8 @@ class TumblrModel extends Model
 
         $response = curl_exec($ch);
         curl_close($ch);
+
+        echo $response;
 
         $result = json_decode($response, true);
 
