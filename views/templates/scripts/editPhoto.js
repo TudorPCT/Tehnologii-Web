@@ -16,9 +16,10 @@ let reset = document.getElementById("reset");
 image = document.getElementById("chosen-image");
 let canvas = document.createElement("canvas");
 const context = canvas.getContext('2d');
-// canvas.width = image.width;
-// canvas.height = image.offsetHeight;
-
+canvas.width = image.width;
+canvas.height = image.height;
+console.log(canvas.width);
+console.log(canvas.height);
 let File_Name = image.getAttribute('src');
 
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
