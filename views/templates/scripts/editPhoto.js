@@ -81,7 +81,7 @@ function Download_btn(){
         const link = document.createElement("a");
             document.body.appendChild(link);
             link.setAttribute("href",jpegUrl);
-            link.setAttribute("download",File_Name+".png");
+            link.setAttribute("download",File_Name+".jpg");
             link.click();
             document.body.removeChild(link);
     }
