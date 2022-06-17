@@ -8,12 +8,23 @@ class ShareController extends Controller
 
     function photo($token){
         if (isset($_GET['id'])){
-            $info = json_decode($this->model->getPhoto($token, $_GET['id']), true);
+            $photo = $this->model->getPhotoInfo($_GET['id']);
+
+            $info = json_decode($this->model->getUnsplashPhoto($token, $photo), true);
+
+            die();
             $data = ["link" => $info['urls']['regular']];
+
+            echo $data['link'];
             if ($token !== null) {
                 $vizualizare = $this->view->showPrivate($data);
             }else if ($info !== null) {
-                $vizualizare = $this->view->showPublic($data);
+                if ($photo['scope'] === 'public')
+                    $vizualizare = $this->view->showPublic($data);
+                else{
+                    http_response_code(401);
+                    die();
+                }
             }else{
                 http_response_code(404);
                 die();

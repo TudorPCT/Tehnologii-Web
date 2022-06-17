@@ -19,50 +19,45 @@ class ShareModel extends Model
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $response = curl_exec($ch);
+
         curl_close($ch);
 
         return $response;
     }
 
-    function getPhoto($token, $id){
-
-        $photo = $this->getPhotoInfo($id);
-        
-        if ($token !== null)
-            $this->getPhotoPrivate($token, $id);
-        else{
-
-        }
-    }
-    
     function getPhotoInfo($id){
         $this->setSql("select * from shared_photos where id = :id");
 
         $data = ["id" => $id];
+
         $result = $this->getRow($data);
-        
+
         if($result == null)
             return null;
-        
+
         return $result;
     }
 
-    function getPhotoPrivate($token, $info){
-        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load="
-            . $info['platform']
-            . "/getUserPhoto&photo_id="
+    function getUnsplashPhoto($token, $photo){
+        if (isset($token))
+            return $this->getUnsplashPhotoPrivate($token, $photo);
+        else{
+            return $this->getUnsplashPhotoPublic($token, $photo);
+        }
+    }
+
+    function getUnsplashPhotoPrivate($token, $info){
+        $response = $this->httpRequest("localhost:8080/Tehnologii-Web/?load=unsplash/getUserPhoto&id="
             . $info['photo_id']
             , $token);
         return $response;
     }
 
-    function getPhotoPublic($token, $info){
-        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load="
-            . $info['platform']
-            . "/getUserPhoto&photo_id="
+    function getUnsplashPhotoPublic($token, $info){
+        $response = $this->httpRequest("localhost:8080/Tehnologii-Web/?load=unsplash/getUserPhotoPublic&id="
             . $info['photo_id']
             . "&user_id="
-            . $info['user_id']
+            . $info['owner_id']
             , $token);
         return $response;
     }

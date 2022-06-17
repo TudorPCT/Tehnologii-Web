@@ -156,7 +156,6 @@ class UnsplashModel extends Model
 
         $photo = curl_exec($ch);
         curl_close($ch);
-        
         return $photo;
     }
 
