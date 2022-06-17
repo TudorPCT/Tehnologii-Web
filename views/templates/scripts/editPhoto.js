@@ -78,7 +78,7 @@ function Download_btn(){
         const link = document.createElement("a");
             document.body.appendChild(link);
             link.setAttribute("href",jpegUrl);
-            link.setAttribute("download",File_Name);
+            link.setAttribute("download",File_Name+".png");
             link.click();
             document.body.removeChild(link);
     }
