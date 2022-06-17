@@ -47,18 +47,22 @@ class ShareModel extends Model
     }
 
     function getUnsplashPhotoPrivate($token, $info){
-        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id="
-            . $info['photo_id']
-            , $token);
+        $link = "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id="
+            . $info['photo_id'];
+        
+        $response = $this->httpRequest($link, $token);
+
         return $response;
     }
 
     function getUnsplashPhotoPublic($token, $info){
-        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotoPublic&id="
+        $link = "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotoPublic&id="
             . $info['photo_id']
             . "&user_id="
-            . $info['owner_id']
-            , $token);
+            . $info['owner_id'];
+
+        $response = $this->httpRequest($link, $token);
+
         return $response;
     }
 

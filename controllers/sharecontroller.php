@@ -12,7 +12,6 @@ class ShareController extends Controller
 
             $info = json_decode($this->model->getUnsplashPhoto($token, $photo), true);
 
-            die();
             $data = ["link" => $info['urls']['regular']];
 
             echo $data['link'];
