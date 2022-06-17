@@ -316,7 +316,13 @@ class TumblrModel extends Model
 
         $result = json_decode($response, true);
 
-        print_r($result);
+        $photos = $result['photos'];
+
+        $url = ["url" => $photos[$photo_index]['original_size']['url']];
+
+        $urlJSON = json_encode($url);
+
+        return $urlJSON;
     }
 
     function deleteAccount($token) {
