@@ -15,6 +15,7 @@ let reset = document.getElementById("reset");
 
 image = document.getElementById("chosen-image");
 const canvas = document.createElement("canvas");
+context.canvas.width=image.naturalWidth;
 canvas.setAttribute('width', image.naturalWidth);
 canvas.setAttribute('height', image.naturalHeight);
 const context = canvas.getContext('2d');
@@ -79,10 +80,10 @@ function Download_btn(){
         console.log(image.naturalWidth);
         console.log(image.naturalHeight);
 
-        console.log(canvas.width);
+        console.log(context.canvas.width);
         console.log(canvas.height);
 
-        context.drawImage(image,0,0, canvas.width, canvas.height);
+        context.drawImage(image,0,0, context.canvas.width, context.canvas.height);
 
         const jpegUrl = canvas.toDataURL("image/jpg");
 
