@@ -99,10 +99,11 @@ class PhotosModel extends Model
         return json_decode($info, true);
     }
 
-    function getTumblrInfo($token, $id, $index){
+    function getTumblrInfo($token, $id, $index) {
         $url = "https://socialmediabox.herokuapp.com/?load=tumblr/getUserPhoto"
             . "&id=" . $id
             . "&photo=" . $index;
+        echo "URL = " . $url;
         $info = $this->httpRequest($url, $token);
         return json_decode($info, true);
     }
