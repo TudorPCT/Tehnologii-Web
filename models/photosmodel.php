@@ -72,12 +72,12 @@ class PhotosModel extends Model
             return;
         }
 
-        echo  "<div class=\"row\">" . PHP_EOL;
+        echo  "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($tumblrPhotos); $index++) {
             if ($count % 5 === 0 && $count != 0) {
                 echo  "</div>" . PHP_EOL;
-                echo  "<div class=\"row\">" . PHP_EOL;
+                echo  "<div class=\"column\">" . PHP_EOL;
             }
 
             echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
