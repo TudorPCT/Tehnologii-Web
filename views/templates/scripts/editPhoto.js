@@ -18,8 +18,8 @@ let canvas = document.createElement("canvas");
 const context = canvas.getContext('2d');
 canvas.width = image.width;
 canvas.height = image.height;
-console.log(canvas.width);
-console.log(canvas.height);
+// console.log(canvas.width);
+// console.log(canvas.height);
 let File_Name = image.getAttribute('src');
 
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
@@ -48,12 +48,15 @@ radioBtns.forEach(radioBtn =>{
 function flipImage(){
     if(flipXBtn.checked){
         image.style.transform="scaleX(-1)";
+        context.style.transform="scaleX(-1)";
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
+        context.style.transform = "scaleY(-1)";
     }
     else {
         image.style.transform = "scale(1,1)";
+        context.style.transform = "scale(1,1)";
     }
 }
 
@@ -75,8 +78,6 @@ function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
             context.drawImage(image,0,0, canvas.width, canvas.height);
-            // context.filter=getFilter();
-            // context.save();
         const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");
