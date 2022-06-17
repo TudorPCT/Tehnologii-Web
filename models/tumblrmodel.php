@@ -297,24 +297,21 @@ class TumblrModel extends Model
         $username = $userData['username'];
     
         echo $tumblrToken;
-        echo "<br>";
-        echo $username;
-        echo "<br>";
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
-            . "posts/" . $post_id; 
+            . "posts/" . $post_id
+            . "?post_format=legacy"; 
 
         $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
         $headers = array(
+            "Accept: application/json",
             "Authorization: Bearer " . $tumblrToken
         );
-
-        curl_setopt($ch, CURLOPT_HEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $response = curl_exec($ch);
         curl_close($ch);
