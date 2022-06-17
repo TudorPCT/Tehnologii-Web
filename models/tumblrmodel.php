@@ -306,13 +306,10 @@ class TumblrModel extends Model
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
-            "Accept: application/json",
             "Authorization: Bearer " . $tumblrToken
         );
 
         curl_setopt($ch, CURLOPT_HEADER, $headers);
-
-        echo "<br>aici";
 
         $response = curl_exec($ch);
         curl_close($ch);
