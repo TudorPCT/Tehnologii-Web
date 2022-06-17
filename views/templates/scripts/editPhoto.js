@@ -45,14 +45,17 @@ radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
 radioBtns.forEach(radioBtn =>{
     radioBtn.addEventListener("click",flipImage);
 })
+context.save();
 function flipImage(){
     if(flipXBtn.checked){
+        context.restore();
         image.style.transform="scaleX(-1)";
         context.scale(-1,1);
         context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
+        context.restore();
         context.scale(1,-1);
         context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
     }
@@ -60,6 +63,7 @@ function flipImage(){
         image.style.transform = "scale(1,1)";
         context.scale(1,1);
         context.drawImage(image,0,0, canvas.width,canvas.height);
+        context.save();
     }
 }
 
@@ -69,6 +73,7 @@ function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
     context.filter = 'none';
+    context.restore();
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
