@@ -18,6 +18,7 @@ const canvas = document.createElement('canvas');
 canvas.width=200;
 canvas.width=image.naturalWidth;
 canvas.height=200;
+canvas.height=image.naturalHeight;
 const context = canvas.getContext('2d');
 
 // let File_Name = image.getAttribute('src');
