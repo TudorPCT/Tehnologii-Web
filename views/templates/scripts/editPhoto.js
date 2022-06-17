@@ -73,7 +73,7 @@ function Download_btn(){
             context.drawImage(image,0,0, canvas.width, canvas.height);
             // context.filter=getFilter();
             // context.save();
-        const jpegUrl = canvas.toDataURL("image.jpg");
+        const jpegUrl = canvas.toDataURL("image/jpg");
 
         const link = document.createElement("a");
             document.body.appendChild(link);
