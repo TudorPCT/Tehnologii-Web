@@ -46,10 +46,9 @@
     <div class="result">
 <!--        <img src="./img/art.jpg" >-->
         <figure class="image-container">
-  <!--          <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\">"; -->
-       <!--     ?>-->
+        <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\">";
+          ?>
      <!--       <canvas id="canvasPhoto" ></canvas> -->
-            <canvas id="canvasPhoto"><img src="img/shells.jpg"></canvas>
 
         </figure>
         <div class="editbuttons">

@@ -13,13 +13,11 @@ flipYBtn = document.getElementById('flip-y');
 
 let reset = document.getElementById("reset");
 
-image = document.getElementById("chosen-image");
-const canvas = document.createElement("canvas");
+const image = document.getElementById("chosen-image");
+const canvas = document.createElement('canvas');
+canvas.width=200;
+canvas.height=200;
 const context = canvas.getContext('2d');
-context.canvas.width=image.naturalWidth;
-canvas.setAttribute('width', image.naturalWidth);
-canvas.setAttribute('height', image.naturalHeight);
-
 
 // let File_Name = image.getAttribute('src');
 
@@ -81,10 +79,10 @@ function Download_btn(){
         console.log(image.naturalWidth);
         console.log(image.naturalHeight);
 
-        console.log(context.canvas.width);
+        console.log(canvas.width);
         console.log(canvas.height);
 
-        context.drawImage(image,0,0, context.canvas.width, context.canvas.height);
+        context.drawImage(image,0,0, canvas.width,canvas.height);
 
         const jpegUrl = canvas.toDataURL("image/jpg");
 
