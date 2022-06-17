@@ -36,7 +36,7 @@ return "blur("+filterA.value+"px)"+
 function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        // context.drawImage(image,0,0, canvas.width,canvas.height);
         // reset.style.transform='translateY(0px)';
 
 }
@@ -45,21 +45,27 @@ radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
 radioBtns.forEach(radioBtn =>{
     radioBtn.addEventListener("click",flipImage);
 })
+let scaleX;
+let scaleY;
 function flipImage(){
     if(flipXBtn.checked){
         image.style.transform="scaleX(-1)";
-        context.scale(-1,1);
-        context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
+        scaleX=-1;
+        // context.scale(-1,1);
+        // context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
-        context.scale(1,-1);
-        context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
+        scaleY=-1;
+        // context.scale(1,-1);
+        // context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
     }
     else {
         image.style.transform = "scale(1,1)";
-        context.scale(1,1);
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        scaleX=1;
+        scaleY=1;
+        // context.scale(1,1);
+        // context.drawImage(image,0,0, canvas.width,canvas.height);
     }
 }
 
@@ -86,7 +92,8 @@ function Download_btn(){
         console.log(canvas.width);
         console.log(canvas.height);
 
-        // context.drawImage(image,0,0, canvas.width,canvas.height);
+        context.scale(scaleX,scaleY);
+        context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
 
         const jpegUrl = canvas.toDataURL("image/jpg");
 

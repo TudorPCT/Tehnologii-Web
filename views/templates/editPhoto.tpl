@@ -97,15 +97,11 @@
 
         <div class="flip-buttons">
             <div class="flip-option">
-                <input type="radio" name="flip" id="no-flip" checked>
-                <label for="no-flip">No flip</label>
-            </div>
-            <div class="flip-option">
-                <input type="radio" name="flip" id="flip-x">
+                <input type="checkbox" name="flip" id="flip-x">
                 <label for="flip-x">Flip Horizontal</label>
             </div>
             <div class="flip-option">
-                <input type="radio" name="flip" id="flip-y">
+                <input type="checkbox" name="flip" id="flip-y">
                 <label for="flip-y">Flip Vertical</label>
             </div>
         </div>
