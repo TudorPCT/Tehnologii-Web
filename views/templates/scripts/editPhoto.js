@@ -34,7 +34,7 @@ return "blur("+filterA.value+"px)"+
 function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
-        reset.style.transform='translateY(0px)';
+        // reset.style.transform='translateY(0px)';
 
 }
 
@@ -57,7 +57,7 @@ function flipImage(){
 
 reset.addEventListener("click",resetImage);
 function resetImage(){
-    console.log("resetez img");
+    // console.log("resetez img");
     image.style.filter='none';
     for(let i=0;i<=sliders.length-1;i++)
     {
