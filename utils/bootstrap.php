@@ -43,8 +43,7 @@ header("Access-Control-Allow-Methods: *");
         else{
             if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')
                         && !(strtolower($controller) === 'share' && strtolower($action) === 'photo')){
-                http_response_code(401);
-                exit(401);
+             ;
             }
         }
 

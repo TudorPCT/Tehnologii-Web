@@ -1,7 +1,7 @@
 <?php
 
 
-class PhotosModel extends Model
+class CollageModel extends Model
 {
     function __construct(){
         parent::__construct();

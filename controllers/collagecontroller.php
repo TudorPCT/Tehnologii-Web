@@ -2,8 +2,8 @@
 
 class CollageController extends Controller
 {
-    private $user;
-    function __construct($token){
+
+    function __construct(){
         parent::__construct();
     }
 
