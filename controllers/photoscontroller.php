@@ -13,12 +13,12 @@ class PhotosController extends Controller
 
     function photo($token){
 
-        if (isset($_GET['platform']) && isset($_GET['id'])){
-            if ($_GET['platform'] === 'unsplash')
+        if (isset($_GET['platform']) && isset($_GET['id'])) {
+            if ($_GET['platform'] === 'unsplash') {
                 $info = $this->model->getUnsplashInfo($token, $_GET['id']);
-            else if ($_GET['platform'] === 'tumblr')
-                $info = $this->model->getTumblrInfo($token, $_GET['id']);
-            else{
+            } else if ($_GET['platform'] === 'tumblr' && isset($_GET['photo'])) {
+                $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
+            } else {
                 http_response_code(400);
                 die();
             }

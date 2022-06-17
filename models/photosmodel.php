@@ -72,26 +72,35 @@ class PhotosModel extends Model
             return;
         }
 
-        $response =  "<div class=\"column\">" . PHP_EOL;
+        echo  "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($tumblrPhotos); $index++) {
             if ($count % 5 === 0 && $count != 0) {
-                $response .=  "</div>" . PHP_EOL;
-                $response .=  "<div class=\"column\">" . PHP_EOL;
+                echo  "</div>" . PHP_EOL;
+                echo  "<div class=\"column\">" . PHP_EOL;
             }
 
-            $response .=  "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
+            echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+            echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
+            echo "</a>";
 
             $count++;
         }
 
-        $response .=  "</div>" . PHP_EOL;
+        echo "</div>" . PHP_EOL;
 
-        return $response;
+        $output = ob_get_contents();
+        ob_end_clean();
+        return $output;
     }
 
     function getUnsplashInfo($token, $id){
         $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id, $token);
+        return json_decode($info, true);
+    }
+
+    function getTumblrInfo($token, $id, $index){
+        $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id . "&photo=" . $index, $token);
         return json_decode($info, true);
     }
 }
