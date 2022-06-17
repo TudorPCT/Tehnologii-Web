@@ -7,11 +7,10 @@ function createJWT($user_info){
     $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
 
     $iat = time();
-    $exp = $iat + 60 * 60;
+    //$exp = $iat + 60 * 60;
     $payload = json_encode(array('iat' => $iat,
-        'exp' => $exp,
-        'iss' => 'localhost',
-        'aud' => 'localhost',
+        'iss' => 'socialmediabox.herokuapp.com',
+        'aud' => 'socialmediabox.herokuapp.com',
         'id' => $user_info["id"],
         'email' => $user_info["email"]));
 

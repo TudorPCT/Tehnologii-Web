@@ -10,7 +10,14 @@ class ShareController extends Controller
         if (isset($_GET['id'])){
             $info = json_decode($this->model->getPhoto($token, $_GET['id']), true);
             $data = ["link" => $info['urls']['regular']];
-            $vizualizare = $this->view->show($data);
+            if ($token !== null) {
+                $vizualizare = $this->view->showPrivate($data);
+            }else if ($info !== null) {
+                $vizualizare = $this->view->showPublic($data);
+            }else{
+                http_response_code(404);
+                die();
+            }
             echo $vizualizare;
         } else {
             http_response_code(400);

@@ -25,15 +25,45 @@ class ShareModel extends Model
     }
 
     function getPhoto($token, $id){
-        $this->setSql("select platform, photo_id from shared_photos where id = :id");
+
+        $photo = $this->getPhotoInfo($id);
+        
+        if ($token !== null)
+            $this->getPhotoPrivate($token, $id);
+        else{
+
+        }
+    }
+    
+    function getPhotoInfo($id){
+        $this->setSql("select * from shared_photos where id = :id");
 
         $data = ["id" => $id];
         $result = $this->getRow($data);
-
+        
         if($result == null)
             return null;
-        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=" . $result['platform'] . "/getUserPhoto&id=" . $result['photo_id'], $token);
+        
+        return $result;
+    }
 
+    function getPhotoPrivate($token, $info){
+        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load="
+            . $info['platform']
+            . "/getUserPhoto&photo_id="
+            . $info['photo_id']
+            , $token);
+        return $response;
+    }
+
+    function getPhotoPublic($token, $info){
+        $response = $this->httpRequest("https://socialmediabox.herokuapp.com/?load="
+            . $info['platform']
+            . "/getUserPhoto&photo_id="
+            . $info['photo_id']
+            . "&user_id="
+            . $info['user_id']
+            , $token);
         return $response;
     }
 
