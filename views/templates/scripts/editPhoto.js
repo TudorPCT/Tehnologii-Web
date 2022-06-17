@@ -16,6 +16,8 @@ let reset = document.getElementById("reset");
 image = document.getElementById("chosen-image");
 let canvas = document.createElement("canvas");
 const context = canvas.getContext('2d');
+// canvas.width = image.width;
+// canvas.height = image.height;
 
 let File_Name = image.getAttribute('src');
 
@@ -34,7 +36,7 @@ return "blur("+filterA.value+"px)"+
 function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
-        reset.style.transform='translateY(0px)';
+        // reset.style.transform='translateY(0px)';
 
 }
 
@@ -57,7 +59,7 @@ function flipImage(){
 
 reset.addEventListener("click",resetImage);
 function resetImage(){
-    console.log("resetez img");
+    // console.log("resetez img");
     image.style.filter='none';
     for(let i=0;i<=sliders.length-1;i++)
     {
@@ -78,7 +80,7 @@ function Download_btn(){
         const link = document.createElement("a");
             document.body.appendChild(link);
             link.setAttribute("href",jpegUrl);
-            link.setAttribute("download",File_Name);
+            link.setAttribute("download",File_Name+".png");
             link.click();
             document.body.removeChild(link);
     }

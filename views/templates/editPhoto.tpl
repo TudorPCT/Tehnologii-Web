@@ -46,8 +46,9 @@
     <div class="result">
 <!--        <img src="./img/art.jpg" >-->
         <figure class="image-container">
-            <?php echo "<img id=\"chosen-image\" src=\"" . $link . "\">";
+            <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\">";
             ?>
+
         </figure>
         <div class="editbuttons">
             <button id="reset">Reset</button>
