@@ -36,7 +36,7 @@ class UnsplashController extends Controller
         }
 
         $payload = json_decode(extractTokenPayload($token), true);
-        echo $this->model->getUserPhotoPrivate($payload['id'], $_GET['id']);
+        echo $this->model->getUserPhoto($payload['id'], $_GET['id']);
     }
 
     function getUserPhotoPublic($token){
