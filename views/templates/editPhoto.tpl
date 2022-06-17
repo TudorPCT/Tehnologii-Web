@@ -48,7 +48,7 @@
         <figure class="image-container">
             <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\">";
             ?>
-            <canvas id="canvasPhoto" ></canvas>
+     <!--       <canvas id="canvasPhoto" ></canvas> -->
 
         </figure>
         <div class="editbuttons">
