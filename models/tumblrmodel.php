@@ -295,8 +295,6 @@ class TumblrModel extends Model
         $userData = $this->getRow($data);
 
         $username = $userData['username'];
-    
-        echo $tumblrToken;
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
@@ -315,8 +313,6 @@ class TumblrModel extends Model
 
         $response = curl_exec($ch);
         curl_close($ch);
-
-        echo $response;
 
         $result = json_decode($response, true);
 
