@@ -7,22 +7,11 @@ header("Access-Control-Allow-Methods: *");
 
     $auth = false;
 
-    $controller = "Home";
-    $action = "index";
-
     $headers = apache_request_headers();
     $token = getBearerToken($headers);
 
-    if (isset($_COOKIE['jwt'])) {
-        $token = $_COOKIE['jwt'];
-    }
-
-
-    if(verify_token($token)) {
+    if(verify_token($token))
         $auth = true;
-        $controller = "accounts";
-    }
-
 
     if (isset($_GET['load'])) {
         $params = array();
@@ -33,19 +22,10 @@ header("Access-Control-Allow-Methods: *");
         if (isset($params[1]) && !empty($params[1])) {
             $action = $params[1];
         }
-        
-        if (strtolower($controller) === 'home'
-                || strtolower($controller) === 'signin'
-                || strtolower($controller) === 'register'){
-            if($auth)
-                $controller = "Logout";
-        }
-        else{
-            if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')
-                        && !(strtolower($controller) === 'share' && strtolower($action) === 'photo')){
-                http_response_code(401);
-                exit(401);
-            }
+
+        if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')){
+            http_response_code(401);
+            exit(401);
         }
 
     }
