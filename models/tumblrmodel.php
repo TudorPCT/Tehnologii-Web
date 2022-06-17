@@ -281,6 +281,8 @@ class TumblrModel extends Model
     }
 
     function getUserPhoto($token, $post_id, $photo_index) {
+        $tumblrToken = $this->refreshToken($token);
+
         $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
 
@@ -293,7 +295,7 @@ class TumblrModel extends Model
         $userData = $this->getRow($data);
 
         $username = $userData['username'];
-        $tumblrToken = $this->refreshToken($token);
+    
         echo $tumblrToken;
 
         $url = "https://api.tumblr.com/v2/blog/"
