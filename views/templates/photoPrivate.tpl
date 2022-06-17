@@ -9,20 +9,20 @@
         <link rel="stylesheet" href="./views/templates/css/style.css">
     </head>
     <body>
-        <header>
-            <div class="topBar">
-                <div id="branding">
-                    <img src="./views/templates/img/logo.jpeg" alt="Logo">
-                </div>
-                <nav>
-                    <ul>
-                        <li class="current"><a href="photos.tpl">Photos</a></li>
-                        <li><a href="accounts.tpl">Accounts</a></li>
-                        <li><a href="index.html">Logout</a></li>
-                    </ul>
-                </nav>
+    <header>
+        <div class="topBar">
+            <div id="branding">
+                <img src="./views/templates/img/logo.jpeg" alt="Logo">
             </div>
-        </header>
+            <nav>
+                <ul>
+                    <li><a href="./?load=accounts">Accounts</a></li>
+                    <li><a href="./?load=photos">Photos</a></li>
+                    <li><a href="./?load=logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
 <div class="onephoto">
     <?php echo "<img src=\"" . $link . "\">"; ?>

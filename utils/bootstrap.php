@@ -38,7 +38,7 @@ header("Access-Control-Allow-Methods: *");
                 || strtolower($controller) === 'signin'
                 || strtolower($controller) === 'register'){
             if($auth)
-                $controller = "logout";
+                $controller = "Logout";
         }
         else{
             if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')
