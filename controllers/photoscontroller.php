@@ -20,7 +20,7 @@ class PhotosController extends Controller
             } else if ($_GET['platform'] === 'tumblr' && isset($_GET['photo'])) {
                 $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
                 $data = ["link" => $info['url']];
-                echo $info;
+                echo "TEST -> " . $info;
             } else {
                 http_response_code(400);
                 die();
