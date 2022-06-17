@@ -63,8 +63,10 @@ class PhotosModel extends Model
 
     function getTumblrPhotos($token){
 
+        include ("config.php");
+        $link = $photosURL . "/?load=tumblr/photos";
 
-        $tumblrPhotos = json_decode($this->httpRequest("https://socialmediabox.herokuapp.com/?load=tumblr/photos", $token), true);
+        $tumblrPhotos = json_decode($this->httpRequest($link, $token), true);
 
         $count = 0;
 
@@ -103,10 +105,11 @@ class PhotosModel extends Model
     }
 
     function getTumblrInfo($token, $id, $index) {
-        $url = "https://socialmediabox.herokuapp.com/?load=tumblr/getUserPhoto"
+        include ("config.php");
+        $link = $photosURL . "/?load=tumblr/getUserPhoto"
             . "&id=" . $id
             . "&photo=" . $index;
-        $info = $this->httpRequest($url, $token);
+        $info = $this->httpRequest($link, $token);
         return json_decode($info, true);
     }
 }
