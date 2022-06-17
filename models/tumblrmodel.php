@@ -294,6 +294,7 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
         $tumblrToken = $this->refreshToken($token);
+        echo $tumblrToken;
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
