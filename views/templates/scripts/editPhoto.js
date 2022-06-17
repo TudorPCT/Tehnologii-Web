@@ -14,7 +14,8 @@ flipYBtn = document.getElementById('flip-y');
 let reset = document.getElementById("reset");
 
 image = document.getElementById("chosen-image");
-let canvas = document.createElement("canvas");
+// let canvas = document.createElement("canvas");
+let canvas = document.getElementById("canvasPhoto");
 const context = canvas.getContext('2d');
 canvas.width = image.width;
 canvas.height = image.height;
