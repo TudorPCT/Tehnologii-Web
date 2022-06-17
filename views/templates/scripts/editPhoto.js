@@ -14,14 +14,13 @@ flipYBtn = document.getElementById('flip-y');
 let reset = document.getElementById("reset");
 
 const image = document.getElementById("chosen-image");
-const canvas = convertImageToCanvas(image);
-// canvas.width=200;
-// canvas.width=image.offsetWidth;
-// canvas.height=200;
-// canvas.height=image.offsetHeight;
+const canvas = document.createElement('canvas');
+canvas.width=200;
+canvas.height=200;
 const context = canvas.getContext('2d');
 
 // let File_Name = image.getAttribute('src');
+
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
 sliders.forEach(slider=>{slider.addEventListener("input",addFilter)
 });
@@ -37,6 +36,7 @@ return "blur("+filterA.value+"px)"+
 function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
+        context.drawImage(image,0,0, canvas.width,canvas.height);
         // reset.style.transform='translateY(0px)';
 
 }
@@ -49,14 +49,17 @@ function flipImage(){
     if(flipXBtn.checked){
         image.style.transform="scaleX(-1)";
         context.scale(-1,1);
+        context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
         context.scale(1,-1);
+        context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
     }
     else {
         image.style.transform = "scale(1,1)";
         context.scale(1,1);
+        context.drawImage(image,0,0, canvas.width,canvas.height);
     }
 }
 
@@ -95,14 +98,7 @@ function Download_btn(){
             document.body.removeChild(link);
     }
 }
-function convertImageToCanvas(image) {
-    var canvas = document.createElement("canvas");
-    canvas.width = image.width;
-    canvas.height = image.height;
-    canvas.getContext("2d").drawImage(image, 0, 0);
 
-    return canvas;
-}
 function seeDetails(){
     document.getElementById("hideEditor").style.display = "none";
     document.getElementById("details").style.display = "initial";
