@@ -83,7 +83,7 @@ function Download_btn(){
         console.log(canvas.width);
         console.log(canvas.height);
 
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        // context.drawImage(image,0,0, canvas.width,canvas.height);
 
         const jpegUrl = canvas.toDataURL("image/jpg");
 
