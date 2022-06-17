@@ -212,7 +212,7 @@ class TumblrModel extends Model
             $index = 0;
             foreach ($photos as $photo) {
                 $photoUrl = $photo['original_size']['url'];
-                $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo' => $index);
+                $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
                 array_push($photoList, $photoArray);
                 $index++;
             }
