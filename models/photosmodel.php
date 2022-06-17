@@ -80,7 +80,7 @@ class PhotosModel extends Model
                 echo  "<div class=\"column\">" . PHP_EOL;
             }
 
-            echo "<a href=\"./?load=photos/photo&platform=tumblr&post_id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+            echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
             echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
             echo "</a>";
 
@@ -100,7 +100,7 @@ class PhotosModel extends Model
     }
 
     function getTumblrInfo($token, $id, $index){
-        $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&post_id=" . $id . "&photo=" . $index, $token);
+        $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id . "&photo=" . $index, $token);
         return json_decode($info, true);
     }
 }
