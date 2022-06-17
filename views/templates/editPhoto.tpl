@@ -54,6 +54,8 @@
         <div class="editbuttons">
             <button id="reset">Reset</button>
             <button id="save" onclick="Download_btn()">Save</button>
+            <button id="share" onclick="Share()">Share</button>
+            <button id="postOnTumblr" onclick="Post()">PostOnTumblr</button>
         </div>
     </div>
     <div id="details">

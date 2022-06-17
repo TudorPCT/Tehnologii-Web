@@ -37,6 +37,7 @@ function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
         context.drawImage(image,0,0, canvas.width,canvas.height);
+        context.save();
         // reset.style.transform='translateY(0px)';
 
 }
@@ -45,7 +46,7 @@ radioBtns = document.querySelectorAll(".flip-option input[type='radio']");
 radioBtns.forEach(radioBtn =>{
     radioBtn.addEventListener("click",flipImage);
 })
-context.save();
+
 function flipImage(){
     if(flipXBtn.checked){
         context.restore();
@@ -62,10 +63,11 @@ function flipImage(){
         context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
     }
     else {
+        context.restore();
+        context.save();
         image.style.transform = "scale(1,1)";
         context.scale(1,1);
         context.drawImage(image,0,0, canvas.width,canvas.height);
-        context.save();
     }
 }
 
@@ -114,4 +116,10 @@ function seeDetails(){
 function seeEditor(){
     document.getElementById("details").style.display = "none";
     document.getElementById("hideEditor").style.display = "initial";
+}
+function Share(){
+    console.log("share public/privat");
+}
+function Post(){
+console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
 }
