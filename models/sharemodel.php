@@ -47,8 +47,8 @@ class ShareModel extends Model
     }
 
     function getUnsplashPhotoPrivate($token, $info){
-        $link = "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id="
-            . $info['photo_id'];
+        include ("config.php");
+        $link = $photosURL . "?load=unsplash/getUserPhoto&id=" . $info['photo_id'];
         
         $response = $this->httpRequest($link, $token);
 
@@ -56,7 +56,8 @@ class ShareModel extends Model
     }
 
     function getUnsplashPhotoPublic($token, $info){
-        $link = "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotoPublic&id="
+        include ("config.php");
+        $link = $photosURL . "/?load=unsplash/getUserPhotoPublic&id="
             . $info['photo_id']
             . "&user_id="
             . $info['owner_id'];
