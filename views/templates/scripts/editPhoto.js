@@ -16,8 +16,8 @@ let reset = document.getElementById("reset");
 image = document.getElementById("chosen-image");
 let canvas = document.createElement("canvas");
 const context = canvas.getContext('2d');
-// canvas.width = image.width;
-// canvas.height = image.height;
+canvas.width = image.offsetWidth;
+canvas.height = image.offsetHeight;
 
 let File_Name = image.getAttribute('src');
 
@@ -61,6 +61,7 @@ reset.addEventListener("click",resetImage);
 function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
+    context.filter = 'none';
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
