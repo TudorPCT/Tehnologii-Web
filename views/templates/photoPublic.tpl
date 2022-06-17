@@ -25,39 +25,6 @@
 
         <div class="onephoto">
             <?php echo "<img src=\"" . $link . "\">"; ?>
-            <div class="photobuttons">
-                <div class="photobutton">
-                    <button class="photobtn">Post on</button>
-                    <div class="dropdown-content">
-                      <a href="#">Instagram</a>
-                      <a href="#">Twitter</a>
-                      <a href="#">Facebook</a>
-                    </div>
-                </div>
-                <div class="photobutton">
-                    <button class="photobtn">Edit</button>
-                    <div class="dropdown-content">
-                          <a href="#">Filter</a>
-                          <a href="#">Border</a>
-                          <a href="#">Crop</a>
-                    </div>
-                </div>
-                <div class="photobutton">
-                    <button class="photobtn">See details</button>
-                    <div class="dropdown-content">
-                        <div class="infos">
-                            <p>INFO:</p>
-                            <ul>
-                                <li>From: Instagram</li>
-                                <li>Posted at: 12 march 2021</li>
-                                <li>Likes: 1200</li>
-                                <li>Comments: 223</li>
-                                <li>Visibility: Public</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <footer>
             <p>SMB Copyright &copy; 2022</p>
