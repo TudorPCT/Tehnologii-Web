@@ -15,10 +15,11 @@ let reset = document.getElementById("reset");
 
 image = document.getElementById("chosen-image");
 const canvas = document.createElement("canvas");
+const context = canvas.getContext('2d');
 context.canvas.width=image.naturalWidth;
 canvas.setAttribute('width', image.naturalWidth);
 canvas.setAttribute('height', image.naturalHeight);
-const context = canvas.getContext('2d');
+
 
 // let File_Name = image.getAttribute('src');
 
