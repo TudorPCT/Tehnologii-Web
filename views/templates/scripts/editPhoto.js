@@ -49,6 +49,7 @@ context.save();
 function flipImage(){
     if(flipXBtn.checked){
         context.restore();
+        context.save();
         image.style.transform="scaleX(-1)";
         context.scale(-1,1);
         context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
@@ -56,6 +57,7 @@ function flipImage(){
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
         context.restore();
+        context.save();
         context.scale(1,-1);
         context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
     }
