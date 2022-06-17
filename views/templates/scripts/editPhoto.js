@@ -15,12 +15,10 @@ let reset = document.getElementById("reset");
 
 image = document.getElementById("chosen-image");
 let canvas = document.createElement("canvas");
-// let canvas = document.getElementById("canvasPhoto");
 const context = canvas.getContext('2d');
 canvas.width = image.width;
 canvas.height = image.height;
-// console.log(canvas.width);
-// console.log(canvas.height);
+
 let File_Name = image.getAttribute('src');
 
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
@@ -78,6 +76,9 @@ function resetImage(){
 function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
+        console.log(canvas.width);
+        console.log(canvas.height);
+        console.log(canvas.style);
             context.drawImage(image,0,0, canvas.width, canvas.height);
         const jpegUrl = canvas.toDataURL("image/jpg");
 
