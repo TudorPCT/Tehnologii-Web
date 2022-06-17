@@ -100,7 +100,11 @@ class PhotosModel extends Model
     }
 
     function getTumblrInfo($token, $id, $index){
-        $info = $this->httpRequest("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto&id=" . $id . "&photo=" . $index, $token);
+        $url = "https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhoto"
+            . "&id=" . $id
+            . "&photo=" . $index;
+        echo $url;
+        $info = $this->httpRequest($url, $token);
         return json_decode($info, true);
     }
 }
