@@ -32,6 +32,15 @@ class TumblrController extends Controller
         echo $this->model->getUserPhotos($token);
     }
 
+    function getUserPhoto($token){
+        if (!isset($_GET['id']) || !isset($_GET['photo'])) {
+            http_response_code(400);
+            die();
+        }
+
+        echo $this->model->getUserPhoto($token, $_GET['id'], $_GET['photo']);
+    }
+
     function delete($token) {
         $this->model->deleteAccount($token);
     }

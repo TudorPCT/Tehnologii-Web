@@ -192,6 +192,7 @@ class TumblrModel extends Model
         foreach ($posts as $post) {
             $photos = $post['photos'];
             $noteCount = $post['note_count'];
+            $post_id = $post['id'];
             $notes = $post['notes'];
             $likeCount = 0;
             $shareCount = 0;
@@ -207,10 +208,13 @@ class TumblrModel extends Model
                     }
                 }
             }
+
+            $index = 0;
             foreach ($photos as $photo) {
                 $photoUrl = $photo['original_size']['url'];
-                $photoArray = array('url' => $photoUrl, 'likes' => $likeCount, 'shares' => $shareCount);
+                $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo' => $index);
                 array_push($photoList, $photoArray);
+                $index++;
             }
         }
 
@@ -274,6 +278,46 @@ class TumblrModel extends Model
         }
 
         return $tumblrToken;
+    }
+
+    function getUserPhoto($token, $post_id, $photo_index) {
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+        $userData = $this->getRow($data);
+
+        $username = $userData['username'];
+        $tumblrToken = $this->refreshToken($token);
+
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/"
+            . "posts/" . $post_id
+            . "?post_format=legacy"; 
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = array(
+            "Accept: application/json",
+            "Authorization: Bearer " . $tumblrToken
+        );
+
+        curl_setopt($ch, CURLOPT_HEADER, $headers);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+
+        print_r($result);
     }
 
     function deleteAccount($token) {
