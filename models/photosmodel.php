@@ -103,7 +103,6 @@ class PhotosModel extends Model
         $url = "https://socialmediabox.herokuapp.com/?load=tumblr/getUserPhoto"
             . "&id=" . $id
             . "&photo=" . $index;
-        echo "URL = " . $url;
         $info = $this->httpRequest($url, $token);
         return json_decode($info, true);
     }
