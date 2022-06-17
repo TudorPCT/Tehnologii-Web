@@ -16,9 +16,9 @@ let reset = document.getElementById("reset");
 const image = document.getElementById("chosen-image");
 const canvas = document.createElement('canvas');
 canvas.width=200;
-canvas.width=image.naturalWidth;
+canvas.width=image.offsetWidth;
 canvas.height=200;
-canvas.height=image.naturalHeight;
+canvas.height=image.offsetHeight;
 const context = canvas.getContext('2d');
 
 // let File_Name = image.getAttribute('src');
