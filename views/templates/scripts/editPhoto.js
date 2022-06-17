@@ -19,7 +19,7 @@ const context = canvas.getContext('2d');
 canvas.width = image.width;
 canvas.height = image.height;
 
-let File_Name = image.getAttribute('src');
+// let File_Name = image.getAttribute('src');
 
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
 sliders.forEach(slider=>{slider.addEventListener("input",addFilter)
@@ -76,16 +76,20 @@ function resetImage(){
 function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
+        console.log(image.offsetWidth);
+        console.log(image.offsetHeight);
+        console.log(image.width);
+        console.log(image.height);
         console.log(canvas.width);
         console.log(canvas.height);
         console.log(canvas.style);
             context.drawImage(image,0,0, canvas.width, canvas.height);
-        const jpegUrl = canvas.toDataURL("image/jpg");
+        const jpegUrl = canvas.toDataURL("image/png");
 
         const link = document.createElement("a");
             document.body.appendChild(link);
-            link.setAttribute("href",jpegUrl);
-            link.setAttribute("download","photo"+".jpg");
+            link.href=jpegUrl;
+            link.download="photo.png";
             link.click();
             document.body.removeChild(link);
     }
