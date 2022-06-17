@@ -78,15 +78,11 @@ function Download_btn(){
         console.log("salvez img");
         console.log(image.offsetWidth);
         console.log(image.offsetHeight);
-        console.log(image.width);
-        console.log(image.height);
-        // console.log(canvas.width);
-        // console.log(canvas.height);
-        context.
-        context.drawImage(image,0,0, image.width, image.height);
+
+        console.log(canvas.width);
         console.log(canvas.height);
-        console.log(canvas.contentEditable);
-        console.log(canvas.style);
+
+        context.drawImage(image,0,0, canvas.width, canvas.height);
 
         const jpegUrl = canvas.toDataURL("image/jpg");
 
