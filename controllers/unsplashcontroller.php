@@ -34,15 +34,20 @@ class UnsplashController extends Controller
             http_response_code(400);
             die();
         }
-        
-        if (isset($_GET['user_id']){
-            echo $this->model->getUserPhoto($_GET['user_id'], $_GET['photo_id']);
-        }else{
-            $payload = json_decode(extractTokenPayload($token), true);
-            echo $this->model->getUserPhotoPrivate($payload['id'], $_GET['id']);
-        }
+
+        $payload = json_decode(extractTokenPayload($token), true);
+        echo $this->model->getUserPhotoPrivate($payload['id'], $_GET['id']);
     }
-    
+
+    function getUserPhotoPublic($token){
+        if (!isset($_GET['photo_id']) || !isset($_GET['user_id'])) {
+            http_response_code(400);
+            die();
+        }
+
+        echo $this->model->getUserPhoto($_GET['user_id'], $_GET['photo_id']);
+    }
+
     function delete($token) {
         $this->model->deleteAccount($token);
     }
