@@ -323,6 +323,81 @@ class TumblrModel extends Model
         return $urlJSON;
     }
 
+    function getPhotoStats($token, $post_id) {
+        include("config.php");
+        $likeCount = 0;
+        $commCount = 0;
+        $shareCount = 0;
+
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+        $userData = $this->getRow($data);
+
+        $username = $userData['username'];
+
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/"
+            . "notes?"
+            . "id=" . $post_id
+            . "&mode=likes"
+            . "&api_key=" . $tumblrClientId;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+        $likeCount = $result['response']['total_notes'];
+
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/"
+            . "notes?"
+            . "id=" . $post_id
+            . "&mode=reblogs_with_tags"
+            . "&api_key=" . $tumblrClientId;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+        $shareCount = $result['response']['total_notes'];
+
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/"
+            . "notes?"
+            . "id=" . $post_id
+            . "&mode=conversation"
+            . "&api_key=" . $tumblrClientId;
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response, true);
+        $commCount = $result['response']['total_notes'] - $shareCount;
+
+        $stats = ["likes" => $likeCount, "shares" => $shareCount, "comments" => $commCount];
+
+        return json_encode($stats);
+    }
+
     function deleteAccount($token) {
         $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
