@@ -48,15 +48,15 @@ radioBtns.forEach(radioBtn =>{
 function flipImage(){
     if(flipXBtn.checked){
         image.style.transform="scaleX(-1)";
-        context.style.transform="scaleX(-1)";
+        context.scale(-1,1);
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
-        context.style.transform = "scaleY(-1)";
+        context.scale(1,-1);
     }
     else {
         image.style.transform = "scale(1,1)";
-        context.style.transform = "scale(1,1)";
+        context.scale(1,1);
     }
 }
 
