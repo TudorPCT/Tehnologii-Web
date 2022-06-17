@@ -15,8 +15,8 @@ let reset = document.getElementById("reset");
 
 image = document.getElementById("chosen-image");
 const canvas = document.createElement("canvas");
-canvas.setAttribute('width', image.offsetWidth);
-canvas.setAttribute('height', image.offsetHeight);
+canvas.setAttribute('width', image.naturalWidth);
+canvas.setAttribute('height', image.naturalHeight);
 const context = canvas.getContext('2d');
 
 // let File_Name = image.getAttribute('src');
@@ -76,8 +76,8 @@ function resetImage(){
 function Download_btn(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
-        console.log(image.offsetWidth);
-        console.log(image.offsetHeight);
+        console.log(image.naturalWidth);
+        console.log(image.naturalHeight);
 
         console.log(canvas.width);
         console.log(canvas.height);
