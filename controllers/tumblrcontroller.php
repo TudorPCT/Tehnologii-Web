@@ -28,8 +28,8 @@ class TumblrController extends Controller
     }
 
     function photos($token) {
-        //print_r($this->model->getUserLikes($token));
-        echo $this->model->getUserPhotos($token);
+        echo $this->model->getUserLikes($token);
+        // echo $this->model->getUserPhotos($token);
     }
 
     function getUserPhoto($token){
