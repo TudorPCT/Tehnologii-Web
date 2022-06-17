@@ -298,8 +298,7 @@ class TumblrModel extends Model
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
-            . "posts/" . $post_id
-            . "?post_format=legacy"; 
+            . "posts/" . $post_id; 
 
         $ch = curl_init($url);
 
