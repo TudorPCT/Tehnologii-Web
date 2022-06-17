@@ -16,6 +16,7 @@ let reset = document.getElementById("reset");
 const image = document.getElementById("chosen-image");
 const canvas = document.createElement('canvas');
 canvas.width=200;
+canvas.width=image.naturalWidth;
 canvas.height=200;
 const context = canvas.getContext('2d');
 
