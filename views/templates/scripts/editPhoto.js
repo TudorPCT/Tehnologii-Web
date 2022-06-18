@@ -153,13 +153,13 @@ function Post(){
     var form = document.getElementById("formid");
     var fd = new FormData(form);
     fd.append("canvasImage", blob);
-    console.log(fd);
+    console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    // xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
 
