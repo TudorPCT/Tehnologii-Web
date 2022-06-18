@@ -38,7 +38,8 @@ function getUnsplashPhotos(){
 function getTumblrPhotos(){
 
     platform = 'tumblr';
-    console.log(getFilter());
+    $filters = getFilter();
+
     document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
 
     var xmlhttp = new XMLHttpRequest();
@@ -50,7 +51,15 @@ function getTumblrPhotos(){
 
     };
 
-    xmlhttp.open("GET","./?load=photos/getTumblrPhotos", true);
+    $link = "./?load=photos/getTumblrPhotos";
+    $link = $link.concat("&minLikes=", $filters[0],
+        "&maxLikes=", $filters[1],
+        "&minShares=", $filters[2],
+        "&maxShares=", $filters[3],
+        "&postDate=", $filters[4]);
+    console.log($link);
+
+    xmlhttp.open("GET", $link, true);
 
     xmlhttp.send();
 }

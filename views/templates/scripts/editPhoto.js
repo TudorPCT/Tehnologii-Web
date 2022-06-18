@@ -1,4 +1,4 @@
-filterA = document.getElementById('blur');
+let filterA = document.getElementById('blur');
 filterB = document.getElementById('contrast');
 filterC = document.getElementById('saturation');
 filterD = document.getElementById('sepia');
@@ -13,11 +13,16 @@ flipYBtn = document.getElementById('flip-y');
 
 let reset = document.getElementById("reset");
 
-const image = document.getElementById("chosen-image");
-const canvas = document.createElement('canvas');
-canvas.width=200;
-canvas.height=200;
+let image = document.getElementById("chosen-image");
+let canvas = document.createElement('canvas');
+// canvas.width=200;
+canvas.width=image.naturalWidth;
+// canvas.height=200;
+canvas.height=image.naturalHeight;
 const context = canvas.getContext('2d');
+
+let scaleX=1;
+let scaleY=1;
 
 // let File_Name = image.getAttribute('src');
 
@@ -37,7 +42,6 @@ function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
         context.drawImage(image,0,0, canvas.width,canvas.height);
-        context.save();
         // reset.style.transform='translateY(0px)';
 
 }
@@ -49,25 +53,19 @@ radioBtns.forEach(radioBtn =>{
 
 function flipImage(){
     if(flipXBtn.checked){
-        context.restore();
-        context.save();
         image.style.transform="scaleX(-1)";
-        context.scale(-1,1);
-        context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
+        scaleX=-1;
+        scaleY=1;
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
-        context.restore();
-        context.save();
-        context.scale(1,-1);
-        context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
+        scaleX=1;
+        scaleY=-1;
     }
     else {
-        context.restore();
-        context.save();
         image.style.transform = "scale(1,1)";
-        context.scale(1,1);
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        scaleX=1;
+        scaleY=1;
     }
 }
 
@@ -77,7 +75,6 @@ function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
     context.filter = 'none';
-    context.restore();
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
@@ -86,7 +83,7 @@ function resetImage(){
             sliders[i].value = 100;
     }
 }
-function Download_btn(){
+function getImageEdited(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
         console.log(image.naturalWidth);
@@ -94,10 +91,14 @@ function Download_btn(){
 
         console.log(canvas.width);
         console.log(canvas.height);
+        console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
+        context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
 
-        // context.drawImage(image,0,0, canvas.width,canvas.height);
-
-        const jpgUrl = canvas.toDataURL("image/jpg");
+        return canvas.toDataURL("image/jpg");
+    }
+}
+function Download_btn(){
+        const jpgUrl = getImageEdited();
         // console.log("link ul: "+jpgUrl);
         const link = document.createElement("a");
             document.body.appendChild(link);
@@ -105,7 +106,6 @@ function Download_btn(){
             link.setAttribute("download","photo.jpg");
             link.click();
             document.body.removeChild(link);
-    }
 }
 
 function seeDetails(){
@@ -119,9 +119,26 @@ function seeEditor(){
 }
 function Share(){
     console.log("share public/privat");
+    var photoUrl = getImageEdited();
+    console.log(photoUrl);
 }
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
-    const photoUrl = canvas.toDataURL("image/jpg");
-    console.log("link ul: "+photoUrl);
+    var photoUrl = getImageEdited();
+    console.log(photoUrl);
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("Wrapper").innerHTML = this.responseText;
+        }
+
+    };
+
+    $link = "./?load=tumblr/postPhoto";
+    $link = $link.concat("&url=", photoUrl)
+    console.log($link);
+    xmlhttp.open("GET", $link, true);
+
+    xmlhttp.send();
 }

@@ -213,46 +213,6 @@ class TumblrModel extends Model
                 }
             }
         }
-        
-
-        // foreach ($posts as $post) {
-        //     $post_id = $post['id'];
-        //     if ($post['type'] == 'photo') {
-        //         $photos = $post['photos'];
-
-        //         $index = 0;
-        //         foreach ($photos as $photo) {
-        //             $photoUrl = $photo['original_size']['url'];
-        //             $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
-        //             array_push($photoList, $photoArray);
-        //             $index++;
-        //         }
-        //     } else if ($post['type'] == 'text') {
-        //         $body = $post['body'];
-        //         $x = explode("<", $body);
-        //         $index_photo = 0;
-        //         foreach($x as $line) {
-        //             if (strncmp($line, "img", 3) == 0) {
-        //                 $substr = explode(" ", $line);
-        //                 foreach($substr as $src) {
-        //                     if (strncmp($src, "src", 3) == 0){
-        //                         $length = strlen($src);
-        //                         $indexStart = -1;
-        //                         $indexEnd = -1;
-        //                         for ($index = 3; $index < $length; $index++) {
-        //                             if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
-        //                             else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
-        //                         }
-        //                         $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-        //                         $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index_photo);
-        //                         array_push($photoList, $photoArray);
-        //                         $index_photo++;
-        //                     }
-        //                 }
-        //             }    
-        //         }
-        //     }
-        // }
 
         $jsonPhotos = json_encode($photoList);
 
@@ -381,40 +341,6 @@ class TumblrModel extends Model
                 }
             }
         }
-
-        // if ($result['response']['type'] == 'photo') {
-        //     $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
-        //     $urlJSON = json_encode($url);
-
-        //     return $urlJSON;
-        // } else if ($result['response']['type'] == 'text') {
-        //         print_r($result);
-        //         $body = $result['response']['body'];
-        //         $x = explode("<", $body);
-        //         $index_photo = 0;
-        //         foreach($x as $line) {
-        //             if (strncmp($line, "img", 3) == 0) {
-        //                 $substr = explode(" ", $line);
-        //                 foreach($substr as $src) {
-        //                     if (strncmp($src, "src", 3) == 0){
-        //                         $length = strlen($src);
-        //                         $indexStart = -1;
-        //                         $indexEnd = -1;
-        //                         for ($index = 3; $index < $length; $index++) {
-        //                             if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
-        //                             else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
-        //                         }
-        //                         $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-        //                         if ($index_photo == $photo_index) {
-        //                             $urlJSON = json_encode($url);
-        //                             return $urlJSON;
-        //                         }
-        //                         $index_photo++;
-        //                     }
-        //                 }
-        //             }    
-        //         }
-        // }     
     }
 
     function getPhotoStats($token, $post_id) {
@@ -458,6 +384,46 @@ class TumblrModel extends Model
         $stats = ["likes" => $likeCount, "shares" => $shareCount, "comments" => $commCount];
 
         return json_encode($stats);
+    }
+
+    function postPhoto($token, $photo_url) {
+        $tumblrToken = $this->refreshToken($token);
+        $payload = json_decode(extractTokenPayload($token), true);
+        $user_id = $payload['id'];
+
+        $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
+
+        $data = [
+            'user_id' => $user_id,
+            'platform' => 'tumblr'
+        ];
+        $userData = $this->getRow($data);
+
+        $username = $userData['username'];
+
+        $content = [["type" => "image", "media" => ["url" => $photo_url, "type" => "image/jpg"]]];
+        $contentJSON = json_encode($content, true);
+        
+        $ch = curl_init();
+        
+        $params = "content=" . $contentJSON;
+        $url = "https://api.tumblr.com/v2/blog/"
+            . $username . ".tumblr.com/posts";
+        
+        curl_setopt($ch, CURLOPT_URL, "$url");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array (
+            "Accept: application/json",
+            "Authorization: Bearer " . $tumblrToken
+        ));
+
+        $output = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($output);
     }
 
     function deleteAccount($token) {

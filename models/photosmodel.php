@@ -85,38 +85,71 @@ class PhotosModel extends Model
     }
 
     function getTumblrPhotos($token){
-
         include ("config.php");
         $link = $photosURL . "/?load=tumblr/photos";
 
         $tumblrPhotos = json_decode($this->httpRequest($link, $token), true);
 
         $count = 0;
+        $found = false;
 
         if(count($tumblrPhotos) === 0){
             echo "<h1>No Photos Found</h1>";
             return;
         }
 
+        if (isset($_GET['minLikes'],$_GET['maxLikes'],$_GET['minShares'],$_GET['maxShares'],$_GET['postDate'])){
+            $minLikes = intval($_GET['minLikes']);
+            $maxLikes = intval($_GET['maxLikes']);
+            $minShares = intval($_GET['minShares']);
+            $maxShares = intval($_GET['maxShares']);
+            $postDate = intval($_GET['postDate']);
+        }else return null;
+
+        ob_start();
+
         echo  "<div class=\"column\">" . PHP_EOL;
 
+        $last_id = 0;
         for($index = 0; $index < count($tumblrPhotos); $index++) {
-            if ($count % 5 === 0 && $count != 0) {
-                echo  "</div>" . PHP_EOL;
-                echo  "<div class=\"column\">" . PHP_EOL;
+            $now = new DateTime("now");
+            $date = new DateTime($tumblrPhotos[$index]["date"]);
+            $diff = $now->diff($date)->days / 30;
+            // echo $diff;
+            if ($tumblrPhotos[$index]['id'] != $last_id) {
+                $link = $photosURL . "/?load=tumblr/getPhotoStats&id=" . $tumblrPhotos[$index]['id'];
+                $stats = json_decode($this->httpRequest($link, $token), true);
+                $last_id = $tumblrPhotos[$index]['id'];
             }
+            //print_r($stats);
 
-            echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
-            echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
-            echo "</a>";
+            if($minLikes <= $stats["likes"] && ($maxLikes === 0 || $maxLikes >=  $stats["likes"])
+                    && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"])
+                    && ($postDate === 0 || $postDate >= $diff)) {
+                
+                if ($count % 5 === 0 && $count != 0) {
+                    echo  "</div>" . PHP_EOL;
+                    echo  "<div class=\"column\">" . PHP_EOL;
+                }
 
-            $count++;
+                echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+                echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
+                echo "</a>";
+
+                $count++;
+                $found = true;
+            }
         }
 
         echo "</div>" . PHP_EOL;
 
         $output = ob_get_contents();
         ob_end_clean();
+
+        if (!$found) {
+            return "<h1>No Photos Found</h1>";
+        }
+
         return $output;
     }
 
