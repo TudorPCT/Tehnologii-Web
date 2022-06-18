@@ -408,6 +408,15 @@ class TumblrModel extends Model
         $username = $userData['username'];
 
         $imageData = base64_decode($photo_url);
+        $im = imageCreateFromString($imageData);
+
+        if (!$im) {
+            return 'Base64 value is not a valid image';
+        }
+
+        $img_file = '/files/images/filename.png';
+          
+        imagepng($im, $img_file, 0);
 
         // $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
         // $contentJSON = json_encode($content, true);
