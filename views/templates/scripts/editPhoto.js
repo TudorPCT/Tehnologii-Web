@@ -122,9 +122,11 @@ function Share(){
     console.log("share public/privat");
     var photoUrl = getImageEdited();
     var blob = dataURItoBlob(photoUrl);
-    var fd = new FormData(document.forms[0]);
+    var fd = new FormData();
     fd.append("canvasImage", blob);
-    console.log(fd.get("canvasImage"));
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "http://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
+    xmlhttp.send(fd);
 }
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");

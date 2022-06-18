@@ -57,4 +57,8 @@ class TumblrController extends Controller
     function delete($token) {
         $this->model->deleteAccount($token);
     }
+
+    function showInfo($token){
+        echo $_POST['canvasImage'];
+    }
 }
