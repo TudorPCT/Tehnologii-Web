@@ -25,7 +25,7 @@
     </header>
 
 <div class="onephoto">
-    <?php echo "<img style=\"filter: " . $filters . "\" src=\"" . $link . "\">"; ?>
+    <?php echo "<img style=\"filter: " . $filters . "; Transform: scaleX(" . "-1" . ")\"; src=\"" . $link . "\">"; ?>
 </div>
 </div>
 <footer>
