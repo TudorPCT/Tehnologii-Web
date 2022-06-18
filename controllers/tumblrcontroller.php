@@ -52,6 +52,7 @@ class TumblrController extends Controller
 
     function postPhoto($token) {
         $request = file_get_contents('php://input');
+        echo $request;
 
         $data = '';
 

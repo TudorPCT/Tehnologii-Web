@@ -130,22 +130,22 @@ function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
 
-    const link = document.createElement("form");
-    document.body.appendChild(link);
-    link.setAttribute("enctype","multipart/form-data");
-    link.setAttribute("action","#");
-    link.setAttribute("method","post");
-    link.setAttribute("id","formid");
+    // const link = document.createElement("form");
+    // document.body.appendChild(link);
+    // link.setAttribute("enctype","multipart/form-data");
+    // link.setAttribute("action","#");
+    // link.setAttribute("method","post");
+    // link.setAttribute("id","formid");
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
-    var content = {'type': 'image' , 'media' : {'type' : 'image/png', 'identifier' : 'photo', 'original_dimensions_missing' : true}};
-    var contentArray = Array(content);
-    var contentJSON = JSON.stringify(contentArray);
+    // var content = {'type': 'image' , 'media' : {'type' : 'image/png', 'identifier' : 'photo', 'original_dimensions_missing' : true}};
+    // var contentArray = Array(content);
+    // var contentJSON = JSON.stringify(contentArray);
 
-    var blob = dataURItoBlob(photoUrl);
-    var form = document.getElementById("formid");
-    var fd = new FormData(form);
-    fd.append("photo", photoUrl);
+    // var blob = dataURItoBlob(photoUrl);
+    // var form = document.getElementById("formid");
+    // var fd = new FormData(form);
+    // fd.append("photo", photoUrl);
     // fd.append("canvasImage", "test");
     // console.log(fd.get('photo'));
 
@@ -153,13 +153,13 @@ function Post(){
     xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    xhr.send(fd);
+    xhr.send(photoUrl);
 
-    document.body.removeChild(link);
+    // document.body.removeChild(link);
 
     // var xmlhttp = new XMLHttpRequest();
 
