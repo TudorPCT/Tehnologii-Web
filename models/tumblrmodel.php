@@ -423,6 +423,7 @@ class TumblrModel extends Model
         //     . $boundary;
         
         $params = array("type" => "photo", "data64" => $photo_url);
+        $params = http_build_query($params);
         
         $ch = curl_init();
         
@@ -432,13 +433,19 @@ class TumblrModel extends Model
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch, CURLOPT_HTTPHEADER,array (
             "Authorization: Bearer " . $tumblrToken,
             "Content-Type: application/x-www-form-urlencoded"
         ));
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Authorization: Bearer " . $tumblrToken,
+            "Content-type: application/x-www-form-urlencoded",
+            "Expect: ")
+        );
 
         $output = curl_exec($ch);
         curl_close($ch);
