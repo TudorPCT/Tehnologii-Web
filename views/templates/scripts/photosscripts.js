@@ -51,7 +51,7 @@ function getTumblrPhotos(){
 
     };
 
-    $link = "./?load=photos/getTubmlrPhotos";
+    $link = "./?load=photos/getTumblrPhotos";
     $link = $link.concat("&minLikes=", $filters[0],
         "&maxLikes=", $filters[1],
         "&minShares=", $filters[2],
