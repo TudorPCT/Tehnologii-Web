@@ -33,6 +33,8 @@ class PhotosModel extends Model
         $found = false;
         $count = 0;
 
+        echo $unsplashPhotos;
+
         ob_start();
 
         echo  "<div class=\"column\">" . PHP_EOL;
