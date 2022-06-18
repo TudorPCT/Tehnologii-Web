@@ -407,12 +407,12 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $imageData = base64_decode($photo_url);
-        $im = imageCreateFromString($imageData);
+        // $imageData = base64_decode($photo_url);
+        // $im = imageCreateFromString($imageData);
 
-        if (!$im) {
-            return 'Base64 value is not a valid image';
-        }
+        // if (!$im) {
+        //     return 'Base64 value is not a valid image';
+        // }
 
         //$img_file = './filename.png';
           
@@ -433,7 +433,7 @@ class TumblrModel extends Model
         //     . $photo_url . "\n"
         //     . $boundary;
         
-        $params = array("data" => array($im),"type" => "photo");
+        $params = array("data" => array($photo_url),"type" => "photo");
         $paramsHttp = http_build_query($params);
         
         $ch = curl_init();
