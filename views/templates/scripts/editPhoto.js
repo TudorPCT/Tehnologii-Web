@@ -139,7 +139,8 @@ console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tum
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    xhr.send(photoUrl);
+    var obj = {'url': photoUrl}
+    xhr.send(JSON.parse(obj));
 
 
     // var xmlhttp = new XMLHttpRequest();
