@@ -24,7 +24,7 @@ function getUnsplashPhotos(){
     };
 
     $link = "./?load=photos/getUnsplashPhotos";
-    $link.concat("&minLikes=", $filters[0],
+    $link = $link.concat("&minLikes=", $filters[0],
         "&maxLikes=", $filters[1],
         "&minShares=", $filters[2],
         "&maxShares=", $filters[3],
