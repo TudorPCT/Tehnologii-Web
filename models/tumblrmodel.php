@@ -166,7 +166,7 @@ class TumblrModel extends Model
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/posts/photo"
             . "?api_key=" . $tumblrClientId
-            . "&notes_info=true";
+            . "&npf=true";
 
         $ch = curl_init();
 
@@ -187,46 +187,60 @@ class TumblrModel extends Model
         $photoList = array();
 
         $posts = $result['response']['posts'];
-        
 
         foreach ($posts as $post) {
             $post_id = $post['id'];
-            if ($post['type'] == 'photo') {
-                $photos = $post['photos'];
-
-                $index = 0;
-                foreach ($photos as $photo) {
-                    $photoUrl = $photo['original_size']['url'];
-                    $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
-                    array_push($photoList, $photoArray);
-                    $index++;
-                }
-            } else if ($post['type'] == 'text') {
-                $body = $post['body'];
-                $x = explode("<", $body);
-                $index_photo = 0;
-                foreach($x as $line) {
-                    if (strncmp($line, "img", 3) == 0) {
-                        $substr = explode(" ", $line);
-                        foreach($substr as $src) {
-                            if (strncmp($src, "src", 3) == 0){
-                                $length = strlen($src);
-                                $indexStart = -1;
-                                $indexEnd = -1;
-                                for ($index = 3; $index < $length; $index++) {
-                                    if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
-                                    else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
-                                }
-                                $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                                $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index_photo);
-                                array_push($photoList, $photoArray);
-                                $index_photo++;
-                            }
-                        }
-                    }    
+            $index = 0;
+            $content_list = $post['trail']['content'];
+            foreach ($content_list as $content) {
+                if ($content['type'] == 'image') {
+                        $url = $content['media'][0]['url'];
+                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                        array_push($photoList, $photoArray);
+                        $index++;
                 }
             }
         }
+        
+
+        // foreach ($posts as $post) {
+        //     $post_id = $post['id'];
+        //     if ($post['type'] == 'photo') {
+        //         $photos = $post['photos'];
+
+        //         $index = 0;
+        //         foreach ($photos as $photo) {
+        //             $photoUrl = $photo['original_size']['url'];
+        //             $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
+        //             array_push($photoList, $photoArray);
+        //             $index++;
+        //         }
+        //     } else if ($post['type'] == 'text') {
+        //         $body = $post['body'];
+        //         $x = explode("<", $body);
+        //         $index_photo = 0;
+        //         foreach($x as $line) {
+        //             if (strncmp($line, "img", 3) == 0) {
+        //                 $substr = explode(" ", $line);
+        //                 foreach($substr as $src) {
+        //                     if (strncmp($src, "src", 3) == 0){
+        //                         $length = strlen($src);
+        //                         $indexStart = -1;
+        //                         $indexEnd = -1;
+        //                         for ($index = 3; $index < $length; $index++) {
+        //                             if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+        //                             else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+        //                         }
+        //                         $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+        //                         $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index_photo);
+        //                         array_push($photoList, $photoArray);
+        //                         $index_photo++;
+        //                     }
+        //                 }
+        //             }    
+        //         }
+        //     }
+        // }
 
         $jsonPhotos = json_encode($photoList);
 
@@ -310,8 +324,7 @@ class TumblrModel extends Model
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
-            . "posts/" . $post_id
-            . "?post_format=legacy"; 
+            . "posts/" . $post_id; 
 
         echo "<br>" . $url;
 
@@ -331,39 +344,53 @@ class TumblrModel extends Model
 
         $result = json_decode($response, true);
 
-        if ($result['response']['type'] == 'photo') {
-            $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
-            $urlJSON = json_encode($url);
-
-            return $urlJSON;
-        } else if ($result['response']['type'] == 'text') {
-                print_r($result);
-                $body = $result['response']['body'];
-                $x = explode("<", $body);
-                $index_photo = 0;
-                foreach($x as $line) {
-                    if (strncmp($line, "img", 3) == 0) {
-                        $substr = explode(" ", $line);
-                        foreach($substr as $src) {
-                            if (strncmp($src, "src", 3) == 0){
-                                $length = strlen($src);
-                                $indexStart = -1;
-                                $indexEnd = -1;
-                                for ($index = 3; $index < $length; $index++) {
-                                    if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
-                                    else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
-                                }
-                                $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                                if ($index_photo == $photo_index) {
-                                    $urlJSON = json_encode($url);
-                                    return $urlJSON;
-                                }
-                                $index_photo++;
-                            }
-                        }
-                    }    
+        $index = 0;
+        $content = $result['response']['trail']['content'];
+        foreach ($content as $part) {
+            if ($part['type'] == 'image') {
+                if ($index == $photo_index) {
+                    $url = ["url" => $part['media'][0]['url']];
+                    $urlJSON = json_encode($url);
+                    return $urlJSON;
+                } else {
+                    $index++;
                 }
-        }     
+            }
+        }
+
+        // if ($result['response']['type'] == 'photo') {
+        //     $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
+        //     $urlJSON = json_encode($url);
+
+        //     return $urlJSON;
+        // } else if ($result['response']['type'] == 'text') {
+        //         print_r($result);
+        //         $body = $result['response']['body'];
+        //         $x = explode("<", $body);
+        //         $index_photo = 0;
+        //         foreach($x as $line) {
+        //             if (strncmp($line, "img", 3) == 0) {
+        //                 $substr = explode(" ", $line);
+        //                 foreach($substr as $src) {
+        //                     if (strncmp($src, "src", 3) == 0){
+        //                         $length = strlen($src);
+        //                         $indexStart = -1;
+        //                         $indexEnd = -1;
+        //                         for ($index = 3; $index < $length; $index++) {
+        //                             if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+        //                             else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+        //                         }
+        //                         $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+        //                         if ($index_photo == $photo_index) {
+        //                             $urlJSON = json_encode($url);
+        //                             return $urlJSON;
+        //                         }
+        //                         $index_photo++;
+        //                     }
+        //                 }
+        //             }    
+        //         }
+        // }     
     }
 
     function getPhotoStats($token, $post_id) {
