@@ -5,7 +5,6 @@ function signin() {
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-        console.log(formData.get);
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 myResponse = JSON.parse(this.responseText);
