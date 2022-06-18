@@ -114,7 +114,7 @@ class UnsplashModel extends Model
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $userData["username"] . "/photos?per_page=500");
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $userData["username"] . "/photos?per_page=500&stats=true");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
