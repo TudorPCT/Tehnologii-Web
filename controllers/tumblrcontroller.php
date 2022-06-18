@@ -52,18 +52,12 @@ class TumblrController extends Controller
 
     function postPhoto($token) {
         $request = file_get_contents('php://input');
-        echo $request;
+        // echo $request;
 
-        $data = '';
+        $data = substr($request, 22);
 
-        $start = strpos($request, "data:image") + 22;
-        $end = strpos($request, "------WebKitFormBoundary", 1);
-        for ($index = $start; $index < $end - 1; $index++) {
-            $data .= $request[$index];
-        }
-
-        //echo $data . "\n";
-        echo $this->model->postPhoto($token, $request);
+        echo $data;
+        echo $this->model->postPhoto($token, $data);
     }
 
     function delete($token) {
