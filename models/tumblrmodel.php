@@ -407,6 +407,8 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
+        $imageData = base64_decode($photo_url);
+
         // $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
         // $contentJSON = json_encode($content, true);
 
@@ -422,8 +424,8 @@ class TumblrModel extends Model
         //     . $photo_url . "\n"
         //     . $boundary;
         
-        $params = array("type" => "photo", "data64" => $photo_url);
-        $params = http_build_query($params);
+        $params = array("data" => array($imageData),"type" => "photo");
+        $paramsHttp = http_build_query($params);
         
         $ch = curl_init();
         
@@ -433,13 +435,8 @@ class TumblrModel extends Model
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $paramsHttp);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        curl_setopt($ch, CURLOPT_HTTPHEADER,array (
-            "Authorization: Bearer " . $tumblrToken,
-            "Content-Type: application/x-www-form-urlencoded"
-        ));
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "Authorization: Bearer " . $tumblrToken,
