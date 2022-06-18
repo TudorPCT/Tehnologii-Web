@@ -24,7 +24,7 @@
         </header>
 
         <div class="onephoto">
-            <?php echo "<img style=\"filter: " . $filters . "\" src=\"" . $link . "\">"; ?>
+            <?php echo "<img style=\"filter: " . $filters . "; Transform: scale(" . $scaleX. ", " . $scaleY. ")\"; src=\"" . $link . "\">"; ?>
         </div>
         <footer>
             <p>SMB Copyright &copy; 2022</p>
