@@ -25,7 +25,7 @@
     </header>
 
 <div class="onephoto">
-    <?php echo "<img src=\"" . $link . "\">"; ?>
+    <?php echo "<img style=\"filter: " . $filters . "\" src=\"" . $link . "\">"; ?>
 </div>
 </div>
 <footer>
