@@ -29,6 +29,7 @@ function getUnsplashPhotos(){
         "&minShares=", $filters[2],
         "&maxShares=", $filters[3],
         "&postDate=", $filters[4]);
+    console.log($link);
     xmlhttp.open("GET", $link, true);
 
     xmlhttp.send();
