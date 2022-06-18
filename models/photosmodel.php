@@ -30,10 +30,21 @@ class PhotosModel extends Model
         include ("config.php");
         $link = $photosURL . "/?load=unsplash/getUserPhotos";
         $unsplashPhotos = json_decode($this->httpRequest($link, $token), true);
+        $found = false;
         $count = 0;
 
         if (isset($unsplashPhotos["errors"]) || count($unsplashPhotos) === 0){
             return "<h1>No Photos Found</h1>";
+        }
+
+        if (!isset($_GET['minLikes'],$_GET['maxLikes'],$_GET['minShares'],$_GET['maxShares'],$_GET['postDate'])){
+            return false;
+        }else{
+            $minLikes = $_GET['minLikes'];
+            $maxLikes = $_GET['maxLikes'];
+            $minShares = $_GET['minShares'];
+            $maxShares = $_GET['maxShares'];
+            $postDate = $_GET['postDate'];
         }
 
         ob_start();
@@ -41,15 +52,24 @@ class PhotosModel extends Model
         echo  "<div class=\"column\">" . PHP_EOL;
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
-            if ($count % 5 === 0 && $count != 0) {
-                echo  "</div>" . PHP_EOL;
-                echo  "<div class=\"column\">" . PHP_EOL;
-            }
 
-            echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id']  . "\">" . PHP_EOL;
-            echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
-            echo "</a>";
-            $count++;
+            $now = new DateTime("now");
+            $date = new DateTime($unsplashPhotos[$index]["created_at"]);
+            $diff = $now->diff($date)->days / 30;
+
+            if($minLikes <= $unsplashPhotos[$index]["likes"] && ($maxLikes === 0 || $maxLikes >=  $unsplashPhotos[$index]["likes"])
+                    && $minShares <= $unsplashPhotos[$index]["downloads"] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]["downloads"])
+                    && ($postDate === 0 || $postDate <= $diff)) {
+                if ($count % 5 === 0 && $count != 0) {
+                    echo  "</div>" . PHP_EOL;
+                    echo  "<div class=\"column\">" . PHP_EOL;
+                }
+                echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
+                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
+                echo "</a>";
+                $count++;
+                $found = true;
+            }
         }
 
         echo "</div>" . PHP_EOL;
@@ -57,6 +77,9 @@ class PhotosModel extends Model
 
         $output = ob_get_contents();
         ob_end_clean();
+
+        if (!$found)
+            return "<h1>No Photos Found</h1>";
 
         return $output;
     }

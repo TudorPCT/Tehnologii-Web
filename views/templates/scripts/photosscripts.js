@@ -92,13 +92,13 @@ function getFilter() {
     }
 
     if (getCheckboxValue("cb14")){
-        postDate = 'month'
+        postDate = 1;
     }
     if (getCheckboxValue("cb15")){
-        postDate = 'year'
+        postDate = 12;
     }
     if (postDate == null)
-        postDate = 'all';
+        postDate = 0;
 
 
     return Array.of(minLikes, maxLikes, minShares, maxShares, postDate);
