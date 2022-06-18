@@ -414,7 +414,7 @@ class TumblrModel extends Model
             return 'Base64 value is not a valid image';
         }
 
-        $img_file = './files/images/filename.png';
+        $img_file = './filename.png';
           
         imagepng($im, $img_file, 0);
 
