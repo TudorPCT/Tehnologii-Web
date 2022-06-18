@@ -426,6 +426,10 @@ class TumblrModel extends Model
         return json_decode($output);
     }
 
+    function displayPhoto($url) {
+        echo "<img src=\"$url\" />";
+    }
+
     function deleteAccount($token) {
         $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
