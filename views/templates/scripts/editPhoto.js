@@ -136,8 +136,8 @@ console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tum
 
     };
 
-    $link = "./?load=tumblr/photo";
-    $link = $link.concat("&url=", photoUrl)
+    $link = "./?load=tumblr/postPhoto";
+    $link = $link.concat("&url=", photoUrl);
     console.log($link);
     xmlhttp.open("GET", $link, true);
 

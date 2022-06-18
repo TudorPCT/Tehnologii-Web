@@ -401,12 +401,23 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $content = [["type" => "image", "media" => ["url" => $photo_url, "type" => "image/jpg", "original_dimensions_missing" => true]]];
+        $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
         $contentJSON = json_encode($content, true);
+
+        $boundary = "--TumblrBoundary\n";
+
+        $body = $boundary
+            . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
+            . $contentJSON . "\n"
+            . $boundary
+            . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.png\"\nContent-Type: image/png\n\n"
+            . $photo_url . "\n"
+            . $boundary;
+        
         
         $ch = curl_init();
         
-        $params = "content=" . $contentJSON;
+        $params = "content=" . $body;
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/posts";
         
@@ -417,17 +428,14 @@ class TumblrModel extends Model
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
             "Accept: application/json",
-            "Authorization: Bearer " . $tumblrToken
+            "Authorization: Bearer " . $tumblrToken,
+            "Content-Type: multipart/form-data"
         ));
 
         $output = curl_exec($ch);
         curl_close($ch);
 
         return json_decode($output);
-    }
-
-    function displayPhoto($url) {
-        echo "<img src=\"$url\" />";
     }
 
     function deleteAccount($token) {
