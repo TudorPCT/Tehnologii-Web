@@ -135,7 +135,7 @@ function Share(){
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData();
     fd.append("canvasImage", blob);
-    console.log(image.style.filter);
+    image.style.filter = "blur(0px) contrast(100%) saturate(100%) sepia(55%) brightness(100%) grayscale(0%) hue-rotate(0deg)";
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
