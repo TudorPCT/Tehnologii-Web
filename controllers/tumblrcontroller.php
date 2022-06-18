@@ -53,10 +53,10 @@ class TumblrController extends Controller
     function postPhoto($token) {
         $request = file_get_contents('php://input');
 
-        $data = "";
-        $start = strpos($request, "image/png");
-        $start += 10;
-        $end = strpos($request, "------WebKitFormBoundaryvto8yd4BYguAWdrA", 1);
+        $data = '';
+
+        $start = strpos($request, "data:image");
+        $end = strpos($request, "------WebKitFormBoundary", 1);
         for ($index = $start; $index < $end; $index++) {
             $data .= $request[$index];
         }
