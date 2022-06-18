@@ -124,7 +124,7 @@ function Share(){
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData(document.forms[0]);
     fd.append("canvasImage", blob);
-    console.log(fd);
+    console.log(fd.get("canvasImage"));
 }
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
