@@ -112,17 +112,6 @@ function Download_btn(){
 function seeDetails(){
     document.getElementById("hideEditor").style.display = "none";
     document.getElementById("details").style.display = "initial";
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("details").innerHTML += this.responseText;
-        }
-
-    };
-    xmlhttp.open("GET","./?load=tumblr/get", true);
-
-    xmlhttp.send();
 }
 
 function seeEditor(){
@@ -150,12 +139,12 @@ function Post(){
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
 
-    //var blob = dataURItoBlob(photoUrl);
+    var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
-    fd.append("canvasImage", photoUrl);
+    fd.append("canvasImage", blob);
     // fd.append("canvasImage", "test");
-    console.log(fd.get('canvasImage'));
+    //console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
