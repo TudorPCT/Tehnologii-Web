@@ -42,8 +42,6 @@ function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
         context.drawImage(image,0,0, canvas.width,canvas.height);
-        context.scale(1,1);
-        context.save();
         // reset.style.transform='translateY(0px)';
 
 }
@@ -77,10 +75,6 @@ function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
     context.filter = 'none';
-    scaleX=1;
-    scaleY=1;
-    context.scale(scaleX,scaleY);
-    context.save();
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
@@ -94,14 +88,14 @@ function getImageEdited(){
         console.log("salvez img");
         console.log(image.naturalWidth);
         console.log(image.naturalHeight);
+
         console.log(canvas.width);
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
-        context.restore();
         context.scale(scaleX,scaleY);
         context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
-        return canvas.toDataURL("image/png");
 
+        return canvas.toDataURL("image/jpg");
     }
 }
 function Download_btn(){
@@ -110,7 +104,7 @@ function Download_btn(){
         const link = document.createElement("a");
             document.body.appendChild(link);
             link.setAttribute("href",jpgUrl);
-            link.setAttribute("download","photo.png");
+            link.setAttribute("download","photo.jpg");
             link.click();
             document.body.removeChild(link);
 }
@@ -127,12 +121,24 @@ function seeEditor(){
 function Share(){
     console.log("share public/privat");
     var photoUrl = getImageEdited();
-    console.log(photoUrl);
+    var blob = dataURItoBlob(photoUrl);
+    var fd = new FormData();
+    fd.append("canvasImage", blob);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "https://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
+    xmlhttp.send(fd);
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            console.log(this.responseText);
+        }
+
+    };
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
-    
+
     const link = document.createElement("form");
     document.body.appendChild(link);
     link.setAttribute("enctype","multipart/form-data");
@@ -141,7 +147,7 @@ function Post(){
     link.setAttribute("id","formid");
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
-    
+
     var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
