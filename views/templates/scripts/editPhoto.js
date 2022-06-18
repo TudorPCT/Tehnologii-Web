@@ -127,19 +127,31 @@ function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
     console.log(photoUrl);
-    var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("Wrapper").innerHTML = this.responseText;
-        }
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "./?load=tumblr/postPhoto");
 
-    };
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
-    $link = "./?load=tumblr/postPhoto";
-    $link = $link.concat("&url=", photoUrl);
-    console.log($link);
-    xmlhttp.open("GET", $link, true);
+    xhr.onload = () => console.log(xhr.responseText);
 
-    xmlhttp.send();
+    xhr.send(photoUrl);
+
+
+    // var xmlhttp = new XMLHttpRequest();
+
+    // xmlhttp.onreadystatechange = function() {
+    //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    //         document.getElementById("Wrapper").innerHTML = this.responseText;
+    //     }
+
+    // };
+
+    // $link = "./?load=tumblr/postPhoto";
+    // $link = $link.concat("&url=", photoUrl);
+    // console.log($link);
+    // xmlhttp.open("GET", $link, true);
+
+    // xmlhttp.send();
 }
