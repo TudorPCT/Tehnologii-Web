@@ -1,4 +1,4 @@
-filterA = document.getElementById('blur');
+let filterA = document.getElementById('blur');
 filterB = document.getElementById('contrast');
 filterC = document.getElementById('saturation');
 filterD = document.getElementById('sepia');
@@ -13,14 +13,16 @@ flipYBtn = document.getElementById('flip-y');
 
 let reset = document.getElementById("reset");
 
-const image = document.getElementById("chosen-image");
-const canvas = document.createElement('canvas');
+let image = document.getElementById("chosen-image");
+let canvas = document.createElement('canvas');
 canvas.width=200;
+canvas.width=image.naturalWidth;
 canvas.height=200;
+canvas.height=image.naturalHeight;
 const context = canvas.getContext('2d');
 
-let scaleX;
-let scaleY;
+let scaleX=1;
+let scaleY=1;
 
 // let File_Name = image.getAttribute('src');
 
