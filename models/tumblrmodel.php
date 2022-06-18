@@ -219,7 +219,7 @@ class TumblrModel extends Model
                                 }
                                 $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
                                 $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
-                                array_push($photoList, $url);
+                                array_push($photoList, $photoArray);
                                 $index++;
                             }
                         }
