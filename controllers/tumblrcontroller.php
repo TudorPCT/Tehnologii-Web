@@ -51,7 +51,7 @@ class TumblrController extends Controller
     }
 
     function postPhoto($token) {
-        echo "tumblrcontroller: " . $_POST['canvasImage'];
+        echo "tumblrcontroller: " . print_r($_POST) . "<br>" . print_r($_FILES);
         //echo $this->model->postPhoto($token, $_FILES['canvasImage']);
     }
 
