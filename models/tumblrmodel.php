@@ -371,10 +371,13 @@ class TumblrModel extends Model
         $content_list = $result['response']['content'];
         foreach ($content_list as $content) {
             if ($content['type'] == 'image') {
-                    $url = $content['media'][0]['url'];
-                    $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
-                    array_push($photoList, $photoArray);
+                if ($index == $photo_index) {
+                    $url = ["url" => $content['media'][0]['url']];
+                    $urlJSON = json_encode($url);
+                    return $urlJSON;
+                } else {
                     $index++;
+                }
             }
         }
 
