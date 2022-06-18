@@ -165,7 +165,10 @@ function Post(){
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    xhr.send(fd);
+    var obj = {'testPost': 'test'}
+    var jsonObj = JSON.stringify(obj) // --> "{\"foo\":1}"
+
+    xhr.send(jsonObj);
 
     document.body.removeChild(link);
 
