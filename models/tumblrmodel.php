@@ -407,34 +407,34 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
-        $contentJSON = json_encode($content, true);
+        // $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
+        // $contentJSON = json_encode($content, true);
 
         
 
-        $boundary = "--TumblrBoundary\n";
+        // $boundary = "--TumblrBoundary\n";
         
-        $body = $boundary
-            . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
-            . $contentJSON . "\n"
-            . $boundary
-            . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\nContent-Type: image/jpg\n\n"
-            . $photo_url . "\n"
-            . $boundary;
+        // $body = $boundary
+        //     . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
+        //     . $contentJSON . "\n"
+        //     . $boundary
+        //     . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\nContent-Type: image/jpg\n\n"
+        //     . $photo_url . "\n"
+        //     . $boundary;
         
         
         $ch = curl_init();
         
-        $params = "content=" . $body;
+        // $params = "content=" . $body;
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/posts";
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, array("content" => $contentJSON, $photo_url));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $photo_url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        curl_setopt($ch,CURLOPT_HTTPHEADER,array (
+        curl_setopt($ch, CURLOPT_HTTPHEADER,array (
             "Authorization: Bearer " . $tumblrToken,
             "Content-Type: multipart/form-data"
         ));

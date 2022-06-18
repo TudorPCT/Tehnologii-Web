@@ -138,10 +138,14 @@ function Post(){
     link.setAttribute("id","formid");
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
+    var content = {'type': 'image' , 'media' : {'type' : 'image/png', 'identifier' : 'photo', 'original_dimensions_missing' : true}};
+    var contentArray = Array(content);
+    var contentJSON = JSON.stringify(contentArray);
 
     var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
+    fd.append("content", contentJSON);
     fd.append("photo", photoUrl);
     // fd.append("canvasImage", "test");
     console.log(fd.get('photo'));
