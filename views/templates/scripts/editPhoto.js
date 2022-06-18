@@ -153,8 +153,8 @@ function Post(){
     //var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
-    //fd.append("canvasImage", photoUrl);
-    fd.append("canvasImage", "test");
+    fd.append("canvasImage", photoUrl);
+    // fd.append("canvasImage", "test");
     console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
@@ -165,10 +165,7 @@ function Post(){
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    var obj = {'testPost': 'test'}
-    var jsonObj = JSON.stringify(obj) // --> "{\"foo\":1}"
-
-    xhr.send(jsonObj);
+    xhr.send(fd);
 
     document.body.removeChild(link);
 
