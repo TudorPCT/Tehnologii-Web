@@ -191,13 +191,14 @@ class TumblrModel extends Model
         $posts = $result['response']['posts'];
 
         foreach ($posts as $post) {
+            $post_date = $post['date'];
             $post_id = $post['id'];
             $index = 0;
             $content_list = $post['trail'][0]['content'];
             foreach ($content_list as $content) {
                 if ($content['type'] == 'image') {
                         $url = $content['media'][0]['url'];
-                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index, 'date' => $post_date);
                         array_push($photoList, $photoArray);
                         $index++;
                 }
@@ -206,7 +207,7 @@ class TumblrModel extends Model
             foreach ($content_list as $content) {
                 if ($content['type'] == 'image') {
                         $url = $content['media'][0]['url'];
-                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index, 'date' => $post_date);
                         array_push($photoList, $photoArray);
                         $index++;
                 }
