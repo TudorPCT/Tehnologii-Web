@@ -124,16 +124,6 @@ function Share(){
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData();
     fd.append("canvasImage", blob);
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "https://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
-    xmlhttp.send(fd.get("canvasImage"));
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            console.log(this.responseText);
-        }
-
-    };
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
