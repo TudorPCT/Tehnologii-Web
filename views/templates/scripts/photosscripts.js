@@ -1,10 +1,7 @@
 var platform = null;
 
 function getPhotos(){
-    if (platform === 'unsplash')
-        getUnsplashPhotos();
-    else if (platform === 'tumblr')
-        getTumblrPhotos();
+    console.log("*");
 }
 
 function getUnsplashPhotos(){
