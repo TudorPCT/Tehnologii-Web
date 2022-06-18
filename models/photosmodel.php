@@ -30,10 +30,11 @@ class PhotosModel extends Model
         include ("config.php");
         $link = $photosURL . "/?load=unsplash/getUserPhotos";
         $unsplashPhotos = json_decode($this->httpRequest($link, $token), true);
-        $found = false;
         $count = 0;
 
-        echo $unsplashPhotos;
+        if (isset($unsplashPhotos["errors"]) || count($unsplashPhotos) === 0){
+            return "<h1>No Photos Found</h1>";
+        }
 
         ob_start();
 
@@ -49,7 +50,6 @@ class PhotosModel extends Model
             echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
             echo "</a>";
             $count++;
-            $found = true;
         }
 
         echo "</div>" . PHP_EOL;
@@ -57,9 +57,6 @@ class PhotosModel extends Model
 
         $output = ob_get_contents();
         ob_end_clean();
-
-        if (!$found)
-            return "<h1>No Photos Found</h1>";
 
         return $output;
     }
