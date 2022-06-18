@@ -65,7 +65,6 @@
             {
             echo "<li>Number of likes:". $likes ."</li>";
              echo "<li>Number of downloads:". $downloads ."</li>";
-            echo "<li>Access it at:". $access ."</li>";
             }
             else
             {
