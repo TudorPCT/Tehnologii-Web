@@ -202,6 +202,15 @@ class TumblrModel extends Model
                         $index++;
                 }
             }
+            $content_list = $post['content'];
+            foreach ($content_list as $content) {
+                if ($content['type'] == 'image') {
+                        $url = $content['media'][0]['url'];
+                        $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                        array_push($photoList, $photoArray);
+                        $index++;
+                }
+            }
         }
         
 
@@ -347,16 +356,25 @@ class TumblrModel extends Model
         $result = json_decode($response, true);
 
         $index = 0;
-        $content = $result['response']['trail'][0]['content'];
-        foreach ($content as $part) {
-            if ($part['type'] == 'image') {
+        $content_list = $result['response']['trail'][0]['content'];
+        foreach ($content_list as $content) {
+            if ($content['type'] == 'image') {
                 if ($index == $photo_index) {
-                    $url = ["url" => $part['media'][0]['url']];
+                    $url = ["url" => $content['media'][0]['url']];
                     $urlJSON = json_encode($url);
                     return $urlJSON;
                 } else {
                     $index++;
                 }
+            }
+        }
+        $content_list = $result['response']['content'];
+        foreach ($content_list as $content) {
+            if ($content['type'] == 'image') {
+                    $url = $content['media'][0]['url'];
+                    $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                    array_push($photoList, $photoArray);
+                    $index++;
             }
         }
 
