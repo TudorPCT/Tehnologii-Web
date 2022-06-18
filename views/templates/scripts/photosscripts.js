@@ -1,14 +1,17 @@
 var platform = null;
 
 function getPhotos(){
-    console.log("*");
+    if (platform === 'unsplash')
+        getUnsplashPhotos();
+    else if (platform === 'tumblr')
+        getTumblrPhotos();
 }
 
 function getUnsplashPhotos(){
 
     platform = 'unsplash';
     console.log(getFilter());
-    return;
+    
     document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
 
     var xmlhttp = new XMLHttpRequest();
