@@ -37,7 +37,11 @@ class PhotosController extends Controller
     }
 
     function getTumblrPhotos($token){
-        echo $this->model->getTumblrPhotos($token);
+        $photos = $this->model->getTumblrPhotos($token);
+        if ($photos === null){
+            http_response_code(400);
+            die();
+        }else echo $photos;
     }
 
 }
