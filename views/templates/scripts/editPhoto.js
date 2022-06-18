@@ -124,6 +124,7 @@ function Share(){
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData();
     fd.append("canvasImage", blob);
+    image.style.filter = "blur(0px) contrast(100%) saturate(100%) sepia(55%) brightness(100%) grayscale(0%) hue-rotate(0deg)";
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
@@ -138,23 +139,22 @@ function Post(){
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
 
-    var blob = dataURItoBlob(photoUrl);
+    //var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
-    fd.append("canvasImage", blob);
+    fd.append("canvasImage", photoUrl);
+    // fd.append("canvasImage", "test");
     console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
-    //xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    var testString = "test";
-
-    xhr.send(testString);
+    xhr.send(fd);
 
     document.body.removeChild(link);
 
