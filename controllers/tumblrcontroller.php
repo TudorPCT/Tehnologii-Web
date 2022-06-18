@@ -51,15 +51,14 @@ class TumblrController extends Controller
     }
 
     function postPhoto($token) {
-        if (!isset($_GET['url'])) {
-            http_response_code(400);
-            die();
-        }
-
-        echo $this->model->postPhoto($token, $_GET['url']);
+        echo $this->model->postPhoto($token, $_POST['url']);
     }
 
     function delete($token) {
         $this->model->deleteAccount($token);
+    }
+
+    function showInfo($token){
+        echo "*" . $_POST['canvasImage'];
     }
 }

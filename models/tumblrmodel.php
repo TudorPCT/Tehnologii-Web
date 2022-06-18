@@ -401,23 +401,35 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $content = [["type" => "image", "media" => ["url" => $photo_url, "type" => "image/jpg"]]];
+        $content = [["type" => "image", "media" => ["type" => "image/jpg", "identifier" => "photo", "original_dimensions_missing" => true]]];
         $contentJSON = json_encode($content, true);
+
+        $boundary = "--TumblrBoundary\n";
+
+        $body = $boundary
+            . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
+            . $contentJSON . "\n"
+            . $boundary
+            . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\nContent-Type: image/jpg\n\n"
+            . $photo_url . "\n"
+            . $boundary;
+        
         
         $ch = curl_init();
         
-        $params = "content=" . $contentJSON;
+        $params = "content=" . $body;
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/posts";
         
-        curl_setopt($ch, CURLOPT_URL, "$url");
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
             "Accept: application/json",
-            "Authorization: Bearer " . $tumblrToken
+            "Authorization: Bearer " . $tumblrToken,
+            "Content-Type: multipart/form-data"
         ));
 
         $output = curl_exec($ch);
