@@ -51,7 +51,7 @@ class TumblrController extends Controller
     }
 
     function postPhoto($token) {
-        print_r(json_decode(file_get_contents('php://input')));
+        echo print_r(json_decode(file_get_contents('php://input')));
 
         //echo $this->model->postPhoto($token, $_FILES['canvasImage']);
     }
