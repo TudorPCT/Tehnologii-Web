@@ -407,7 +407,7 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $content = [["type" => "image", "media" => ["type" => "image/jpg", "identifier" => "photo", "original_dimensions_missing" => true]]];
+        $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
         $contentJSON = json_encode($content, true);
 
         
@@ -431,7 +431,7 @@ class TumblrModel extends Model
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array("content" => $contentJSON, "photo" => $photo_url)));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array("content" => $contentJSON, $photo_url)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
