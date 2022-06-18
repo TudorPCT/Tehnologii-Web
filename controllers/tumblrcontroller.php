@@ -59,6 +59,8 @@ class TumblrController extends Controller
     }
 
     function showInfo($token){
-        echo "*" . $_POST['canvasImage'];
+        if (isset($_POST['canvasImage']))
+            echo "*";
+        else echo "!";
     }
 }
