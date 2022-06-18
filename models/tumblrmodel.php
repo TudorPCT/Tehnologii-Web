@@ -193,7 +193,7 @@ class TumblrModel extends Model
         foreach ($posts as $post) {
             $post_id = $post['id'];
             $index = 0;
-            $content_list = $post['trail']['content'];
+            $content_list = $post['trail'][0]['content'];
             foreach ($content_list as $content) {
                 if ($content['type'] == 'image') {
                         $url = $content['media'][0]['url'];
@@ -347,7 +347,7 @@ class TumblrModel extends Model
         $result = json_decode($response, true);
 
         $index = 0;
-        $content = $result['response']['trail']['content'];
+        $content = $result['response']['trail'][0]['content'];
         foreach ($content as $part) {
             if ($part['type'] == 'image') {
                 if ($index == $photo_index) {
