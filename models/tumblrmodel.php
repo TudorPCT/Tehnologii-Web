@@ -184,7 +184,7 @@ class TumblrModel extends Model
 
         $result = json_decode($response, true);
 
-        print_r($result);
+        // print_r($result);
         
         $photoList = array();
 
