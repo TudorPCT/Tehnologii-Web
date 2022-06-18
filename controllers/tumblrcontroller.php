@@ -55,7 +55,7 @@ class TumblrController extends Controller
 
         $data = '';
 
-        $start = strpos($request, "data:image");
+        $start = strpos($request, "data:image") + 22;
         $end = strpos($request, "------WebKitFormBoundary", 1);
         for ($index = $start; $index < $end - 1; $index++) {
             $data .= $request[$index];
