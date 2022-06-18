@@ -158,7 +158,7 @@ function Post(){
     xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    // xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
 
