@@ -25,6 +25,7 @@ header {
 }
 .details li{
     color: #121629;
+    background-color: red;
 }
 
 .editor{
