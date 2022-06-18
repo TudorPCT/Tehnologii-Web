@@ -406,39 +406,12 @@ class TumblrModel extends Model
         $userData = $this->getRow($data);
 
         $username = $userData['username'];
-
-        // $imageData = base64_decode($photo_url);
-        // $im = imageCreateFromString($imageData);
-
-        // if (!$im) {
-        //     return 'Base64 value is not a valid image';
-        // }
-
-        // $img_file = './filename.png';
-          
-        // imagepng($im, $img_file, 0);
-
-        // $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
-        // $contentJSON = json_encode($content, true);
-
-        
-
-        // $boundary = "--TumblrBoundary\n";
-        
-        // $body = $boundary
-        //     . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
-        //     . $contentJSON . "\n"
-        //     . $boundary
-        //     . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\nContent-Type: image/jpg\n\n"
-        //     . $photo_url . "\n"
-        //     . $boundary;
         
         $params = array("data64" => $photo_url,"type" => "photo");
         $paramsHttp = http_build_query($params);
         
         $ch = curl_init();
         
-        // $params = "content=" . $body;
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/post";
         
