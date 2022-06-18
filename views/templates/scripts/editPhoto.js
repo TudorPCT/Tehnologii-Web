@@ -19,6 +19,9 @@ canvas.width=200;
 canvas.height=200;
 const context = canvas.getContext('2d');
 
+let scaleX;
+let scaleY;
+
 // let File_Name = image.getAttribute('src');
 
 let sliders = document.querySelectorAll(".editor .filter input[type='range']");
@@ -37,7 +40,6 @@ function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
         context.drawImage(image,0,0, canvas.width,canvas.height);
-        context.save();
         // reset.style.transform='translateY(0px)';
 
 }
@@ -49,25 +51,19 @@ radioBtns.forEach(radioBtn =>{
 
 function flipImage(){
     if(flipXBtn.checked){
-        context.restore();
-        context.save();
         image.style.transform="scaleX(-1)";
-        context.scale(-1,1);
-        context.drawImage(image,0,0,canvas.width*(-1),canvas.height);
+        scaleX=-1;
+        scaleY=1;
     }
     else if(flipYBtn.checked){
         image.style.transform = "scaleY(-1)";
-        context.restore();
-        context.save();
-        context.scale(1,-1);
-        context.drawImage(image,0,0,canvas.width,canvas.height*(-1));
+        scaleX=1;
+        scaleY=-1;
     }
     else {
-        context.restore();
-        context.save();
         image.style.transform = "scale(1,1)";
-        context.scale(1,1);
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        scaleX=1;
+        scaleY=1;
     }
 }
 
@@ -77,7 +73,6 @@ function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
     context.filter = 'none';
-    context.restore();
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
@@ -86,7 +81,7 @@ function resetImage(){
             sliders[i].value = 100;
     }
 }
-function Download_btn(){
+function getImageEdited(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
         console.log(image.naturalWidth);
@@ -95,9 +90,13 @@ function Download_btn(){
         console.log(canvas.width);
         console.log(canvas.height);
 
-        // context.drawImage(image,0,0, canvas.width,canvas.height);
+        context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
 
-        const jpgUrl = canvas.toDataURL("image/jpg");
+        return canvas.toDataURL("image/jpg");
+    }
+}
+function Download_btn(){
+        const jpgUrl = getImageEdited();
         // console.log("link ul: "+jpgUrl);
         const link = document.createElement("a");
             document.body.appendChild(link);
@@ -105,7 +104,6 @@ function Download_btn(){
             link.setAttribute("download","photo.jpg");
             link.click();
             document.body.removeChild(link);
-    }
 }
 
 function seeDetails(){
@@ -122,6 +120,6 @@ function Share(){
 }
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
-    const photoUrl = canvas.toDataURL("image/jpg");
-    console.log("link ul: "+photoUrl);
+    const photoUrl = getImageEdited();
+    console.log(photoUrl);
 }
