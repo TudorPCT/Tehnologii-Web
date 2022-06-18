@@ -55,8 +55,7 @@ class PhotosModel extends Model
             $now = new DateTime("now");
             $date = new DateTime($unsplashPhotos[$index]["created_at"]);
             $diff = $now->diff($date)->days / 30;
-
-            echo $diff;
+            
             if($minLikes <= $unsplashPhotos[$index]["likes"] && ($maxLikes === 0 || $maxLikes >=  $unsplashPhotos[$index]["likes"])
                     && $minShares <= $unsplashPhotos[$index]['statistics']["downloads"]['total'] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]['statistics']["downloads"]['total'])
                     && ($postDate === 0 || $postDate >= $diff)) {
