@@ -127,6 +127,13 @@ function Share(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", "http://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
     xmlhttp.send(fd);
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            console.log(this.responseText);
+        }
+
+    };
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
