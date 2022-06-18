@@ -54,7 +54,6 @@ class TumblrController extends Controller
         $request = file_get_contents('php://input');
 
         $data = "";
-        $length = strlen($request);
         $start = strpos($request, "image/png");
         $start += 10;
         $end = strpos($request, "------WebKitFormBoundaryvto8yd4BYguAWdrA", 1);
