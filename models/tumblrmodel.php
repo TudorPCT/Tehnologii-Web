@@ -401,7 +401,7 @@ class TumblrModel extends Model
 
         $username = $userData['username'];
 
-        $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
+        $content = [["type" => "image", "media" => ["type" => "image/jpg", "identifier" => "photo", "original_dimensions_missing" => true]]];
         $contentJSON = json_encode($content, true);
 
         $boundary = "--TumblrBoundary\n";
@@ -410,7 +410,7 @@ class TumblrModel extends Model
             . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
             . $contentJSON . "\n"
             . $boundary
-            . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.png\"\nContent-Type: image/png\n\n"
+            . "Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\nContent-Type: image/jpg\n\n"
             . $photo_url . "\n"
             . $boundary;
         
