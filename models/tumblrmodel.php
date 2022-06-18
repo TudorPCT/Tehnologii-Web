@@ -422,6 +422,8 @@ class TumblrModel extends Model
 
         $output = curl_exec($ch);
         curl_close($ch);
+
+        return json_decode($output);
     }
 
     function deleteAccount($token) {
