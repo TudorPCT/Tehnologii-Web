@@ -51,7 +51,8 @@ class TumblrController extends Controller
     }
 
     function postPhoto($token) {
-        echo $this->model->postPhoto($token, $_FILES['canvasImage']);
+        echo "am primit";
+        //echo $this->model->postPhoto($token, $_FILES['canvasImage']);
     }
 
     function delete($token) {
