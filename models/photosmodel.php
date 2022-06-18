@@ -37,15 +37,14 @@ class PhotosModel extends Model
             return "<h1>No Photos Found</h1>";
         }
 
-        if (!isset($_GET['minLikes'],$_GET['maxLikes'],$_GET['minShares'],$_GET['maxShares'],$_GET['postDate'])){
-            return false;
-        }else{
+
+        if (isset($_GET['minLikes'],$_GET['maxLikes'],$_GET['minShares'],$_GET['maxShares'],$_GET['postDate'])){
             $minLikes = $_GET['minLikes'];
             $maxLikes = $_GET['maxLikes'];
             $minShares = $_GET['minShares'];
             $maxShares = $_GET['maxShares'];
             $postDate = $_GET['postDate'];
-        }
+        }else return null;
 
         ob_start();
 
@@ -58,7 +57,7 @@ class PhotosModel extends Model
             $diff = $now->diff($date)->days / 30;
 
             if($minLikes <= $unsplashPhotos[$index]["likes"] && ($maxLikes === 0 || $maxLikes >=  $unsplashPhotos[$index]["likes"])
-                    && $minShares <= $unsplashPhotos[$index]["downloads"] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]["downloads"])
+                    && $minShares <= $unsplashPhotos[$index]['statistics']["downloads"]['total'] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]['statistics']["downloads"]['total'])
                     && ($postDate === 0 || $postDate <= $diff)) {
                 if ($count % 5 === 0 && $count != 0) {
                     echo  "</div>" . PHP_EOL;

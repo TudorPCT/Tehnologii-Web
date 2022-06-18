@@ -8,7 +8,11 @@ class PhotosController extends Controller
     }
 
     function getUnsplashPhotos($token){
-        echo $this->model->getUnsplashPhotos($token);
+        $photos = $this->model->getUnsplashPhotos($token);
+        if ($photos === null){
+            http_response_code(400);
+            die();
+        }else echo $photos;
     }
 
     function photo($token){
