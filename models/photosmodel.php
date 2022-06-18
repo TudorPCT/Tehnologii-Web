@@ -110,14 +110,17 @@ class PhotosModel extends Model
 
         echo  "<div class=\"column\">" . PHP_EOL;
 
+        $last_id = 0;
         for($index = 0; $index < count($tumblrPhotos); $index++) {
             $now = new DateTime("now");
             $date = new DateTime($tumblrPhotos[$index]["date"]);
             $diff = $now->diff($date)->days / 30;
             // echo $diff;
-
-            $link = $photosURL . "/?load=tumblr/getPhotoStats&id=" . $tumblrPhotos[$index]['id'];
-            $stats = json_decode($this->httpRequest($link, $token), true);
+            if ($tumblrPhotos[$index]['id'] != $last_id) {
+                $link = $photosURL . "/?load=tumblr/getPhotoStats&id=" . $tumblrPhotos[$index]['id'];
+                $stats = json_decode($this->httpRequest($link, $token), true);
+                $last_id = $tumblrPhotos[$index]['id'];
+            }
             //print_r($stats);
 
             if($minLikes <= $stats["likes"] && ($maxLikes === 0 || $maxLikes >=  $stats["likes"])
