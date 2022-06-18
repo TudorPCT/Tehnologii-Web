@@ -410,6 +410,8 @@ class TumblrModel extends Model
         $imageData = base64_decode($photo_url);
         $im = imageCreateFromString($imageData);
 
+        return $im;
+
         if (!$im) {
             return 'Base64 value is not a valid image';
         }
