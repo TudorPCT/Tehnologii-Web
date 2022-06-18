@@ -145,7 +145,6 @@ function Post(){
     var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
-    fd.append("content", contentJSON);
     fd.append("photo", photoUrl);
     // fd.append("canvasImage", "test");
     console.log(fd.get('photo'));

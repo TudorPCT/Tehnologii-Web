@@ -422,21 +422,22 @@ class TumblrModel extends Model
         //     . $photo_url . "\n"
         //     . $boundary;
         
+        $params = array("type" => "photo", "data64" => $photo_url);
         
         $ch = curl_init();
         
         // $params = "content=" . $body;
         $url = "https://api.tumblr.com/v2/blog/"
-            . $username . ".tumblr.com/posts";
+            . $username . ".tumblr.com/post";
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $photo_url);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch, CURLOPT_HTTPHEADER,array (
             "Authorization: Bearer " . $tumblrToken,
-            "Content-Type: multipart/form-data"
+            "Content-Type: application/x-www-form-urlencoded"
         ));
 
         $output = curl_exec($ch);
