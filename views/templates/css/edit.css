@@ -23,6 +23,9 @@ header {
 #details{
     display: none;
 }
+.details li{
+    color: #121629;
+}
 
 .editor{
     border: 1px solid #eebbc3;

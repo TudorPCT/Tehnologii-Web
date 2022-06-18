@@ -57,7 +57,7 @@
             <button id="postOnTumblr" onclick="Post()">PostOnTumblr</button>
         </div>
     </div>
-    <div id="details">
+    <div class="details" id="details">
         <h1>Details</h1>
         <ul>
             <?php
@@ -65,7 +65,7 @@
             {
             echo "<li>Number of likes:". $likes ."</li>";
              echo "<li>Number of downloads:". $downloads ."</li>";
-            echo "<li>Tags: ".$tags."</li>";
+            echo "<li>Tags: ".$tags[0]."   ".$tags[1]."</li>";
             }
             else
             {
