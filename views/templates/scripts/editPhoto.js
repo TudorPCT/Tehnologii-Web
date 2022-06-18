@@ -138,13 +138,24 @@ function Share(){
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
+    
+    const link = document.createElement("form");
+    document.body.appendChild(link);
+    link.setAttribute("enctype","multipart/form-data");
+    link.setAttribute("action","#");
+    link.setAttribute("method","post");
+    link.setAttribute("id","formid");
+
+    //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
+    
     var blob = dataURItoBlob(photoUrl);
-    var fd = new FormData(document.forms[0]);
+    var form = document.getElementById("formid");
+    var fd = new FormData(form);
     fd.append("canvasImage", blob);
-    console.log(photoUrl);
+    console.log(fd);
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "./?load=tumblr/postPhoto");
+    xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "multipart/form-data");
@@ -153,6 +164,7 @@ function Post(){
 
     xhr.send(fd);
 
+    document.body.removeChild(link);
 
     // var xmlhttp = new XMLHttpRequest();
 
