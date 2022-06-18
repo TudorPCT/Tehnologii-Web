@@ -307,7 +307,7 @@ class TumblrModel extends Model
     function getUserPhoto($token, $post_id, $photo_index) {
         $tumblrToken = $this->refreshToken($token);
 
-        echo $tumblrToken;
+        // echo $tumblrToken;
 
         $payload = json_decode(extractTokenPayload($token), true);
         $user_id = $payload['id'];
@@ -326,7 +326,7 @@ class TumblrModel extends Model
             . $username . ".tumblr.com/"
             . "posts/" . $post_id; 
 
-        echo "<br>" . $url;
+        // echo "<br>" . $url;
 
         $ch = curl_init($url);
 
@@ -340,7 +340,7 @@ class TumblrModel extends Model
 
         $response = curl_exec($ch);
         curl_close($ch);
-        echo "<br>" . $response;
+        // echo "<br>" . $response;
 
         $result = json_decode($response, true);
 
