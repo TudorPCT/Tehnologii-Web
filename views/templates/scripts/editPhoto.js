@@ -86,6 +86,7 @@ function resetImage(){
 function getImageEdited(){
     if(image.getAttribute('src')!==""){
         console.log("salvez img");
+        console.log(image.getAttribute('src'));
         console.log(image.naturalWidth);
         console.log(image.naturalHeight);
 
