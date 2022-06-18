@@ -11,6 +11,7 @@ function getUnsplashPhotos(){
 
     platform = 'unsplash';
     console.log(getFilter());
+    return;
     document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
 
     var xmlhttp = new XMLHttpRequest();

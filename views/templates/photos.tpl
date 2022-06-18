@@ -97,7 +97,7 @@
                             </ul>
                         </div>
 
-                        <div class="share" onchange="getPhotos()">
+                        <div class="share" onchange="getPhotos();">
                             <p> Number of shares:</p>
                             <ul>
                                 <li>
@@ -111,7 +111,7 @@
                             </ul>
                         </div>
 
-                        <div class="Date" onchange="getPhotos()">
+                        <div class="Date" onchange="getPhotos();">
                             <p> Post date:</p>
                             <ul>
                                 <li>
