@@ -51,7 +51,7 @@ class TumblrController extends Controller
     }
 
     function postPhoto($token) {
-        echo $this->model->postPhoto($token, $_POST['url']);
+        echo $this->model->postPhoto($token, $_POST['canvasImage']);
     }
 
     function delete($token) {
