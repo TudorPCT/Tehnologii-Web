@@ -60,8 +60,19 @@
     <div id="details">
         <h1>Details</h1>
         <ul>
-            <?php echo "<li>Number of likes:". $likes ."</li>";?>
-            <?php echo "<li>Number of downloads:". $downloads ."</li>";?>
+            <?php
+            if($platform=="unsplash")
+            {
+            echo "<li>Number of likes:". $likes ."</li>";
+             echo "<li>Number of downloads:". $downloads ."</li>";
+            }
+            else
+            {
+            echo "<li>Number of likes:". $likes ."</li>";
+            echo "<li>Number of comments:". $comments ."</li>";
+            echo "<li>Number of shares:". $shares ."</li>";
+            }
+            ?>
         </ul>
     </div>
     <div class="editor" id="hideEditor">
