@@ -102,7 +102,7 @@
                             <ul>
                                 <li>
                                     <input type="checkbox" id="cb11" name="cb11">
-                                    <label for="cb11">0-200 downloads</label>
+                                    <label for="cb11">0-200 shares</label>
                                 </li>
                                 <li>
                                     <input type="checkbox" id="cb13" name="cb13">
