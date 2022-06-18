@@ -93,8 +93,8 @@ function getImageEdited(){
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
         context.scale(scaleX,scaleY);
-        context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
-
+        // context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
+        context.drawImage(image,0,0,canvas.width,canvas.height);
         return canvas.toDataURL("image/jpg");
     }
 }
@@ -112,6 +112,17 @@ function Download_btn(){
 function seeDetails(){
     document.getElementById("hideEditor").style.display = "none";
     document.getElementById("details").style.display = "initial";
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            document.getElementById("details").innerHTML += this.responseText;
+        }
+
+    };
+    xmlhttp.open("GET","./?load=tumblr/get", true);
+
+    xmlhttp.send();
 }
 
 function seeEditor(){
@@ -139,17 +150,17 @@ function Post(){
 
     //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
 
-    var blob = dataURItoBlob(photoUrl);
+    //var blob = dataURItoBlob(photoUrl);
     var form = document.getElementById("formid");
     var fd = new FormData(form);
-    fd.append("canvasImage", blob);
+    fd.append("canvasImage", photoUrl);
     console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
 
     //xhr.setRequestHeader("Accept", "application/json");
-    // xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
 
