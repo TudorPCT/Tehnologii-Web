@@ -95,7 +95,7 @@ function getImageEdited(){
         context.scale(scaleX,scaleY);
         context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
 
-        return canvas.toDataURL("image/png");
+        return canvas.toDataURL("image/jpg");
     }
 }
 function Download_btn(){
@@ -104,7 +104,7 @@ function Download_btn(){
         const link = document.createElement("a");
             document.body.appendChild(link);
             link.setAttribute("href",jpgUrl);
-            link.setAttribute("download","photo.png");
+            link.setAttribute("download","photo.jpg");
             link.click();
             document.body.removeChild(link);
 }
@@ -139,8 +139,8 @@ console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tum
 
     };
 
-    $link = "./?load=tumblr/photo";
-    $link = $link.concat("&url=", photoUrl)
+    $link = "./?load=tumblr/postPhoto";
+    $link = $link.concat("&url=", photoUrl);
     console.log($link);
     xmlhttp.open("GET", $link, true);
 
