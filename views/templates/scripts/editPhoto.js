@@ -125,7 +125,7 @@ function Share(){
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData();
     fd.append("canvasImage", blob);
-    image.style.filter = "blur(0px) contrast(100%) saturate(100%) sepia(55%) brightness(100%) grayscale(0%) hue-rotate(0deg)";
+    image.style.filter = "blur(0px) contrast(100%) saturate(100%) sepia(0%) brightness(100%) grayscale(0%) hue-rotate(0deg)";
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
@@ -139,6 +139,13 @@ function Post(){
     xhr.onload = () => console.log(xhr.responseText);
 
     xhr.send(photoUrl);
+
+    var response = JSON.parse(xhr.responseText);
+    if (response['meta']['status'] < 200 || response['meta']['status'] >= 400) {
+        alert("Post failed!");
+    } else {
+        alert("Image posted successfully!");
+    }
 }
 
 
