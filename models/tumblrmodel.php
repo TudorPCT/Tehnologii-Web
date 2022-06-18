@@ -416,7 +416,7 @@ class TumblrModel extends Model
 
         $img_file = './filename.png';
           
-        imagepng($im, $img_file, 0);
+        imagepng($im, null, 0);
 
         // $content = [["type" => "image", "media" => ["type" => "image/png", "identifier" => "photo", "original_dimensions_missing" => true]]];
         // $contentJSON = json_encode($content, true);
