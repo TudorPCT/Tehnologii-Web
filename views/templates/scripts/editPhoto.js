@@ -129,6 +129,9 @@ function Share(){
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
+    var blob = dataURItoBlob(photoUrl);
+    var fd = new FormData(document.forms[0]);
+    fd.append("canvasImage", blob);
     console.log(photoUrl);
 
     let xhr = new XMLHttpRequest();
@@ -139,8 +142,7 @@ console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tum
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    var obj = {'url': photoUrl};
-    xhr.send(JSON.parse(obj));
+    xhr.send(fd);
 
 
     // var xmlhttp = new XMLHttpRequest();
