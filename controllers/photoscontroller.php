@@ -23,11 +23,7 @@ class PhotosController extends Controller
                 $data = ["link" => $info['urls']['raw'], "likes" => $info['likes'], "downloads" => $info['downloads']];
             } else if ($_GET['platform'] === 'tumblr' && isset($_GET['photo'])) {
                 $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
-//                $infoPhoto = $this->model->get
                 $data = ["link" => $info['url']];
-//                $data = ["likes"=> $infoPhoto["likes"]];
-//                $data = ["comments"=> $infoPhoto["comments"]];
-//                $data = ["shares"=> $infoPhoto["shares"]];
             } else {
                 http_response_code(400);
                 die();
@@ -41,7 +37,11 @@ class PhotosController extends Controller
     }
 
     function getTumblrPhotos($token){
-        echo $this->model->getTumblrPhotos($token);
+        $photos = $this->model->getTumblrPhotos($token);
+        if ($photos === null){
+            http_response_code(400);
+            die();
+        }else echo $photos;
     }
 
 }
