@@ -130,52 +130,14 @@ function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
 
-    // const link = document.createElement("form");
-    // document.body.appendChild(link);
-    // link.setAttribute("enctype","multipart/form-data");
-    // link.setAttribute("action","#");
-    // link.setAttribute("method","post");
-    // link.setAttribute("id","formid");
-
-    //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
-    // var content = {'type': 'image' , 'media' : {'type' : 'image/png', 'identifier' : 'photo', 'original_dimensions_missing' : true}};
-    // var contentArray = Array(content);
-    // var contentJSON = JSON.stringify(contentArray);
-
-    // var blob = dataURItoBlob(photoUrl);
-    // var form = document.getElementById("formid");
-    // var fd = new FormData(form);
-    // fd.append("photo", photoUrl);
-    // fd.append("canvasImage", "test");
-    // console.log(fd.get('photo'));
-
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
 
-    //xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onload = () => console.log(xhr.responseText);
 
     xhr.send(photoUrl);
-
-    // document.body.removeChild(link);
-
-    // var xmlhttp = new XMLHttpRequest();
-
-    // xmlhttp.onreadystatechange = function() {
-    //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-    //         document.getElementById("Wrapper").innerHTML = this.responseText;
-    //     }
-
-    // };
-
-    // $link = "./?load=tumblr/postPhoto";
-    // $link = $link.concat("&url=", photoUrl);
-    // console.log($link);
-    // xmlhttp.open("GET", $link, true);
-
-    // xmlhttp.send();
 }
 
 
