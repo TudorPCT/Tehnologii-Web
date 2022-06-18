@@ -125,7 +125,7 @@ function Share(){
     var fd = new FormData();
     fd.append("canvasImage", blob);
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
+    xmlhttp.open("POST", "https://socialmediabox.herokuapp.com/?load=tumblr/showInfo");
     xmlhttp.send(fd);
 
     xmlhttp.onreadystatechange = function() {
