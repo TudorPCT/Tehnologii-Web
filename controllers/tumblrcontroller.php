@@ -54,10 +54,10 @@ class TumblrController extends Controller
         $request = file_get_contents('php://input');
         // echo $request;
 
-        $data = substr($request, 22);
+        // $data = substr($request, 22);
 
         // echo $data;
-        echo $this->model->postPhoto($token, $data);
+        echo $this->model->postPhoto($token, $request);
     }
 
     function delete($token) {
