@@ -379,7 +379,7 @@ class TumblrModel extends Model
         $result = json_decode($response, true);
         $likeCount = $result['response']['total_likes'];
         $shareCount = $result['response']['total_reblogs'];
-        $commCount = $result['response']['total_notes'] - ( $likeCount + $shareCount + 1 );
+        $commCount = $result['response']['total_notes'] - ( $likeCount + $shareCount);
 
         $stats = ["likes" => $likeCount, "shares" => $shareCount, "comments" => $commCount];
 
