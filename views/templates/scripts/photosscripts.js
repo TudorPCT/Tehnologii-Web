@@ -10,7 +10,7 @@ function getPhotos(){
 function getUnsplashPhotos(){
 
     platform = 'unsplash';
-    console.log(getFilter());
+    $filters = getFilter();
 
     document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
 
@@ -23,7 +23,13 @@ function getUnsplashPhotos(){
 
     };
 
-    xmlhttp.open("GET","./?load=photos/getUnsplashPhotos", true);
+    $link = "./?load=photos/getUnsplashPhotos";
+    $link.concat("&minLikes=", $filters[0],
+        "&maxLikes=", $filters[1],
+        "&minShares=", $filters[2],
+        "&maxShares=", $filters[3],
+        "&postDate=", $filters[4]);
+    xmlhttp.open("GET", $link, true);
 
     xmlhttp.send();
 }
