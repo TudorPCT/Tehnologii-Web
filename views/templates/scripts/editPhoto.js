@@ -130,22 +130,70 @@ function Share(){
     console.log(photoUrl);
 }
 function Post(){
-console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
+    console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
-    console.log(photoUrl);
-    var xmlhttp = new XMLHttpRequest();
+    
+    const link = document.createElement("form");
+    document.body.appendChild(link);
+    link.setAttribute("enctype","multipart/form-data");
+    link.setAttribute("action","#");
+    link.setAttribute("method","post");
+    link.setAttribute("id","formid");
 
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            document.getElementById("Wrapper").innerHTML = this.responseText;
-        }
+    //enctype="multipart/form-data" action="https://site[DOT]net/upload" method="post"
+    
+    var blob = dataURItoBlob(photoUrl);
+    var form = document.getElementById("formid");
+    var fd = new FormData(form);
+    fd.append("canvasImage", blob);
+    console.log(fd);
 
-    };
+    let xhr = new XMLHttpRequest();
+    xhr.open("post", "./?load=tumblr/postPhoto");
 
-    $link = "./?load=tumblr/postPhoto";
-    $link = $link.concat("&url=", photoUrl)
-    console.log($link);
-    xmlhttp.open("GET", $link, true);
+    //xhr.setRequestHeader("Accept", "application/json");
+    // xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
-    xmlhttp.send();
+    xhr.onload = () => console.log(xhr.responseText);
+
+    xhr.send(fd);
+
+    document.body.removeChild(link);
+
+    // var xmlhttp = new XMLHttpRequest();
+
+    // xmlhttp.onreadystatechange = function() {
+    //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+    //         document.getElementById("Wrapper").innerHTML = this.responseText;
+    //     }
+
+    // };
+
+    // $link = "./?load=tumblr/postPhoto";
+    // $link = $link.concat("&url=", photoUrl);
+    // console.log($link);
+    // xmlhttp.open("GET", $link, true);
+
+    // xmlhttp.send();
+}
+
+
+function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
 }
