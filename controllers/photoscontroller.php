@@ -20,7 +20,7 @@ class PhotosController extends Controller
         if (isset($_GET['platform']) && isset($_GET['id'])) {
             if ($_GET['platform'] === 'unsplash') {
                 $info = $this->model->getUnsplashInfo($token, $_GET['id']);
-                $data = ["link" => $info['links']['download']];
+                $data = ["link" => $info['links']['self']];
             } else if ($_GET['platform'] === 'tumblr' && isset($_GET['photo'])) {
                 $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
                 $data = ["link" => $info['url']];
