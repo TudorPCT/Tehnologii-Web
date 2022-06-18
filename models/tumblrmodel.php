@@ -431,7 +431,7 @@ class TumblrModel extends Model
         
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array($contentJSON, $photo_url)));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array("content" => $contentJSON, "photo" => $photo_url)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
