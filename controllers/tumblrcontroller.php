@@ -57,5 +57,5 @@ class TumblrController extends Controller
     function delete($token) {
         $this->model->deleteAccount($token);
     }
-    
+
 }
