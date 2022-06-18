@@ -204,7 +204,7 @@ class TumblrModel extends Model
             } else if ($post['type'] == 'text') {
                 $body = $post['body'];
                 $x = explode("<", $body);
-                $index = 0;
+                $index_photo = 0;
                 foreach($x as $line) {
                     if (strncmp($line, "img", 3) == 0) {
                         $substr = explode(" ", $line);
@@ -218,9 +218,9 @@ class TumblrModel extends Model
                                     else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
                                 }
                                 $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                                $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                                $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index_photo);
                                 array_push($photoList, $photoArray);
-                                $index++;
+                                $index_photo++;
                             }
                         }
                     }    
@@ -334,7 +334,7 @@ class TumblrModel extends Model
         } else if ($result['response']['type'] == 'text') {
                 $body = $result['response']['body'];
                 $x = explode("<", $body);
-                $index = 0;
+                $index_photo = 0;
                 foreach($x as $line) {
                     if (strncmp($line, "img", 3) == 0) {
                         $substr = explode(" ", $line);
@@ -348,11 +348,11 @@ class TumblrModel extends Model
                                     else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
                                 }
                                 $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                                if ($index == $photo_index) {
+                                if ($index_photo == $photo_index) {
                                     $urlJSON = json_encode($url);
                                     return $urlJSON;
                                 }
-                                $index++;
+                                $index_photo++;
                             }
                         }
                     }    
