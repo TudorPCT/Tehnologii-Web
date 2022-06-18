@@ -169,10 +169,10 @@ class PhotosModel extends Model
         return json_decode($info, true);
     }
     function getTumblrInfoPhoto($token, $id) {
-    include ("config.php");
-    $link = $photosURL . "/?load=tumblr/getPhotoStats"
-        . "&id=" . $id;
-    $info = $this->httpRequest($link, $token);
-    return json_decode($info, true);
-}
+        include ("config.php");
+        $link = $photosURL . "/?load=tumblr/getPhotoStats"
+            . "&id=" . $id;
+        $info = $this->httpRequest($link, $token);
+        return json_decode($info, true);
+    } 
 }

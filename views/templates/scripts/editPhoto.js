@@ -144,7 +144,7 @@ function Post(){
     var fd = new FormData(form);
     fd.append("canvasImage", blob);
     // fd.append("canvasImage", "test");
-    //console.log(fd.get('canvasImage'));
+    console.log(fd.get('canvasImage'));
 
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
