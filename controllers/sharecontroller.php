@@ -13,7 +13,9 @@ class ShareController extends Controller
             $info = json_decode($this->model->getUnsplashPhoto($token, $photo), true);
 
             $data = ["link" => $info['urls']['regular'],
-                "filters" => $photo['filters']];
+                "filters" => $photo['filters'],
+                "scaleX" => $photo['scalex'],
+                "scaleY" => $photo['scaley']];
 
             if ($token !== null) {
                 $vizualizare = $this->view->showPrivate($data);
