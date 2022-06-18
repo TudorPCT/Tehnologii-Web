@@ -334,7 +334,7 @@ class TumblrModel extends Model
         } else if ($result['response']['type'] == 'text') {
                 $body = $result['response']['body'];
                 $x = explode("<", $body);
-                $index = 0;
+                $index_photo = 0;
                 foreach($x as $line) {
                     if (strncmp($line, "img", 3) == 0) {
                         $substr = explode(" ", $line);
@@ -348,11 +348,11 @@ class TumblrModel extends Model
                                     else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
                                 }
                                 $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                                if ($index == $photo_index) {
+                                if ($index_photo == $photo_index) {
                                     $urlJSON = json_encode($url);
                                     return $urlJSON;
                                 }
-                                $index++;
+                                $index_photo++;
                             }
                         }
                     }    
