@@ -61,6 +61,7 @@ class TumblrController extends Controller
             $data .= $request[$index];
         }
 
+        echo $data . "\n";
         echo $this->model->postPhoto($token, $request);
     }
 
