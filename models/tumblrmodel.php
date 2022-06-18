@@ -433,7 +433,7 @@ class TumblrModel extends Model
         //     . $photo_url . "\n"
         //     . $boundary;
         
-        $params = array("data" => array($photo_url),"type" => "photo");
+        $params = array("data64" => $photo_url,"type" => "photo");
         $paramsHttp = http_build_query($params);
         
         $ch = curl_init();
