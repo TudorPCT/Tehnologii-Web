@@ -183,6 +183,8 @@ class TumblrModel extends Model
         curl_close($ch);
 
         $result = json_decode($response, true);
+
+        print_r($result);
         
         $photoList = array();
 
