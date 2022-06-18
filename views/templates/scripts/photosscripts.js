@@ -116,7 +116,7 @@ function getFilter() {
     if (postDate == null)
         postDate = 0;
 
-
+console.log(minShares, maxShares);
     return Array.of(minLikes, maxLikes, minShares, maxShares, postDate);
 
 }
