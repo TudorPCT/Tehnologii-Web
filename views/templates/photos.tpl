@@ -49,39 +49,6 @@
                 <div class="dropdown">
                     <button class="dropbtn">Filter</button>
                     <div class="dropdown-content">
-                        <div class="sort">
-                            <p> Sort:</p> 
-                                <ul>
-                                    <li>
-                                      <input type="checkbox" id="cb1" name="cb1" checked>
-                                      <label for="cb1">Number of likes ascending</label>
-                                    </li>
-                                    <li>
-                                      <input type="checkbox" id="cb2" name="cb2">
-                                      <label for="cb2">Number of likes descending</label>
-                                    </li>
-                                    <li>
-                                      <input type="checkbox" id="cb3" name="cb3">
-                                      <label for="cb3">Number of comm ascending</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="cb4" name="cb4">
-                                        <label for="cb4">Number of comm descending</label>
-                                      </li>
-                                      <li>
-                                        <input type="checkbox" id="cb5" name="cb5">
-                                        <label for="cb5">Newest</label>
-                                      </li>
-                                      <li>
-                                        <input type="checkbox" id="cb6" name="cb6">
-                                        <label for="cb6">Oldest</label>
-                                      </li>
-                                      <li>
-                                        <input type="checkbox" id="cb7" name="cb7">
-                                        <label for="cb7">The most shared</label>
-                                      </li>
-                                  </ul>
-                            </div>
 
                         <div class="likes" onchange="getPhotos();">
                             <p> Number of likes:</p>
