@@ -127,7 +127,7 @@ function Share(){
     console.log(fd.get("canvasImage"));
 }
 function Post(){
-console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
+    console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
     var photoUrl = getImageEdited();
     var blob = dataURItoBlob(photoUrl);
     var fd = new FormData(document.forms[0]);
@@ -137,7 +137,7 @@ console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tum
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "./?load=tumblr/postPhoto");
 
-    xhr.setRequestHeader("Accept", "application/json");
+    //xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
