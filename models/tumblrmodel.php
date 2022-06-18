@@ -410,8 +410,10 @@ class TumblrModel extends Model
         $content = [["type" => "image", "media" => ["type" => "image/jpg", "identifier" => "photo", "original_dimensions_missing" => true]]];
         $contentJSON = json_encode($content, true);
 
-        $boundary = "--TumblrBoundary\n";
+        
 
+        $boundary = "--TumblrBoundary\n";
+        
         $body = $boundary
             . "Content-Disposition: form-data; name=\"json\"\nContent-Type: application/json\n\n"
             . $contentJSON . "\n"
@@ -428,12 +430,11 @@ class TumblrModel extends Model
             . $username . ".tumblr.com/posts";
         
         curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array($contentJSON, $photo_url)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
-            "Accept: application/json",
             "Authorization: Bearer " . $tumblrToken,
             "Content-Type: multipart/form-data"
         ));
@@ -441,7 +442,7 @@ class TumblrModel extends Model
         $output = curl_exec($ch);
         curl_close($ch);
 
-        return json_decode($output);
+        echo $output;
     }
 
     function deleteAccount($token) {
