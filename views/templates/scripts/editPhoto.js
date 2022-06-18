@@ -147,12 +147,14 @@ function Post(){
     let xhr = new XMLHttpRequest();
     xhr.open("post", "./?load=tumblr/postPhoto");
 
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    //xhr.setRequestHeader("Accept", "application/json");
+    //xhr.setRequestHeader("Content-Type", "multipart/form-data");
 
     xhr.onload = () => console.log(xhr.responseText);
 
-    xhr.send(fd);
+    var testString = "test";
+
+    xhr.send(testString);
 
     document.body.removeChild(link);
 
