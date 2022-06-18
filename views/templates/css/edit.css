@@ -23,6 +23,14 @@ header {
 #details{
     display: none;
 }
+.details h1{
+    color: #232946;
+    text-underline-style: dash;
+}
+.details li{
+    color: #232946;
+    /*background-color: red;*/
+}
 
 .editor{
     border: 1px solid #eebbc3;

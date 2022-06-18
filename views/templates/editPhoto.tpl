@@ -57,7 +57,7 @@
             <button id="postOnTumblr" onclick="Post()">PostOnTumblr</button>
         </div>
     </div>
-    <div id="details">
+    <div class="details" id="details">
         <h1>Details</h1>
         <ul>
             <?php
