@@ -42,6 +42,8 @@ function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
         context.drawImage(image,0,0, canvas.width,canvas.height);
+        context.scale(1,1);
+        context.save();
         // reset.style.transform='translateY(0px)';
 
 }
@@ -75,6 +77,10 @@ function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
     context.filter = 'none';
+    scaleX=1;
+    scaleY=1;
+    context.scale(scaleX,scaleY);
+    context.save();
     for(let i=0;i<=sliders.length-1;i++)
     {
         if(i===0||i===3||i===5||i===6)
@@ -88,14 +94,14 @@ function getImageEdited(){
         console.log("salvez img");
         console.log(image.naturalWidth);
         console.log(image.naturalHeight);
-
         console.log(canvas.width);
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
+        context.restore();
         context.scale(scaleX,scaleY);
         context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
-
         return canvas.toDataURL("image/png");
+
     }
 }
 function Download_btn(){
