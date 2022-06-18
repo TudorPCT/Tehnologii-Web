@@ -118,7 +118,7 @@ class PhotosModel extends Model
 
             $link = $photosURL . "/?load=tumblr/getPhotoStats&id=" . $tumblrPhotos[$index]['id'];
             $stats = json_decode($this->httpRequest($link, $token), true);
-            // print_r($stats);
+            //print_r($stats);
 
             if($minLikes <= $stats["likes"] && ($maxLikes === 0 || $maxLikes >=  $stats["likes"])
                     && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"])
