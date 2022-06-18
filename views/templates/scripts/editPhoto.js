@@ -97,11 +97,11 @@ function Download_btn(){
 
         // context.drawImage(image,0,0, canvas.width,canvas.height);
 
-        const jpegUrl = canvas.toDataURL("image/jpg");
-
+        const jpgUrl = canvas.toDataURL("image/jpg");
+        // console.log("link ul: "+jpgUrl);
         const link = document.createElement("a");
             document.body.appendChild(link);
-            link.setAttribute("href",jpegUrl);
+            link.setAttribute("href",jpgUrl);
             link.setAttribute("download","photo.jpg");
             link.click();
             document.body.removeChild(link);
@@ -122,4 +122,6 @@ function Share(){
 }
 function Post(){
 console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
+    const photoUrl = canvas.toDataURL("image/jpg");
+    console.log("link ul: "+photoUrl);
 }
