@@ -190,31 +190,41 @@ class TumblrModel extends Model
         
 
         foreach ($posts as $post) {
-            $photos = $post['photos'];
-            $noteCount = $post['note_count'];
             $post_id = $post['id'];
-            $notes = $post['notes'];
-            $likeCount = 0;
-            $shareCount = 0;
-            if ($noteCount > 50) {
-                $likeCount = (int) $noteCount * ( 2 / 3 );
-                $shareCount = (int) $noteCount * ( 1 / 3 );
-            } else {
-                foreach ($notes as $note) {
-                    if ($note['type'] == 'like') {
-                        $likeCount++;
-                    } else if ($note['type'] == 'reblog') {
-                        $shareCount++;
-                    }
-                }
-            }
+            if ($post['type'] == 'photo') {
+                $photos = $post['photos'];
 
-            $index = 0;
-            foreach ($photos as $photo) {
-                $photoUrl = $photo['original_size']['url'];
-                $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
-                array_push($photoList, $photoArray);
-                $index++;
+                $index = 0;
+                foreach ($photos as $photo) {
+                    $photoUrl = $photo['original_size']['url'];
+                    $photoArray = array('url' => $photoUrl, 'id' => $post_id, 'photo_index' => $index);
+                    array_push($photoList, $photoArray);
+                    $index++;
+                }
+            } else if ($post['type'] == 'text') {
+                $body = $post['body'];
+                $x = explode("<", $body);
+                $index = 0;
+                foreach($x as $line) {
+                    if (strncmp($line, "img", 3) == 0) {
+                        $substr = explode(" ", $line);
+                        foreach($substr as $src) {
+                            if (strncmp($src, "src", 3) == 0){
+                                $length = strlen($src);
+                                $indexStart = -1;
+                                $indexEnd = -1;
+                                for ($index = 3; $index < $length; $index++) {
+                                    if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+                                    else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+                                }
+                                $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+                                $photoArray = array('url' => $url, 'id' => $post_id, 'photo_index' => $index);
+                                array_push($photoList, $url);
+                                $index++;
+                            }
+                        }
+                    }    
+                }
             }
         }
 
@@ -316,11 +326,38 @@ class TumblrModel extends Model
 
         $result = json_decode($response, true);
 
-        $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
+        if ($result['response']['type'] == 'photo') {
+            $url = ["url" => $result['response']['photos'][$photo_index]['original_size']['url']];
+            $urlJSON = json_encode($url);
 
-        $urlJSON = json_encode($url);
-
-        return $urlJSON;
+            return $urlJSON;
+        } else if ($result['response']['type'] == 'text') {
+                $body = $result['response']['body'];
+                $x = explode("<", $body);
+                $index = 0;
+                foreach($x as $line) {
+                    if (strncmp($line, "img", 3) == 0) {
+                        $substr = explode(" ", $line);
+                        foreach($substr as $src) {
+                            if (strncmp($src, "src", 3) == 0){
+                                $length = strlen($src);
+                                $indexStart = -1;
+                                $indexEnd = -1;
+                                for ($index = 3; $index < $length; $index++) {
+                                    if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+                                    else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+                                }
+                                $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+                                if ($index == $photo_index) {
+                                    $urlJSON = json_encode($url);
+                                    return $urlJSON;
+                                }
+                                $index++;
+                            }
+                        }
+                    }    
+                }
+        }     
     }
 
     function getPhotoStats($token, $post_id) {
