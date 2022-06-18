@@ -124,7 +124,7 @@ class PhotosModel extends Model
             //print_r($stats);
 
             if($minLikes <= $stats["likes"] && ($maxLikes === 0 || $maxLikes >=  $stats["likes"])
-                    && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"])
+                    && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"] <= $maxShares)
                     && ($postDate === 0 || $postDate >= $diff)) {
                 
                 if ($count % 5 === 0 && $count != 0) {
