@@ -332,7 +332,7 @@ class TumblrModel extends Model
 
             return $urlJSON;
         } else if ($result['response']['type'] == 'text') {
-                print_r($result['response']);
+                print_r($result);
                 $body = $result['response']['body'];
                 $x = explode("<", $body);
                 $index_photo = 0;
