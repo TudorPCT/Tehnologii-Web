@@ -87,65 +87,65 @@ class TumblrModel extends Model
         }
     }
 
-    function getUserLikes($token) {
-        $tumblrToken = $this->refreshToken($token);
+    // function getUserLikes($token) {
+    //     $tumblrToken = $this->refreshToken($token);
 
-        $url = 'https://api.tumblr.com/v2/user/likes';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $headers = array(
-            "Accept: application/json",
-            "Authorization: Bearer " . $tumblrToken
-        );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    //     $url = 'https://api.tumblr.com/v2/user/likes';
+    //     $ch = curl_init($url);
+    //     curl_setopt($ch, CURLOPT_URL, $url);
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //     $headers = array(
+    //         "Accept: application/json",
+    //         "Authorization: Bearer " . $tumblrToken
+    //     );
+    //     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $result = curl_exec($ch);
-        curl_close($ch);
+    //     $result = curl_exec($ch);
+    //     curl_close($ch);
 
-        $response = json_decode($result, true);
-        $photoList = array();
+    //     $response = json_decode($result, true);
+    //     $photoList = array();
 
-        // print_r($response);
+    //     // print_r($response);
 
-        $liked_posts = $response['response']['liked_posts'];
+    //     $liked_posts = $response['response']['liked_posts'];
 
-        foreach ($liked_posts as $index => $post) {
-            if ($post['type'] == 'photo') {
-                $photos = $post['photos'];
-                foreach ($photos as $asphoto => $photo) {
-                    $photoUrl = $photo['original_size']['url'];
-                    array_push($photoList, $photoUrl);
-                }
-            } else if ($post['type'] == 'text') {
-                $body = $post['body'];
-                $x = explode("<", $body);
+    //     foreach ($liked_posts as $index => $post) {
+    //         if ($post['type'] == 'photo') {
+    //             $photos = $post['photos'];
+    //             foreach ($photos as $asphoto => $photo) {
+    //                 $photoUrl = $photo['original_size']['url'];
+    //                 array_push($photoList, $photoUrl);
+    //             }
+    //         } else if ($post['type'] == 'text') {
+    //             $body = $post['body'];
+    //             $x = explode("<", $body);
 
-                foreach($x as $line) {
-                    if (strncmp($line, "img", 3) == 0) {
-                        $substr = explode(" ", $line);
-                        foreach($substr as $src) {
-                            if (strncmp($src, "src", 3) == 0){
-                            $length = strlen($src);
-                            $indexStart = -1;
-                            $indexEnd = -1;
-                            for ($index = 3; $index < $length; $index++) {
-                                if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
-                                else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
-                            }
-                            $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
-                            array_push($photoList, $url);
-                            }
-                        }
-                    }    
-                }
-            }
-        }
+    //             foreach($x as $line) {
+    //                 if (strncmp($line, "img", 3) == 0) {
+    //                     $substr = explode(" ", $line);
+    //                     foreach($substr as $src) {
+    //                         if (strncmp($src, "src", 3) == 0){
+    //                         $length = strlen($src);
+    //                         $indexStart = -1;
+    //                         $indexEnd = -1;
+    //                         for ($index = 3; $index < $length; $index++) {
+    //                             if ($src[$index] == '"' && $indexStart == -1) $indexStart = $index;
+    //                             else if ($src[$index] == '"' && $indexEnd == -1) $indexEnd = $index;
+    //                         }
+    //                         $url = substr($src, $indexStart + 1, $indexEnd - $indexStart - 1);
+    //                         array_push($photoList, $url);
+    //                         }
+    //                     }
+    //                 }    
+    //             }
+    //         }
+    //     }
 
-        $jsonPhotos = json_encode($photoList);
+    //     $jsonPhotos = json_encode($photoList);
 
-        return $jsonPhotos;
-    }
+    //     return $jsonPhotos;
+    // }
 
     function getUserPhotos($token) {
         include("config.php");
@@ -219,11 +219,8 @@ class TumblrModel extends Model
         return $jsonPhotos;
     }
 
-    private function refreshToken($jwtToken) {
+    private function refreshToken($user_id) {
         include("config.php");
-
-        $payload = json_decode(extractTokenPayload($jwtToken), true);
-        $user_id = $payload['id'];
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
@@ -276,13 +273,8 @@ class TumblrModel extends Model
         return $tumblrToken;
     }
 
-    function getUserPhoto($token, $post_id, $photo_index) {
-        $tumblrToken = $this->refreshToken($token);
-
-        // echo $tumblrToken;
-
-        $payload = json_decode(extractTokenPayload($token), true);
-        $user_id = $payload['id'];
+    function getUserPhoto($user_id, $post_id, $photo_index) {
+        $tumblrToken = $this->refreshToken($user_id);
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
@@ -392,10 +384,8 @@ class TumblrModel extends Model
         return json_encode($stats);
     }
 
-    function postPhoto($token, $photo_url) {
-        $tumblrToken = $this->refreshToken($token);
-        $payload = json_decode(extractTokenPayload($token), true);
-        $user_id = $payload['id'];
+    function postPhoto($user_id, $photo_url) {
+        $tumblrToken = $this->refreshToken($user_id);
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
