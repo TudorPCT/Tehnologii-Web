@@ -232,6 +232,9 @@ class TumblrModel extends Model
 
         $tumblrRefreshToken = $userData['account_token'];
 
+
+        echo $tumblrRefreshToken;
+
         $ch = curl_init();
         
         $params = "grant_type=" . "refresh_token"
@@ -274,9 +277,7 @@ class TumblrModel extends Model
     }
 
     function getUserPhoto($user_id, $post_id, $photo_index) {
-        echo "<script>console.log('test')</script>";
         $tumblrToken = $this->refreshToken($user_id);
-        echo "<script>console.log($tumblrToken)</script>";
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
