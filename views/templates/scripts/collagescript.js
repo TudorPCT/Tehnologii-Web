@@ -1,7 +1,6 @@
 
  function setBackground() {
     var file = document.getElementById("singleUpload").files[0];
-    console.log(file.beginPath);
     var canvas = document.getElementById("background");
     var context = canvas.getContext("2d");
     var reader = new FileReader();
@@ -20,7 +19,7 @@ backImage.value = '';
 
 var model = document.getElementById("modelSelect");
 model.value = '';
- document.getElementById("background").style.backgroundColor="Red";
+
 document.getElementById("background").style.visibility = "hidden";              // Hide canvas until model is selected
 
 var link = document.getElementById('btn-download');
