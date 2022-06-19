@@ -260,8 +260,9 @@ input[type="file"]{
     }
 }
 @media screen and (max-width: 800px) and (max-height: 800px){
-    .box{
-        background-color: #a41414;
+    .image-container{
+        height: 20vh;
+
     }
     .result{
         flex-direction: column;
