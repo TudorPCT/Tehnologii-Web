@@ -254,7 +254,7 @@
                             Show Photos ->Tumblr: shows the list of photos from Tumblr account of user;
                         </li>
                         <li>
-                            Create collage : Lets the user to select multiple photos and create a collage with them;
+                            Create collage : Redirect the user to Collage page;
                         </li>
                         <li>
                             Filter : Lets the user to see photos from a specified category or in a specified order;
@@ -297,7 +297,7 @@
                             Edit -> Post : Lets the user post the photo edited on their Tumblr account;
                         </li>
                         <li>
-                            Share:
+                            Share-> Public/Private : Generate a link that user can share to others and open the corresponding page;
                         </li>
                     </ul>
                 </section>
