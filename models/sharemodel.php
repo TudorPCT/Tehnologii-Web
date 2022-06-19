@@ -59,7 +59,7 @@ class ShareModel extends Model
     function getTumblrPhotoPublic($token, $info){
         include ("config.php");
         $id = explode("/", $info['photo_id']);
-        $link = $photosURL . "/?load=unsplash/getUserPhotoPublic&id="
+        $link = $photosURL . "/?load=tumblr/getUserPhotoPublic&id="
             . $id[0]
             . "&photo=" . $id[1]
             . "&user_id="

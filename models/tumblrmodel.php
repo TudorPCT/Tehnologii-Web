@@ -288,7 +288,7 @@ class TumblrModel extends Model
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
-            . "posts/" . $post_id; 
+            . "posts/" . $post_id;
 
         // echo "<br>" . $url;
 
