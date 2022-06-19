@@ -2,16 +2,11 @@
 var output = document.querySelector('#images_preview');
 output.innerHTML = '';
 
-loadUnsplashPhotos();
-function loadUnsplashPhotos() {
-    var xmlhttp = new XMLHttpRequest();
-    link = "socialmediabox.herokuapp.com/?load=photos/getCollagePhotos";
+loadPhotos("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
+loadPhotos("https://www.socialmediabox.herokuapp.com/?load=tumblr/photos");
 
-    link = link.concat("&minLikes=", 0,
-        "&maxLikes=", 0,
-        "&minShares=", 0,
-        "&maxShares=", 0,
-        "&postDate=", 0);
+function loadPhotos(link) {
+    var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
