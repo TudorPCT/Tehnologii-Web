@@ -142,6 +142,12 @@ function Share(){
     xmlhttp.open("POST","/?load=share/getLink", true);
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
+
+    console.log("info=" + alt +
+    "&filters=" + filters,
+    "&scalex=" + scaleX,
+    "&scaley=" + scaleY);
+
     xmlhttp.send("info=" + alt +
         "&filters=" + filters,
         "&scalex=" + scaleX,
