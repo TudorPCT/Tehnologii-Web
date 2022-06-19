@@ -80,6 +80,17 @@ header .current a{
     }
 }
 
+@media screen and (max-width: 800px) {
+    .topBar nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.rowC{
+    margin-left: 10%;
+}
+
 .columnC {
     float: left;
 }

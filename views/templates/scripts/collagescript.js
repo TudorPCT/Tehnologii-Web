@@ -20,7 +20,7 @@ backImage.value = '';
 
 var model = document.getElementById("modelSelect");
 model.value = '';
-
+ document.getElementById("background").style.backgroundColor="Red";
 document.getElementById("background").style.visibility = "hidden";              // Hide canvas until model is selected
 
 var link = document.getElementById('btn-download');
@@ -60,6 +60,9 @@ function modelSelect() {
 
     var selectedModel = document.getElementById("modelSelect").value;    // Get the selected model value
 
+    let element = document.getElementById("background");
+    var rect = element.getBoundingClientRect();
+
     switch (selectedModel) {
 
         case "model1":             // If model1 was selected, draw pattern using 3 new canvas elements as layers on top of background canvas
@@ -68,10 +71,10 @@ function modelSelect() {
 
             var layer1 = document.createElement('canvas'); // Create first square canvas programmatically
             layer1.className = "layer";
-            layer1.width = 200;                   // Set square canvas width
-            layer1.height = 200;                  // Set square canvas height
-            layer1.style.top = "130px";           // Position square canvas 130px from top
-            layer1.style.left = "540px";          // Position square canvas 540px from left
+            layer1.width = 180;                   // Set square canvas width
+            layer1.height = 180;                  // Set square canvas height
+            layer1.style.top = String(rect.top+20).concat("px");           // Position square canvas 130px from top
+            layer1.style.left = String(rect.left+20).concat("px");                 // Position square canvas 540px from left
             layer1.style.visibility = "visible";
 
             var body = document.getElementById("photo");
@@ -82,8 +85,8 @@ function modelSelect() {
             layer2.className = "layer";
             layer2.width = 110;
             layer2.height = 110;
-            layer2.style.top = "180px";
-            layer2.style.left = "840px";
+            layer2.style.top = String(rect.top+90).concat("px");
+            layer2.style.left = String(rect.right-150).concat("px");
             layer2.style.visibility = "visible";
 
             var body = document.getElementById("photo");
@@ -92,10 +95,10 @@ function modelSelect() {
 
             var layer3 = document.createElement('canvas');
             layer3.className = "layer";
-            layer3.width = 340;
-            layer3.height = 230;
-            layer3.style.top = "400px";
-            layer3.style.left = "670px";
+            layer3.width = 300;
+            layer3.height = 190;
+            layer3.style.top = String(rect.bottom-230).concat("px");
+            layer3.style.left = String(rect.left+50).concat("px");
             layer3.style.visibility = "visible";
 
             var body = document.getElementById("photo");
