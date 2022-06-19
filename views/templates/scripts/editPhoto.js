@@ -131,7 +131,7 @@ function Share(){
     let xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
-        myResponse = JSON.parse(this.responseText);
+        myResponse = JSON.parse(this.response);
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 alert("Use the redirected link to share your photo");
