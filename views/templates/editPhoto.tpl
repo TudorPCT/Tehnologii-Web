@@ -87,8 +87,12 @@
             <?php
             if($platform=="unsplash")
             {
+            echo "<li>Created_at:". $create_data ."</li>";
+            echo "<li>Width of photo:". $width ."</li>";
+            echo "<li>Height of photo:". $height ."</li>";
             echo "<li>Number of likes:". $likes ."</li>";
              echo "<li>Number of downloads:". $downloads ."</li>";
+
             }
             else
             {
