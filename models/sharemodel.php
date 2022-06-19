@@ -70,9 +70,15 @@ class ShareModel extends Model
     function getShareLink($token, $info, $scope, $filters, $scaleX, $scaleY){
         $payload=json_decode(extractTokenPayload($token),true);
         $info = explode('/', $info);
+        $platform = $info[0];
+
+        if ($platform === 'unsplash')
+            $photo_id = $info[1];
+        else $photo_id = $info[1] . "/" . $info[2];
+
         $data = ["owner_id" => $payload['id'],
-            "platform" => $info[0],
-            "photo_id" => $info[1],
+            "platform" => $platform,
+            "photo_id" => $photo_id,
             "filters" => $filters,
             "scope" => $scope,
             "scalex" => $scaleX,
