@@ -41,7 +41,7 @@ return "blur("+filterA.value+"px)"+
 function addFilter() {
         image.style.filter = getFilter();
         context.filter=getFilter();
-        context.drawImage(image,0,0, canvas.width,canvas.height);
+        // context.drawImage(image,0,0, canvas.width,canvas.height);
         // reset.style.transform='translateY(0px)';
 
 }
@@ -94,8 +94,8 @@ function getImageEdited(){
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
         context.scale(scaleX,scaleY);
-        // context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
-        context.drawImage(image,0,0,canvas.width,canvas.height);
+        context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
+        // context.drawImage(image,0,0,canvas.width,canvas.height);
         return canvas.toDataURL();
     }
 }
