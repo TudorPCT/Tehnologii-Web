@@ -1,11 +1,11 @@
 
 * {
+    font: initial;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 body{
-    font: 15px/1.5 Arial, Helvetica,sans-serif;
     padding:0;
     margin:0;
     min-height: 98vh;
@@ -16,6 +16,8 @@ body{
     justify-content: space-between;
     margin-top: 1%;
 }
+
+
 
 header{
     background:#fffffe;
@@ -199,10 +201,9 @@ input[type="text"],  input[type="password"]{
     flex-wrap: wrap;
 }
 
-#gallery h1 {
+.gallery h1 {
+    font-size: 30px;
     color: #eebbc3;
-    text-align: center;
-    display: inline-block;
 }
 
 .column {
