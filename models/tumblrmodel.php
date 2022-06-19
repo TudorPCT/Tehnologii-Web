@@ -232,19 +232,18 @@ class TumblrModel extends Model
 
         $tumblrRefreshToken = $userData['account_token'];
 
-
-        echo $tumblrRefreshToken;
-
         $ch = curl_init();
         
-        $params = "grant_type=" . "refresh_token"
-                . "&refresh_token=" . $tumblrRefreshToken
-                . "&client_id=" . $tumblrClientId
-                . "&client_secret=" . $tumblrSecret;
+        // $params = "grant_type=" . "refresh_token"
+        //         . "&refresh_token=" . $tumblrRefreshToken
+        //         . "&client_id=" . $tumblrClientId
+        //         . "&client_secret=" . $tumblrSecret;
+
+        $params = array("grant_type" => "refresh_token", "refresh_token" => $tumblrRefreshToken, "client_id" => $tumblrClientId, "client_secret" => $tumblrSecret);
         
         curl_setopt($ch, CURLOPT_URL, "https://api.tumblr.com/v2/oauth2/token");
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         curl_setopt($ch,CURLOPT_HTTPHEADER,array (
