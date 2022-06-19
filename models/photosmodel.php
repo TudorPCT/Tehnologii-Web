@@ -62,21 +62,16 @@ class PhotosModel extends Model
                     echo  "</div>" . PHP_EOL;
                     echo  "<div class=\"column\">" . PHP_EOL;
                 }
-                // echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
                 echo "<div class=\"content\">";
                 $url = "./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'];
                 echo "<img src=\"" . $unsplashPhotos[$index]["url"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
-                // echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
                 $count++;
                 $found = true;
             }
         }
-
-        // echo "</div>" . PHP_EOL;
-
 
         $output = ob_get_contents();
         ob_end_clean();
