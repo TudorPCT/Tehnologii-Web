@@ -65,7 +65,7 @@
                 </div>
                 <div class="about us">
                     <p>About us</p>
-                    <a href="./?load=report" target="_blank">Tehnical raport</a>
+                    <a href="./?load=raport" target="_blank">Tehnical report</a>
                 </div>
             </div>
             <p>SMB Copyright &copy; 2022</p>
