@@ -27,7 +27,7 @@ class PhotosModel extends Model
 
 
     function getUnsplashPhotos($token){
-        $unsplashPhotos = json_decode($this->getUnsplashPhotosInfo($token));
+        $unsplashPhotos = json_decode($this->getUnsplashPhotosInfo($token), true);
         $found = false;
         $count = 0;
 
