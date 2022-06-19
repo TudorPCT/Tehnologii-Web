@@ -26,7 +26,7 @@ class PhotosController extends Controller
                 $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
                 $infoPhoto = $this->model->getTumblrInfoPhoto($token,$_GET['id']);
                 $alt = "tumblr/" . $_GET['id'] . "/" . $_GET['photo'];
-                $data = ["link" => $info['url'],"platform"=>"tumblr","likes" => $infoPhoto['likes'],"comments" => $infoPhoto['comments'],"shares" => $infoPhoto['shares']];
+                $data = ["link" => $info['url'],"platform"=>"tumblr","likes" => $infoPhoto['likes'],"comments" => $infoPhoto['comments'],"shares" => $infoPhoto['shares'], "alt" => $alt];
             } else {
                 http_response_code(400);
                 die();
