@@ -27,13 +27,11 @@ class PhotosModel extends Model
 
 
     function getUnsplashPhotos($token){
-        include ("config.php");
-        $link = $photosURL . "/?load=unsplash/getUserPhotos";
-        $unsplashPhotos = json_decode($this->httpRequest($link, $token), true);
+        $unsplashPhotos = json_decode($this->getUnsplashPhotosInfo($token));
         $found = false;
         $count = 0;
 
-        if (isset($unsplashPhotos["errors"]) || count($unsplashPhotos) === 0){
+        if (sizeof($unsplashPhotos) === 0){
             return "<h1>No Photos Found</h1>";
         }
 
@@ -58,7 +56,7 @@ class PhotosModel extends Model
 
 
             if($minLikes <= $unsplashPhotos[$index]["likes"] && ($maxLikes === 0 || $maxLikes >=  $unsplashPhotos[$index]["likes"])
-                    && $minShares <= $unsplashPhotos[$index]['statistics']["downloads"]['total'] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]['statistics']["downloads"]['total'])
+                    && $minShares <= $unsplashPhotos[$index]["downloads"] && ($maxShares === 0 || $maxShares >=  $unsplashPhotos[$index]["downloads"])
                     && ($postDate === 0 || $postDate >= $diff)) {
                 if ($count % 5 === 0 && $count != 0) {
                     echo  "</div>" . PHP_EOL;
@@ -68,7 +66,7 @@ class PhotosModel extends Model
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
                 echo "<div class=\"content\">";
                 $url = "./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'];
-                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
+                echo "<img src=\"" . $unsplashPhotos[$index]["url"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
                 // echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
@@ -181,5 +179,13 @@ class PhotosModel extends Model
             . "&id=" . $id;
         $info = $this->httpRequest($link, $token);
         return json_decode($info, true);
-    } 
+    }
+
+    function getUnsplashPhotosInfo($token){
+
+        include ("config.php");
+        $link = $photosURL . "/?load=unsplash/getUserPhotos";
+        $unsplashPhotos = $this->httpRequest($link, $token);
+        return $unsplashPhotos;
+    }
 }

@@ -47,4 +47,8 @@ class PhotosController extends Controller
         }else echo $photos;
     }
 
+    function getCollagePhotos($token){
+        return $this->model->getUnsplashPhotosInfo($token);
+    }
+
 }
