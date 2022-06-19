@@ -283,6 +283,11 @@ input[type="text"],  input[type="password"]{
   .gallery .gallery-item:hover {
     transform: scale(1.025);
   }
+  @media (max-width: 5000px){
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+    }
+  }
   @media (max-width: 600px) {
     .gallery {
       grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
@@ -291,83 +296,6 @@ input[type="text"],  input[type="password"]{
   @media (max-width: 400px) {
     .gallery {
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-    }
-  }
-
-  @-moz-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @-webkit-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @-o-keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
-    }
-  }
-  @keyframes zoomin {
-    0% {
-      max-width: 50%;
-      transform: rotate(-30deg);
-      filter: blur(4px);
-    }
-    30% {
-      filter: blur(4px);
-      transform: rotate(-80deg);
-    }
-    70% {
-      max-width: 50%;
-      transform: rotate(45deg);
-    }
-    100% {
-      max-width: 100%;
-      transform: rotate(0deg);
     }
   }
 
