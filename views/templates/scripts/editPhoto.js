@@ -94,6 +94,7 @@ function getImageEdited(){
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
         context.restore();
+        context.save();
         context.filter=getFilter();
         context.scale(scaleX,scaleY);
         context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
