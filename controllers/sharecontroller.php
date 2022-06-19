@@ -21,7 +21,6 @@ class ShareController extends Controller
                 ];
             } else if ($photo['platform'] == 'tumblr') {
                 $info = json_decode($this->model->getTumblrPhoto($token, $photo), true);
-                echo $info['url'];
 
                 $data = [
                     "link" => $info['url'],
