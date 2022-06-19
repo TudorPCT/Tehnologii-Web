@@ -5,8 +5,13 @@
 
 * {
     box-sizing: border-box;
+    font: initial;
+    padding: 0;
+    margin: 0;
 }
-
+footer {
+    display: block;
+}
 header{
     background:#fffffe;
     color:#232946;
@@ -20,7 +25,15 @@ header{
     padding-bottom: 0.5%;
     margin-bottom: 2%;
 }
-
+footer {
+    margin-top: 20px;
+    margin-bottom: 0;
+    background-color: #14192f;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    color: #eebbc3;
+}
 .topBar{
     width:90%;
     margin:auto;
@@ -145,12 +158,16 @@ img:hover {
 
 
 #buttonsArea {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     margin: 0 15px 0 50px;
-    background-color: #a41414;
+    /*background-color: #a41414;*/
 }
 
 select {
-    color: #333;
+    color: #fffffe;
     display: block;
     max-width: 100%;
     border-radius: 3px;
@@ -164,9 +181,13 @@ select {
     -moz-appearance: none;
 }
 
+#modelSelect{
+    background-color: #eebbc3;
+}
 
 #singleUploadSection {
-    color: #333;
+    color: #eebbc3;
+    /*background-color: #fffffe;*/
     width: 194px;
     width: 194px;
     padding: 6px;
@@ -174,7 +195,6 @@ select {
     font-size: 13px;
     text-align: center;
     border-radius: 3px;
-    background-color: #fff;
 }
 
 
