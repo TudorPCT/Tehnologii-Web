@@ -68,7 +68,7 @@ class ShareModel extends Model
 
         echo $link;
         $response = $this->httpRequest($link, $token);
-
+        echo "Raspuns: " . $response;
         return $response;
     }
 
