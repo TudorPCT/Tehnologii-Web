@@ -8,10 +8,11 @@
         <meta name="keywords" content="project, infoiasi, web">
         <meta name="author" content="Team">
         <title> SMB | Welcome</title>
-        <link rel="stylesheet" href="./views/templates/css/style.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/collage.css">
     </head>
 
-    <body id="body"> 
+    <body id="body">
 
         <header>
             <div class="topBar">
@@ -29,19 +30,19 @@
             </div>
         </header>
 
-        <div class="row">
-            <div class="column">
+        <div class="rowC">
+            <div class="columnC">
 
                 <div id="leftSide">
                     <div id="dropZone">
-                        <p>Drag your images from your file or click <u>here</u>!</p>
+                        <p>Drag your images from your file  sau click <u>here</u>!</p>
                     </div>
 
                     <div id="images_preview"></div>
                 </div>
 
             </div>
-            <div class="column">
+            <div class="columnC">
 
                 <div id="buttonsArea">
                     <select id="modelSelect" onchange="modelSelect()">
@@ -70,13 +71,8 @@
             <div id="images"></div>
         </div>
 
-        <footer>
-            <p>SMB Copyright &copy; 2022</p>
-        </footer>
-
-        
-        <script src="js/fileUpload.js"></script>
-        <script src="scripts/collagescript.js"></script>
+        <script src="./scripts/collagescript.js"></script>
+        <script src="./scripts/fileUpload.js"></script>
     </body>
 </html>
 
