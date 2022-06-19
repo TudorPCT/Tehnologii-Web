@@ -207,7 +207,7 @@
                     </ul>
                 </section>
                 <section typeof="sa:accounts">
-                    <h4>2.2.7 Accounts Page</h4>
+                    <h4>2.2.4 Accounts Page</h4>
                     <p>Here the user can manage their connected social media accounts or connect to other accounts.</p>
                     <ul>
                         <li>
@@ -302,7 +302,18 @@
                     </ul>
                 </section>
                 <section typeof="sa:Collage">
-
+                    <h4>2.2.7 Collage page</h4>
+                    <p>This page is opened when a user click on a Create Collage from page photos. Here the user can create a collage with his photos from platforms.</p>
+                    <ul>
+                        <li>
+                            Select the pattern -> Model 1/2/3: user can choose a certain model for his collage;
+                        </li>
+                        <li>
+                            Choose background : User can choose a background photo from his computer;
+                        </li>
+                        <li>
+                            Save your collage image : Lets the user save in his computer the collage created;
+                        </li>
                 </section>
 
 
