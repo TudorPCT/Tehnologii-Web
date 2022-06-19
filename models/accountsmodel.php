@@ -14,8 +14,8 @@ class AccountsModel extends Model
         $result = $this->getAll();
 
         if (sizeof($result) === 0)
-            return "<h2> No accounts found </h2>";
-        
+            return "<h1> No accounts found </h1>";
+
         ob_start();
 
         for($index = 0; $index < sizeof($result); $index++) {

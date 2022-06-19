@@ -589,6 +589,10 @@ div.sidenav li{
  #accounts #title{
      font-size: 40px;
  }
+ #accounts h1{
+     font-size: 25px;
+     color: #232946;
+ }
 
 #accounts .account .id a{
     color:#232946;
