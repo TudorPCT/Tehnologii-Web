@@ -134,9 +134,9 @@ class PhotosModel extends Model
                 //     echo  "<div class=\"column\">" . PHP_EOL;
                 // }
 
-                echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
-                echo "<img id=\"gallery-img\" src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\">";
-                echo "</a>";
+                //echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+                echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\">";
+                //echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
