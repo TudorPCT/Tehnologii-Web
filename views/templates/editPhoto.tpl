@@ -53,6 +53,7 @@
         <div class="editbuttons">
             <button id="reset">Reset</button>
             <button id="save" onclick="Download_btn()">Save</button>
+            <button id="postOnTumblr" onclick="Post()">Post</button>
             <div class="sidebtn">
                 <div class="dropdown">
                     <button class="dropbtn">Share</button>
@@ -62,7 +63,6 @@
                     </div>
                 </div>
             </div>
-            <button id="postOnTumblr" onclick="Post()">PostOnTumblr</button>
         </div>
     </div>
     <div class="details" id="details">
