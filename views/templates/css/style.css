@@ -131,6 +131,9 @@ footer .footerzone{
 .footerzone li{
     color: white;
 }
+.footerzone a{
+    color: #eebbc3;
+}
 #signin{
     padding-left: 5%;
     padding-right: 5%;
