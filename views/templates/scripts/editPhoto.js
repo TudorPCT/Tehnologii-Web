@@ -124,7 +124,7 @@ function Share(){
     let alt = photo.alt;
     console.log(alt);
     let filters = photo.style.filter;
-    let scope = 'public';
+    let scope = 'private';
     if (filters == null)
         filters = 'none';
 
