@@ -262,13 +262,13 @@ input[type="text"],  input[type="password"]{
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: 8px;
   }
-  .gallery img {
+  .gallery #gallery-img {
     max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 0 16px #333;
     transition: all 1.5s ease;
   }
-  .gallery img:hover {
+  #gallery-img img:hover {
     box-shadow: 0 0 32px #333;
   }
   .gallery .content {
@@ -293,6 +293,16 @@ input[type="text"],  input[type="password"]{
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     }
   }
+
+#Wrapper .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #eebbc3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -348,6 +358,7 @@ div.sidenav li{
     display:none;
     position: absolute;
     background-color: #f1f1f1;
+    min-width: 180px;
     max-height: 200px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
