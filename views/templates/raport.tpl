@@ -504,10 +504,13 @@
                     <li>Specific page design implementation</li>
                     <li>Photos page</li>
                     <li>Home page</li>
-                    <li>Wall page</li>
-                    <li>Photo page</li>
+                    <li>Accounts page</li>
+                    <li>Edit Photo page-Edit</li>
+                    <li>Edit Photo page-Details</li>
+                    <li>Collage Building page</li>
                     <li>Photos page</li>
                     <li>Documentation</li>
+                    <li>Presentation clip</li>
                 </ul>
                 <h3>Huțuțuc Felix Petru:</h3>
                 <ul>
