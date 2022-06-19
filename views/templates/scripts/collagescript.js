@@ -115,8 +115,8 @@ function modelSelect() {
             layer1.className = "layer";
             layer1.width = 250;
             layer1.height = 250;
-            layer1.style.top = "81px";
-            layer1.style.left = "485px";
+            layer1.style.top = String(rect.top+60).concat("px");           // Position square canvas 130px from top
+            layer1.style.left = String(rect.left+20).concat("px");
             layer1.style.visibility = "visible";
 
             var body = document.getElementById("photo");
@@ -125,10 +125,10 @@ function modelSelect() {
 
             var layer2 = document.createElement('canvas');
             layer2.className = "layer";
-            layer2.width = 150;
-            layer2.height = 600;
-            layer2.style.top = "81px";
-            layer2.style.left = "785px";
+            layer2.width = 180;
+            layer2.height = rect.height-40;
+            layer2.style.top = String(rect.top+20).concat("px");
+            layer2.style.left = String(rect.right-200).concat("px");
             layer2.style.visibility = "visible";
 
             var body = document.getElementById("photo");
@@ -141,30 +141,53 @@ function modelSelect() {
 
             document.getElementById("background").style.visibility = "visible";
 
-            var layer1 = document.createElement('canvas');
+            var layer1 = document.createElement('canvas'); // Create first square canvas programmatically
             layer1.className = "layer";
-            layer1.width = 250;
-            layer1.height = 250;
-            layer1.style.top = "81px";
-            layer1.style.left = "485px";
+            layer1.width = 270;                   // Set square canvas width
+            layer1.height = 120;                  // Set square canvas height
+            layer1.style.top = String(rect.top+20).concat("px");           // Position square canvas 130px from top
+            layer1.style.left = String(rect.left+30).concat("px");                 // Position square canvas 540px from left
             layer1.style.visibility = "visible";
 
             var body = document.getElementById("photo");
-            body.appendChild(layer1);
-            registerEvents(layer1);
+            body.appendChild(layer1); // Add first square canvas to photo element on page
+            registerEvents(layer1); // Add event listeners that help drag & drop on canvas
 
-            var layer2 = document.createElement('canvas');
+            var layer2 = document.createElement('canvas');      // Same as above ... create second square canvas.. etc
             layer2.className = "layer";
-            layer2.width = 300;
-            layer2.height = 600;
-            layer2.style.top = "81px";
-            layer2.style.left = "785px";
+            layer2.width = 110;
+            layer2.height = 110;
+            layer2.style.top = String(rect.top+130).concat("px");
+            layer2.style.left = String(rect.right-150).concat("px");
             layer2.style.visibility = "visible";
 
             var body = document.getElementById("photo");
             body.appendChild(layer2);
             registerEvents(layer2);
 
+            var layer3 = document.createElement('canvas');
+            layer3.className = "layer";
+            layer3.width = 110;
+            layer3.height = 180;
+            layer3.style.top = String(rect.top+190).concat("px");
+            layer3.style.left = String(rect.left+60).concat("px");
+            layer3.style.visibility = "visible";
+
+            var body = document.getElementById("photo");
+            body.appendChild(layer3);
+            registerEvents(layer3);
+
+            var layer4 = document.createElement('canvas');
+            layer4.className = "layer";
+            layer4.width = 250;
+            layer4.height = 150;
+            layer4.style.top = String(rect.bottom-200).concat("px");
+            layer4.style.left = String(rect.right-310).concat("px");
+            layer4.style.visibility = "visible";
+
+            var body = document.getElementById("photo");
+            body.appendChild(layer4);
+            registerEvents(layer4);
             break;
 
         default:
