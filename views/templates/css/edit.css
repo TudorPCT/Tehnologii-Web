@@ -259,6 +259,25 @@ input[type="file"]{
         margin-top: -30%;
     }
 }
+@media screen and (max-width: 800px) and (max-height: 800px){
+    .box{
+        background-color: #a41414;
+    }
+    .result{
+        flex-direction: column;
+    }
+    .result .editbuttons{
+        display: flex;
+        flex-direction: row;
+        margin-top: -5vh;
+    }
+    .result button {
+        font-size: 5px;
+        width: 13vw;
+        margin-top: 2vh;
+    }
+
+}
 @media screen and (max-width: 800px) and (max-height: 400px)
 {
     .box{
