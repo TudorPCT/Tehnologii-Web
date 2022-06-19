@@ -18,6 +18,7 @@
                 <div id="branding">
                     <img src="./views/templates/img/logo.jpeg" alt="Logo">
                 </div>
+                <nav>
                 <ul>
                     <li><a href="./?load=accounts">Accounts</a></li>
                     <li class="current"><a href="./?load=photos">Photos</a></li>
