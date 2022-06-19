@@ -47,7 +47,7 @@ class TumblrController extends Controller
             http_response_code(412);
             die();
         }
-        echo json_encode(array("message" => $_GET['user_id'] . $_GET['id'] . $_GET['photo']));
+        
         echo $this->model->getUserPhoto($_GET['user_id'], $_GET['id'], $_GET['photo']);
     }
 

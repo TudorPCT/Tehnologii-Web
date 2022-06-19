@@ -50,6 +50,7 @@ class ShareModel extends Model
         include ("config.php");
         $id = explode("/", $info['photo_id']);
         $link = $photosURL . "?load=tumblr/getUserPhoto&id=" . $id[0] . "&photo=" . $id[1];
+        echo $link;
         
         $response = $this->httpRequest($link, $token);
 
