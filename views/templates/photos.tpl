@@ -26,7 +26,7 @@
         </header>
 
         <div class="gallery" id="gallery">
-           <h1> Select platform to load your photos</h1>
+           <h1> Select a platform to load your photos</h1>
         </div>
     <!-- Side navigation -->
         <div class="sidenav">
