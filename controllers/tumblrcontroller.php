@@ -44,11 +44,10 @@ class TumblrController extends Controller
 
     function getUserPhotoPublic() {
         if (!isset($_GET['id']) || !isset($_GET['user_id']) || !isset($_GET['photo'])) {
-            echo "bad get parameters";
-            http_response_code(400);
+            http_response_code(412);
             die();
         }
-
+        echo json_encode(array("message" => $_GET['user_id'] . $_GET['id'] . $_GET['photo']));
         echo $this->model->getUserPhoto($_GET['user_id'], $_GET['id'], $_GET['photo']);
     }
 
