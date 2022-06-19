@@ -65,7 +65,7 @@ class PhotosModel extends Model
                     echo  "<div class=\"column\">" . PHP_EOL;
                 }
                 echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
-                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\">" . PHP_EOL;
+                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='https://www.facebook.com/pages/Gr81';\">" . PHP_EOL;
                 echo "</a>";
                 $count++;
                 $found = true;
@@ -134,9 +134,9 @@ class PhotosModel extends Model
                 //     echo  "<div class=\"column\">" . PHP_EOL;
                 // }
 
-                //echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+                echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
                 echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\">";
-                //echo "</a>";
+                echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
