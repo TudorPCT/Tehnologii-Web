@@ -13,6 +13,9 @@ class AccountsModel extends Model
         $this->setSql($querry);
         $result = $this->getAll();
 
+        if (sizeof($result) === 0)
+            return "<h2> No accounts found </h2>";
+        
         ob_start();
 
         for($index = 0; $index < sizeof($result); $index++) {
