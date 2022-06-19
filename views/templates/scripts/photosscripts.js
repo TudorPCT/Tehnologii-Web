@@ -40,41 +40,41 @@ function getTumblrPhotos(){
     platform = 'tumblr';
     $filters = getFilter();
 
-    //document.getElementById("gallery").innerHTML = "<div class=\"loader\"></div>";
+    document.getElementById("gallery").innerHTML = "<div class=\"loader\"></div>";
 
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             document.getElementById("gallery").innerHTML = this.responseText;
-        }
-        var gallery = document.querySelector('#gallery');
-        var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-        var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
-        var resizeAll = function () {
-            var altura = getVal(gallery, 'grid-auto-rows');
-            var gap = getVal(gallery, 'grid-row-gap');
-            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-                var el = item;
-                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
-            });
-        };
-        gallery.querySelectorAll('img').forEach(function (item) {
-            item.classList.add('byebye');
-            if (item.complete) {
-                console.log(item.src);
-            }
-            else {
-                item.addEventListener('load', function () {
-                    var altura = getVal(gallery, 'grid-auto-rows');
-                    var gap = getVal(gallery, 'grid-row-gap');
-                    var gitem = item.parentElement.parentElement;
-                    gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-                    item.classList.remove('byebye');
+            var gallery = document.querySelector('#gallery');
+            var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+            var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+            var resizeAll = function () {
+                var altura = getVal(gallery, 'grid-auto-rows');
+                var gap = getVal(gallery, 'grid-row-gap');
+                gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+                    var el = item;
+                    el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
                 });
-            }
-        });
-        window.addEventListener('resize', resizeAll);
+            };
+            gallery.querySelectorAll('img').forEach(function (item) {
+                item.classList.add('byebye');
+                if (item.complete) {
+                    console.log(item.src);
+                }
+                else {
+                    item.addEventListener('load', function () {
+                        var altura = getVal(gallery, 'grid-auto-rows');
+                        var gap = getVal(gallery, 'grid-row-gap');
+                        var gitem = item.parentElement.parentElement;
+                        gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+                        item.classList.remove('byebye');
+                    });
+                }
+            });
+            window.addEventListener('resize', resizeAll);
+        }
     };
 
     $link = "./?load=photos/getTumblrPhotos";
