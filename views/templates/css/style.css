@@ -660,9 +660,6 @@ div.sidenav li{
         max-width: 100%;
     }
 
-    header{
-        position: absolute;
-    }
     header .topBar{
         display: flex;
         flex-direction: row;
