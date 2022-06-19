@@ -127,7 +127,7 @@ class PhotosModel extends Model
                     && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"] <= $maxShares)
                     && ($postDate === 0 || $postDate >= $diff)) {
                 
-                if ($count % 5 === 0 && $count != 0) {
+                if ($count % 1 === 0 && $count != 0) {
                     echo  "</div>" . PHP_EOL;
                     echo  "<div class=\"column\">" . PHP_EOL;
                 }

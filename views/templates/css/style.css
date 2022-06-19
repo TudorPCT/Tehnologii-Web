@@ -217,7 +217,8 @@ input[type="text"],  input[type="password"]{
 
 .column img {
     margin-top: 8px;
-    vertical-align: middle;
+    
+    align-self: center;
     width: 100%;
 }
 .column img:hover{
