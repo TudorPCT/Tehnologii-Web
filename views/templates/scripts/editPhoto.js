@@ -119,12 +119,11 @@ function seeEditor(){
     document.getElementById("details").style.display = "none";
     document.getElementById("hideEditor").style.display = "initial";
 }
-function Share(){
+function Share(scope){
     let photo = document.getElementById("chosen-image");
     let alt = photo.alt;
     console.log(alt);
     let filters = photo.style.filter;
-    let scope = 'public';
     if (filters == null)
         filters = 'none';
 
