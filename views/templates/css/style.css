@@ -348,13 +348,13 @@ div.sidenav li{
     border-radius: 10px;
     width: auto;
   }
-  
+
   /* The container <div> - needed to position the dropdown content */
   div.sidenav li.dropdown {
     position: relative;
     display:block;
   }
-  
+
   /* Dropdown Content (Hidden by Default) */
  .dropdown-content {
     display:none;
@@ -366,7 +366,7 @@ div.sidenav li{
     z-index: 1;
     overflow: scroll;
   }
-  
+
   /* Links inside the dropdown */
   .dropdown-content a {
     color: black;
@@ -375,14 +375,14 @@ div.sidenav li{
     text-decoration: none;
     display: block;
   }
-  
+
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #b8c1ec;}
-  
+
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: flex;
                                     flex-direction: column;}
-  
+
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #d08691;}
 
@@ -392,19 +392,17 @@ div.sidenav li{
 
   /* The sidebar menu */
 .sidenav {
-    height: auto;
-    width: 10%;
-    position:fixed;
-    z-index: 1;
-    top: 50px;
+    height: auto; /* Full-height: remove this if you want "auto" height */
+    width: 10%; /* Set the width of the sidebar */
+    position:fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 50px; /*Stay at the top*/
     left: 10px;
     margin-top: 15%;
     background-color: transparent;
     padding-top: 20px;
-    display: flex;
-    flex-direction: column;
   }
-  
+
   /* The navigation menu links */
   .sidenav a {
     padding: 6px 8px 6px 16px;
@@ -558,7 +556,7 @@ div.sidenav li{
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
     z-index: 1;
   }
-  
+
   /* Links inside the dropdown */
  .onephoto .dropdown-content a{
     color: #121629;
@@ -662,6 +660,7 @@ div.sidenav li{
         max-width: 100%;
     }
 
+
     header .topBar{
         display: flex;
         flex-direction: row;
@@ -669,7 +668,6 @@ div.sidenav li{
     }
 
     header #branding{
-        position: absolute;
         transform: scale(0.5);
     }
 
