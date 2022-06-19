@@ -23,7 +23,7 @@ const context = canvas.getContext('2d');
 
 let scaleX=1;
 let scaleY=1;
-context.scale(scaleX,scaleY);
+context.scale(1,1);
 context.save();
 
 // let File_Name = image.getAttribute('src');
