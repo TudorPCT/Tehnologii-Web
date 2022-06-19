@@ -41,7 +41,7 @@ link.addEventListener('click', function (e) {
         context.fill();
         
         context.drawImage(image, (image.offsetLeft - 480 + 5), (image.offsetTop - 76 + 5),
-        (image.width - 10), (image.height - 10));
+        (image.width - 55), (image.height - 10));
     } ); 
 
     link.href = canvas.toDataURL();
