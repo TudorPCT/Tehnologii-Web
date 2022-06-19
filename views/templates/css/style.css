@@ -294,6 +294,83 @@ input[type="text"],  input[type="password"]{
     }
   }
 
+  @-moz-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @-o-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+
 #Wrapper .loader {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #eebbc3;
