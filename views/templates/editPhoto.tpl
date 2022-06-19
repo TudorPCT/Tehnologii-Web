@@ -55,14 +55,13 @@
             <button id="save" onclick="Download_btn()">Save</button>
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn">Show Photos</button>
+                    <button class="dropbtn">Share</button>
                     <div class="dropdown-content" id="dropdown-content-1">
                         <button class="dropbtn" onclick="Share('public')">Public</button>
                         <button class="dropbtn" onclick="Share('private')">Private</button>
                     </div>
                 </div>
             </div>
-            <button id="share" onclick="Share()">Share</button>
             <button id="postOnTumblr" onclick="Post()">PostOnTumblr</button>
         </div>
     </div>
