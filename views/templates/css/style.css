@@ -664,9 +664,11 @@ div.sidenav li{
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        position: absolute;
     }
 
     header #branding{
+        position: absolute;
         transform: scale(0.5);
     }
 
