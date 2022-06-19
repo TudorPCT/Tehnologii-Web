@@ -9,7 +9,7 @@
         backgroundImage.src = this.result;
         backgroundImage.crossOrigin = "Anonymous";
         backgroundImage.onload = function () {
-            context.drawImage(backgroundImage, 0, 0, 500, 500);
+            context.drawImage(backgroundImage, 0, 0, 600, 600);
         };
     }, false);
     reader.readAsDataURL(file);
@@ -28,8 +28,8 @@ link.addEventListener('click', function (e) {
 
     var canvas = document.createElement('canvas');
     var context = canvas.getContext("2d");
-    canvas.width = 505;
-    canvas.height = 505;
+    canvas.width = 605;
+    canvas.height = 605;
 
     var elems = document.getElementById("photo").getElementsByTagName("canvas");
     Array.from(elems).forEach( function(el) {
@@ -40,7 +40,7 @@ link.addEventListener('click', function (e) {
         context.fillStyle = "white";
         context.fill();
         
-        context.drawImage(image, (image.offsetLeft - 180 + 5), (image.offsetTop - 76 + 5),
+        context.drawImage(image, (image.offsetLeft - 480 + 5), (image.offsetTop - 76 + 5),
         (image.width - 10), (image.height - 10));
     } ); 
 

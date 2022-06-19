@@ -42,7 +42,7 @@
 
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn" href="./?load=photos/collage">Create collage</button>
+                    <button class="dropbtn" onclick="window.location='./?load=photos/collage';">Create collage</button>
                 </div>
             </div>
             <div class="sidebtn">
