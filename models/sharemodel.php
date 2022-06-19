@@ -136,7 +136,6 @@ class ShareModel extends Model
     }
 
     function findPhoto($data){
-        $payload=json_decode(extractTokenPayload($token),true);
         $this->setSql("select id from shared_photos where owner_id = :owner_id and platform = :platform and photo_id = :photo_id and scope = :scope and filters = :filters and scalex = :scalex and scaley = :scaley");
 
         $result = $this->getRow($data);
