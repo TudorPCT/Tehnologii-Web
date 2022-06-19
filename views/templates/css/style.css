@@ -283,7 +283,7 @@ input[type="text"],  input[type="password"]{
   .gallery .gallery-item:hover {
     transform: scale(1.025);
   }
-  @media () {
+  @media (max-width: 5000px){
     .gallery {
       grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
     }
