@@ -37,4 +37,8 @@ class ShareController extends Controller
         }
     }
 
+    function getLink($token){
+        echo $_POST['info'] . $_POST['filters'] . $_POST['scalex'] . $_POST['scaley'];
+    }
+
 }

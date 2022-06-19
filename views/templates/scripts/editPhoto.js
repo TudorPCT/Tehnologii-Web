@@ -120,12 +120,32 @@ function seeEditor(){
     document.getElementById("hideEditor").style.display = "initial";
 }
 function Share(){
-    $photo = document.getElementById("chosen-image");
-    $alt = $photo.alt;
-    $filters = $photo.style.filter;
-    $scale = $photo.style.scale;
-    console.log($filters);
-    console.log($scale);
+    let photo = document.getElementById("chosen-image");
+    let alt = photo.alt;
+    let filters = photo.style.filter;
+
+
+    let xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+                myResponse = JSON.parse(this.responseText);
+                window.open(myResponse.link, "_blank");
+            } else if (this.readyState === XMLHttpRequest.DONE) {
+                document.getElementById("errorLabel").innerHTML = myResponse.message;
+            }
+        }
+    };
+
+    xmlhttp.open("POST","/?load=share/getLink", true);
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xmlhttp.send("info=" + alt +
+        "&filters=" + filters,
+        "&scalex=" + scaleX,
+        "&scaley=" + scaleY);
+
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
