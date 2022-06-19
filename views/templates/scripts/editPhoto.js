@@ -122,6 +122,7 @@ function seeEditor(){
 function Share(){
     let photo = document.getElementById("chosen-image");
     let alt = photo.alt;
+    console.log(alt);
     let filters = photo.style.filter;
     let scope = 'public';
     if (filters == null)

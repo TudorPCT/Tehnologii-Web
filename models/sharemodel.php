@@ -106,7 +106,9 @@ class ShareModel extends Model
 
         if ($platform === 'unsplash')
             $photo_id = $info[1];
-        else $photo_id = $info[1] . "_" . $info[2];
+        else if ($platform == 'tumblr') {
+            $photo_id = $info[1] . "/" . $info[2];
+        } 
 
         $data = ["owner_id" => $payload['id'],
             "platform" => $platform,
