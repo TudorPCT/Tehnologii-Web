@@ -3,7 +3,7 @@ var output = document.querySelector('#images_preview');
 output.innerHTML = '';
 
 loadPhotos("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
-loadPhotos("https://socialmediabox.herokuapp.com/?load=tumblr/photos");
+loadPhotos("https://www.socialmediabox.herokuapp.com/?load=tumblr/photos");
 
 function loadPhotos(link) {
     var xmlhttp = new XMLHttpRequest();
@@ -28,6 +28,7 @@ function printPhoto(photo){
     image.height = 80;
     image.width = 80;
     image.src = photo.url;
+    image.crossOrigin = "Anonymous";
     output.appendChild(image);
     image.ondragstart = function (e) {
         e.dataTransfer.setData("text", e.target.id);

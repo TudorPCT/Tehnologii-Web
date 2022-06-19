@@ -7,6 +7,7 @@
     reader.addEventListener("load", function () {
         var backgroundImage = new Image();
         backgroundImage.src = this.result;
+        backgroundImage.crossOrigin = "Anonymous";
         backgroundImage.onload = function () {
             context.drawImage(backgroundImage, 0, 0, 500, 500);      // Draw and stretch image to fill canvas
         };
@@ -27,8 +28,8 @@ link.addEventListener('click', function (e) {
 
     var canvas = document.createElement('canvas');
     var context = canvas.getContext("2d");
-    canvas.width = 605;
-    canvas.height = 605;
+    canvas.width = 505;
+    canvas.height = 505;
 
     var elems = document.getElementById("photo").getElementsByTagName("canvas");
     Array.from(elems).forEach( function(el) {
