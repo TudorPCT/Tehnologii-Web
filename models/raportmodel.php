@@ -1,0 +1,8 @@
+<?php
+
+class RaportModel extends Model
+{
+    function __construct(){
+        parent::__construct();
+    }
+}
