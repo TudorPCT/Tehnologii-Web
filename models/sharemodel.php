@@ -67,4 +67,44 @@ class ShareModel extends Model
         return $response;
     }
 
+    function getShareLink($token, $info, $scope, $filters, $scaleX, $scaleY){
+        $payload=json_decode(extractTokenPayload($token),true);
+        $info = explode('/', $info);
+        $data = ["owner_id" => $payload['id'],
+            "platform" => $info[0],
+            "photo_id" => $info[1],
+            "filters" => $filters,
+            "scope" => $scope,
+            "scalex" => $scaleX,
+            "scaley" => $scaleY
+        ];
+
+        $photo = $this->findPhoto($data);
+
+        if (!$photo)
+            return $this->insertPhoto($data);
+        else return $photo;
+
+    }
+
+    function insertPhoto($data){
+
+        $this->setSql("insert into shared_photos (owner_id, platform, photo_id, scope, filters, scalex, scaley) values (:owner_id, :platform, :photo_id, :scope, :filters, :scalex, :scaley);");
+
+        $sth = $this->conn->prepare($this->querry);
+
+        if (!$sth->execute($data)) {
+            return false;
+        }
+        return $this->findPhoto($data);
+    }
+
+    function findPhoto($data){
+        $payload=json_decode(extractTokenPayload($token),true);
+        $this->setSql("select id from shared_photos where owner_id = :owner_id and platform = :platform and photo_id = :photo_id and scope = :scope and filters = :filters and scalex = :scalex and scaley = :scaley");
+
+        $result = $this->getRow($data);
+
+        return $result;
+    }
 }

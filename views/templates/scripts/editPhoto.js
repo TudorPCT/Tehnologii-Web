@@ -123,15 +123,17 @@ function Share(){
     let photo = document.getElementById("chosen-image");
     let alt = photo.alt;
     let filters = photo.style.filter;
-
+    let scope = 'public';
+    if (filters == null)
+        filters = 'none';
 
     let xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
-               // myResponse = JSON.parse(this.responseText);
-                //window.open(myResponse.link, "_blank");
+                myResponse = JSON.parse(this.responseText);
+                window.open(myResponse.link, "_blank");
                 console.log(this.responseText);
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
@@ -139,11 +141,12 @@ function Share(){
         }
     };
 
-    xmlhttp.open("POST","/?load=share/getLink", true);
+    xmlhttp.open("PUT","/?load=share/getLink", true);
     xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 
     xmlhttp.send("info=" + alt +
+        "&scope=" + scope +
         "&filters=" + filters +
         "&scalex=" + scaleX +
         "&scaley=" + scaleY);

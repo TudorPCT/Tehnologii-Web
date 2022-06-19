@@ -38,7 +38,29 @@ class ShareController extends Controller
     }
 
     function getLink($token){
-        echo $_POST['info'] . $_POST['filters'] . $_POST['scalex'] . $_POST['scaley'];
+
+        $method = $_SERVER['REQUEST_METHOD'];
+        if ('PUT' === $method) {
+            parse_str(file_get_contents('php://input'), $_PUT);
+        }
+
+        $info = $_PUT['info'];
+        $scope = $_PUT['scope'];
+        $filters = $_PUT['filters'];
+        $scaleX = $_PUT['scalex'];
+        $scaleY = $_PUT['scaley'];
+
+        if (!isset($info,$scope,$filters,$scaleX,$scaleY)){
+            http_response_code(400);
+            die();
+        }
+
+        $photo = $this->model->getShareLink($token, $info, $scope, $filters, $scaleX, $scaleY);
+        $link = 'https://socialmediabox.herokuapp.com/?load=share/photo&id=' .  $photo['id'];
+
+        $response = ['link' => $link];
+        echo json_encode($response);
+
     }
 
 }
