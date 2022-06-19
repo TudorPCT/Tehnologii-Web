@@ -22,7 +22,13 @@ class RegisterController extends Controller{
                 'password' => $password,
                 'password2' => $password2
             );
-            $this->model->insert_user($data);
+            if($this->model->insert_user($data)){
+                http_response_code(201);
+                echo json_encode(array("message" => "User added."));
+            }else{
+                http_response_code(503);
+                echo json_encode(array("message" => "Unable to add user."));
+            }
         }else{
             http_response_code(400);
             echo json_encode(array("message" => "Unable to create user. Need more data."));

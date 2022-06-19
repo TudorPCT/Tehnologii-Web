@@ -133,6 +133,7 @@ function Share(){
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 myResponse = JSON.parse(this.responseText);
+                alert("Use the redirected link to share your photo");
                 window.open(myResponse.link, "_blank");
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
