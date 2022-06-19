@@ -110,7 +110,7 @@ class PhotosModel extends Model
 
         echo "<div class=\"gallery\" id=\"gallery\">" . PHP_EOL;
         echo "<div class=\"gallery-item\">" . PHP_EOL;
-        echo "<div class=\"content\">" . PHP_EOL;
+        echo "<div class=\"content\">";
         //echo  "<div class=\"column\">" . PHP_EOL;
 
         $last_id = 0;
@@ -135,12 +135,13 @@ class PhotosModel extends Model
                 //     echo  "<div class=\"column\">" . PHP_EOL;
                 // }
 
-                echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
-                echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\">" . PHP_EOL;
-                echo "</a>";
-                echo "</div> </div>" . PHP_EOL;
+                //echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+                echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\">";
+                //echo "</a>";
+                echo "</div>" . PHP_EOL;
+                echo "</div>" . PHP_EOL;
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
-                echo "<div class=\"content\">" . PHP_EOL;
+                echo "<div class=\"content\">";
 
                 $count++;
                 $found = true;
