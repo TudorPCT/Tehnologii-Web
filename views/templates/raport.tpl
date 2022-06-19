@@ -383,6 +383,11 @@
                         <figcaption>SMB's Accounts page</figcaption>
                         <img src="./raport_img/accounts.png" alt="accounts page screenshot" width="70%">
                     </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>SMB's Collage page</figcaption>
+                        <img src="./raport_img/collage.png" alt="accounts page screenshot" width="70%">
+                    </figure>
                 </section>
             </section>
 
