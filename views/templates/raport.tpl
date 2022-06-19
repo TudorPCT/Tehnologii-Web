@@ -370,16 +370,6 @@
                     </figure>
 
                     <figure typeof="sa:image">
-                        <figcaption>SMB's My Wall page</figcaption>
-                        <img src="./raport_img/mywall.png" alt="my wall page screenshot" width="70%">
-                    </figure>
-
-                    <figure typeof="sa:image">
-                        <figcaption>SMB's My Wall page</figcaption>
-                        <img src="./raport_img/publicwall.png" alt="public wall page screenshot" width="70%">
-                    </figure>
-
-                    <figure typeof="sa:image">
                         <figcaption>SMB's Photos page</figcaption>
                         <img src="./raport_img/photos.png" alt="photos page screenshot" width="70%">
                     </figure>
