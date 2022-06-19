@@ -23,6 +23,8 @@ const context = canvas.getContext('2d');
 
 let scaleX=1;
 let scaleY=1;
+context.scale(scaleX,scaleY);
+context.save();
 
 // let File_Name = image.getAttribute('src');
 
@@ -40,7 +42,7 @@ return "blur("+filterA.value+"px)"+
 }
 function addFilter() {
         image.style.filter = getFilter();
-        context.filter=getFilter();
+        // context.filter=getFilter();
         // context.drawImage(image,0,0, canvas.width,canvas.height);
         // reset.style.transform='translateY(0px)';
 
@@ -74,10 +76,8 @@ reset.addEventListener("click",resetImage);
 function resetImage(){
     // console.log("resetez img");
     image.style.filter='none';
-    context.filter = 'none';
-    for(let i=0;i<=sliders.length-1;i++)
-    {
-        if(i===0||i===3||i===5||i===6)
+    for(let i=0;i<=sliders.length-1;i++) {
+        if (i === 0 || i === 3 || i === 5 || i === 6)
             sliders[i].value = 0;
         else
             sliders[i].value = 100;
@@ -93,6 +93,8 @@ function getImageEdited(){
         console.log(canvas.width);
         console.log(canvas.height);
         console.log("rotations  X"+scaleX+"rotations Y"+scaleY);
+        context.restore();
+        context.filter=getFilter();
         context.scale(scaleX,scaleY);
         context.drawImage(image,0,0, canvas.width*scaleX,canvas.height*scaleY);
         // context.drawImage(image,0,0,canvas.width,canvas.height);
