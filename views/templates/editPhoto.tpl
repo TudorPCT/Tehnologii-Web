@@ -54,7 +54,7 @@
             
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn">Reset</button>
+                    <button id="reset" class="dropbtn">Reset</button>
                 </div>
             </div>
 
