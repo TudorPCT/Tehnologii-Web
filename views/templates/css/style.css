@@ -283,21 +283,24 @@ input[type="text"],  input[type="password"]{
   .gallery .gallery-item:hover {
     transform: scale(1.025);
   }
-  @media (max-width: 5000px){
-    .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
-    }
-  }
-  @media (max-width: 600px) {
-    .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    }
-  }
   @media (max-width: 400px) {
     .gallery {
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     }
   }
+  
+  @media (max-width: 600px) {
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    }
+  }
+
+  @media (max-width: 5000px){
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+    }
+  }
+  
 
 #Wrapper .loader {
     border: 8px solid #f3f3f3;
