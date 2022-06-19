@@ -1,16 +1,88 @@
 #body {
     margin: 0;
+    background-color: #232946;
 }
 
 * {
     box-sizing: border-box;
 }
 
+header{
+    background:#fffffe;
+    color:#232946;
+    min-height:70px;
+    border-bottom:#eebbc3 3px solid;
+    width:97%;
+    border-radius: 25px;
+    position: sticky;
+    top: 0;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    margin-bottom: 2%;
+}
+
+.topBar{
+    width:90%;
+    margin:auto;
+    overflow:hidden;
+}
+
+
+header #branding{
+    float:left;
+    margin:0;
+}
+
+header #branding img{
+    border-radius: 25px;
+}
+
+
+header a{
+    color:#232946;
+    text-decoration:none;
+    text-transform: uppercase;
+    font-size:16px;
+}
+
+header li{
+    float:left;
+    display:inline;
+    padding: 0 20px 0 20px;
+}
+
+header nav{
+    float:right;
+    margin-top: 2.5%;
+}
+
+header .current a{
+    color:#eebbc3;
+    font-weight:bold;
+    border-bottom: #eebbc3 2px solid;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+
+    header .topBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    header #branding {
+        transform: scale(0.5);
+    }
+
+    header nav {
+        transform: scale(0.7);
+    }
+}
 
 .columnC {
     float: left;
 }
-
 
 .rowC:after {
     content: "";

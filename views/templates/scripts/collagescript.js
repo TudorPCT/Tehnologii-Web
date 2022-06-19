@@ -9,7 +9,7 @@
         var backgroundImage = new Image();
         backgroundImage.src = this.result;
         backgroundImage.onload = function () {
-            context.drawImage(backgroundImage, 0, 0, 600, 600);      // Draw and stretch image to fill canvas
+            context.drawImage(backgroundImage, 0, 0, 500, 500);      // Draw and stretch image to fill canvas
         };
     }, false);
     reader.readAsDataURL(file);
