@@ -11,6 +11,7 @@ function loadPhotos(link) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             photos = JSON.parse(this.responseText);
+            console.log(this.responseText);
             photos.forEach(printPhoto);
         }
     }
