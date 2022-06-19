@@ -120,12 +120,7 @@ function seeEditor(){
     document.getElementById("hideEditor").style.display = "initial";
 }
 function Share(){
-    console.log("share public/privat");
-    var photoUrl = getImageEdited();
-    var blob = dataURItoBlob(photoUrl);
-    var fd = new FormData();
-    fd.append("canvasImage", blob);
-    image.style.filter = "blur(0px) contrast(100%) saturate(100%) sepia(0%) brightness(100%) grayscale(0%) hue-rotate(0deg)";
+    console.log(document.getElementById("chosen-image").alt);
 }
 function Post(){
     console.log("trimit poza prelucrata la server si el o posteaza pe contul meu tumblr");
@@ -141,23 +136,3 @@ function Post(){
     xhr.send(photoUrl);
 }
 
-
-function dataURItoBlob(dataURI) {
-    // convert base64/URLEncoded data component to raw binary data held in a string
-    var byteString;
-    if (dataURI.split(',')[0].indexOf('base64') >= 0)
-        byteString = atob(dataURI.split(',')[1]);
-    else
-        byteString = unescape(dataURI.split(',')[1]);
-
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to a typed array
-    var ia = new Uint8Array(byteString.length);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-
-    return new Blob([ia], {type:mimeString});
-}

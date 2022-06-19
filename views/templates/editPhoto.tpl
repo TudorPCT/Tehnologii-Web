@@ -46,7 +46,7 @@
     <div class="result">
 <!--        <img src="./img/art.jpg" >-->
         <figure class="image-container">
-        <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\">";?>
+        <?php echo "<img id=\"chosen-image\" crossorigin=\"anonymous\" src=\"" . $link . "\" alt=\"" . $alt ."\">";?>
      <!--       <canvas id="canvasPhoto" ></canvas> -->
 
         </figure>
