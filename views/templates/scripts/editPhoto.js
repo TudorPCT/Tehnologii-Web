@@ -163,7 +163,7 @@ function Post(){
     xhr.onload = function() {
         var raspuns = JSON.parse(xhr.response);
         console.log(xhr.responseText);
-        if (raspuns.meta.code < 200 || raspuns.meta.code >= 400) {
+        if (raspuns.meta.status < 200 || raspuns.meta.status >= 400) {
             alert("Upload failed!");
         } else {
             alert("Image uploaded successfully!");
