@@ -130,8 +130,9 @@ function Share(){
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
-                myResponse = JSON.parse(this.responseText);
-                window.open(myResponse.link, "_blank");
+               // myResponse = JSON.parse(this.responseText);
+                //window.open(myResponse.link, "_blank");
+                console.log(this.responseText);
             } else if (this.readyState === XMLHttpRequest.DONE) {
                 document.getElementById("errorLabel").innerHTML = myResponse.message;
             }
