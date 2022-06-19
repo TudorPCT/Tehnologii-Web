@@ -51,9 +51,25 @@
 
         </figure>
         <div class="editbuttons">
-            <button id="reset">Reset</button>
-            <button id="save" onclick="Download_btn()">Save</button>
-            <button id="postOnTumblr" onclick="Post()">Post</button>
+            
+            <div class="sidebtn">
+                <div class="dropdown">
+                    <button class="dropbtn">Reset</button>
+                </div>
+            </div>
+
+            <div class="sidebtn">
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="Download_btn()">Save</button>
+                </div>
+            </div>
+
+            <div class="sidebtn">
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="Post()">Post</button>
+                </div>
+            </div>
+
             <div class="sidebtn">
                 <div class="dropdown">
                     <button class="dropbtn">Share</button>
