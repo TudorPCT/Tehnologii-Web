@@ -44,7 +44,7 @@
 
             <div class="sidebtn">
                 <div class="dropdown">
-                    <button class="dropbtn">Delete Account</button>
+                    <button class="dropbtn">Remove Account</button>
                     <div class="dropdown-content">
                         <a href="./?load=unsplash/delete">Unsplash</a>
                         <a href="./?load=tumblr/delete">Tumblr</a>
