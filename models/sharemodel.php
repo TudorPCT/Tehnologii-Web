@@ -40,11 +40,11 @@ class ShareModel extends Model
 
     function getTumblrPhoto($token, $photo) {
         if (isset($token)) {
-            echo "private";
+            // echo "private";
             return $this->getTumblrPhotoPrivate($token, $photo);
         }
         else{
-            echo "public";
+            // echo "public";
             return $this->getTumblrPhotoPublic($token, $photo);
         }
     }
@@ -53,7 +53,7 @@ class ShareModel extends Model
         include ("config.php");
         $id = explode("/", $info['photo_id']);
         $link = $photosURL . "?load=tumblr/getUserPhoto&id=" . $id[0] . "&photo=" . $id[1];
-        echo $link;
+        // echo $link;
         
         $response = $this->httpRequest($link, $token);
 
