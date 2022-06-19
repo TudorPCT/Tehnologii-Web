@@ -40,7 +40,7 @@ function getTumblrPhotos(){
     platform = 'tumblr';
     $filters = getFilter();
 
-    document.getElementById("Wrapper").innerHTML = "<div class=\"loader\"></div>";
+    document.getElementById("Wrapper").innerHTML = "<div class=\"gallery\" id=\"gallery\"></div>";
 
     var xmlhttp = new XMLHttpRequest();
 
