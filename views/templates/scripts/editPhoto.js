@@ -167,7 +167,7 @@ function Post(){
         if (raspuns.meta.status < 200 || raspuns.meta.status >= 400) {
             alert("Upload failed!");
         } else {
-            alert("Image uploaded successfully!");
+            alert("Image uploaded successfully: " + raspuns.response.display_text);
         }
     }
 
