@@ -88,6 +88,7 @@
             if($platform=="unsplash")
             {
             echo "<li>Created_at:". $create_data ."</li>";
+            echo "<li>Description:". $description ."</li>";
             echo "<li>Width of photo:". $width ."</li>";
             echo "<li>Height of photo:". $height ."</li>";
             echo "<li>Number of likes:". $likes ."</li>";
