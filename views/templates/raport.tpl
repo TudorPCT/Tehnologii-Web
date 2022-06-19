@@ -158,9 +158,10 @@
             <section typeof="sa:ProductFunctions">
                 <h3>2.2 Product Functions</h3>
                 <p>
-                    The web application manages photos imported from different social media platforms or from the user's personal device. These games have associated data
-                    such as number of likes, comments or shares. The system offers support for editing these photos, using them in collages or for uploading photos from one 
-                    platform to another. The application offers the user the option of publishing their own "Wall" page which contains selected edited photos or collages.
+                    The web application manages photos imported from different social media platforms like Unsplash or Tumblr. These photos have associated data
+                    such as number of likes, comments, downloads or shares. The system offers support for editing these photos,save them in their own computer,
+                    using them in collages or uploading photos on a platform (Tumblr offers this option).
+                    The application offers the user the option of sharing edited photos or collages.
                 </p>
 
                 <section typeof="sa:home">
@@ -183,13 +184,13 @@
                             Home : redirects back to the home page;
                         </li>
                         <li>
-                            Remember me : stores the credentials so that the user won't have to re-enter them the next time they visit;
+                            Sign In / Register : Refresh the sign in page.
                         </li>
                         <li>
-                            Connect : finalizes the login action, logging the user in if the credentials are correct and then redirects the user to their own Wall page;
+                            Signin : finalizes the login action, logging the user in if the credentials are correct and then redirects the user to their own Accounts page;
                         </li>
                         <li>
-                            Create new account : redirects to a register page.
+                            Create new account : redirects to a Register page.
                         </li>
                     </ul>
                 </section>
@@ -201,52 +202,31 @@
                             Home : redirects back to the home page;
                         </li>
                         <li>
-                            Create account : creates the user account if the information entered is valid and then redirects the user to their own Wall page.
+                            Register : creates the user account if the information entered is valid and then redirects the user to their own Accounts page.
                         </li>
                     </ul>
                 </section>
-
-                <section typeof="sa:wall">
-                    <h4>2.2.4 My Wall Page</h4>
-                    <p>
-                        The main page of an user's profile. Here, the users can see the photos they have published, as well as information
-                        about the photos, like number of likes and comments or wether the photo is visible to anyone who acceses the link or only to the user
-                        (public or private).
-                    </p>
+                <section typeof="sa:accounts">
+                    <h4>2.2.7 Accounts Page</h4>
+                    <p>Here the user can manage their connected social media accounts or connect to other accounts.</p>
                     <ul>
                         <li>
-                            Accounts : redirects to the connected accounts managing page;
+                            Add account : Lets the user choose between a list of social media platforms to connect with;
                         </li>
                         <li>
-                            Photos : redirects to the user's photos collection;
+                            Add Account -> Unsplash : Lets the user connect to their Unsplash account.
+                        </li>
+                        <li>
+                            Add Account -> Tumblr : Lets the user connect to their  Tumblr account.
+                        </li>
+                        <li>
+                            Delete Account : Lets the user unlink a social media account from his list;
+                        </li>
+                        <li>
+                            Photos : redirects the user to their Photos page;
                         </li>
                         <li>
                             Logout : logs out the user and redirects to the Home page;
-                        </li>
-                        <li>
-                            Copy profile link : copies to clipboard the link to share the profile;
-                        </li>
-                        <li>
-                            Change visibility: allows the user to change the visibility of the photograph;
-                        </li>
-                        <li>
-                            Delete photo: allows the user to delete a photograph.
-                        </li>
-                    </ul>
-                </section>
-
-                <section typeof="sa:publicwall">
-                    <h4>2.2.4 Public Wall Page</h4>
-                    <p>
-                        The page of an user's profile. Here, any user can see the photos that the owner of the profile has published, as well as information
-                        about the photos, like number of likes and comments. Here only the photos that have the visibility set to public will apear.
-                    </p>
-                    <ul>
-                        <li>
-                            Home : redirects back to the home page;
-                        </li>
-                        <li>
-                            Sign In / Register : Redirects to a sign in page.
                         </li>
                     </ul>
                 </section>
@@ -262,22 +242,16 @@
                             Accounts : redirects to the connected accounts managing page;
                         </li>
                         <li>
-                            My wall : redirects to the user's wall page;
-                        </li>
-                        <li>
                             Logout : logs out the user and redirects to the Home page;
                         </li>
                         <li>
-                            Add photo : Lets the user choose where to upload a photo from;
+                            Show Photos : shows the list of accounts for user which can be selected for showing photos;
                         </li>
                         <li>
-                            Add photo -> From device : Lets the user upload a photo from the current device;
+                            Show Photos ->Unsplash: shows the list of photos from Unsplash account of user;
                         </li>
                         <li>
-                            Add photo -> From Instagram : Lets the user upload a photo from their Instagram account;
-                        </li>
-                        <li>
-                            Add photo -> From Twitter : Lets the user upload a photo from their Twitter account;
+                            Show Photos ->Tumblr: shows the list of photos from Tumblr account of user;
                         </li>
                         <li>
                             Create collage : Lets the user to select multiple photos and create a collage with them;
@@ -286,22 +260,16 @@
                             Filter : Lets the user to see photos from a specified category or in a specified order;
                         </li>
                         <li>
-                            Filter -> Sort : The photos are showed in a certain order , ascendent or descendent after number of likes, comments, shares, date, etc;
-                        </li>
-                        <li>
                             Filter -> Number of likes : Are showed only the photos with a certain number of likes, selected by the user;
-                        </li>
-                        <li>
-                            Filter -> Number of comments : Are showed only the photos with a certain number of comments, selected by the user;
                         </li>
                         <li>
                             Filter -> Number of shares : Are showed only the photos with a certain number of shares, selected by the user;
                         </li>
                         <li>
-                            Filter -> Date : Are showed only the photos posted in a certain time, selected by the user;
+                            Filter -> Post Date : Are showed only the photos posted in a certain time, selected by the user;
                         </li>
                         <li>
-                            Filter -> Accounts : Are showed only the photos from a certain account, selected by the user;
+                            "Click on photo" -> redirects the user to Photo page where he can work with a certain photo;
                         </li>
                     </ul>
                 </section>
@@ -311,51 +279,43 @@
                     <p>This page is opened when a user click on a photo from page photos. Here the user have some options for that photo.</p>
                     <ul>
                         <li>
-                            Post on : Lets the user choose between a list of social media platforms to post the photo;
+                            Back : redirects the user back to Photos page;
                         </li>
                         <li>
-                            Edit : Lets the user edit the photo with some options like: crop, filter, border;
+                            See details : Lets the user see infos about the photo;
                         </li>
                         <li>
-                            See details : Lets the user see informations about the photo;
+                            Edit : Show the user some options for editing photo with different CSS filters and user it;
                         </li>
                         <li>
-                            Set as profile picture : Lets the user set that photo as his profile picture;
+                            Edit -> Reset : Reset the photo to the original view, without applied filters;
                         </li>
                         <li>
-                            Delete : The user can delete the photo from his list of photos;
+                            Edit -> Save : Lets the user save the photo edited in their personal computer;
+                        </li>
+                        <li>
+                            Edit -> Post : Lets the user post the photo edited on their Tumblr account;
+                        </li>
+                        <li>
+                            Share:
                         </li>
                     </ul>
+                </section>
+                <section typeof="sa:Collage">
+
                 </section>
 
-                <section typeof="sa:accounts">
-                    <h4>2.2.7 Accounts Page</h4>
-                    <p>Here the user can manage their connected social media accounts or connect to other accounts.</p>
-                    <ul>
-                        <li>
-                            Add account : Lets the user choose between a list of social media platforms to connect with;
-                        </li>
-                        <li>
-                            Add account -> Instagram : Lets the user connect to their Instagram account.
-                        </li>
-                        <li>
-                            Add Account -> Twitter : Lets the user connect to their Instagram account.
-                        </li>
-                        <li>
-                            Delete Account : Lets the user unlink a social media account from his list;
-                        </li>
-                    </ul>
-                </section>
+
             </section>
 
             <section typeof="sa:userclasses">
                 <h3>2.3 User Classes and Characteristics</h3>
                 <ul>
                     <li>
-                        Guest : simple viewer of the website; can only acces the Home, About, Sign in and Register pages;
+                        Guest : simple viewer of the website; can only access the Home, Sign in and Register pages;
                     </li>
                     <li>
-                        User : user with an associated account that acces the rest of the application.
+                        User : user with an associated account that access the rest of the application.
                     </li>
                 </ul>
             </section>
@@ -370,7 +330,7 @@
             <section typeof="sa:implementation">
                 <h3>2.5 Design and Implementation Constraints</h3>
                 <p>
-                    SMB will be developed in PHP and uses HTML and CSS for its front-end. It will also use an Oracle database.
+                    SMB will be developed in PHP and uses HTML and CSS for its front-end. It will also use a Postgres database.
                 </p>
             </section>
         </div>
@@ -466,26 +426,9 @@
             </section>
 
             <section>
-                <h3>4.4 My Wall page</h3>
-                <p>
-                    The main page of an user's profile. Here, the users can see the photos they have published, as well as information
-                    about the photos, like number of likes and comments or wether the photo is visible to anyone who acceses the link or only to the user
-                    (public or private).
-                </p>
-            </section>
-
-            <section>
-                <h3>4.5 Public Wall page</h3>
-                <p>
-                    The page of an user's profile. Here, any user can see the photos that the owner of the profile has published, as well as information
-                    about the photos, like number of likes and comments. Here only the photos that have the visibility set to public will apear.
-                </p>
-            </section>
-
-            <section>
                 <h3>4.6 Photos page</h3>
                 <p>
-                    The page where the user can see all the photos they uploaded either from social media or their personal device.
+                    The page where the user can see all the photos they uploaded from social media .
                     The user can select one photo to edit or multiple photos to create a collage.
                 </p>
             </section>

@@ -29,15 +29,14 @@
             <div class="text">
                 <h1>Social Media Box </h1>
                 <p>SMB is an aggregator-type web application through which a user is able to manage the photos
-                    they have stored on various platforms that allow the distribution of photos (Instagram,
-                    and Twitter). The application is able to take personal images from the two platforms together with
-                    comments, ratings or other elements of interest about them: tags, number of shares, dimensions, etc.
+                    they have stored on various platforms that allow the distribution of photos (Unsplash and Tumblr).
+                    The application is able to take personal images from the two platforms together with
+                    other elements of interest about them: number of likes,number of comments or downloads, number of shares, dimensions, etc.
                     The system provides multi-criteria search facilities. In addition, new photos can be uploaded to
-                    these platforms. Graphic content can be edited within the application by applying various CSS
-                    filters, defining masks or areas of interest that can be annotated with various keywords or used to
-                    crop areas of images that can be used in photo collages. or in making various CSS animations.
+                    these platforms (Tumblr). Graphic content can be edited within the application by applying various CSS
+                    filters, can be saved locally and also photos can be used to create collages.
                     The images, together with the processing performed on them, can be made available publicly
-                    (or privately) through a REST / GraphQL web service.
+                    (or privately) through a REST / GraphQL web service, with a link generated.
                 </p>
             </div>
             <div id="testphoto">
@@ -59,13 +58,14 @@
                 </div>
                 <div class="help">
                     <p>Help</p>
+                    <a href="https://www.youtube.com/" target="_blank">Youtube tutorial</a>
                 </div>
                 <div class="questions">
                     <p>Questions and Answers</p>
                 </div>
                 <div class="about us">
                     <p>About us</p>
-                    <a href="./?load=raport" target="_blank">Tehnical raport</a>
+                    <a href="./?load=report" target="_blank">Tehnical raport</a>
                 </div>
             </div>
             <p>SMB Copyright &copy; 2022</p>
