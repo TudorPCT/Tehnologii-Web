@@ -5,7 +5,7 @@ output.innerHTML = '';
 
 function loadUnsplashPhotos() {
     var xmlhttp = new XMLHttpRequest();
-    $link = "./?load=photos/getUnsplashPhotos";
+    $link = "./?load=photos/getCollagePhotos";
     $link = $link.concat("&minLikes=", $filters[0],
         "&maxLikes=", 0,
         "&minShares=", 0,

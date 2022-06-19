@@ -23,4 +23,12 @@ class PhotosView extends View
         }
     }
 
+    function collage(){
+        $this->template = "views/templates/collage.html";
+        try {
+            return $this->output();
+        } catch (Exception $e) {
+        }
+    }
+
 }
