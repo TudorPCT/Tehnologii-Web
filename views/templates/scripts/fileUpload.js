@@ -3,7 +3,7 @@ var output = document.querySelector('#images_preview');
 output.innerHTML = '';
 
 loadPhotos("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
-loadPhotos("https://www.socialmediabox.herokuapp.com/?load=tumblr/photos");
+loadPhotos("https://socialmediabox.herokuapp.com/?load=tumblr/photos");
 
 function loadPhotos(link) {
     var xmlhttp = new XMLHttpRequest();
@@ -11,7 +11,6 @@ function loadPhotos(link) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             photos = JSON.parse(this.responseText);
-            console.log(this.responseText);
             photos.forEach(printPhoto);
         }
     }

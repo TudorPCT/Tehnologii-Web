@@ -24,7 +24,7 @@ class PhotosView extends View
     }
 
     function collage(){
-        $this->template = "views/templates/collage.html";
+        $this->template = "views/templates/collage.tpl";
         try {
             return $this->output();
         } catch (Exception $e) {
