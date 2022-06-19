@@ -73,7 +73,7 @@ class TumblrModel extends Model
         $insert_array = [
             "user_id" => $user_id,
             "username" => $username,
-            "tumblrToken" => $tumblrRefreshToken,
+            "tumblrToken" => $tumblrToken,
             "platform" => "tumblr"
         ];
 
@@ -276,7 +276,7 @@ class TumblrModel extends Model
     }
 
     function getUserPhoto($user_id, $post_id, $photo_index) {
-        $tumblrToken = $this->refreshToken($user_id);
+        // $tumblrToken = $this->refreshToken($user_id);
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
@@ -286,7 +286,12 @@ class TumblrModel extends Model
         ];
         $userData = $this->getRow($data);
 
+        if ($userData === null) {
+            return null;
+        }
+
         $username = $userData['username'];
+        $tumblrToken = $userData['account_token'];
 
         $url = "https://api.tumblr.com/v2/blog/"
             . $username . ".tumblr.com/"
@@ -387,7 +392,7 @@ class TumblrModel extends Model
     }
 
     function postPhoto($user_id, $photo_url) {
-        $tumblrToken = $this->refreshToken($user_id);
+        // $tumblrToken = $this->refreshToken($user_id);
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
@@ -398,6 +403,7 @@ class TumblrModel extends Model
         $userData = $this->getRow($data);
 
         $username = $userData['username'];
+        $tumblrToken = $userData['account_token'];
         
         $params = array("data64" => $photo_url,"type" => "photo");
         $paramsHttp = http_build_query($params);
