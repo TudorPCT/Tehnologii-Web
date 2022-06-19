@@ -241,7 +241,7 @@ input[type="text"],  input[type="password"]{
     width: 100%;
     display: grid;
   }
-  .full .content a {
+  .full .content img {
     left: 50%;
     transform: translate3d(0, 0, 0);
     animation: zoomin 1s ease;
@@ -262,13 +262,13 @@ input[type="text"],  input[type="password"]{
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: 8px;
   }
-  .gallery a {
+  .gallery img {
     max-width: 100%;
     border-radius: 8px;
     box-shadow: 0 0 16px #333;
     transition: all 1.5s ease;
   }
-  .gallery a:hover {
+  .gallery img:hover {
     box-shadow: 0 0 32px #333;
   }
   .gallery .content {
@@ -291,6 +291,83 @@ input[type="text"],  input[type="password"]{
   @media (max-width: 400px) {
     .gallery {
       grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+  }
+
+  @-moz-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @-o-keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes zoomin {
+    0% {
+      max-width: 50%;
+      transform: rotate(-30deg);
+      filter: blur(4px);
+    }
+    30% {
+      filter: blur(4px);
+      transform: rotate(-80deg);
+    }
+    70% {
+      max-width: 50%;
+      transform: rotate(45deg);
+    }
+    100% {
+      max-width: 100%;
+      transform: rotate(0deg);
     }
   }
 
