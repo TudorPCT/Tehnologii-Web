@@ -285,12 +285,12 @@ input[type="text"],  input[type="password"]{
   }
   @media (max-width: 600px) {
     .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
     }
   }
   @media (max-width: 400px) {
     .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(80%, 1fr));
     }
   }
 
