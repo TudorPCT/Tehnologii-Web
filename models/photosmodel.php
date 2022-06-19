@@ -108,7 +108,10 @@ class PhotosModel extends Model
 
         ob_start();
 
-        echo  "<div class=\"column\">" . PHP_EOL;
+        echo "<div class=\"gallery\" id=\"gallery\">" . PHP_EOL;
+        echo "<div class=\"gallery-item\">" . PHP_EOL;
+        echo "<div class=\"content\">" . PHP_EOL;
+        //echo  "<div class=\"column\">" . PHP_EOL;
 
         $last_id = 0;
         for($index = 0; $index < count($tumblrPhotos); $index++) {
@@ -127,14 +130,17 @@ class PhotosModel extends Model
                     && $minShares <= $stats["shares"] && ($maxShares === 0 || $stats["shares"] <= $maxShares)
                     && ($postDate === 0 || $postDate >= $diff)) {
                 
-                if ($count % 1 === 0 && $count != 0) {
-                    echo  "</div>" . PHP_EOL;
-                    echo  "<div class=\"column\">" . PHP_EOL;
-                }
+                // if ($count % 1 === 0 && $count != 0) {
+                //     echo  "</div>" . PHP_EOL;
+                //     echo  "<div class=\"column\">" . PHP_EOL;
+                // }
 
                 echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
                 echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\">" . PHP_EOL;
                 echo "</a>";
+                echo "</div> </div>" . PHP_EOL;
+                echo "<div class=\"gallery-item\">" . PHP_EOL;
+                echo "<div class=\"content\">" . PHP_EOL;
 
                 $count++;
                 $found = true;
