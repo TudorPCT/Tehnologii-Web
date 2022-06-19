@@ -37,12 +37,12 @@ function loadUnsplashPhotos() {
 
 function printPhoto(photo){
     var image = new Image();
-    image.id = Math.random().toString(36).substr(2, 9);
+    image.id = photo.id;
     image.height = 80;
     image.width = 80;
     image.src = photo.url;
     output.appendChild(image);
     image.ondragstart = function (e) {
-        e.dataTransfer.setData("text", photo.id);
+        e.dataTransfer.setData("text", e.target.id);
     };
 }
