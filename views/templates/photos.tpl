@@ -25,8 +25,8 @@
             </div>
         </header>
 
-        <div id="Wrapper">
-            <h1>Select the platform to view your photos</h1>
+        <div class="gallery" id="gallery">
+           
         </div>
     <!-- Side navigation -->
         <div class="sidenav">
