@@ -41,7 +41,7 @@ class ShareModel extends Model
     function getTumblrPhoto($token, $photo) {
         if (isset($token)) {
             // echo "private";
-            return $this->getTumblrPhotoPrivate($token, $photo);
+            return $this->getTumblrPhotoPublic($token, $photo);
         }
         else{
             // echo "public";
