@@ -274,7 +274,9 @@ class TumblrModel extends Model
     }
 
     function getUserPhoto($user_id, $post_id, $photo_index) {
+        echo "test";
         $tumblrToken = $this->refreshToken($user_id);
+        return $tumblrToken;
 
         $this->setSql("SELECT * FROM accounts WHERE user_id = :user_id AND platform = :platform");
 
