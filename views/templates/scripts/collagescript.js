@@ -9,7 +9,7 @@
         backgroundImage.src = this.result;
         backgroundImage.crossOrigin = "Anonymous";
         backgroundImage.onload = function () {
-            context.drawImage(backgroundImage, 0, 0, 600, 600);
+            context.drawImage(backgroundImage, 0, 0, 500, 500);
         };
     }, false);
     reader.readAsDataURL(file);
