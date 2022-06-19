@@ -48,8 +48,7 @@ class PhotosModel extends Model
 
         ob_start();
 
-        echo "<div class=\"gallery-item\">" . PHP_EOL;
-        echo "<div class=\"content\">";
+        
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
 
@@ -66,13 +65,13 @@ class PhotosModel extends Model
                     echo  "<div class=\"column\">" . PHP_EOL;
                 }
                 // echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
+                echo "<div class=\"gallery-item\">" . PHP_EOL;
+                echo "<div class=\"content\">";
                 $url = "./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'];
                 echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
                 // echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
-                echo "<div class=\"gallery-item\">" . PHP_EOL;
-                echo "<div class=\"content\">";
                 $count++;
                 $found = true;
             }
@@ -114,8 +113,6 @@ class PhotosModel extends Model
 
         ob_start();
 
-        echo "<div class=\"gallery-item\">" . PHP_EOL;
-        echo "<div class=\"content\">";
         //echo  "<div class=\"column\">" . PHP_EOL;
 
         $last_id = 0;
@@ -141,13 +138,13 @@ class PhotosModel extends Model
                 // }
 
                 //echo "<a href=\"./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'] . "\">" . PHP_EOL;
+                echo "<div class=\"gallery-item\">" . PHP_EOL;
+                echo "<div class=\"content\">";
                 $url = "./?load=photos/photo&platform=tumblr&id=" . $tumblrPhotos[$index]['id'] . "&photo=" . $tumblrPhotos[$index]['photo_index'];
                 echo "<img src=\"" . $tumblrPhotos[$index]['url'] . "\" alt=\"image\" onclick=\"javascript:window.location='$url';\">";
                 //echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
-                echo "<div class=\"gallery-item\">" . PHP_EOL;
-                echo "<div class=\"content\">";
 
                 $count++;
                 $found = true;
