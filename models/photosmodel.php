@@ -108,7 +108,6 @@ class PhotosModel extends Model
 
         ob_start();
 
-        echo "<div class=\"gallery\" id=\"gallery\">" . PHP_EOL;
         echo "<div class=\"gallery-item\">" . PHP_EOL;
         echo "<div class=\"content\">";
         //echo  "<div class=\"column\">" . PHP_EOL;
@@ -147,8 +146,6 @@ class PhotosModel extends Model
                 $found = true;
             }
         }
-
-        echo "</div>" . PHP_EOL;
 
         $output = ob_get_contents();
         ob_end_clean();
