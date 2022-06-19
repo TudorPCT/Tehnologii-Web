@@ -63,6 +63,10 @@
                 <div class="questions">
                     <p>Questions and Answers</p>
                 </div>
+                <div class="about us">
+                    <p>About us</p>
+                    <a href="./?load=raport" target="_blank">Tehnical raport</a>
+                </div>
             </div>
             <p>SMB Copyright &copy; 2022</p>
         </footer>

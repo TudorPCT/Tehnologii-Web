@@ -36,7 +36,8 @@ header("Access-Control-Allow-Methods: *");
         
         if (strtolower($controller) === 'home'
                 || strtolower($controller) === 'signin'
-                || strtolower($controller) === 'register'){
+                || strtolower($controller) === 'register'
+                || strtolower($controller) === 'raport'){
             if($auth)
                 $controller = "Logout";
         }

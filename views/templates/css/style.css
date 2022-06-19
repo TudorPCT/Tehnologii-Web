@@ -129,7 +129,10 @@ footer .footerzone{
     font-weight: bold;
 }
 .footerzone li{
-    color: white;
+    color: #fffffe;
+}
+.footerzone a{
+    color: #fffffe;
 }
 #signin{
     padding-left: 5%;
