@@ -76,7 +76,7 @@ header {
 .result img{
     display: block;
     justify-content: center;
-    max-width: calc(100%- 4vmin);
+    max-width: calc(100% - 4vmin);
     max-height: 45vmin;
     margin: auto;
 }
