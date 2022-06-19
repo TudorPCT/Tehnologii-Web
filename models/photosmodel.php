@@ -68,7 +68,7 @@ class PhotosModel extends Model
                 echo "<div class=\"gallery-item\">" . PHP_EOL;
                 echo "<div class=\"content\">";
                 $url = "./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'];
-                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
+                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["regular"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
                 // echo "</a>";
                 echo "</div>" . PHP_EOL;
                 echo "</div>" . PHP_EOL;
