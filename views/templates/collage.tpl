@@ -62,7 +62,7 @@
 
             <div id="photo">
 
-                <canvas id="background" width="500" height="500"></canvas>
+                <canvas id="background" width="600" height="600"></canvas>
 
             </div>
 
