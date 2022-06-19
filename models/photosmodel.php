@@ -48,7 +48,8 @@ class PhotosModel extends Model
 
         ob_start();
 
-        echo  "<div class=\"column\">" . PHP_EOL;
+        echo "<div class=\"gallery-item\">" . PHP_EOL;
+        echo "<div class=\"content\">";
 
         for($index = 0; $index < count($unsplashPhotos); $index++) {
 
@@ -64,15 +65,20 @@ class PhotosModel extends Model
                     echo  "</div>" . PHP_EOL;
                     echo  "<div class=\"column\">" . PHP_EOL;
                 }
-                echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
-                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='https://www.facebook.com/pages/Gr81';\">" . PHP_EOL;
-                echo "</a>";
+                // echo "<a href=\"./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'] . "\">" . PHP_EOL;
+                $url = "./?load=photos/photo&platform=unsplash&id=" . $unsplashPhotos[$index]['id'];
+                echo "<img src=\"" . $unsplashPhotos[$index]["urls"]["full"] . "\" onclick=\"javascript:window.location='$url';\">" . PHP_EOL;
+                // echo "</a>";
+                echo "</div>" . PHP_EOL;
+                echo "</div>" . PHP_EOL;
+                echo "<div class=\"gallery-item\">" . PHP_EOL;
+                echo "<div class=\"content\">";
                 $count++;
                 $found = true;
             }
         }
 
-        echo "</div>" . PHP_EOL;
+        // echo "</div>" . PHP_EOL;
 
 
         $output = ob_get_contents();
