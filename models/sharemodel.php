@@ -66,9 +66,9 @@ class ShareModel extends Model
             . "&user_id="
             . $info['owner_id'];
 
-        echo $link;
+        // echo $link;
         $response = $this->httpRequest($link, $token);
-
+        echo $response;
         return $response;
     }
 
