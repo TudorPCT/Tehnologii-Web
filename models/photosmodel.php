@@ -98,9 +98,8 @@ class PhotosModel extends Model
         $count = 0;
         $found = false;
 
-        if(count($tumblrPhotos) === 0){
-            echo "<h1>No Photos Found</h1>";
-            return;
+        if (isset($tumblrPhotos["errors"]) || count($tumblrPhotos) === 0){
+            return "<h1>No Photos Found</h1>";
         }
 
         if (isset($_GET['minLikes'],$_GET['maxLikes'],$_GET['minShares'],$_GET['maxShares'],$_GET['postDate'])){
