@@ -175,7 +175,7 @@ select {
     border: 1px solid #e3e3e3;
     line-height: 16px !important;
     padding: 10px 70px 10px 13px !important;
-    background: #fffffe url("selectbox_arrow.png") right center no-repeat;
+    background: #fffffe right center no-repeat;
     appearance: none; /* this is must */
     -webkit-appearance: none;
     -moz-appearance: none;
