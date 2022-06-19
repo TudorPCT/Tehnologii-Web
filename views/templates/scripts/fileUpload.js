@@ -3,7 +3,7 @@ var output = document.querySelector('#images_preview');
 output.innerHTML = '';
 
 loadPhotos("https://socialmediabox.herokuapp.com/?load=unsplash/getUserPhotos");
-loadPhotos("https://www.socialmediabox.herokuapp.com/?load=tumblr/photos");
+loadPhotos("https://socialmediabox.herokuapp.com/?load=tumblr/photos");
 
 function loadPhotos(link) {
     var xmlhttp = new XMLHttpRequest();
