@@ -133,6 +133,7 @@ function Share(){
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 myResponse = JSON.parse(this.responseText);
+                console.log(myResponse.link);
                 navigator.clipboard.writeText(myResponse.link);
                 window.open(myResponse.link, "_blank");
             } else if (this.readyState === XMLHttpRequest.DONE) {
