@@ -390,16 +390,17 @@ div.sidenav li{
 
   /* The sidebar menu */
 .sidenav {
-    height: auto; /* Full-height: remove this if you want "auto" height */
-    width: 10%; /* Set the width of the sidebar */
-    position:fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 50px; /*Stay at the top*/
+    height: auto;
+    width: 10%;
+    position:fixed;
+    z-index: 1;
+    top: 50px;
     left: 10px;
     margin-top: 15%;
     background-color: transparent;
     padding-top: 20px;
-    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
   }
   
   /* The navigation menu links */
@@ -408,10 +409,8 @@ div.sidenav li{
     text-decoration: none;
     font-size: 25px;
     color: #818181;
-    display: block;
   }
-  
-  /* When you mouse over the navigation links, change their color */
+
   .sidenav a:hover {
     color: #f1f1f1;
   }
@@ -659,6 +658,28 @@ div.sidenav li{
         -ms-flex: 100%;
         flex: 100%;
         max-width: 100%;
+    }
+
+    header .topBar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    header #branding{
+        transform: scale(0.5);
+    }
+
+    header nav{
+        transform: scale(0.7);
+    }
+
+    .sidenav{
+        display: flex;
+        position: absolute;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
     }
 
     .sidenav .dropdown .dropbtn{
