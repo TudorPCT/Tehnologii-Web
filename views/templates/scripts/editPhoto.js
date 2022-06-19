@@ -160,8 +160,18 @@ function Post(){
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.onload = () => console.log(xhr.responseText);
+    xhr.onload = function() {
+        var raspuns = JSON.parse(xhr.response);
+        console.log(xhr.responseText);
+        if (raspuns.meta.code < 200 || raspuns.meta.code >= 400) {
+            alert("Upload failed!");
+        } else {
+            alert("Image uploaded successfully!");
+        }
+    }
 
     xhr.send(photoUrl);
+
+
 }
 
