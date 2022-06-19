@@ -481,9 +481,11 @@
                     <li>Site design projection</li>
                     <li>Overall site design structure</li>
                     <li>Specific page design implementation</li>
-                    <li>Wall page</li>
-                    <li>Public Wall page</li>
                     <li>Accounts page</li>
+                    <li>Photos</li>
+                    <li>Edit Photo Page</li>
+                    <li>Collage Building Page</li>
+                    <li>Photo Share Pages</li>
                     <li>Home page</li>
                     <li>SignIn page</li>
                     <li>SignUp page</li>
