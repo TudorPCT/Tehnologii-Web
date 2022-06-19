@@ -38,6 +38,36 @@ class ShareModel extends Model
         return $result;
     }
 
+    function getTumblrPhoto($token, $photo) {
+        if (isset($token))
+            return $this->getTumblrPhotoPrivate($token, $photo);
+        else{
+            return $this->getTumblrPhotoPublic($token, $photo);
+        }
+    }
+
+    function getTumblrPhotoPrivate($token, $info){
+        include ("config.php");
+        $id = implode("_", $info['phot_id']);
+        $link = $photosURL . "?load=tumblr/getUserPhoto&id=" . $id[0] . "&photo=" . $id[1];
+        
+        $response = $this->httpRequest($link, $token);
+
+        return $response;
+    }
+
+    function getTumblrPhotoPublic($token, $info){
+        include ("config.php");
+        $link = $photosURL . "/?load=unsplash/getUserPhotoPublic&id="
+            . $info['photo_id']
+            . "&user_id="
+            . $info['owner_id'];
+
+        $response = $this->httpRequest($link, $token);
+
+        return $response;
+    }
+
     function getUnsplashPhoto($token, $photo){
         if (isset($token))
             return $this->getUnsplashPhotoPrivate($token, $photo);
@@ -74,7 +104,7 @@ class ShareModel extends Model
 
         if ($platform === 'unsplash')
             $photo_id = $info[1];
-        else $photo_id = $info[1] . "/" . $info[2];
+        else $photo_id = $info[1] . "_" . $info[2];
 
         $data = ["owner_id" => $payload['id'],
             "platform" => $platform,

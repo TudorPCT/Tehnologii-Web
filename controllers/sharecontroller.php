@@ -10,12 +10,25 @@ class ShareController extends Controller
         if (isset($_GET['id'])){
             $photo = $this->model->getPhotoInfo($_GET['id']);
 
-            $info = json_decode($this->model->getUnsplashPhoto($token, $photo), true);
+            if ($photo['platform'] == 'unsplash') {
+                $info = json_decode($this->model->getUnsplashPhoto($token, $photo), true);
 
-            $data = ["link" => $info['urls']['regular'],
-                "filters" => $photo['filters'],
-                "scaleX" => $photo['scalex'],
-                "scaleY" => $photo['scaley']];
+                $data = [
+                    "link" => $info['urls']['regular'],
+                    "filters" => $photo['filters'],
+                    "scaleX" => $photo['scalex'],
+                    "scaleY" => $photo['scaley']
+                ];
+            } else if ($photo['platform'] == 'tumblr') {
+                $info = json_decode($this->model->getTumblrPhoto($token, $photo), true);
+
+                $data = [
+                    "link" => $info['url'],
+                    "filters" => $photo['filters'],
+                    "scaleX" => $photo['scalex'],
+                    "scaleY" => $photo['scaley']
+                ];
+            }
 
             if ($token !== null) {
                 $vizualizare = $this->view->showPrivate($data);

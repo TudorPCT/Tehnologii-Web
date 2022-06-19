@@ -172,7 +172,5 @@ function Post(){
     }
 
     xhr.send(photoUrl);
-
-
 }
 
