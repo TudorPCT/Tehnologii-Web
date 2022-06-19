@@ -25,9 +25,8 @@ function loadUnsplashPhotos() {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             photos = JSON.parse(this.responseText);
-            console.log(photos);
             photos.forEach(printPhoto);
-        }else console.log(this.status);
+        }
     }
 
     xmlhttp.open("GET", link, true);
@@ -36,7 +35,7 @@ function loadUnsplashPhotos() {
 
 }
 
-function printfPhoto(photo){
+function printPhoto(photo){
     var image = new Image();
     image.id = Math.random().toString(36).substr(2, 9);
     image.height = 80;
