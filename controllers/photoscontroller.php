@@ -25,7 +25,7 @@ class PhotosController extends Controller
             } else if ($_GET['platform'] === 'tumblr' && isset($_GET['photo'])) {
                 $info = $this->model->getTumblrInfo($token, $_GET['id'], $_GET['photo']);
                 $infoPhoto = $this->model->getTumblrInfoPhoto($token,$_GET['id']);
-                $alt = "tubmlr/" . $_GET['id'] . "/" . $_GET['photo'];
+                $alt = "tumblr/" . $_GET['id'] . "/" . $_GET['photo'];
                 $data = ["link" => $info['url'],"platform"=>"tumblr","likes" => $infoPhoto['likes'],"comments" => $infoPhoto['comments'],"shares" => $infoPhoto['shares']];
             } else {
                 http_response_code(400);
