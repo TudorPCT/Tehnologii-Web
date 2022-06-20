@@ -58,7 +58,7 @@
                 </div>
                 <div class="help">
                     <p>Help</p>
-                    <a href="https://www.youtube.com/" target="_blank">Youtube tutorial</a>
+                    <a href="https://www.youtube.com/watch?v=-F-W2JmR-f8&ab_channel=RalucaRomascu" target="_blank">Youtube tutorial</a>
                 </div>
                 <div class="questions">
                     <p>Questions and Answers</p>
