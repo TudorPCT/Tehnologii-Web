@@ -38,7 +38,17 @@ class TumblrController extends Controller
             die();
         }
 
-        echo $this->model->getUserPhoto($token, $_GET['id'], $_GET['photo']);
+        $payload = json_decode(extractTokenPayload($token), true);
+        echo $this->model->getUserPhoto($payload['id'], $_GET['id'], $_GET['photo']);
+    }
+
+    function getUserPhotoPublic() {
+        if (!isset($_GET['id']) || !isset($_GET['user_id']) || !isset($_GET['photo'])) {
+            http_response_code(412);
+            die();
+        }
+        
+        echo $this->model->getUserPhoto($_GET['user_id'], $_GET['id'], $_GET['photo']);
     }
 
     function getPhotoStats($token) {
@@ -50,7 +60,19 @@ class TumblrController extends Controller
         echo $this->model->getPhotoStats($token, $_GET['id']);
     }
 
+    function postPhoto($token) {
+        $request = file_get_contents('php://input');
+        // echo $request;
+
+        $data = substr($request, 22);
+
+        // echo $data;
+        $payload = json_decode(extractTokenPayload($token), true);
+        echo $this->model->postPhoto($payload['id'], $data);
+    }
+
     function delete($token) {
         $this->model->deleteAccount($token);
     }
+
 }

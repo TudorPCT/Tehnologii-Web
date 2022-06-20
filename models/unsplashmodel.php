@@ -114,8 +114,7 @@ class UnsplashModel extends Model
 
         $ch = curl_init();
 
-        $link = 'https://api.unsplash.com/users/' . $userData["username"] . "/photos?per_page=500";
-        curl_setopt($ch, CURLOPT_URL, $link);
+        curl_setopt($ch, CURLOPT_URL, 'https://api.unsplash.com/users/' . $userData["username"] . "/photos?per_page=500&stats=true");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = array(
@@ -124,10 +123,23 @@ class UnsplashModel extends Model
         );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $photoList = curl_exec($ch);
+        $photoList = json_decode(curl_exec($ch), true);
         curl_close($ch);
 
-        return $photoList;
+        $data = array();
+
+        if (isset($photoList["errors"]))
+            return $data;
+
+        foreach ($photoList as $photo){
+            $data[] = array("id" => $photo["id"],
+                "url" => $photo["urls"]["full"],
+                "likes" => $photo["likes"],
+                "downloads" => $photo["statistics"]["downloads"]["total"],
+                "created_at" =>$photo["created_at"]);
+        }
+
+        return $data;
     }
 
     function getUserPhoto($user_id, $photo_id){

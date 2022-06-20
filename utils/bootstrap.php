@@ -23,7 +23,8 @@ header("Access-Control-Allow-Methods: *");
             $action = $params[1];
         }
 
-        if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')){
+        if(!$auth && !(strtolower($controller) === 'unsplash' && strtolower($action) === 'getuserphotopublic')
+            && !(strtolower($controller) === 'tumblr' && strtolower($action) === 'getuserphotopublic')){
             http_response_code(401);
             exit(401);
         }

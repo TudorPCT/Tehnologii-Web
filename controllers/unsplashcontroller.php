@@ -26,7 +26,7 @@ class UnsplashController extends Controller
 
     function getUserPhotos($token){
         $payload=json_decode(extractTokenPayload($token),true);
-        echo $this->model->getUserPhotos($payload['id']);
+        echo json_encode($this->model->getUserPhotos($payload['id']));
     }
 
     function getUserPhoto($token){
