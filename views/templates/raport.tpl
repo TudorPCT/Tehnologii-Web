@@ -355,38 +355,43 @@
                 <section>
                     <figure typeof="sa:image">
                         <figcaption>SMB's Home page</figcaption>
-                        <img src="./raport_img/home.png" alt="home page screenshot" width="70%">
+                        <img src="./views/templates/raport_img/home.png" alt="home page screenshot" width="70%">
                     </figure>
 
 
                     <figure typeof="sa:image">
                         <figcaption>SMB's Login page</figcaption>
-                        <img src="./raport_img/signin.png" alt="login page screenshot" width="70%">
+                        <img src="./views/templates/raport_img/signin.png" alt="login page screenshot" width="70%">
                     </figure>
 
                     <figure typeof="sa:image">
                         <figcaption>SMB's Register page</figcaption>
-                        <img src="./raport_img/register.png" alt="register page screenshot" width="70%">
-                    </figure>
-
-                    <figure typeof="sa:image">
-                        <figcaption>SMB's Photos page</figcaption>
-                        <img src="./raport_img/photos.png" alt="photos page screenshot" width="70%">
-                    </figure>
-
-                    <figure typeof="sa:image">
-                        <figcaption>SMB's Photo page</figcaption>
-                        <img src="./raport_img/photo.png" alt="photo page screenshot" width="70%">
+                        <img src="./views/templates/raport_img/register.png" alt="register page screenshot" width="70%">
                     </figure>
 
                     <figure typeof="sa:image">
                         <figcaption>SMB's Accounts page</figcaption>
-                        <img src="./raport_img/accounts.png" alt="accounts page screenshot" width="70%">
+                        <img src="./views/templates/raport_img/accounts.png" alt="accounts page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>SMB's Photos page</figcaption>
+                        <img src="./views/templates/raport_img/photos.png" alt="photos page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>SMB's Photo Edit page</figcaption>
+                        <img src="./views/templates/raport_img/editPhoto.png" alt="photo page screenshot" width="70%">
                     </figure>
 
                     <figure typeof="sa:image">
                         <figcaption>SMB's Collage page</figcaption>
-                        <img src="./raport_img/collage.png" alt="accounts page screenshot" width="70%">
+                        <img src="./views/templates/raport_img/collage.png" alt="collage page screenshot" width="70%">
+                    </figure>
+
+                    <figure typeof="sa:image">
+                        <figcaption>SMB's Shared Photo page</figcaption>
+                        <img src="./views/templates/raport_img/sharedPhoto.png" alt="photo page screenshot" width="70%">
                     </figure>
                 </section>
             </section>
